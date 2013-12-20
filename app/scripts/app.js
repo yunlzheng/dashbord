@@ -16,37 +16,37 @@ angular.module('dashbordApp', [
       .when('/', {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
-        label: 'home'
+        label: '主页'
       })
       .when('/instances', {
         templateUrl: 'views/instances.html',
         controller: 'InstancesCtrl',
-        label: 'instances'
+        label: '实例'
       })
       .when('/volumes', {
         templateUrl: 'views/volumes.html',
         controller: 'VolumesCtrl',
-        label: 'volumes'
+        label: '存储卷'
       })
       .when('/networks', {
         templateUrl: 'views/networks.html',
         controller: 'NetworksCtrl',
-        label: 'networks'
+        label: '网络'
       })
       .when('/images', {
         templateUrl: 'views/images.html',
         controller: 'ImagesCtrl',
-        label: 'images'
+        label: '镜像'
       })
       .when('/settings', {
         templateUrl: 'views/settings.html',
         controller: 'SettingsCtrl',
-        label: 'settings'
+        label: '设置'
       })
       .when('/help', {
         templateUrl: 'views/help.html',
         controller: 'HelpCtrl',
-        label: 'help'
+        label: '帮助'
       })
       .otherwise({
         redirectTo: '/'
