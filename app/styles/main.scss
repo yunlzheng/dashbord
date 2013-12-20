@@ -222,11 +222,10 @@ body {
     margin-top: 30px;
     margin-bottom: 20px;
     padding: 4px 15px;
-    background-color: #fff;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(216, 216, 216);
 }
 
 #dashbord-view{
@@ -237,9 +236,8 @@ body {
 .dashbord-page{
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-    background-color: #FFF;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(216, 216, 216);
     margin: 0 auto;
     margin-bottom: 35px;
     padding: 30px;
