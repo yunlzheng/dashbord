@@ -4,37 +4,45 @@ angular.module('dashbordApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'services.breadcrumbs',
 ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl',
+        label: 'home'
       })
       .when('/instances', {
         templateUrl: 'views/instances.html',
-        controller: 'InstancesCtrl'
+        controller: 'InstancesCtrl',
+        label: 'instances'
       })
       .when('/volumes', {
         templateUrl: 'views/volumes.html',
-        controller: 'VolumesCtrl'
+        controller: 'VolumesCtrl',
+        label: 'volumes'
       })
       .when('/networks', {
         templateUrl: 'views/networks.html',
-        controller: 'NetworksCtrl'
+        controller: 'NetworksCtrl',
+        label: 'networks'
       })
       .when('/images', {
         templateUrl: 'views/images.html',
-        controller: 'ImagesCtrl'
+        controller: 'ImagesCtrl',
+        label: 'images'
       })
       .when('/settings', {
         templateUrl: 'views/settings.html',
-        controller: 'SettingsCtrl'
+        controller: 'SettingsCtrl',
+        label: 'settings'
       })
       .when('/help', {
         templateUrl: 'views/help.html',
-        controller: 'HelpCtrl'
+        controller: 'HelpCtrl',
+        label: 'help'
       })
       .otherwise({
         redirectTo: '/'

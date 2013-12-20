@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('dashbordApp')
-  .controller('MainCtrl', function ($scope, $route, $routeParams, $location) {
+  .controller('MainCtrl', ['$scope', 'breadcrumbs', function($scope, breadcrumbs) {
+
+  	$scope.breadcrumbs = breadcrumbs;
 
   	$scope.status = {
   		'showSideMenu': true
@@ -13,4 +15,4 @@ angular.module('dashbordApp')
     
     }
     
-  });
+  }]);
