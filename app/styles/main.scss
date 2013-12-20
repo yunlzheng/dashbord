@@ -71,14 +71,12 @@ body {
     background-color: #FFF;
     -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    margin-left: -290px;
     -webkit-transition-duration: .436s;
     transition-duration: .436s;
     -webkit-transition-property: margin-left;
     transition-property: margin-left;
     -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
-    margin-left: 0px;
     cursor: pointer;
 
 }
@@ -90,6 +88,15 @@ body {
     border-top: 1px solid #eeeeee;
 }
 
+.side-menu-true{
+    margin-left: 0px;
+}
+
+.side-menu-false{
+    //margin-left: -290px;
+    margin-left: -205px;
+}
+
 .side-menu-item{
     display: block;
     height: 44px;
@@ -99,6 +106,22 @@ body {
 
 .side-menu-item:hover{
     background-color: #F5F5F5;
+}
+
+.side-menu .icon{
+    -webkit-transition-duration: .436s;
+    transition-duration: .436s;
+    -webkit-transition-property: float;
+    transition-property: float;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+.side-menu-false .icon{
+    
+    float: right;
+    margin-right: 16px;
+
 }
 
 /* Custom page footer */
@@ -122,6 +145,22 @@ body {
     margin-top: 28px;
 }
 
+#dashbord-view{
+    -webkit-transition-duration: .436s;
+    transition-duration: .436s;
+    -webkit-transition-property: margin-left;
+    transition-property: margin-left;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+.dashbord_normal{
+    margin-left:250px;
+}
+
+.dashbord_big{
+    margin-left:45px;
+}
 
 .mian-container{
     
