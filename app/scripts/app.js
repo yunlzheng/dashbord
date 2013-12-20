@@ -28,6 +28,10 @@ angular.module('dashbordApp', [
         templateUrl: 'views/images.html',
         controller: 'ImagesCtrl'
       })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
+      })
       .when('/help', {
         templateUrl: 'views/help.html',
         controller: 'HelpCtrl'
