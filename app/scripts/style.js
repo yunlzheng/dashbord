@@ -8,7 +8,7 @@ $(function(){
   });
 
   function resizeDashbord(){
-    $("#dashbord").css("height",$(window).height()-40);
+    $("#dashbord-view").css("height",$(window).height()-40);
     $("#side-menu").css("height",$(window).height()-40);
   }
 
