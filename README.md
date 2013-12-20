@@ -9,7 +9,7 @@ Dashbord is a web front base to build a dashbord application
 
 ## How to Develop this?
 
-Dashbord is build by ![yeoman](http://yeoman.io/index.html) a **MODERN WORKFLOWS FOR MODERN WEBAPPS** And develop by ![Angular.js](http://angularjs.org/).
+Dashbord is build by [yeoman](http://yeoman.io/index.html) a **MODERN WORKFLOWS FOR MODERN WEBAPPS** And develop by [Angular.js](http://angularjs.org/).
 
 * install the npm requirements.
 
@@ -44,7 +44,7 @@ grunt test
 grunt server
 ```
 
-this operation will start a simple http server on port 9000, ![http://127.0.0.1:9000/](http://127.0.0.1:9000/), and this server will auto reload the bowers if the any file has change.
+this operation will start a simple http server on port 9000, [http://127.0.0.1:9000/](http://127.0.0.1:9000/), and this server will auto reload the bowers if the any file has change.
 
 * build
 
