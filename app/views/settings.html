@@ -6,7 +6,7 @@
 			</legend>
 			<div class="form-group">
 			    <label for="inputRootUrl">Vms address</label>
-			    <input type="url" class="form-control" id="inputRootUrl" placeholder="Enter http://localhost:8889">
+			    <input type="text" class="form-control" id="inputRootUrl" placeholder="Enter http://localhost:8889" ng-model="rootUrl">
 			  </div>
 		</fieldset>
 		<fieldset>
@@ -15,13 +15,18 @@
 		</legend>
 		<div class="form-group">
 	    	<label for="inputAppKey">App Key</label>
-	    	<input type="url" class="form-control" id="inputAppKey" placeholder="Enter The Application Key">
+	    	<input type="text" class="form-control" id="inputAppKey" placeholder="Enter The Application Key"
+	    	ng-model="appKey">
 	  	</div>
 	  	<div class="form-group">
 	    	<label for="inputAppSecret">App Secret</label>
-	    	<input type="url" class="form-control" id="inputAppSecret" placeholder="Enter The Application Secret">
+	    	<input type="text" class="form-control" id="inputAppSecret" placeholder="Enter The Application Secret" ng-model="appSecret">
+	  	</div>
+	  	<div class="form-group">
+	  		<label for="inputAccessToken">Access Token</label>
+	  		<input type="text" class="form-control" id="inputAccessToken" ng-model="accessToken" disabled/>
 	  	</div>
 	  </fieldset>
-	  <button type="submit" class="btn btn-default">Save</button>
+	  <button ng-click="saveSettings()" class="btn btn-default">Save</button>
 	 </form>
 </div>

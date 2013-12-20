@@ -1,3 +1,30 @@
 <div class="dashbord-page">
-
+	<table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>size</th>
+            <th>status</th>
+            <th>created_at</th>
+            <th>availability_zone</th>
+            <th>attachments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="volume in volumes.data">
+          	<td>{{ volume.id }}</td>
+          	<td>{{ volume.display_name }}</td>
+          	<td>{{ volume.size }}</td>
+          	<td><span class="label label-default">{{ volume.status }}</span></td>
+          	<td>{{ volume.created_at | date:'MM/dd/yyyy @ h:mma' }}</td>
+          	<td>{{ volume.availability_zone }}</td>
+          	<td>
+          		<span class="label label-info" ng-repeat="attm in volume.attachments">
+          			attm
+          		</span>
+          	</td>
+          </tr>
+        </tbody>
+      </table>
 </div>
