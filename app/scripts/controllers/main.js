@@ -1,10 +1,18 @@
 'use strict';
 
 angular.module('dashbordApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope', 'breadcrumbs', function($scope, breadcrumbs) {
+
+  	$scope.breadcrumbs = breadcrumbs;
+
+  	$scope.status = {
+  		'showSideMenu': true
+  	}
+
+    $scope.toggleMenu = function(){
+
+    	$scope.status.showSideMenu = !$scope.status.showSideMenu;
+    
+    }
+    
+  }]);
