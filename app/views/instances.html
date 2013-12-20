@@ -1,20 +1,47 @@
 <div class="dashbord-page">
+
+  <button type="button" class="btn btn-primary"><div class="glyphicon glyphicon-refresh"></div></button>
+  <button type="button" class="btn btn-primary">创建实例</button>
+  <button type="button" class="btn btn-primary">启动</button>
+  <button type="button" class="btn btn-primary">暂停</button>
+  <button type="button" class="btn btn-primary">关机</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      更多操作 <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">链接VNC</a></li>
+      <li><a href="#">修改</a></li>
+      <li><a href="#">挂载存储卷</a></li>
+      <li><a href="#">更改配置</a></li>
+      <li><a href="#">加入网络</a></li>
+      <li><a href="#">创建快照</a></li>
+      <li><a href="#">创建镜像</a></li>
+      <li><a href="#">恢复</a></li>
+      <li class="divider"></li>
+      <li><a href="#">重置</a></li>
+      <li><a href="#">销毁</a></li>
+    </ul>
+  </div>
+
 	<table class="table table-striped">
         <thead>
           <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>size</th>
-            <th>status</th>
-            <th>created_at</th>
-            <th>hostname</th>
-            <th>power</th>
-            <th>network</th>
+            <th><input type="checkbox"></th>
+            <th>编号</th>
+            <th>名称</th>
+            <th>大小</th>
+            <th>状态</th>
+            <th>创建时间</th>
+            <th>主机名</th>
+            <th>电源状态</th>
+            <th>网络</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="vm in vms.data">
-          	<td>{{ vm.id }}</td>
+            <td><input type="checkbox"></td>
+          	<td>{{ $index }}</td>
           	<td>{{ vm.name }}</td>
           	<td>{{ vm.size }}</td>
           	<td><span class="label label-default">{{ vm.status }}</span></td>

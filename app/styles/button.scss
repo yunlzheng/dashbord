@@ -1,0 +1,21 @@
+
+.btn{
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.btn-primary{
+    background: rgb(66, 133, 244);
+    background: -webkit-linear-gradient(top,rgb(67, 135, 253),rgb(70, 131, 234));
+    background: linear-gradient(top,#4387fd,#4683ea);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4387fd,endColorstr=#4683ea,GradientType=1);
+}
+
+.dropdown-menu{
+	border: 1px solid rgb(204, 204, 204);
+	border-color: rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+}

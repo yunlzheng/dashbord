@@ -12,6 +12,19 @@ angular.module('dashbordApp')
 
     	$scope.volumes = data;
 
+    }).error(function(){
+
+    	//build test data
+    	$scope.volumes = {
+    		"data":[
+    			{'display_name':'dev_volume_001','size':1,'status':'active',"created_at":'1990-12-31','availability_zone':'nova'},
+    			{'display_name':'dev_volume_002','size':1,'status':'active',"created_at":'1990-12-31','availability_zone':'nova'},
+    			{'display_name':'dev_volume_003','size':1,'status':'active',"created_at":'1990-12-31','availability_zone':'nova'},
+    			{'display_name':'dev_volume_004','size':1,'status':'active',"created_at":'1990-12-31','availability_zone':'nova'},
+    			{'display_name':'dev_volume_005','size':1,'status':'active',"created_at":'1990-12-31','availability_zone':'nova'}
+    		]
+    	}
+
     });
 
   });
