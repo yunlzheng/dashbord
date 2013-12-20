@@ -1,4 +1,7 @@
+"use strict";
+
 $(function(){
+
 
   resizeDashbord();
   $(window).resize(function() {

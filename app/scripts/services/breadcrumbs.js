@@ -4,6 +4,8 @@
  *
  * @author Ian Kennington Walter (http://www.iankwalter.com)
  */
+"use strict";
+
 angular.module('services.breadcrumbs', []);
 angular.module('services.breadcrumbs').factory('breadcrumbs', ['$rootScope', '$location', '$route', function($rootScope, $location, $route) {
 
