@@ -61,6 +61,16 @@ angular.module('services.breadcrumbs').factory('breadcrumbs', ['$rootScope', '$l
             return breadcrumbs[0] || {};
         };
 
+        breadcrumbsService.getLastLabel = function () {
+            var index = breadcrumbs.length-1;
+            if(index>=0){
+                return breadcrumbs[index].label;
+            }else{
+                return '';
+            }
+            
+        };
+
         return breadcrumbsService;
     }
 ]);

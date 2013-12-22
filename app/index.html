@@ -30,6 +30,11 @@
       <div class="header">
         <div class="header-container">
           <h3 id="menu-toggle" class="text-muted" ng-click="toggleMenu()">Da</h3>
+          <div class="break-btn" ng-mouseenter="openMenu()" ng-click="toggleMenu()">
+            <div class="utb"><div class="Hde Nua" guidedhelpid="appindicator_icon"></div></div>
+            <div class="text" ng-bind="breadcrumbs.getLastLabel()"></div>
+            <div class="glyphicon glyphicon-chevron-down"></div>
+          </div>
           <div id="side-menu" class="side-menu side-menu-{{ status.showSideMenu }}">
               <a href="#/" title="主页"><div class="side-menu-item">
                 <div class="icon glyphicon glyphicon-th-list"></div>

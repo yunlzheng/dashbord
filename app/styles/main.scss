@@ -72,6 +72,43 @@ body {
     color: #fff;
 }
 
+.header .break-btn {
+    -webkit-transition: margin-left .15s linear;
+    transition: margin-left .15s linear;
+    -webkit-user-select: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    margin: 7px 0 7px 30px;
+    padding: 5px 5px 5px 8px;
+    display: inline-block;
+    font-weight:normal;
+    line-height: 15px;
+    cursor: pointer;
+}
+
+.header .break-btn .text{
+    color: rgb(115, 115, 115);
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 1px;
+    margin-right: 5px;
+    max-width: 132px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+.header .break-btn .glyphicon{
+    font-weight:normal;
+}
+
+.header .side-menu a
+{
+    color: rgb(115, 115, 115)
+}
+
 .header .side-menu{
     
     position: fixed;
