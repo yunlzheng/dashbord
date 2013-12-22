@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('dashbordApp')
-	.value('charting', {
-    pieChartOptions: { 
+  .value('charting', {
+    pieChartOptions: {
       seriesDefaults: {
         // Make this a pie chart.
         renderer: jQuery.jqplot.DonutRenderer,
@@ -11,19 +11,33 @@ angular.module('dashbordApp')
           // By default, labels show the percentage of the slice.
           showDataLabels: true
         }
-      }, 
-      legend: { show:false, location: 's' },
-      grid: {background: '#fff', gridLineColor: '#222', borderColor: '#fff', shadow: false}
+      },
+      legend: {
+        show: false,
+        location: 's'
+      },
+      grid: {
+        background: '#fff',
+        gridLineColor: '#222',
+        borderColor: '#fff',
+        shadow: false
+      }
     }
   })
   .controller('HomeCtrl', function ($scope, $rootScope, charting) {
-    $scope.instanceQuota = [[
-      ['Used', 12],['Unused', 9]
-    ]];
+    $scope.instanceQuota = [
+      [
+        ['Used', 12],
+        ['Unused', 9]
+      ]
+    ];
 
-    $scope.volumeQuota = [[
-      ['Used', 90],['Unused', 80]
-    ]];
+    $scope.volumeQuota = [
+      [
+        ['Used', 90],
+        ['Unused', 80]
+      ]
+    ];
 
     $scope.myChartOpts = charting.pieChartOptions;
   });
