@@ -27,23 +27,29 @@ angular.module('services.breadcrumbs').factory('breadcrumbs', ['$rootScope', '$l
                 return route;
             };
             if (pathElements[1] === '') {
-                delete pathElements[1];
+
+              delete pathElements[1];
+            
             }
             angular.forEach(pathElements, function (el) {
                 path += path === '/' ? el : '/' + el;
                 var route = getRoute(path);
                 if (routes[route] && routes[route].label) {
+
                     breadcrumbs.push({
+
                         label: routes[route].label,
                         path: path
+                    
                     });
+                
                 }
             });
         };
 
         // We want to update breadcrumbs only when a route is actually changed
         // as $location.path() will get updated immediately (even if route change fails!)
-        $rootScope.$on('$routeChangeSuccess', function (event, current) {
+        $rootScope.$on('$routeChangeSuccess', function () {
             generateBreadcrumbs();
         });
 

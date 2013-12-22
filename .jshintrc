@@ -8,7 +8,7 @@
   "curly": true,
   "eqeqeq": true,
   "immed": true,
-  "indent": 2,
+  "white": false,
   "latedef": true,
   "newcap": true,
   "noarg": true,
