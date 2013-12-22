@@ -6,6 +6,7 @@ angular.module('dashbordApp', [
   'ngSanitize',
   'ngRoute',
   'services.breadcrumbs',
+  'ui.chart'
 ])
 .config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;

@@ -3,6 +3,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'table';
 @import 'button';
+@import 'form';
 
 .browsehappy {
     margin: 0.2em 0;
@@ -172,6 +173,7 @@ body {
     transition-property: float;
     -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
+    margin-right: 5px;
 }
 
 .side-menu-false .icon{
@@ -259,6 +261,7 @@ body {
     margin-top:0px;
     margin-bottom:20px;
     font-size: 16px;
+    font-weight: bold;
 }
 
 .dashbord-stage{
@@ -286,13 +289,14 @@ body {
 }
 
 .dashbord-window .title{
-    padding: 4px 15px;
+    padding: 15px;
     font-size:14px;
     font-weight:blod;
 }
 
 .dashbord-window .body{
     padding:30px;
+    overflow:hidden;
 }
 
 .dashbord-window .no-padding{

@@ -100,7 +100,7 @@
       </div>
       <div id="dashbord-view" ng-class="{dashbord_big: !status.showSideMenu, dashbord_normal: status.showSideMenu}">
         <ol class="dashbord-breadcrumb breadcrumb">
-          <li ng-repeat="breadcrumb in breadcrumbs.getAll()"><a href="#{{breadcrumb.path}}" ng-hide="$last">{{breadcrumb.label}}</a><span ng-show="$last">{{breadcrumb.label}}</span></li>
+          <li ng-repeat="breadcrumb in breadcrumbs.getAll()"><a href="#{{breadcrumb.path}}" ng-hide="$last" ng-bind='breadcrumb.label'></a><span ng-show="$last" ng-bind="breadcrumb.label"></span></li>
         </ol>
         <div ng-view=""></div>
       </div>
@@ -135,6 +135,10 @@
         <script src="bower_components/sass-bootstrap/js/tab.js"></script>
         <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
         <script src="bower_components/sass-bootstrap/js/popover.js"></script>
+        <script src="bower_components/jqplot/jquery.jqplot.js"></script>
+        <script src="bower_components/jqplot/plugins/jqplot.pieRenderer.min.js"></script>
+        <script src="bower_components/jqplot/plugins/jqplot.donutRenderer.min.js"></script>
+        <script src="bower_components/angular-ui-chart/src/chart.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->
@@ -156,7 +160,6 @@
         <script src="scripts/controllers/images.js"></script>
         <script src="scripts/controllers/help.js"></script>
         <script src="scripts/controllers/settings.js"></script>
-        <script src="scripts/controllers/systemImages.js"></script>
         <!-- endbuild -->
 </body>
 </html>
