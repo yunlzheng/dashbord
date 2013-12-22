@@ -11,11 +11,20 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
+.left{
+    float:left;
+}
+
+.right{
+    float:right;
+}
+
 /* Space out content a bit */
 body {
     padding-top: 20px;
     padding-bottom: 20px;
     overflow: hidden;
+    color: rgb(85, 85, 85);
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -225,7 +234,7 @@ body {
     -webkit-border-radius: 3px;
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(216, 216, 216);
+    border: 0.5px solid rgb(216, 216, 216);
 }
 
 #dashbord-view{
@@ -237,7 +246,7 @@ body {
     -webkit-border-radius: 3px;
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(216, 216, 216);
+    border: 0.5px solid rgb(216, 216, 216);
     margin: 0 auto;
     margin-bottom: 35px;
     padding: 30px;
@@ -249,5 +258,81 @@ body {
 .dashbord-page h2{
     margin-top:0px;
     margin-bottom:20px;
-    font-size: 25px;
+    font-size: 16px;
+}
+
+.dashbord-stage{
+    background-color:rgb(238, 238, 238);
+    border:none;
+    padding: 0px;
+    clear:both;
+}
+
+
+.dashbord-stage .half-window{
+    width:49%;
+}
+
+.dashbord-stage .dashbord-window{
+
+    background-color: rgb(255, 255, 255);
+    border: 0.5px solid rgb(216, 216, 216);
+    margin: 10px 0px;
+
+}
+
+.dashbord-window .no-border{
+    border:none;
+}
+
+.dashbord-window .title{
+    padding: 4px 15px;
+    font-size:14px;
+    font-weight:blod;
+}
+
+.dashbord-window .body{
+    padding:30px;
+}
+
+.dashbord-window .no-padding{
+    padding:0px;
+}
+
+.cloumn5{
+    float:left;
+    width:20%;
+}
+
+.box{
+    text-align:center;
+    cursor: pointer;
+    border: 1px solid rgb(238, 238, 238);
+    overflow: hidden;
+    margin-left:-1px; 
+    margin-bottom:-1px;
+}
+
+.box strong{
+    
+    text-align: center;
+    font-size: 60px;
+    line-height: 80px;
+    font-family: Arial;
+    color: rgb(31, 144, 200);
+    display: block;
+    padding: 20px 0 0;
+
+}
+
+.box:hover{
+    background-color:rgb(245, 245, 245);
+}
+
+.box h5{
+    
+}
+
+.box h5 span{
+    margin:0px 4px;
 }
