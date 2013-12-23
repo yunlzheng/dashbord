@@ -16,7 +16,7 @@ function VolumesCtrl($scope, $cookieStore, $http, $modal) {
 
         var modalInstance = $modal.open({
             templateUrl: 'myModalContent.html',
-            controller: ModalInstanceCtrl,
+            controller: NewVolumeModalCtrl,
             resolve: {}
         });
 
@@ -67,7 +67,7 @@ function VolumesCtrl($scope, $cookieStore, $http, $modal) {
 
 VolumesCtrl.$inject = ['$scope', '$cookieStore', '$http', '$modal'];
 
-function ModalInstanceCtrl($scope, $modalInstance) {
+function NewVolumeModalCtrl($scope, $modalInstance) {
 
     $scope.ok = function (newVolume) {
         $modalInstance.close(newVolume);
@@ -79,7 +79,7 @@ function ModalInstanceCtrl($scope, $modalInstance) {
 
 };
 
-ModalInstanceCtrl.$inject = ['$scope', '$modalInstance'];
+NewVolumeModalCtrl.$inject = ['$scope', '$modalInstance'];
 
 angular.module('dashbordApp')
     .controller('VolumesCtrl', ['$scope', '$cookieStore', '$http', '$modal', VolumesCtrl]);
