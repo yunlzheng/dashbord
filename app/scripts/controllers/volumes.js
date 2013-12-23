@@ -3,66 +3,65 @@
 function VolumesCtrl($scope, $cookieStore, $http, $modal) {
 
     $scope.rootUrl = $cookieStore.get('rootUrl');
+    $scope.useNode = $cookieStore.get('useNode');
 
-        $scope.useNode = $cookieStore.get('useNode');
-        
-        var httpConfig = {
-            'headers': {
-                'X-Consumer-key': $cookieStore.get('appKey'),
-                'X-Auth-Token': $cookieStore.get('accessToken')
-            }
-        };
+    var httpConfig = {
+        'headers': {
+            'X-Consumer-key': $cookieStore.get('appKey'),
+            'X-Auth-Token': $cookieStore.get('accessToken')
+        }
+    };
 
-        $scope.openCreateModal = function(){
+    $scope.openCreateModal = function () {
 
-            var modalInstance = $modal.open({
-              templateUrl: 'myModalContent.html',
-              controller: ModalInstanceCtrl,
-              resolve: {}
-            });
+        var modalInstance = $modal.open({
+            templateUrl: 'myModalContent.html',
+            controller: ModalInstanceCtrl,
+            resolve: {}
+        });
 
-            modalInstance.result.then(function (newVolume) {
-              
-              $scope.newVolume = newVolume;
-              $scope.createVolume(newVolume);
+        modalInstance.result.then(function (newVolume) {
 
-            });
+            $scope.newVolume = newVolume;
+            $scope.createVolume(newVolume);
 
-        };
+        });
 
-        $scope.createVolume = function (newVolume) {
+    };
 
-            var url = '/v1/volume';
+    $scope.createVolume = function (newVolume) {
 
-            if (!$scope.useNode) {
-                url = $scope.rootUrl + url;
-            }
+        var url = '/v1/volume';
 
-            $http.post(url, newVolume, httpConfig).success(function(){
-
-                $scope.getVolumes();
-
-            });
-
-        };
-
-        $scope.getVolumes = function () {
-
-            var url = '/v1/volumes';
-            if (!$scope.useNode) {
-                url = $scope.rootUrl + url;
-            }
-
-            $http.get(url, httpConfig).success(
-                function (data) {
-
-                    $scope.volumes = data;
-
-                });
-
+        if (!$scope.useNode) {
+            url = $scope.rootUrl + url;
         }
 
-        $scope.getVolumes();
+        $http.post(url, newVolume, httpConfig).success(function () {
+
+            $scope.getVolumes();
+
+        });
+
+    };
+
+    $scope.getVolumes = function () {
+
+        var url = '/v1/volumes';
+        if (!$scope.useNode) {
+            url = $scope.rootUrl + url;
+        }
+
+        $http.get(url, httpConfig).success(
+            function (data) {
+
+                $scope.volumes = data;
+
+            });
+
+    }
+
+    $scope.getVolumes();
 
 }
 
@@ -70,13 +69,13 @@ VolumesCtrl.$inject = ['$scope', '$cookieStore', '$http', '$modal'];
 
 function ModalInstanceCtrl($scope, $modalInstance) {
 
-  $scope.ok = function (newVolume) {
-    $modalInstance.close(newVolume);
-  };
+    $scope.ok = function (newVolume) {
+        $modalInstance.close(newVolume);
+    };
 
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
 
 };
 

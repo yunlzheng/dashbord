@@ -1,6 +1,8 @@
 <div class="dashbord-page">
   <h2>存储卷</h2>
-  <button type="button" class="btn btn-primary"><div class="glyphicon glyphicon-refresh"></div></button>
+  <button type="button" class="btn btn-primary" ng-click="getVolumes()">
+    <div class="glyphicon glyphicon-refresh"></div>
+  </button>
   <button type="button" class="btn btn-primary" ng-click="openCreateModal()">创建存储卷</button>
   <div class="btn-group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -49,7 +51,7 @@
 <!-- Modal -->
 <script type="text/ng-template" id="myModalContent.html">        
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <button type="button" class="close" ng-click="cancel()">&times;</button>
       <h4 class="modal-title" id="myModalLabel">创建存储卷</h4>
     </div>
     <div class="modal-body">
