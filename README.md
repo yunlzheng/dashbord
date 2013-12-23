@@ -9,7 +9,7 @@ Dashbord is a web front base to build a dashbord application
 
 ## ScreenSnapshot
 
-![](http://125.70.0.76:8054/zheng/dashbord/raw/develop/app/images/home_snapshot.png)
+![](http://192.168.0.54/zheng/dashbord/raw/develop/app/images/home_snapshot.png)
 
 ## How to Develop this?
 
