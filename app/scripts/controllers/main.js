@@ -1,8 +1,6 @@
 'use strict';
 
-angular.module('dashbordApp')
-	.controller('MainCtrl', ['$scope', 'breadcrumbs',
-		function ($scope, breadcrumbs) {
+function MainCtrl($scope, breadcrumbs) {
 
 			$scope.breadcrumbs = breadcrumbs;
 
@@ -26,4 +24,10 @@ angular.module('dashbordApp')
 
 
 		}
+
+MainCtrl.$inject = ['$scope', 'breadcrumbs'];
+
+angular.module('dashbordApp')
+	.controller('MainCtrl', ['$scope', 'breadcrumbs', MainCtrl
+		
 	]);

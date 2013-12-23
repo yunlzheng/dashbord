@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('dashbordApp')
-  .controller('InstancesCtrl', function ($scope, $cookieStore, $http) {
+function InstancesCtrl ($scope, $cookieStore, $http) {
 
     $scope.rootUrl = $cookieStore.get('rootUrl');
     $scope.appKey = $cookieStore.get('appKey');
@@ -69,4 +68,9 @@ angular.module('dashbordApp')
 
     });
 
-  });
+  }
+
+InstancesCtrl.$inject = ['$scope', '$cookieStore', '$http'];
+
+angular.module('dashbordApp')
+  .controller('InstancesCtrl', ['$scope', '$cookieStore', '$http', InstancesCtrl]);

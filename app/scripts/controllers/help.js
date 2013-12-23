@@ -1,11 +1,6 @@
 'use strict';
 
 angular.module('dashbordApp')
-	.controller('HelpCtrl', function ($scope) {
+	.controller('HelpCtrl', function () {
 
-		$scope.awesomeThings = [
-			'HTML5 Boilerplate',
-			'AngularJS',
-			'Karma'
-		];
 	});

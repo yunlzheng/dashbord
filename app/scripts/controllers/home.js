@@ -1,5 +1,25 @@
 'use strict';
 
+function HomeCtrl ($scope, $rootScope, charting) {
+    $scope.instanceQuota = [
+      [
+        ['Used', 12],
+        ['Unused', 9]
+      ]
+    ];
+
+    $scope.volumeQuota = [
+      [
+        ['Used', 90],
+        ['Unused', 80]
+      ]
+    ];
+
+    $scope.myChartOpts = charting.pieChartOptions;
+  }
+
+HomeCtrl.$inject = ['$scope', '$rootScope', 'charting'];
+
 angular.module('dashbordApp')
   .value('charting', {
     pieChartOptions: {
@@ -24,20 +44,4 @@ angular.module('dashbordApp')
       }
     }
   })
-  .controller('HomeCtrl', function ($scope, $rootScope, charting) {
-    $scope.instanceQuota = [
-      [
-        ['Used', 12],
-        ['Unused', 9]
-      ]
-    ];
-
-    $scope.volumeQuota = [
-      [
-        ['Used', 90],
-        ['Unused', 80]
-      ]
-    ];
-
-    $scope.myChartOpts = charting.pieChartOptions;
-  });
+  .controller('HomeCtrl', ['$scope', '$rootScope', 'charting', HomeCtrl]);
