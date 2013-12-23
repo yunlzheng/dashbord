@@ -18,11 +18,11 @@ angular.module('dashbordApp')
 
 			$scope.openMenu = function() {
 				$scope.status.showSideMenu = true;
-			}
+			};
 
 			$scope.closeMenu = function() {
 				$scope.status.showSideMenu = false;
-			}
+			};
 
 
 		}
