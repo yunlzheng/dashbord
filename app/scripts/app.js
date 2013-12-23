@@ -57,7 +57,8 @@ angular.module('dashbordApp', [
   'ngSanitize',
   'ngRoute',
   'services.breadcrumbs',
-  'ui.chart'
+  'ui.chart',
+  'ui.bootstrap.modal'
 ])
   .config(['$httpProvider', httpProvider])
   .config(['$routeProvider', routeProvider]);

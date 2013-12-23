@@ -2,21 +2,42 @@
 
 function SettingsCtrl($scope, $cookieStore, $http) {
 
-  $scope.rootUrl = $cookieStore.get('rootUrl');
-  $scope.appKey = $cookieStore.get('appKey');
-  $scope.appSecret = $cookieStore.get('appSecret');
-  $scope.accessToken = $cookieStore.get('accessToken');
+  $scope.setting = {
+    'rootUrl': $cookieStore.get('rootUrl'),
+    'port': $cookieStore.get('port'),
+    'appKey': $cookieStore.get('appKey'),
+    'appSecret': $cookieStore.get('appSecret'),
+    'accessToken': $cookieStore.get('accessToken'),
+    'useNode': true
+  }
 
-  $scope.saveSettings = function () {
+  $scope.saveSettings = function (setting) {
 
-    var defaultToken = '60c79b921dbe4a5b8f051a8b7f1668f7';
+    $cookieStore.put('rootUrl', $scope.setting.rootUrl);
+    $cookieStore.put('appKey', $scope.setting.appKey);
+    $cookieStore.put('appSecret', $scope.setting.appSecret);
+    $cookieStore.put('useNode', $scope.setting.useNode);
+    $cookieStore.put('port', $scope.setting.port);
 
-    $cookieStore.put('rootUrl', $scope.rootUrl);
-    $cookieStore.put('appKey', $scope.appKey);
-    $cookieStore.put('appSecret', $scope.appSecret);
-    $cookieStore.put('accessToken', defaultToken);
+    var url = '/auth/token?grant_type=authorization_code';
 
-    $http.get($scope.rootUrl + '/auth/token?grant_type=authorization_code');
+    if (!setting.useNode) {
+      url = $scope.rootUrl + url;
+    }
+
+    $http.get(url, {
+      'headers': {
+        'X-Consumer-key': setting.appKey,
+        'X-Consumer-Secret': setting.appSecret
+      }
+    }).success(function (data) {
+
+      if(data.code==='0'){
+        $scope.setting.accessToken = data.token.id;
+        $cookieStore.put('accessToken', $scope.setting.accessToken);
+      }
+
+    });
 
   };
 

@@ -1,65 +1,86 @@
 'use strict';
 
-angular.module('dashbordApp')
-    .controller('VolumesCtrl', function ($scope, $cookieStore, $http) {
+function VolumesCtrl($scope, $cookieStore, $http, $modal) {
 
-        $scope.rootUrl = $cookieStore.get('rootUrl');
-        $scope.appKey = $cookieStore.get('appKey');
-        $scope.appSecret = $cookieStore.get('appSecret');
-        $scope.accessToken = $cookieStore.get('accessToken');
+    $scope.rootUrl = $cookieStore.get('rootUrl');
 
-        $scope.createVolume = function(newVolume){
-            $http({method: 'POST', url: $scope.rootUrl + '/v1/volume', data: newVolume});
+        $scope.useNode = $cookieStore.get('useNode');
+        
+        var httpConfig = {
+            'headers': {
+                'X-Consumer-key': $cookieStore.get('appKey'),
+                'X-Auth-Token': $cookieStore.get('accessToken')
+            }
         };
 
-        $scope.getVolumes = function(){
+        $scope.openCreateModal = function(){
 
-            $http.get($scope.rootUrl + '/v1/volumes').success(
-            function (data) {
+            var modalInstance = $modal.open({
+              templateUrl: 'myModalContent.html',
+              controller: ModalInstanceCtrl,
+              resolve: {}
+            });
 
-                $scope.volumes = data;
-
-            }).error(function () {
-
-                //build test data
-                $scope.volumes = {
-                    'data': [{
-                        'display_name': 'dev_volume_001',
-                        'size': 1,
-                        'status': 'active',
-                        'created_at': '1990-12-31',
-                        'availability_zone': 'nova'
-                    }, {
-                        'display_name': 'dev_volume_002',
-                        'size': 1,
-                        'status': 'active',
-                        'created_at': '1990-12-31',
-                        'availability_zone': 'nova'
-                    }, {
-                        'display_name': 'dev_volume_003',
-                        'size': 1,
-                        'status': 'active',
-                        'created_at': '1990-12-31',
-                        'availability_zone': 'nova'
-                    }, {
-                        'display_name': 'dev_volume_004',
-                        'size': 1,
-                        'status': 'active',
-                        'created_at': '1990-12-31',
-                        'availability_zone': 'nova'
-                    }, {
-                        'display_name': 'dev_volume_005',
-                        'size': 1,
-                        'status': 'active',
-                        'created_at': '1990-12-31',
-                        'availability_zone': 'nova'
-                    }]
-                };
+            modalInstance.result.then(function (newVolume) {
+              
+              $scope.newVolume = newVolume;
+              $scope.createVolume(newVolume);
 
             });
+
+        };
+
+        $scope.createVolume = function (newVolume) {
+
+            var url = '/v1/volume';
+
+            if (!$scope.useNode) {
+                url = $scope.rootUrl + url;
+            }
+
+            $http.post(url, newVolume, httpConfig).success(function(){
+
+                $scope.getVolumes();
+
+            });
+
+        };
+
+        $scope.getVolumes = function () {
+
+            var url = '/v1/volumes';
+            if (!$scope.useNode) {
+                url = $scope.rootUrl + url;
+            }
+
+            $http.get(url, httpConfig).success(
+                function (data) {
+
+                    $scope.volumes = data;
+
+                });
 
         }
 
         $scope.getVolumes();
 
-    });
+}
+
+VolumesCtrl.$inject = ['$scope', '$cookieStore', '$http', '$modal'];
+
+function ModalInstanceCtrl($scope, $modalInstance) {
+
+  $scope.ok = function (newVolume) {
+    $modalInstance.close(newVolume);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+};
+
+ModalInstanceCtrl.$inject = ['$scope', '$modalInstance'];
+
+angular.module('dashbordApp')
+    .controller('VolumesCtrl', ['$scope', '$cookieStore', '$http', '$modal', VolumesCtrl]);

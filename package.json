@@ -2,7 +2,9 @@
   "name": "dashbord",
   "version": "0.0.0",
   "dependencies": {
-    "static-resource": "~0.1.0"
+    "static-resource": "~0.1.0",
+    "cookie": "~0.1.0",
+    "http-proxy": "~0.10.3"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

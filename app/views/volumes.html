@@ -1,7 +1,7 @@
 <div class="dashbord-page">
   <h2>存储卷</h2>
   <button type="button" class="btn btn-primary"><div class="glyphicon glyphicon-refresh"></div></button>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createVolumeModal">创建存储卷</button>
+  <button type="button" class="btn btn-primary" ng-click="openCreateModal()">创建存储卷</button>
   <div class="btn-group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
       更多操作 <span class="caret"></span>
@@ -46,50 +46,32 @@
       </table>
 </div>
 
-<!--
-  
-  size: 30,
-     display_name: “volume01”,
-      display_description: “Volume 01”,
-      availability_zone: NN3,
-      pool_id: 1,
-      metadata: {
-             “user”: “test”,
-      }
-
-
--->
-
 <!-- Modal -->
-<div class="modal fade" id="createVolumeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-       <form novalidate name="form" class="form" role="form">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">创建存储卷</h4>
-        </div>
-        <div class="modal-body">
-              <div class="form-group">
-                <label for="volumeInputName">Name</label>
-                <input ng-model="newVolume.display_name" required type="text" class="form-control" placeholder="Enter Volume Name">
-                <p class="help-block">The Name of the volume.</p>
-              </div>
-              <div class="form-group">
-                <label for="volumeInputSize">Size</label>
-                <input type="number" ng-model="newVolume.size" required min="1" max="10" integer class="form-control" placeholder="Volume Size">
-                <p class="help-block">The Size of the volume.</p>
-              </div>
-              <div class="form-group">
-                <label for="volumeInputDescription">Description</label>
-                <input ng-model="newVolume.display_description" required type="text" class="form-control" placeholder="Volume Description">
-              </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="createVolume(newVolume)">Save</button>
-        </div>
-      </div><!-- /.modal-content -->
-      </form>
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<script type="text/ng-template" id="myModalContent.html">        
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title" id="myModalLabel">创建存储卷</h4>
+    </div>
+    <div class="modal-body">
+        <form novalidate name="form" class="form" role="form">
+          <div class="form-group">
+            <label for="volumeInputName">Name</label>
+            <input ng-model="newVolume.display_name" required type="text" class="form-control" placeholder="Enter Volume Name">
+            <p class="help-block">The Name of the volume.</p>
+          </div>
+          <div class="form-group">
+            <label for="volumeInputSize">Size</label>
+            <input type="number" ng-model="newVolume.size" required min="1" max="10" integer class="form-control" placeholder="Volume Size">
+            <p class="help-block">The Size of the volume.</p>
+          </div>
+          <div class="form-group">
+            <label for="volumeInputDescription">Description</label>
+            <input ng-model="newVolume.display_description" required type="text" class="form-control" placeholder="Volume Description">
+          </div>
+         </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Close</button>
+      <button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="ok(newVolume)">Save</button>
+    </div>
+</script>
