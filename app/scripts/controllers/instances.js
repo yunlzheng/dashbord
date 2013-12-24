@@ -1,16 +1,6 @@
 'use strict';
 
-function InstancesCtrl($scope, $cookieStore, $http, $modal) {
-
-  $scope.rootUrl = $cookieStore.get('rootUrl');
-  $scope.useNode = $cookieStore.get('useNode');
-
-  var httpConfig = {
-    'headers': {
-      'X-Consumer-key': $cookieStore.get('appKey'),
-      'X-Auth-Token': $cookieStore.get('accessToken')
-    }
-  };
+function InstancesCtrl($scope, instances, $modal) {
 
   $scope.openNewInstanceModal = function () {
 
@@ -31,12 +21,7 @@ function InstancesCtrl($scope, $cookieStore, $http, $modal) {
 
   $scope.getInstances = function () {
 
-    var url = '/v1/vms';
-    if (!$scope.useNode) {
-      url = $scope.rootUrl + url;
-    }
-
-    $http.get(url, httpConfig).success(function (data) {
+    instances.query().success(function (data) {
 
       $scope.vms = data;
 
@@ -50,8 +35,6 @@ function InstancesCtrl($scope, $cookieStore, $http, $modal) {
 
 function NewInstanceModalCtrl($scope, $modalInstance) {
 
-  
-
   $scope.ok = function (newInstance) {
     $modalInstance.close(newInstance);
   };
@@ -64,7 +47,7 @@ function NewInstanceModalCtrl($scope, $modalInstance) {
 
 NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance'];
 
-InstancesCtrl.$inject = ['$scope', '$cookieStore', '$http', '$modal'];
+InstancesCtrl.$inject = ['$scope', 'instances', '$modal'];
 
 angular.module('dashbordApp')
-  .controller('InstancesCtrl', ['$scope', '$cookieStore', '$http', '$modal', InstancesCtrl]);
+  .controller('InstancesCtrl', ['$scope', 'instances', '$modal', InstancesCtrl]);

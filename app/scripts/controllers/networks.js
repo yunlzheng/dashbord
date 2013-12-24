@@ -1,25 +1,10 @@
 'use strict';
 
-function NetworksCtrl($scope, $cookieStore, $http) {
-
-	$scope.rootUrl = $cookieStore.get('rootUrl');
-	$scope.useNode = $cookieStore.get('useNode');
-
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken')
-		}
-	};
+function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 	$scope.getNetworks = function () {
 
-		var url = '/v1/networks';
-		if (!$scope.useNode) {
-			url = $scope.rootUrl + url;
-		}
-
-		$http.get(url, httpConfig).success(
+		networks.query().success(
 			function (data) {
 
 				$scope.networks = data;
@@ -30,12 +15,7 @@ function NetworksCtrl($scope, $cookieStore, $http) {
 
 	$scope.getSubnets = function () {
 
-		var url = '/v1/subnets';
-		if (!$scope.useNode) {
-			url = $scope.rootUrl + url;
-		}
-
-		$http.get(url, httpConfig).success(
+		subnets.query().success(
 			function (data) {
 
 				$scope.subnets = data;
@@ -46,12 +26,7 @@ function NetworksCtrl($scope, $cookieStore, $http) {
 
 	$scope.getPorts = function () {
 
-		var url = '/v1/ports';
-		if (!$scope.useNode) {
-			url = $scope.rootUrl + url;
-		}
-
-		$http.get(url, httpConfig).success(
+		ports.query().success(
 			function (data) {
 				console.log(data);
 				$scope.ports = data;
@@ -62,15 +37,10 @@ function NetworksCtrl($scope, $cookieStore, $http) {
 
 	$scope.getNats = function () {
 
-		var url = '/v1/nats';
-		if (!$scope.useNode) {
-			url = $scope.rootUrl + url;
-		}
-
-		$http.get(url, httpConfig).success(
+		nats.query().success(
 			function (data) {
 
-				
+
 				$scope.nats = data;
 
 			});
@@ -79,22 +49,17 @@ function NetworksCtrl($scope, $cookieStore, $http) {
 
 	$scope.getSecurityGroups = function () {
 
-		var url = '/v1/security-groups';
-		if (!$scope.useNode) {
-			url = $scope.rootUrl + url;
-		}
-
-		$http.get(url, httpConfig).success(
+		securityGroups.query().success(
 			function (data) {
 
-				
+
 				$scope.securityGroups = data;
 
 			});
 
 	}
 
-	
+
 	$scope.getSecurityGroups();
 	$scope.getNats();
 	$scope.getPorts();
@@ -103,7 +68,7 @@ function NetworksCtrl($scope, $cookieStore, $http) {
 
 }
 
-NetworksCtrl.$inject = ['$scope', '$cookieStore', '$http'];
+NetworksCtrl.$inject = ['$scope', 'networks', 'subnets', 'ports', 'nats', 'securityGroups'];
 
 angular.module('dashbordApp')
-	.controller('NetworksCtrl', ['$scope', '$cookieStore', '$http', NetworksCtrl]);
+	.controller('NetworksCtrl', ['$scope', 'networks', 'subnets', 'ports', 'nats', 'securityGroups', NetworksCtrl]);

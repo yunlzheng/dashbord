@@ -29,10 +29,20 @@ function routeProvider($routeProvider) {
       controller: 'NetworksCtrl',
       label: '网络'
     })
+    .when('/routes', {
+      templateUrl: 'views/routes.html',
+      controller:'RouteCtrl',
+      label:'routes'
+    })
     .when('/images', {
       templateUrl: 'views/images.html',
       controller: 'ImagesCtrl',
       label: '镜像'
+    })
+    .when('/flavors', {
+      templateUrl: 'views/flavors.html',
+      controller: 'FlavorCtrl',
+      label: 'Flavors'
     })
     .when('/settings', {
       templateUrl: 'views/settings.html',
@@ -57,8 +67,9 @@ angular.module('dashbordApp', [
   'ngSanitize',
   'ngRoute',
   'services.breadcrumbs',
+  'services.resources',
   'ui.chart',
-  'ui.bootstrap.modal'
+  'ui.bootstrap.modal',
 ])
   .config(['$httpProvider', httpProvider])
   .config(['$routeProvider', routeProvider]);

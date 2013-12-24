@@ -1,16 +1,6 @@
 'use strict';
 
-function VolumesCtrl($scope, $cookieStore, $http, $modal) {
-
-    $scope.rootUrl = $cookieStore.get('rootUrl');
-    $scope.useNode = $cookieStore.get('useNode');
-
-    var httpConfig = {
-        'headers': {
-            'X-Consumer-key': $cookieStore.get('appKey'),
-            'X-Auth-Token': $cookieStore.get('accessToken')
-        }
-    };
+function VolumesCtrl($scope, volumes, $modal) {
 
     $scope.openCreateModal = function () {
 
@@ -31,13 +21,7 @@ function VolumesCtrl($scope, $cookieStore, $http, $modal) {
 
     $scope.createVolume = function (newVolume) {
 
-        var url = '/v1/volume';
-
-        if (!$scope.useNode) {
-            url = $scope.rootUrl + url;
-        }
-
-        $http.post(url, newVolume, httpConfig).success(function () {
+        volumes.save(newVolume).success(function () {
 
             $scope.getVolumes();
 
@@ -47,12 +31,7 @@ function VolumesCtrl($scope, $cookieStore, $http, $modal) {
 
     $scope.getVolumes = function () {
 
-        var url = '/v1/volumes';
-        if (!$scope.useNode) {
-            url = $scope.rootUrl + url;
-        }
-
-        $http.get(url, httpConfig).success(
+        volumes.query().success(
             function (data) {
 
                 $scope.volumes = data;
@@ -65,7 +44,7 @@ function VolumesCtrl($scope, $cookieStore, $http, $modal) {
 
 }
 
-VolumesCtrl.$inject = ['$scope', '$cookieStore', '$http', '$modal'];
+VolumesCtrl.$inject = ['$scope', '$volumes', '$modal'];
 
 function NewVolumeModalCtrl($scope, $modalInstance) {
 
@@ -82,4 +61,4 @@ function NewVolumeModalCtrl($scope, $modalInstance) {
 NewVolumeModalCtrl.$inject = ['$scope', '$modalInstance'];
 
 angular.module('dashbordApp')
-    .controller('VolumesCtrl', ['$scope', '$cookieStore', '$http', '$modal', VolumesCtrl]);
+    .controller('VolumesCtrl', ['$scope', 'volumes', '$modal', VolumesCtrl]);

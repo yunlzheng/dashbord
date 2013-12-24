@@ -1,0 +1,49 @@
+<div class="dashbord-page">
+    <div class="dashbord-page">
+	  <h2>规格</h2>
+	  <button type="button" class="btn btn-primary" ng-click="getVolumes()">
+	    <div class="glyphicon glyphicon-refresh"></div>
+	  </button>
+	  <button type="button" class="btn btn-primary" ng-click="openCreateModal()">创建规格</button>
+	  <div class="btn-group">
+	    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+	      更多操作 <span class="caret"></span>
+	    </button>
+	    <ul class="dropdown-menu" role="menu">
+	      <li class="divider"></li>
+	      <li><a href="#">删除</a></li>
+	    </ul>
+	  </div>
+		<table class="table table-striped">
+	        <thead>
+	          <tr>
+	            <th><input type="checkbox"></th>
+	            <th>#</th>
+	            <th>name</th>
+	            <th>vcpus</th>
+	            <th>disk</th>
+	            <th>ram</th>
+	            <th>swap</th>
+	            <th>ephemeral</th>
+	            <th>is_public</th>
+	            
+	          </tr>
+	        </thead>
+	        <tbody>
+	          <tr ng-repeat="flavor in flavors.data">
+	            <td><input type="checkbox"></td>
+	          	<td>{{ $index }}</td>
+	          	<td>{{ flavor.name }}</td>
+	          	<td>{{ flavor.vcpus }}</td>
+	          	<td>{{ flavor.disk }}</td>
+	          	<td>{{ flavor.ram }}</td>
+	          	<td>{{ flavor.swap }}</td>
+	          	<td>{{ flavor.ephemeral }}</td>
+	          	<td>{{ flavor.is_public }}</td>
+	          	
+	          </tr>
+	        </tbody>
+	      </table>
+	</div>
+
+</div>
