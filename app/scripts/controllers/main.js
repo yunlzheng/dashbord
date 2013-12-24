@@ -25,8 +25,6 @@ function MainCtrl($scope, breadcrumbs) {
 
 		}
 
-MainCtrl.$inject = ['$scope', 'breadcrumbs'];
-
 angular.module('dashbordApp')
 	.controller('MainCtrl', ['$scope', 'breadcrumbs', MainCtrl
 		

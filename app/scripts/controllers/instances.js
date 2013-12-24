@@ -45,8 +45,6 @@ function NewInstanceModalCtrl($scope, $modalInstance) {
 
 };
 
-NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance'];
-
 InstancesCtrl.$inject = ['$scope', 'instances', '$modal'];
 
 angular.module('dashbordApp')

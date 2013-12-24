@@ -70,6 +70,8 @@ angular.module('dashbordApp', [
   'services.resources',
   'ui.chart',
   'ui.bootstrap.modal',
+  'ui.bootstrap.buttons',
+  'ui.bootstrap.pagination',
 ])
   .config(['$httpProvider', httpProvider])
   .config(['$routeProvider', routeProvider]);

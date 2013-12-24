@@ -43,7 +43,5 @@ function SettingsCtrl($scope, $cookieStore, $http) {
 
 }
 
-SettingsCtrl.$inject = ['$scope', '$cookieStore', '$http'];
-
 angular.module('dashbordApp')
   .controller('SettingsCtrl', ['$scope', '$cookieStore', '$http', SettingsCtrl]);

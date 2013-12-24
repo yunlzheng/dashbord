@@ -25,7 +25,7 @@ function Flavors($http, $cookieStore) {
 			return $http.get(resourceUrl + '/' + flavorId, httpConfig);
 		},
 		save: function (flavor) {
-			return $http.post(resourcesUrl, flavor, httpConfig);
+			return $http.post(resourceUrl, flavor, httpConfig);
 		},
 		query: function () {
 			return $http.get(resourcesUrl, httpConfig);
@@ -56,7 +56,7 @@ function Images($http, $cookieStore) {
 	}
 
 	return {
-		query: function () {
+		query: function (query) {
 			return $http.get(resourcesUrl, httpConfig);
 		}
 	}
@@ -238,7 +238,10 @@ function Ports($http, $cookieStore) {
 		save: function (obj) {
 			return $http.post(resourceUrl, obj, httpConfig);
 		},
-		query: function () {
+		query: function (query) {
+
+			query = query ? query : {};
+
 			return $http.get(resourcesUrl, httpConfig);
 		},
 		remove: function (id) {
@@ -325,17 +328,6 @@ function SecurityGroups($http, $cookieStore) {
 
 
 angular.module('services.resources', []);
-Flavors.$inject = ['$http', '$cookieStore'];
-Images.$inject = ['$http', '$cookieStore'];
-Volumes.$inject = ['$http', '$cookieStore'];
-Instances.$inject = ['$http', '$cookieStore'];
-Networks.$inject = ['$http', '$cookieStore'];
-Subnets.$inject = ['$http', '$cookieStore'];
-Ports.$inject = ['$http', '$cookieStore'];
-Nats.$inject = ['$http', '$cookieStore'];
-SecurityGroups.$inject = ['$http', '$cookieStore'];
-
-
 angular.module('services.resources').factory('flavors', ['$http', '$cookieStore', Flavors]);
 angular.module('services.resources').factory('images', ['$http', '$cookieStore', Images]);
 angular.module('services.resources').factory('volumes', ['$http', '$cookieStore', Volumes]);

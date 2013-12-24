@@ -68,7 +68,5 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 }
 
-NetworksCtrl.$inject = ['$scope', 'networks', 'subnets', 'ports', 'nats', 'securityGroups'];
-
 angular.module('dashbordApp')
 	.controller('NetworksCtrl', ['$scope', 'networks', 'subnets', 'ports', 'nats', 'securityGroups', NetworksCtrl]);

@@ -44,7 +44,6 @@ function VolumesCtrl($scope, volumes, $modal) {
 
 }
 
-VolumesCtrl.$inject = ['$scope', '$volumes', '$modal'];
 
 function NewVolumeModalCtrl($scope, $modalInstance) {
 

@@ -1,0 +1,12 @@
+.pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
+background-color: #eeeeee;
+cursor: pointer;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+z-index: 2;
+color: white;
+background-color: #428bca;
+border-color: #428bca;
+cursor: pointer;
+}

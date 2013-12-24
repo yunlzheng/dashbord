@@ -73,5 +73,4 @@ function breadcrumbsSeri($rootScope, $location, $route) {
 }
 
 angular.module('services.breadcrumbs', []);
-breadcrumbsSeri.$inject = ['$rootScope', '$location', '$route'];
 angular.module('services.breadcrumbs').factory('breadcrumbs', ['$rootScope', '$location', '$route', breadcrumbsSeri]);
