@@ -24,7 +24,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="network in networks.data">
+          <tr ng-repeat="network in filteredNetworks">
             <td><input type="checkbox"></td>
             <td>{{ $index }}</td>
             <td>{{ network.name }}</td>
@@ -38,7 +38,18 @@
             </td>
           </tr>
         </tbody>
+        
     </table>
+    <pagination 
+          total-items="networkBigTotalItems()" 
+          page="networkCurrentPage" 
+          max-size="networkMaxSize" 
+          class="pagination-small" 
+          boundary-links="true" 
+          rotate="false" 
+          num-pages="networkNumPages"
+          items-per-page="networkNumPerPage"
+         ></pagination>
 </div>
 
 <div class="dashbord-page">
@@ -69,7 +80,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="subnet in subnets.data">
+          <tr ng-repeat="subnet in filteredSubnets">
              <td><input type="checkbox"></td>
              <td>{{ $index }}</td>
              <td>{{ subnet.name }}</td>
@@ -84,6 +95,16 @@
           </tr>
         </tbody>
     </table>
+    <pagination 
+          total-items="subnetBigTotalItems()" 
+          page="subnetCurrentPage" 
+          max-size="subnetMaxSize" 
+          class="pagination-small" 
+          boundary-links="true" 
+          rotate="false" 
+          num-pages="subnetNumPages"
+          items-per-page="subnetNumPerPage"
+         ></pagination>
 </div>
 
 <div class="dashbord-page">
@@ -112,7 +133,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="port in ports.data">
+          <tr ng-repeat="port in filteredPorts">
              <td><input type="checkbox"></td>
              <td>{{ $index }}</td>
              <td>{{ port.name }}</td>
@@ -129,6 +150,16 @@
           </tr>
         </tbody>
     </table>
+    <pagination 
+          total-items="portBigTotalItems()" 
+          page="portCurrentPage" 
+          max-size="portMaxSize" 
+          class="pagination-small" 
+          boundary-links="true" 
+          rotate="false" 
+          num-pages="portNumPages"
+          items-per-page="portNumPerPage"
+         ></pagination>
 </div>
 
 <div class="dashbord-page">
@@ -153,13 +184,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="nat in nats.data">
+          <tr ng-repeat="nat in filteredNats">
              <td><input type="checkbox"></td>
              <td>{{ $index }}</td>
              <td>{{ nat.name }}</td>
           </tr>
         </tbody>
+         
     </table>
+    <pagination 
+          total-items="natBigTotalItems()" 
+          page="natCurrentPage" 
+          max-size="natMaxSize" 
+          class="pagination-small" 
+          boundary-links="true" 
+          rotate="false" 
+          num-pages="natNumPages"
+          items-per-page="natNumPerPage"
+         ></pagination>
 </div>
 
 <div class="dashbord-page">
@@ -179,17 +221,32 @@
             <th><input type="checkbox"></th>
             <th>编号</th>
             <th>名称</th>
-            <th>状态</th>
-            <th>创建时间</th>
+            <th>description</th>
+            <th>security_group_rules</th>
+            <th>network_id</th>
           </tr>
         </thead>
         <tbody>
-          <!-- <tr ng-repeat="securityGroup in securityGroups.data">
+          <tr ng-repeat="securityGroup in filteredSecurityGroups">
              <td><input type="checkbox"></td>
              <td>{{ $index }}</td>
-          </tr> -->
+             <td>{{ securityGroup.name }}</td>
+             <td>{{ securityGroup.description }}</td>
+             <td>{{ securityGroup.security_group_rules }}</td>
+             <td>{{ securityGroup.metadata.network_id }}</td>
+          </tr>
         </tbody>
     </table>
+     <pagination 
+          total-items="securityGroupBigTotalItems()" 
+          page="securityGroupCurrentPage" 
+          max-size="securityGroupMaxSize" 
+          class="pagination-small" 
+          boundary-links="true" 
+          rotate="false" 
+          num-pages="securityGroupNumPages"
+          items-per-page="securityGroupNumPerPage"
+         ></pagination>
 </div>
 
 

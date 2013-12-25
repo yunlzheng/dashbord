@@ -2,6 +2,24 @@
 
 function VolumesCtrl($scope, volumes, $modal) {
 
+    $scope.volumes = [];
+    $scope.filteredVolumes = [];
+    $scope.maxSize = 5;
+    $scope.currentPage = 1;
+    $scope.numPerPage = 6;
+
+    $scope.bigTotalItems = function () {
+        return $scope.volumes.length;
+    }
+
+    $scope.$watch('currentPage + numPerPage + volumes', function () {
+
+        var begin = (($scope.currentPage - 1) * $scope.numPerPage),
+            end = begin + $scope.numPerPage;
+        $scope.filteredVolumes = $scope.volumes.slice(begin, end);
+
+    });
+
     $scope.openCreateModal = function () {
 
         var modalInstance = $modal.open({
@@ -33,8 +51,10 @@ function VolumesCtrl($scope, volumes, $modal) {
 
         volumes.query().success(
             function (data) {
+                if (data.code === '0') {
+                    $scope.volumes = data.data;
+                }
 
-                $scope.volumes = data;
 
             });
 

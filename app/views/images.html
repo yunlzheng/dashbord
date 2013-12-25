@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="image in images.data">
+          <tr ng-repeat="image in filteredImages">
             <td><input type="checkbox"></td>
             <td>{{ $index }}</td>
             <td>{{ image.name }}</td>
@@ -33,5 +33,17 @@
           </tr>
         </tbody>
     </table>
+
+    <pagination 
+        total-items="bigTotalItems()" 
+        page="currentPage" 
+        max-size="maxSize" 
+        class="pagination-small" 
+        boundary-links="true" 
+        rotate="false" 
+        num-pages="numPages"
+        items-per-page="numPerPage"
+       ></pagination>
+
 </div>
 
