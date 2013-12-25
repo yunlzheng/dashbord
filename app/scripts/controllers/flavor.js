@@ -2,7 +2,7 @@
 
 function FlavorCtrl($scope, flavors, $modal) {
 
-	$scope.flavors = []
+	$scope.flavors = [];
 
 	$scope.filteredFlavors = [];
 
@@ -20,7 +20,6 @@ function FlavorCtrl($scope, flavors, $modal) {
 			end = begin + $scope.numPerPage;
 		console.log(begin+"---"+end);
 		$scope.filteredFlavors = $scope.flavors.slice(begin, end);
-		console.log($scope.filteredFlavors);
 	
 	});
 
