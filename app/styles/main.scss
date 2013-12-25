@@ -1,10 +1,16 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+/** import base csss */
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'table';
 @import 'button';
 @import 'form';
 @import 'pagination';
+
+/** import page css*/
+@import "instance";
+@import "modal";
+
 
 .browsehappy {
     margin: 0.2em 0;

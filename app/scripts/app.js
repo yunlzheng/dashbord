@@ -2,10 +2,9 @@
 
 function httpProvider($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
+  $httpProvider.responseInterceptors.push('Respinterceptor');
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }
-
-httpProvider.$inject = ['$httpProvider'];
 
 function routeProvider($routeProvider) {
   $routeProvider
@@ -59,8 +58,6 @@ function routeProvider($routeProvider) {
     });
 }
 
-routeProvider.$inject = ['$routeProvider'];
-
 angular.module('dashbordApp', [
   'ngCookies',
   'ngResource',
@@ -68,6 +65,7 @@ angular.module('dashbordApp', [
   'ngRoute',
   'services.breadcrumbs',
   'services.resources',
+  'services.mocks',
   'ui.chart',
   'ui.bootstrap.modal',
   'ui.bootstrap.buttons',

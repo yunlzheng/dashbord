@@ -1,8 +1,9 @@
 'use strict';
 
-function MainCtrl($scope, breadcrumbs) {
+function MainCtrl($rootScope, $scope, breadcrumbs, notify) {
 
 			$scope.breadcrumbs = breadcrumbs;
+			$scope.notify = notify;
 
 			$scope.status = {
 				'showSideMenu': true
@@ -26,6 +27,8 @@ function MainCtrl($scope, breadcrumbs) {
 		}
 
 angular.module('dashbordApp')
-	.controller('MainCtrl', ['$scope', 'breadcrumbs', MainCtrl
+	.controller('MainCtrl', ['$rootScope', '$scope', 'breadcrumbs','notify', MainCtrl
 		
+
+
 	]);
