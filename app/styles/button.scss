@@ -35,3 +35,17 @@
     background-color: #3276B1;
     border-color: #285E8E;
 }
+
+.radio-btn-select-hor{
+    
+    .btn{
+        padding: 15px 15px;
+        &.active{
+            color: #FFF;
+            background-color: #3276B1;
+            border-color: #285E8E;
+        }
+
+    }
+
+}

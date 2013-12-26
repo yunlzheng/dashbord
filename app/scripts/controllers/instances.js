@@ -27,8 +27,6 @@ function InstancesCtrl($scope, instances, images, flavors, $interval, mockInstan
 
   });
 
-  $scope.selected = {};
-
   $scope.selectedInstance = {};
 
   $scope.isNotSelectInstance = function () {
@@ -79,21 +77,6 @@ function InstancesCtrl($scope, instances, images, flavors, $interval, mockInstan
 
     }
     return count;
-  }
-
-
-  $scope.remove = function () {
-
-    for (var i = 0; i < $scope.filteredVms.length; i++) {
-      var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
-        instances.remove(vm.id);
-      }
-
-    }
-
-    $scope.getInstances();
-
   }
 
   $scope.openNewInstanceModal = function () {
@@ -157,6 +140,20 @@ function InstancesCtrl($scope, instances, images, flavors, $interval, mockInstan
 
   };
 
+  $scope.remove = function () {
+
+    for (var i = 0; i < $scope.filteredVms.length; i++) {
+      var vm = $scope.filteredVms[i];
+      if (vm.selected == true) {
+        instances.remove(vm.id);
+      }
+
+    }
+
+    $scope.getInstances();
+
+  }
+
   $scope.start = function () {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
@@ -168,7 +165,6 @@ function InstancesCtrl($scope, instances, images, flavors, $interval, mockInstan
     }
 
     $scope.getInstances();
-
 
   };
 

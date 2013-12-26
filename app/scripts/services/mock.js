@@ -312,6 +312,45 @@ function MockInstances() {
 
 	return {
 
+		get: function () {
+			return {
+				"status": "SHUTOFF",
+				"OS-EXT-STS:power_state": 1,
+				"updated": "2013-12-26T01:42:13Z",
+				"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+				"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+				"name": "ci2_vm_pool1388022279.92",
+				"created": "2013-12-26T01:44:47Z",
+				"image": {
+					"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+					"links": [{
+						"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+						"rel": "bookmark"
+					}]
+				},
+				"OS-DCF:diskConfig": "MANUAL",
+				"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+				"pool_id": 1,
+				"networks": {
+					"ae2": ["11.1.0.21"]
+				},
+				"OS-EXT-STS:task_state": null,
+				"OS-EXT-STS:vm_state": "active",
+				"OS-EXT-SRV-ATTR:instance_name": "instance-000027f5",
+				"progress": 0,
+				"flavor": {
+					"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+					"links": [{
+						"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+						"rel": "bookmark"
+					}]
+				},
+				"id": "49b968b3-9ee2-4f22-869c-69cc30436080",
+				"metadata": {
+					"ci2_user": "ae2"
+				}
+			};
+		},
 		query: function () {
 			return [{
 				"status": "SHUTOFF",

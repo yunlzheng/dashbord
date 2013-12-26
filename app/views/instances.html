@@ -1,78 +1,78 @@
 <div class="dashbord-page">
-  <h2>实例</h2>
-  <button type="button" class="btn btn-primary" ng-click="getInstances()">
-    <div class="glyphicon glyphicon-refresh"></div>
-  </button>
-  <button type="button" class="btn btn-primary" ng-click="!openNewInstanceModal()">创建实例</button>
-  <button type="button" class="btn btn-primary" ng-click="start()" ng-disabled="isNotSelectOne() || !isShutoff() || isActive() || isPaused()">启动</button>
-  <button type="button" class="btn btn-primary" ng-click="pause()" ng-disabled="isNotSelectOne() || !isActive() || isPaused()">暂停</button>
-  <button type="button" class="btn btn-primary" ng-click="unpause()" ng-disabled="isNotSelectOne() || !isPaused()">恢复</button>
-  
-  <button type="button" class="btn btn-primary" ng-click="stop()" ng-disabled="isNotSelectOne() || isShutoff() ">关机</button>
-  <button type="button" class="btn btn-primary" ng-click="reboot()" ng-disabled="isNotSelectOne()">重启</button>
-  <button type="button" class="btn btn-primary" ng-disabled="isNotSelect()" ng-click="remove()">销毁</button>
-  <div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ng-disabled="isNotSelectOne() || !isActive()">
-      更多操作 <span class="caret"></span>
+    <h2>实例</h2>
+    <button type="button" class="btn btn-primary" ng-click="getInstances()">
+      <div class="glyphicon glyphicon-refresh"></div>
     </button>
-    <ul class="dropdown-menu" role="menu">
-      <li><a ng-click="getVnc()">链接VNC</a></li>
-      <li><a href="#">修改</a></li>
-      <li><a href="#">挂载存储卷</a></li>
-      <li><a href="#">更改配置</a></li>
-      <li><a href="#">加入网络</a></li>
-      <li><a href="#">创建快照</a></li>
-      <li><a href="#">创建镜像</a></li>
-      <li><a href="#">恢复</a></li>
-      <li class="divider"></li>
-      <li><a href="#">重置</a></li>
-    </ul>
-  </div>
+    <button type="button" class="btn btn-primary" ng-click="!openNewInstanceModal()">创建实例</button>
+    <button type="button" class="btn btn-primary" ng-click="start()" ng-disabled="isNotSelectOne() || !isShutoff() || isActive() || isPaused()">启动</button>
+    <button type="button" class="btn btn-primary" ng-click="pause()" ng-disabled="isNotSelectOne() || !isActive() || isPaused()">暂停</button>
+    <button type="button" class="btn btn-primary" ng-click="unpause()" ng-disabled="isNotSelectOne() || !isPaused()">恢复</button>
+    
+    <button type="button" class="btn btn-primary" ng-click="stop()" ng-disabled="isNotSelectOne() || isShutoff() ">关机</button>
+    <button type="button" class="btn btn-primary" ng-click="reboot()" ng-disabled="isNotSelectOne()">重启</button>
+    <button type="button" class="btn btn-primary" ng-disabled="isNotSelect()" ng-click="remove()">销毁</button>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ng-disabled="isNotSelectOne() || !isActive()">
+        更多操作 <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a ng-click="getVnc()">链接VNC</a></li>
+        <li><a href="#">修改</a></li>
+        <li><a href="#">挂载存储卷</a></li>
+        <li><a href="#">更改配置</a></li>
+        <li><a href="#">加入网络</a></li>
+        <li><a href="#">创建快照</a></li>
+        <li><a href="#">创建镜像</a></li>
+        <li><a href="#">恢复</a></li>
+        <li class="divider"></li>
+        <li><a href="#">重置</a></li>
+      </ul>
+    </div>
 
-	<table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>编号</th>
-            <th>名称</th>
-            <th>大小</th>
-            <th>状态</th>
-            <th>创建时间</th>
-            <th>主机名</th>
-            <th>电源状态</th>
-            <th>网络</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="vm in filteredVms">
-            <td><input type="checkbox" ng-model="vm.selected"></td>
-          	<td>{{ $index }}</td>
-          	<td>{{ vm.name }}</td>
-          	<td>{{ vm.size }}</td>
-          	<td><span class="label label-default">{{ vm.status }}</span></td>
-          	<td>{{ vm.created | date:'MM/dd/yyyy @ h:mma' }}</td>
-          	<td>{{ vm['OS-EXT-SRV-ATTR:host'] }}</td>
-          	<td>{{ vm['OS-EXT-STS:power_state'] }}</td>
-          	<td>
-          		<span ng-repeat="net in vm.networks.ads">
-          			{{ net }}
-          		</span>
-          	</td>
-          </tr>
-        </tbody>
-      </table>
+  	<table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>编号</th>
+              <th>名称</th>
+              <th>大小</th>
+              <th>状态</th>
+              <th>创建时间</th>
+              <th class="auto-hide">主机名</th>
+              <th class="auto-hide">电源状态</th>
+              <th class="auto-hide">网络</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="vm in filteredVms">
+              <td><input type="checkbox" ng-model="vm.selected"></td>
+            	<td>{{ $index }}</td>
+            	<td><a href="#/instances/{{ vm.id }}">{{ vm.name }}</a></td>
+            	<td>{{ vm.size }}</td>
+            	<td><span class="label label-default">{{ vm.status }}</span></td>
+            	<td>{{ vm.created | date:'MM/dd/yyyy @ h:mma' }}</td>
+            	<td class="auto-hide">{{ vm['OS-EXT-SRV-ATTR:host'] }}</td>
+            	<td class="auto-hide">{{ vm['OS-EXT-STS:power_state'] }}</td>
+            	<td class="auto-hide">
+            		<span ng-repeat="net in vm.networks.ads">
+            			{{ net }}
+            		</span>
+            	</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <pagination 
-        total-items="bigTotalItems()" 
-        page="currentPage" 
-        max-size="maxSize" 
-        class="pagination-small" 
-        boundary-links="true" 
-        rotate="false" 
-        num-pages="numPages"
-        items-per-page="numPerPage"
-       ></pagination>
-
+        <pagination 
+          total-items="bigTotalItems()" 
+          page="currentPage" 
+          max-size="maxSize" 
+          class="pagination-small" 
+          boundary-links="true" 
+          rotate="false" 
+          num-pages="numPages"
+          items-per-page="numPerPage"
+         ></pagination>
+  
 </div>
 
 <!-- Modal -->
@@ -101,11 +101,11 @@
            <fieldset>
             <legend>设置网络</legend>
             <input ng-model="newInstance.port.id" required type="text" class="form-control" style="display:none">
-            <!--<pager 
+            <pager 
               total-items="modelTotalNetworks()" 
               page="modelNetworkCurrentPage"
               items-per-page="modelNetworkPerPage">
-            </pager>-->
+            </pager>
             <div class="radio-btn-select">
               <button ng-repeat="port in modelFilteredPorts" type="button" class="btn " ng-model="newInstance.port" btn-radio="port">{{ port.name }} &nbsp; {{ port.mac_address }}</button>
               </button>

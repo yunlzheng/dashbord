@@ -18,6 +18,11 @@ function routeProvider($routeProvider) {
       controller: 'InstancesCtrl',
       label: '实例'
     })
+    .when('/instances/:id', {
+      templateUrl: 'views/instance.html',
+      controller: 'InstanceCtrl',
+      label: 'vm'
+    })
     .when('/volumes', {
       templateUrl: 'views/volumes.html',
       controller: 'VolumesCtrl',

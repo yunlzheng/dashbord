@@ -9,9 +9,9 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'alert';
 
 /** import page css*/
+@import "page";
 @import "instance";
 @import "modal";
-
 
 .browsehappy {
     margin: 0.2em 0;
@@ -34,6 +34,10 @@ body {
     padding-bottom: 20px;
     overflow: hidden;
     color: rgb(85, 85, 85);
+}
+
+a{
+    cursor: default;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -289,25 +293,7 @@ body {
     padding: 4px 15px;
 }
 
-.dashbord-page{
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    background-color: rgb(255, 255, 255);
-    border: 0.5px solid rgb(216, 216, 216);
-    margin: 0 auto;
-    margin-bottom: 35px;
-    padding: 30px;
-    position: relative;
-    top: 0;
-    min-height:200px;
-}
 
-.dashbord-page h2{
-    margin-top:0px;
-    margin-bottom:20px;
-    font-size: 16px;
-    font-weight: bold;
-}
 
 .dashbord-stage{
     background-color:rgb(238, 238, 238);

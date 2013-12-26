@@ -12,6 +12,7 @@ function Instances($http, $cookieStore) {
 	var vncVmUrl = '/v1/vm-vnc';
 	var attachVolumeUrl = "/v1/volume-attach/{server_id}";
 	var detachVolumeUrl = "/v1/volume-detach/{server_id}";
+	var vmSnapshotsUrl = "/v1/vm-snapshots"
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -33,12 +34,16 @@ function Instances($http, $cookieStore) {
 		rebootVmUrl = rootUrl + rebootVmUrl;
 		vncVmUrl = rootUrl + vncVmUrl;
 		unPauseVmUrl = rootUrl + unPauseVmUrl;
+		vmSnapshotsUrl = rootUrl + vmSnapshotsUrl;
 
 	}
 
 	return {
 		get: function (id) {
 			return $http.get(resourceUrl + '/' + id, httpConfig);
+		},
+		getSnapshots: function (id){
+			return $http.get(vmSnapshotsUrl + '/' + id, httpConfig);
 		},
 		save: function (obj) {
 			return $http.post(resourceUrl, obj, httpConfig);
