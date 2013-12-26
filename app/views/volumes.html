@@ -4,22 +4,19 @@
     <div class="glyphicon glyphicon-refresh"></div>
   </button>
   <button type="button" class="btn btn-primary" ng-click="openCreateModal()">创建存储卷</button>
+  <button type="button" class="btn btn-primary" ng-disabled="isNotSelectAnyOne()" ng-click="remove()">删除</button>
   <div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="!isSelectOnlyOne()" data-toggle="dropdown">
       更多操作 <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#">挂载存储卷</a></li>
-      <li><a href="#">卸载存储卷</a></li>
       <li><a href="#">修改</a></li>
-      <li class="divider"></li>
-      <li><a href="#">删除</a></li>
     </ul>
   </div>
 	<table class="table table-striped">
         <thead>
           <tr>
-            <th><input type="checkbox"></th>
+            <th></th>
             <th>#</th>
             <th>名称</th>
             <th>容量</th>
@@ -31,7 +28,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="volume in filteredVolumes">
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" ng-model="volume.selected"></td>
           	<td>{{ $index }}</td>
           	<td>{{ volume.display_name }}</td>
           	<td>{{ volume.size }}</td>

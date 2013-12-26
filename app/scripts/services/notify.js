@@ -2,11 +2,20 @@
 
 angular.module('dashbordApp')
     .service('notify', [
+
         function Notify() {
 
             var NotifyService = {};
 
             var alerts = [];
+
+            function pushAlert(alert) {
+
+                alerts.push(alert);
+                if (alerts.length >= 3) {
+                    alerts.shift();
+                }
+            }
 
             NotifyService.info = function (message) {
 
@@ -14,7 +23,6 @@ angular.module('dashbordApp')
                     type: 'info',
                     msg: message
                 };
-                //alerts.push(info);
 
             };
 
@@ -23,7 +31,7 @@ angular.module('dashbordApp')
                     type: 'danger',
                     msg: message
                 };
-                alerts.push(error);
+                pushAlert(error);
 
             };
 
@@ -33,7 +41,7 @@ angular.module('dashbordApp')
                     type: 'warning',
                     msg: message
                 };
-                alerts.push(alert);
+                pushAlert(alert);
 
             };
 
@@ -43,9 +51,10 @@ angular.module('dashbordApp')
 
             };
 
-            NotifyService.closeAlert = function(index) {
+            NotifyService.closeAlert = function (index) {
                 alerts.splice(index, 1);
             };
+
 
             return NotifyService;
 

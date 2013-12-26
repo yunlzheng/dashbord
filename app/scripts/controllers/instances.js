@@ -1,6 +1,6 @@
 'use strict';
 
-function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockImages, mockFlavors, mockPorts, $modal) {
+function InstancesCtrl($scope, instances, images, flavors, $interval, mockInstances, mockImages, mockFlavors, mockPorts, $modal) {
 
   /**page*/
   $scope.vms = [];
@@ -19,7 +19,7 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
     return $scope.vms.length;
   }
 
-  $scope.$watch('currentPage + numPerPage + vms', function () {
+  $scope.$watch('vms + currentPage + numPerPage', function () {
 
     var begin = (($scope.currentPage - 1) * $scope.numPerPage),
       end = begin + $scope.numPerPage;
@@ -51,7 +51,7 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
 
   $scope.isActive = function () {
 
-    var status = ($scope.selectedInstance.status == InstanceStatus.ACTIVE);    
+    var status = ($scope.selectedInstance.status == InstanceStatus.ACTIVE);
     return status
 
   };
@@ -281,10 +281,44 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
 
   }
 
-  $scope.getPorts();
-  $scope.getInstances();
-  $scope.getImages();
-  $scope.getFlavor();
+  var timer;
+
+  $scope.startSync = function () {
+
+    $scope.getPorts();
+    $scope.getInstances();
+    $scope.getImages();
+    $scope.getFlavor();
+
+    if (!angular.isDefined(timer)) {
+
+      timer = $interval(function () {
+
+        $scope.getPorts();
+        $scope.getInstances();
+        $scope.getImages();
+        $scope.getFlavor();
+
+      }, 5000);
+
+    }
+
+  };
+
+  $scope.stopSync = function () {
+
+    if (angular.isDefined(timer)) {
+      $interval.cancel(timer);
+      timer = undefined;
+    }
+
+  }
+
+  $scope.$on('$destroy', function () {
+    $scope.stopSync();
+  });
+
+  $scope.startSync();
 
 }
 
@@ -328,4 +362,4 @@ function NewInstanceModalCtrl($scope, $modalInstance, cache_images, cache_flavor
 NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance', 'cache_images', 'cache_flavors', 'cache_ports'];
 
 angular.module('dashbordApp')
-  .controller('InstancesCtrl', ['$scope', 'instances', 'images', 'flavors', 'mockInstances', 'mockImages', 'mockFlavors', 'mockPorts', '$modal', InstancesCtrl]);
+  .controller('InstancesCtrl', ['$scope', 'instances', 'images', 'flavors', '$interval', 'mockInstances', 'mockImages', 'mockFlavors', 'mockPorts', '$modal', InstancesCtrl]);

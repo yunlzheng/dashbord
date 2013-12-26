@@ -1,12 +1,15 @@
 'use strict';
 
-function VolumesCtrl($scope, volumes, $modal) {
+function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) {
+
 
     $scope.volumes = [];
     $scope.filteredVolumes = [];
     $scope.maxSize = 5;
     $scope.currentPage = 1;
     $scope.numPerPage = 6;
+
+    $scope.selectedInstance = {};
 
     $scope.bigTotalItems = function () {
         return $scope.volumes.length;
@@ -20,6 +23,28 @@ function VolumesCtrl($scope, volumes, $modal) {
 
     });
 
+    $scope.isNotSelectAnyOne = function () {
+
+        return (CountSelect() == 0);
+
+    };
+
+    $scope.isSelectOnlyOne = function () {
+        return (CountSelect() == 1);
+    };
+
+    function CountSelect() {
+        var count = 0;
+        for (var i = 0; i < $scope.filteredVolumes.length; i++) {
+            var volume = $scope.filteredVolumes[i];
+            if (volume.selected == true) {
+                $scope.selectedInstance = volume;
+                count++;
+            }
+        }
+        return count;
+    }
+
     $scope.openCreateModal = function () {
 
         var modalInstance = $modal.open({
@@ -31,19 +56,32 @@ function VolumesCtrl($scope, volumes, $modal) {
         modalInstance.result.then(function (newVolume) {
 
             $scope.newVolume = newVolume;
-            $scope.createVolume(newVolume);
+            $scope.create(newVolume);
 
         });
 
     };
 
-    $scope.createVolume = function (newVolume) {
+    $scope.create = function (newVolume) {
 
         volumes.save(newVolume).success(function () {
 
             $scope.getVolumes();
 
         });
+
+    };
+
+    $scope.remove = function () {
+
+        for (var i = 0; i < $scope.filteredVolumes.length; i++) {
+            var volume = $scope.filteredVolumes[i];
+            if (volume.selected == true) {
+                volumes.remove(volume.id).success(function () {
+                    //TO DO;
+                });
+            }
+        }
 
     };
 
@@ -56,11 +94,44 @@ function VolumesCtrl($scope, volumes, $modal) {
                 }
 
 
-            });
+            }).error(function () {
+
+            $scope.volumes = mockVolumes.query();
+
+        });
+    }
+
+    var timer;
+
+    $scope.startSync = function () {
+
+        $scope.getVolumes();
+
+        if (!angular.isDefined(timer)) {
+            //data sync
+            timer = $interval(function () {
+
+                $scope.getVolumes();
+
+            }, 5000);
+        }
 
     }
 
-    $scope.getVolumes();
+    $scope.stopSync = function () {
+
+        if (angular.isDefined(timer)) {
+            $interval.cancel(timer);
+            timer = undefined;
+        }
+
+    };
+
+    $scope.$on('$destroy', function () {
+        $scope.stopSync();
+    });
+
+    $scope.startSync();
 
 }
 
@@ -80,4 +151,4 @@ function NewVolumeModalCtrl($scope, $modalInstance) {
 NewVolumeModalCtrl.$inject = ['$scope', '$modalInstance'];
 
 angular.module('dashbordApp')
-    .controller('VolumesCtrl', ['$scope', 'volumes', '$modal', VolumesCtrl]);
+    .controller('VolumesCtrl', ['$scope', 'volumes', 'mockVolumes', '$modal', '$timeout', '$interval', VolumesCtrl]);
