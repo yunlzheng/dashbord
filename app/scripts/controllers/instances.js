@@ -9,6 +9,12 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
   $scope.currentPage = 1;
   $scope.numPerPage = 6;
 
+  var InstanceStatus = {
+    ACTIVE: 'ACTIVE',
+    PAUSED: 'PAUSED',
+    SHUTOFF: 'SHUTOFF'
+  };
+
   $scope.bigTotalItems = function () {
     return $scope.vms.length;
   }
@@ -23,6 +29,8 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
 
   $scope.selected = {};
 
+  $scope.selectedInstance = {};
+
   $scope.isNotSelectInstance = function () {
 
     return CountSelect() <= 0;
@@ -33,25 +41,46 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
 
     return CountSelect() != 1;
 
-  }
+  };
 
   $scope.isNotSelect = function () {
 
     return CountSelect() == 0;
 
-  }
+  };
+
+  $scope.isActive = function () {
+
+    var status = ($scope.selectedInstance.status == InstanceStatus.ACTIVE);    
+    return status
+
+  };
+
+  $scope.isPaused = function () {
+
+    var status = ($scope.selectedInstance.status == InstanceStatus.PAUSED);
+    return status
+
+  };
+
+  $scope.isShutoff = function () {
+    var status = ($scope.selectedInstance.status == InstanceStatus.SHUTOFF);
+    return status
+  };
 
   function CountSelect() {
     var count = 0;
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
       if (vm.selected == true) {
+        $scope.selectedInstance = vm;
         count++;
       }
 
     }
     return count;
   }
+
 
   $scope.remove = function () {
 
@@ -95,7 +124,7 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
         'flavor': newInstance.flavor.id,
         'image': newInstance.image.id,
         'nics': [{
-          'net_id': newInstance.port.id
+          'port_id': newInstance.port.id
         }]
 
       }
@@ -154,7 +183,7 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
     }
 
     $scope.getInstances();
-  
+
   };
 
   $scope.unpause = function () {
@@ -167,7 +196,7 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
     }
 
     $scope.getInstances();
-  
+
   };
 
   $scope.pause = function () {
@@ -180,7 +209,7 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
     }
 
     $scope.getInstances();
-  
+
   };
 
   $scope.reboot = function () {
@@ -201,15 +230,17 @@ function InstancesCtrl($scope, instances, images, flavors, mockInstances, mockIm
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
       if (vm.selected == true) {
-        instances.getVnc(vm.id).success(function(data){
+        instances.getVnc(vm.id).success(function (data) {
 
-          console.log(data);
+          if (data.code === '0') {
+            window.open(data.data.console.url, vm.name + " Console", "width=1000,height=600");
+          }
 
         });
       }
 
     }
-    
+
   }
 
   $scope.getImages = function () {

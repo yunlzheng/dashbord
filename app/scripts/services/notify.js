@@ -6,53 +6,45 @@ angular.module('dashbordApp')
 
             var NotifyService = {};
 
-            var info = {};
-            var error = {};
-            var alert = {};
+            var alerts = [];
 
             NotifyService.info = function (message) {
 
-                info = {
+                var info = {
                     type: 'info',
                     msg: message
                 };
-
-            };
-
-            NotifyService.getInfo = function (message) {
-
-                return info;
+                //alerts.push(info);
 
             };
 
             NotifyService.error = function (message) {
-                error = {
-                    type: 'error',
+                var error = {
+                    type: 'danger',
                     msg: message
                 };
-
-            };
-
-            NotifyService.getError = function (message) {
-
-                return error;
+                alerts.push(error);
 
             };
 
             NotifyService.alert = function (message) {
 
-                alert = {
-                    type: 'alert',
+                var alert = {
+                    type: 'warning',
                     msg: message
                 };
-
+                alerts.push(alert);
 
             };
 
-            NotifyService.getAlert = function (message) {
+            NotifyService.getAlerts = function (message) {
 
-                return alert;
+                return alerts;
 
+            };
+
+            NotifyService.closeAlert = function(index) {
+                alerts.splice(index, 1);
             };
 
             return NotifyService;

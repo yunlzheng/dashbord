@@ -119,6 +119,9 @@
         </ol>
         <div ng-view=""></div>
       </div>
+      <div class="system_messages">
+        <alert ng-repeat="alert in notify.getAlerts()" type="alert.type" close="notify.closeAlert($index)">{{alert.msg}}</alert>
+      </div>
       
     </div>
 

@@ -4,11 +4,11 @@
     <div class="glyphicon glyphicon-refresh"></div>
   </button>
   <button type="button" class="btn btn-primary" ng-click="!openNewInstanceModal()">创建实例</button>
-  <button type="button" class="btn btn-primary" ng-click="start()" ng-disabled="isNotSelectOne()">启动</button>
-  <button type="button" class="btn btn-primary" ng-click="pause()" ng-disabled="isNotSelectOne()">暂停</button>
-  <button type="button" class="btn btn-primary" ng-click="unpause()" ng-disabled="isNotSelectOne()">恢复</button>
+  <button type="button" class="btn btn-primary" ng-click="start()" ng-disabled="isNotSelectOne() || !isShutoff() || isActive() || isPaused()">启动</button>
+  <button type="button" class="btn btn-primary" ng-click="pause()" ng-disabled="isNotSelectOne() || !isActive() || isPaused()">暂停</button>
+  <button type="button" class="btn btn-primary" ng-click="unpause()" ng-disabled="isNotSelectOne() || !isPaused()">恢复</button>
   
-  <button type="button" class="btn btn-primary" ng-click="stop()" ng-disabled="isNotSelectOne()">关机</button>
+  <button type="button" class="btn btn-primary" ng-click="stop()" ng-disabled="isNotSelectOne() || isShutoff() ">关机</button>
   <button type="button" class="btn btn-primary" ng-click="reboot()" ng-disabled="isNotSelectOne()">重启</button>
   <button type="button" class="btn btn-primary" ng-disabled="isNotSelect()" ng-click="remove()">销毁</button>
   <div class="btn-group">
@@ -32,7 +32,7 @@
 	<table class="table table-striped">
         <thead>
           <tr>
-            <th><input type="checkbox"></th>
+            <th>#</th>
             <th>编号</th>
             <th>名称</th>
             <th>大小</th>

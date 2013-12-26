@@ -121,166 +121,509 @@ function MockInstances() {
 
 		query: function () {
 			return [{
-				"status": "available",
-				"display_name": "dsadsadsa",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-12-24T03:49:30.000000",
-				"pool_id": 1,
-				"display_description": "dsadsa",
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "f0772908-82a8-4bb9-9a0a-dffb83b5b2e1",
-				"size": 7
-			}, {
-				"status": "available",
-				"display_name": "dsadsa",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-12-24T03:20:39.000000",
-				"pool_id": 1,
-				"display_description": "dsa",
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "77bec4f8-8181-44cb-ae47-915518d74b23",
-				"size": 3
-			}, {
-				"status": "available",
-				"display_name": "da-new-one",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-12-23T10:01:58.000000",
-				"pool_id": 1,
-				"display_description": "hello world this is dashbord",
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "71f2b1ad-429d-4a30-b802-cdb8a864a220",
-				"size": 1
-			}, {
-				"status": "available",
-				"display_name": "dashbord-new",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-12-23T10:00:24.000000",
-				"pool_id": 1,
-				"display_description": "descriptions",
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "ac8edecf-623c-4556-9991-fc80b01d1d61",
-				"size": 1
-			}, {
-				"status": "available",
-				"display_name": "dashbord-dev-test",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-12-23T08:09:00.000000",
-				"pool_id": 1,
-				"display_description": "this is my description",
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "97cff940-703d-4901-b38a-02c0c1ca7c6c",
-				"size": 1
-			}, {
-				"status": "available",
-				"display_name": null,
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-12-03T07:00:49.000000",
-				"pool_id": 1,
-				"display_description": null,
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "dadea11f-da89-461a-9375-84bef2b47ec7",
-				"size": 1
-			}, {
-				"status": "available",
-				"display_name": "testDeleteVolume01",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-11-29T08:45:24.000000",
-				"pool_id": 1,
-				"display_description": null,
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "51d42b38-b153-4617-9827-752f0551f760",
-				"size": 1
-			}, {
-				"status": "available",
-				"display_name": "testforlgy",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-11-25T05:08:53.000000",
-				"pool_id": 1,
-				"display_description": "Created by lgy for testing backup",
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "03e98124-1110-4be6-a852-134d2bead561",
-				"size": 2
-			}, {
-				"status": "attaching",
-				"display_name": "cys-08",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-11-22T06:03:08.000000",
-				"pool_id": 1,
-				"display_description": null,
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "3652eb83-2d01-4485-9dd5-2fc07df38653",
-				"size": 8
-			}, {
-				"status": "attaching",
-				"display_name": "cys-06",
-				"attachments": [],
-				"availability_zone": "nova",
-				"bootable": "false",
-				"created_at": "2013-11-22T05:34:43.000000",
-				"pool_id": 1,
-				"display_description": null,
-				"os-vol-host-attr:host": "nn_01.huacloud.demo",
-				"volume_type": "None",
-				"snapshot_id": null,
-				"source_volid": null,
-				"metadata": {},
-				"id": "f619ed4f-08d5-4988-871e-b3f6eb71c04c",
-				"size": 5
-			}];
+					"status": "SHUTOFF",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-26T01:42:13Z",
+					"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+					"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+					"name": "ci2_vm_pool1388022279.92",
+					"created": "2013-12-26T01:44:47Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.21"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027f5",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "49b968b3-9ee2-4f22-869c-69cc30436080",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "PAUSED",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-26T01:28:18Z",
+					"hostId": "b53192be6b2b67e9366cebb148b87adf5ede7f8c95a93f4ef166e901",
+					"OS-EXT-SRV-ATTR:host": "cc_01.huacloud.demo",
+					"name": "ci2_vm_pool1388021276.25",
+					"created": "2013-12-26T01:28:03Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_01.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.18"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027f4",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "da9bfcfd-223a-4528-8984-dd0dd40604c5",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "PAUSED",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-25T10:33:53Z",
+					"hostId": "b53192be6b2b67e9366cebb148b87adf5ede7f8c95a93f4ef166e901",
+					"OS-EXT-SRV-ATTR:host": "cc_01.huacloud.demo",
+					"name": "ci2_vm_pool1387967611.75",
+					"created": "2013-12-25T10:33:39Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_01.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.16"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027f3",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "44db345c-8bba-4bfd-b6ca-755029d470be",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-25T10:23:02Z",
+					"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+					"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+					"name": "ci2_vm_pool1387967125.69",
+					"created": "2013-12-25T10:25:33Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.15"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027f2",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "a07da0f7-6460-452b-bd71-6850aff1cdc4",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-25T10:15:05Z",
+					"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+					"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+					"name": "ci2_vm_pool1387966649.27",
+					"created": "2013-12-25T10:17:36Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.13"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027f1",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "c1662848-9d4b-45e7-ab7c-ae0b6de3eaff",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-25T09:32:33Z",
+					"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+					"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+					"name": "wangyu_server",
+					"created": "2013-12-25T06:41:52Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["198.2.0.4"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027e5",
+					"progress": 0,
+					"flavor": {
+						"id": "3e58ebb2-028b-41ac-9797-0ec15de7b539",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/3e58ebb2-028b-41ac-9797-0ec15de7b539",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "268212fc-2526-4bac-90cc-aeb236ec89d4",
+					"metadata": {}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-24T07:20:54Z",
+					"hostId": "b53192be6b2b67e9366cebb148b87adf5ede7f8c95a93f4ef166e901",
+					"OS-EXT-SRV-ATTR:host": "cc_01.huacloud.demo",
+					"name": "ci2_vm_pool1387869630.95",
+					"created": "2013-12-24T07:20:38Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_01.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.14"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027d9",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "b2cd8330-33c6-4b9e-bb71-833691ae5c9f",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-24T06:19:43Z",
+					"hostId": "b53192be6b2b67e9366cebb148b87adf5ede7f8c95a93f4ef166e901",
+					"OS-EXT-SRV-ATTR:host": "cc_01.huacloud.demo",
+					"name": "ci2_vm_pool1387865960.14",
+					"created": "2013-12-24T06:19:27Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_01.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.12"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027d7",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "fe3fcb13-1a46-45f0-ab92-6201445e345d",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-20T11:02:19Z",
+					"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+					"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+					"name": "ci2_vm_pool1387537461.79",
+					"created": "2013-12-20T11:04:29Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ads": ["10.1.0.8"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027d6",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "b9742955-1695-40db-876c-16fe3c619505",
+					"metadata": {
+						"ci2_user": "ads"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-20T10:59:45Z",
+					"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+					"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+					"name": "ci2_vm_pool1387537308.16",
+					"created": "2013-12-20T11:01:56Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ads": ["10.1.0.7"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027d5",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "140652f9-b3ba-4f66-87ec-9ed3cd18c523",
+					"metadata": {
+						"ci2_user": "ads"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-20T03:24:40Z",
+					"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+					"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+					"name": "ci2_vm_pool1387443034.32",
+					"created": "2013-12-19T08:50:42Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.20"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027c8",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "1978e4bd-809f-406f-b23f-b284583d0614",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-20T02:51:28Z",
+					"hostId": "b53192be6b2b67e9366cebb148b87adf5ede7f8c95a93f4ef166e901",
+					"OS-EXT-SRV-ATTR:host": "cc_01.huacloud.demo",
+					"name": "ci2_vm_pool1387442927.52",
+					"created": "2013-12-19T08:48:55Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_01.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.19"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027c6",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "2ea22459-78ff-4a0b-946d-843bf267f6ec",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-20T01:46:37Z",
+					"hostId": "b53192be6b2b67e9366cebb148b87adf5ede7f8c95a93f4ef166e901",
+					"OS-EXT-SRV-ATTR:host": "cc_01.huacloud.demo",
+					"name": "ci2_vm_pool1387428361.77",
+					"created": "2013-12-19T04:46:10Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_01.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ae2": ["11.1.0.17"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-000027b7",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "2adac0cb-de1c-4ce3-bb41-fafeced2f5b4",
+					"metadata": {
+						"ci2_user": "ae2"
+					}
+				}, {
+					"status": "ACTIVE",
+					"OS-EXT-STS:power_state": 1,
+					"updated": "2013-12-18T08:32:35Z",
+					"hostId": "02093ab00f12f7c9fe789ebd0501cd13def370250e0a852022b58dfa",
+					"OS-EXT-SRV-ATTR:host": "cc_02.huacloud.demo",
+					"name": "ci2_vm_pool1387355664.97",
+					"created": "2013-12-18T08:34:33Z",
+					"image": {
+						"id": "52766cfb-1f0e-461f-a68d-752b267ede56",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/images/52766cfb-1f0e-461f-a68d-752b267ede56",
+							"rel": "bookmark"
+						}]
+					},
+					"OS-DCF:diskConfig": "MANUAL",
+					"OS-EXT-SRV-ATTR:hypervisor_hostname": "cc_02.huacloud.demo",
+					"pool_id": 1,
+					"networks": {
+						"ads": ["10.1.0.3"]
+					},
+					"OS-EXT-STS:task_state": null,
+					"OS-EXT-STS:vm_state": "active",
+					"OS-EXT-SRV-ATTR:instance_name": "instance-0000279c",
+					"progress": 0,
+					"flavor": {
+						"id": "0d922239-0564-4409-ad47-2a372bd96b88",
+						"links": [{
+							"href": "http://192.168.1.15:8774/0d9df04de6334115aa4cf2e8d2cea4c4/flavors/0d922239-0564-4409-ad47-2a372bd96b88",
+							"rel": "bookmark"
+						}]
+					},
+					"id": "4d36151d-290c-441f-a8a2-c5d7a9eadd6d",
+					"metadata": {
+						"ci2_user": "ads"
+					}
+				}]
+
 		}
 	}
 }

@@ -47,7 +47,7 @@ function Instances($http, $cookieStore) {
 			return $http.get(resourcesUrl, httpConfig);
 		},
 		remove: function (id) {
-			return $http.delete(resourceUrl + '/' + id, {}, httpConfig);
+			return $http.delete(resourceUrl + '/' + id, httpConfig);
 		},
 		start: function (id) {
 			return $http.post(startVmUrl + '/' + id, {}, httpConfig);
@@ -65,7 +65,7 @@ function Instances($http, $cookieStore) {
 			return $http.post(rebootVmUrl + '/' + id, {}, httpConfig);
 		},
 		getVnc: function (id) {
-			return $http.get(vncVmUrl + '/' + id, {}, httpConfig);
+			return $http.get(vncVmUrl + '/' + id + "?type=novnc", httpConfig);
 		}
 	}
 
