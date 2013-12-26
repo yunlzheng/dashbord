@@ -12,7 +12,7 @@
   <button type="button" class="btn btn-primary" ng-click="reboot()" ng-disabled="isNotSelectOne()">重启</button>
   <button type="button" class="btn btn-primary" ng-disabled="isNotSelect()" ng-click="remove()">销毁</button>
   <div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ng-disabled="isNotSelectOne()">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ng-disabled="isNotSelectOne() || !isActive()">
       更多操作 <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
