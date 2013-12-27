@@ -87,25 +87,37 @@
           <fieldset>
             <legend>选择映像</legend>
             <input ng-model="newInstance.image.id" required type="text" class="form-control" style="display:none">
+            <pager 
+              total-items="imagePager.totalItems()" 
+              page="imagePager.currentPage"
+              items-per-page="imagePager.perPage">
+            </pager>
             <div class="radio-btn-select">
-              <button ng-repeat="image in images" type="button" class="btn " ng-model="newInstance.image" btn-radio="image">{{ image.name }}</button>
+              <button ng-repeat="image in modelFilteredImage" type="button" class="btn " ng-model="newInstance.image" btn-radio="image">{{ image.name }}</button>
             </div>
           </fieldset>
           <fieldset>
             <legend>选择类型</legend>
             <input ng-model="newInstance.flavor.id" required type="text" class="form-control" style="display:none">
+            <pager 
+              total-items="flavorPager.totalItems()" 
+              page="flavorPager.currentPage"
+              items-per-page="flavorPager.perPage">
+            </pager>
             <div class="radio-btn-select">
-            <button ng-repeat="flavor in flavors" type="button" class="btn " ng-model="newInstance.flavor" btn-radio="flavor">{{ flavor.name }}</button>
+            <button ng-repeat="flavor in modelFilteredFlavor" type="button" class="btn " ng-model="newInstance.flavor" btn-radio="flavor">{{ flavor.name }}</button>
             </button>
           </fieldset>
            <fieldset>
-            <legend>设置网络</legend>
+            <legend>设置网络-{{ portPager.modelPortCurrentPage }}</legend>
             <input ng-model="newInstance.port.id" required type="text" class="form-control" style="display:none">
+            
             <pager 
-              total-items="modelTotalNetworks()" 
-              page="modelNetworkCurrentPage"
-              items-per-page="modelNetworkPerPage">
+              total-items="portPager.totalItems()" 
+              page="portPager.currentPage"
+              items-per-page="portPager.perPage">
             </pager>
+            
             <div class="radio-btn-select">
               <button ng-repeat="port in modelFilteredPorts" type="button" class="btn " ng-model="newInstance.port" btn-radio="port">{{ port.name }} &nbsp; {{ port.mac_address }}</button>
               </button>

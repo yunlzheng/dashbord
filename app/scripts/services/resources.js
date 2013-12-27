@@ -89,8 +89,7 @@ function Flavors($http, $cookieStore) {
 			'X-Consumer-key': $cookieStore.get('appKey'),
 			'X-Auth-Token': $cookieStore.get('accessToken'),
 			'X-Api-Request': true
-		},
-		'cache': true
+		}
 	};
 
 	if (!useNode) {
@@ -127,8 +126,7 @@ function Images($http, $cookieStore) {
 			'X-Consumer-key': $cookieStore.get('appKey'),
 			'X-Auth-Token': $cookieStore.get('accessToken'),
 			'X-Api-Request': true
-		},
-		'cache': true
+		}
 	};
 
 	if (!useNode) {
