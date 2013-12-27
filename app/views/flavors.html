@@ -1,16 +1,16 @@
 <div class="dashbord-page">
     <div class="dashbord-page">
 	  <h2>规格</h2>
-	  <button type="button" class="btn btn-primary" ng-click="getFlavors()">
+	  <button type="button" class="btn btn-primary" ng-click="startSync()">
 	    <div class="glyphicon glyphicon-refresh"></div>
 	  </button>
 	  <button type="button" class="btn btn-primary" ng-click="openCreateModal()">创建规格</button>
 	  <div class="btn-group">
-	    <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="!selected" data-toggle="dropdown">
+	    <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="!isSelectedAnyOne()" data-toggle="dropdown">
 	      更多操作 <span class="caret"></span>
 	    </button>
 	    <ul class="dropdown-menu" role="menu">
-	      <li><a ng-click="removeFlavor()">删除</a></li>
+	      <li><a ng-click="remove()">删除</a></li>
 	    </ul>
 	  </div>
 		<table class="table table-striped">
@@ -28,8 +28,8 @@
 	          </tr>
 	        </thead>
 	        <tbody>
-	          <tr ng-repeat="flavor in filteredFlavors" ng-class="{ selected: flavor.id==selected.id }" ng-click="selecte(flavor)">
-	            <td><input type="checkbox"></td>
+	          <tr ng-repeat="flavor in filteredFlavors">
+	            <td><input type="checkbox" ng-model='flavor.selected'></td>
 	          	<td>{{ $index }}</td>
 	          	<td>{{ flavor.name }}</td>
 	          	<td>{{ flavor.vcpus }}</td>
