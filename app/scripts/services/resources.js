@@ -284,9 +284,7 @@ function Ports($http, $cookieStore) {
 			return $http.post(resourceUrl, obj, httpConfig);
 		},
 		query: function (query) {
-
 			query = query ? query : {};
-
 			return $http.get(resourcesUrl, httpConfig);
 		},
 		remove: function (id) {

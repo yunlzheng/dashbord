@@ -35,7 +35,7 @@
               <th>#</th>
               <th>编号</th>
               <th>名称</th>
-              <th>大小</th>
+             
               <th>状态</th>
               <th>创建时间</th>
               <th class="auto-hide">主机名</th>
@@ -48,11 +48,11 @@
               <td><input type="checkbox" ng-model="vm.selected"></td>
             	<td>{{ $index }}</td>
             	<td><a href="#/instances/{{ vm.id }}">{{ vm.name }}</a></td>
-            	<td>{{ vm.size }}</td>
+            	
             	<td><span class="label label-default">{{ vm.status }}</span></td>
             	<td>{{ vm.created | date:'MM/dd/yyyy @ h:mma' }}</td>
             	<td class="auto-hide">{{ vm['OS-EXT-SRV-ATTR:host'] }}</td>
-            	<td class="auto-hide">{{ vm['OS-EXT-STS:power_state'] }}</td>
+            	<td class="auto-hide">{{ vm['OS-EXT-STS:power_state'] | power}}</td>
             	<td class="auto-hide">
             		<span ng-repeat="net in vm.networks.ads">
             			{{ net }}

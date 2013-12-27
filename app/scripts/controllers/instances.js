@@ -1,6 +1,6 @@
 'use strict';
 
-function InstancesCtrl($scope, instances, images, flavors, ports, $interval, mockInstances, mockImages, mockFlavors, mockPorts, $modal) {
+function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $modal) {
 
   /**page*/
   $scope.vms = [];
@@ -132,10 +132,6 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, moc
         $scope.vms = data.data;
       }
 
-    }).error(function () {
-
-      $scope.vms = mockInstances.query();
-
     });
 
   };
@@ -247,10 +243,6 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, moc
         $scope.images = data.data;
       }
 
-    }).error(function () {
-
-      $scope.images = mockImages.query();
-
     });
 
   }
@@ -263,17 +255,13 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, moc
         $scope.flavors = data.data;
       }
 
-    }).error(function () {
-
-      $scope.flavors = mockFlavors.query();
-
     });
 
   }
 
   $scope.getPorts = function () {
 
-    ports.query().success(function(data){
+    ports.query().success(function (data) {
 
       $scope.ports = data.data;
 
@@ -326,56 +314,69 @@ function NewInstanceModalCtrl($scope, $modalInstance, cache_images, cache_flavor
 
   $scope.newInstance = {};
   $scope.modelFilteredPorts = [];
+
   $scope.images = cache_images;
   $scope.flavors = cache_flavors;
-  $scope.ports = cache_ports;
+
+  var activePorts = [];
+
+  angular.forEach(cache_ports, function (port) {
+
+    if (port.status === 'ACTIVE') {
+      this.push(port);
+    }
+
+  }, activePorts);
+
+  $scope.ports = activePorts;
 
   $scope.imagePager = {
-      currentPage:1,
-      perPage: 5,
-      totalItems: function(){
-        return $scope.images.length;
-      }
+    currentPage: 1,
+    perPage: 5,
+    totalItems: function () {
+      return $scope.images.length;
+    }
   };
+
+  $scope.portPager = {
+    currentPage: 1,
+    perPage: 5,
+    totalItems: function () {
+      return $scope.ports.length;
+    }
+  };
+
+  $scope.flavorPager = {
+    currentPage: 1,
+    perPage: 5,
+    totalItems: function () {
+      return $scope.flavors.length;
+    }
+  };
+
 
   $scope.$watch('imagePager', function () {
 
     var begin = (($scope.imagePager.currentPage - 1) * $scope.imagePager.perPage)
     var end = begin + $scope.imagePager.perPage;
     $scope.modelFilteredImage = $scope.images.slice(begin, end);
-   
+
   }, true);
-
-  $scope.portPager = {
-      currentPage:1,
-      perPage: 5,
-      totalItems: function(){
-        return $scope.ports.length;
-      }
-  };
-
+  
   $scope.$watch('portPager', function () {
 
     var begin = (($scope.portPager.currentPage - 1) * $scope.portPager.perPage)
     var end = begin + $scope.portPager.perPage;
     $scope.modelFilteredPorts = $scope.ports.slice(begin, end);
-   
-  }, true);
 
-  $scope.flavorPager = {
-      currentPage:1,
-      perPage: 5,
-      totalItems: function(){
-        return $scope.flavors.length;
-      }
-  };
+  }, true);
 
   $scope.$watch('flavorPager', function () {
 
     var begin = (($scope.flavorPager.currentPage - 1) * $scope.flavorPager.perPage)
     var end = begin + $scope.flavorPager.perPage;
     $scope.modelFilteredFlavor = $scope.flavors.slice(begin, end);
-   
+
   }, true);
 
   $scope.ok = function (newInstance) {
@@ -391,4 +392,4 @@ function NewInstanceModalCtrl($scope, $modalInstance, cache_images, cache_flavor
 NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance', 'cache_images', 'cache_flavors', 'cache_ports'];
 
 angular.module('dashbordApp')
-  .controller('InstancesCtrl', ['$scope', 'instances', 'images', 'flavors','ports' ,'$interval', 'mockInstances', 'mockImages', 'mockFlavors', 'mockPorts', '$modal', InstancesCtrl]);
+  .controller('InstancesCtrl', ['$scope', 'instances', 'images', 'flavors', 'ports', '$interval', '$modal', InstancesCtrl]);

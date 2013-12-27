@@ -17,7 +17,11 @@
             <th><input type="checkbox"></th>
             <th>编号</th>
             <th>名称</th>
+            <th>Size</th>
             <th>状态</th>
+            <th>is_public</th>
+            <th>protected</th>
+            <th>required</th>
             <th>创建时间</th>
           </tr>
         </thead>
@@ -26,10 +30,12 @@
             <td><input type="checkbox"></td>
             <td>{{ $index }}</td>
             <td>{{ image.name }}</td>
-            <td>{{ image.size }}</td>
+            <td>{{ image.size | formatByte}}</td>
             <td><span class="label label-default">{{ image.status }}</span></td>
+            <td>{{ image.is_public }}</td>
+            <td>{{ image.protected }}</td>
             <td>min_disk:{{ image.min_disk }}, min_ram:{{image.min_ram}}</td>
-            <td>{{ image.created | date:'MM/dd/yyyy @ h:mma' }}</td>
+            <td>{{ image.create_at | date:'MM/dd/yyyy @ h:mma' }}</td>
           </tr>
         </tbody>
     </table>
