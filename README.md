@@ -7,6 +7,12 @@ Dashbord is a web front base to build a dashbord application
 
 >now it's use to build the vms web controller
 
+## ScreenSnapshot
+
+![home](http://192.168.0.54/zheng/dashbord/raw/develop/app/images/home_snapshot.png)
+
+![create_vm](http://192.168.0.54/zheng/dashbord/blob/release/0.0.1/app/images/create_vm_snapshot.png)
+
 ## How to Develop this?
 
 Dashbord is build by [yeoman](http://yeoman.io/index.html) a **MODERN WORKFLOWS FOR MODERN WEBAPPS** And develop by [Angular.js](http://angularjs.org/).

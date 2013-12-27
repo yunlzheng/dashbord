@@ -1,27 +1,40 @@
 <div class="dashbord-page">
+  <h2>设置</h2>
 	<form>
 		<fieldset>
 			<legend>
-				Vms Configuration
+				基本设置
 			</legend>
 			<div class="form-group">
-			    <label for="inputRootUrl">Vms address</label>
-			    <input type="url" class="form-control" id="inputRootUrl" placeholder="Enter http://localhost:8889">
+			    <label >vms访问地址</label>
+			    <input type="text" class="form-control"  placeholder="Enter http address" ng-model="setting.rootUrl">
 			  </div>
+			<div class="form-group">
+			    <label >port</label>
+			    <input type="text" class="form-control" placeholder="Enter port" ng-model="setting.port">
+			 </div>
 		</fieldset>
 		<fieldset>
 		<legend>
-			Vms Authortize
+			认证设置
 		</legend>
 		<div class="form-group">
-	    	<label for="inputAppKey">App Key</label>
-	    	<input type="url" class="form-control" id="inputAppKey" placeholder="Enter The Application Key">
+	    	<label for="inputAppKey">应用标识</label>
+	    	<input type="text" class="form-control" placeholder="Enter The Application Key"
+	    	ng-model="setting.appKey">
 	  	</div>
 	  	<div class="form-group">
-	    	<label for="inputAppSecret">App Secret</label>
-	    	<input type="url" class="form-control" id="inputAppSecret" placeholder="Enter The Application Secret">
+	    	<label for="inputAppSecret">密钥</label>
+	    	<input type="text" class="form-control" placeholder="Enter The Application Secret" ng-model="setting.appSecret">
+	  	</div>
+	  	<div class="form-group">
+	  		<label for="inputAccessToken">访问令牌</label>
+	  		<input type="text" class="form-control" ng-model="setting.accessToken" disabled/>
+	  	</div>
+	  	<div class="form-group">
+	  		<label for="inputAccessToken"><input type="checkbox" ng-model="setting.useNode"> Use Node</label>
 	  	</div>
 	  </fieldset>
-	  <button type="submit" class="btn btn-default">Save</button>
+	  <button ng-click="saveSettings(setting)" class="btn btn-default">Save</button>
 	 </form>
 </div>

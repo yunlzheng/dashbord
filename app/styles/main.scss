@@ -1,6 +1,17 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+/** import base csss */
 @import 'sass-bootstrap/lib/bootstrap';
+@import 'table';
+@import 'button';
+@import 'form';
+@import 'pagination';
+@import 'alert';
+
+/** import page css*/
+@import "page";
+@import "instance";
+@import "modal";
 
 .browsehappy {
     margin: 0.2em 0;
@@ -9,11 +20,24 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
+.left{
+    float:left;
+}
+
+.right{
+    float:right;
+}
+
 /* Space out content a bit */
 body {
     padding-top: 20px;
     padding-bottom: 20px;
     overflow: hidden;
+    color: rgb(85, 85, 85);
+}
+
+a{
+    cursor: default;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -58,6 +82,43 @@ body {
 
 .header h3 a{
     color: #fff;
+}
+
+.header .break-btn {
+    -webkit-transition: margin-left .15s linear;
+    transition: margin-left .15s linear;
+    -webkit-user-select: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    margin: 7px 0 7px 30px;
+    padding: 5px 5px 5px 8px;
+    display: inline-block;
+    font-weight:normal;
+    line-height: 15px;
+    cursor: pointer;
+}
+
+.header .break-btn .text{
+    color: rgb(115, 115, 115);
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 1px;
+    margin-right: 5px;
+    max-width: 132px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+.header .break-btn .glyphicon{
+    font-weight:normal;
+}
+
+.header .side-menu a
+{
+    color: rgb(115, 115, 115)
 }
 
 .header .side-menu{
@@ -161,12 +222,14 @@ body {
     transition-property: float;
     -webkit-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
+    margin-right: 5px;
 }
 
 .side-menu-false .icon{
     
     float: right;
     margin-right: 16px;
+    font-size:16px;
 
 }
 
@@ -220,11 +283,10 @@ body {
     margin-top: 30px;
     margin-bottom: 20px;
     padding: 4px 15px;
-    background-color: #fff;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    background-color: #eeeeee;
+    border: 0.5px solid rgb(216, 216, 216);
 }
 
 #dashbord-view{
@@ -232,16 +294,81 @@ body {
     padding: 4px 15px;
 }
 
-.dashbord-page{
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-    background-color: #FFF;
-    margin: 0 auto;
-    margin-bottom: 35px;
-    padding: 30px;
-    position: relative;
-    top: 0;
-    height:600px;
+
+
+.dashbord-stage{
+    background-color:rgb(238, 238, 238);
+    border:none;
+    padding: 0px;
+    clear:both;
+}
+
+
+.dashbord-stage .half-window{
+    width:49%;
+}
+
+.dashbord-stage .dashbord-window{
+
+    background-color: rgb(255, 255, 255);
+    border: 0.5px solid rgb(216, 216, 216);
+    margin: 10px 0px;
+
+}
+
+.dashbord-window .no-border{
+    border:none;
+}
+
+.dashbord-window .title{
+    padding: 15px 15px 0px;
+    font-size:14px;
+    font-weight:blod;
+}
+
+.dashbord-window .body{
+    padding:30px;
+    overflow:hidden;
+}
+
+.dashbord-window .no-padding{
+    padding:0px;
+}
+
+.cloumn5{
+    float:left;
+    width:20%;
+}
+
+.box{
+    text-align:center;
+    cursor: pointer;
+    border: 1px solid rgb(238, 238, 238);
+    overflow: hidden;
+    margin-left:-1px; 
+    margin-bottom:-1px;
+}
+
+.box strong{
+    
+    text-align: center;
+    font-size: 60px;
+    line-height: 80px;
+    font-family: Arial;
+    color: rgb(31, 144, 200);
+    display: block;
+    padding: 20px 0 0;
+
+}
+
+.box:hover{
+    background-color:rgb(245, 245, 245);
+}
+
+.box h5{
+    
+}
+
+.box h5 span{
+    margin:0px 4px;
 }

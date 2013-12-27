@@ -1,0 +1,15 @@
+.table{
+	margin-top:20px;
+}
+
+.table > thead > tr > th {
+	font-weight:normal;
+}
+
+.table > thead > tr{
+	background-color:#fff;
+}
+
+.table-striped > tbody > tr.selected > td, .table-striped > tbody > tr.selected > th {
+	background-color: #DDE4E9;
+}

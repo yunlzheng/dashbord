@@ -30,42 +30,57 @@
       <div class="header">
         <div class="header-container">
           <h3 id="menu-toggle" class="text-muted" ng-click="toggleMenu()">Da</h3>
+          <div class="break-btn" ng-mouseenter="openMenu()" ng-click="toggleMenu()">
+            <div class="utb"><div class="Hde Nua" guidedhelpid="appindicator_icon"></div></div>
+            <div class="text" ng-bind="breadcrumbs.getLastLabel()"></div>
+            <div class="glyphicon glyphicon-chevron-down"></div>
+          </div>
           <div id="side-menu" class="side-menu side-menu-{{ status.showSideMenu }}">
-              <a href="#/" ng-click="selected()"><div class="side-menu-item">
+              <a href="#/" title="主页"><div class="side-menu-item">
                 <div class="icon glyphicon glyphicon-th-list"></div>
-                <b>Home</b>
+                <b>主页</b>
               </div></a>
               <hr/>
-              <a href="#/instances" ng-click="selected()"><div class="side-menu-item">
+              <a href="#/instances" title="实例"><div class="side-menu-item">
                 <div class="icon glyphicon glyphicon-send"></div>
-                Instances
+                虚拟实例
               </div></a>
-              <a href="#/volumes"><div class="side-menu-item"> 
-                <div class="icon glyphicon glyphicon-tasks"></div>
-                Volumes
+              <a href="#/volumes" title="存储"><div class="side-menu-item"> 
+                <div class="icon glyphicon glyphicon-hdd"></div>
+                存储卷
               </div></a>
-              <a href="#/networks"><div class="side-menu-item">
+              <a href="#/networks" title="网络"><div class="side-menu-item">
                 <div class="icon glyphicon glyphicon-tower"></div>
-                Networks
+                网络
               </div></a>
-              <a href="#/images">
+              <a href="#/routes" title="虚拟路由"><div class="side-menu-item">
+                <div class="icon glyphicon glyphicon-indent-left"></div>
+                虚拟路由
+              </div></a>
+              <a href="#/images" title="镜像">
                 <div class="side-menu-item">
                   <div class="icon glyphicon glyphicon-picture"></div>
-                  Images
+                  镜像
+                </div>
+              </a>
+              <a href="#/flavors" title="规格">
+                <div class="side-menu-item">
+                  <div class="icon glyphicon glyphicon-list-alt"></div>
+                  规格
                 </div>
               </a>
               <hr/>
-              <a href="#/settings">
+              <a href="#/settings" title="设置">
                 <div class="side-menu-item">
                   <div class="icon glyphicon glyphicon-cog"></div>
-                  Settings
+                  设置
                 </div>
               </a>
               <hr/>
-              <a href="#/help">
+              <a href="#/help" title="帮助">
                 <div class="side-menu-item">
                   <div class="icon glyphicon glyphicon-bullhorn"></div>
-                  Help
+                  帮助
                 </div>
               </a>
           </div>
@@ -73,22 +88,26 @@
             <li></li>
             <li></li>
             <li>
-              <a class="">
-                <div class="glyphicon glyphicon-th"></div>
-                <div class="arrow-up"></div>
+              <a class="btn-group">
+                <div class="glyphicon glyphicon-th" data-toggle="dropdown"></div>
+                <div class="dropdown-menu">
+                   
+                </div>
               </a>
 
             </li>
             <li>
-              <a class="">
-                <div class="glyphicon glyphicon-bell"></div>
-                <div class="arrow-up"></div>
+              <a class="btn-group">
+                <div class="glyphicon glyphicon-bell" data-toggle="dropdown"></div>
+                <div class="dropdown-menu">
+                   
+                </div>
               </a>
             </li>
             <li>
               <a class="profile-pic">
                 <img src="/images/yeoman.png"/>
-                <div class="arrow-up"></div>
+                
               </a>
             </li>
           </ul>
@@ -96,9 +115,12 @@
       </div>
       <div id="dashbord-view" ng-class="{dashbord_big: !status.showSideMenu, dashbord_normal: status.showSideMenu}">
         <ol class="dashbord-breadcrumb breadcrumb">
-          <li ng-repeat="breadcrumb in breadcrumbs.getAll()"><a href="#{{breadcrumb.path}}" ng-hide="$last">{{breadcrumb.label}}</a><span ng-show="$last">{{breadcrumb.label}}</span></li>
+          <li ng-repeat="breadcrumb in breadcrumbs.getAll()"><a href="#{{breadcrumb.path}}" ng-hide="$last" ng-bind='breadcrumb.label'></a><span ng-show="$last" ng-bind="breadcrumb.label"></span></li>
         </ol>
         <div ng-view=""></div>
+      </div>
+      <div class="system_messages">
+        <alert ng-repeat="alert in notify.getAlerts()" type="alert.type" close="notify.closeAlert($index)">{{alert.msg}}</alert>
       </div>
       
     </div>
@@ -118,40 +140,55 @@
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
 
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/sass-bootstrap/js/affix.js"></script>
-        <script src="bower_components/sass-bootstrap/js/alert.js"></script>
-        <script src="bower_components/sass-bootstrap/js/button.js"></script>
-        <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
-        <script src="bower_components/sass-bootstrap/js/transition.js"></script>
-        <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
-        <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
-        <script src="bower_components/sass-bootstrap/js/modal.js"></script>
-        <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
-        <script src="bower_components/sass-bootstrap/js/tab.js"></script>
-        <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
-        <script src="bower_components/sass-bootstrap/js/popover.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/plugins.js -->
+    <script src="bower_components/sass-bootstrap/js/affix.js"></script>
+    <script src="bower_components/sass-bootstrap/js/alert.js"></script>
+    <script src="bower_components/sass-bootstrap/js/button.js"></script>
+    <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
+    <script src="bower_components/sass-bootstrap/js/transition.js"></script>
+    <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
+    <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
+    <script src="bower_components/sass-bootstrap/js/modal.js"></script>
+    <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
+    <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+    <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
+    <script src="bower_components/sass-bootstrap/js/popover.js"></script>
+    <script src="bower_components/jqplot/jquery.jqplot.js"></script>
+    <script src="bower_components/jqplot/plugins/jqplot.pieRenderer.min.js"></script>
+    <script src="bower_components/jqplot/plugins/jqplot.donutRenderer.min.js"></script>
+    <script src="bower_components/angular-ui-chart/src/chart.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/modules.js -->
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js scripts/modules.js -->
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="scripts/services/breadcrumbs.js"></script>
-        <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/style.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/home.js"></script>
-        <script src="scripts/controllers/instances.js"></script>
-        <script src="scripts/controllers/volumes.js"></script>
-        <script src="scripts/controllers/networks.js"></script>
-        <script src="scripts/controllers/images.js"></script>
-        <script src="scripts/controllers/help.js"></script>
-        <script src="scripts/controllers/settings.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/style.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/ui-bootstrap-tpls-0.7.0.js"></script>
+    <script src="scripts/services/breadcrumbs.js"></script>
+    <script src="scripts/services/mock.js"></script>
+    <script src="scripts/services/resources.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/instances.js"></script>
+    <script src="scripts/controllers/volumes.js"></script>
+    <script src="scripts/controllers/networks.js"></script>
+    <script src="scripts/controllers/images.js"></script>
+    <script src="scripts/controllers/help.js"></script>
+    <script src="scripts/controllers/settings.js"></script>
+    <script src="scripts/controllers/flavors.js"></script>
+    <script src="scripts/controllers/route.js"></script>
+    <script src="scripts/services/respInterceptor.js"></script>
+    <script src="scripts/services/notify.js"></script>
+    <script src="scripts/controllers/instance.js"></script>
+    <script src="scripts/filters/power.js"></script>
+    <script src="scripts/filters/formatByte.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

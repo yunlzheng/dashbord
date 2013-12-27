@@ -1,15 +1,18 @@
-$(function(){
+'use strict';
 
-  resizeDashbord();
-  $(window).resize(function() {
+$(function () {
 
-    resizeDashbord();
-  
-  });
+	function resizeDashbord() {
+		$('#dashbord-view').css('height', $(window).height() - 40);
+		$('#side-menu').css('height', $(window).height() - 40);
+	}
 
-  function resizeDashbord(){
-    $("#dashbord-view").css("height",$(window).height()-40);
-    $("#side-menu").css("height",$(window).height()-40);
-  }
+	$(window).resize(function () {
+
+		resizeDashbord();
+
+	});
+
+	resizeDashbord();
 
 });

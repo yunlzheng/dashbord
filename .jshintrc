@@ -1,4 +1,5 @@
 {
+  "jquery": true,
   "node": true,
   "browser": true,
   "esnext": true,
@@ -7,7 +8,7 @@
   "curly": true,
   "eqeqeq": true,
   "immed": true,
-  "indent": 2,
+  "white": false,
   "latedef": true,
   "newcap": true,
   "noarg": true,
@@ -16,7 +17,7 @@
   "undef": true,
   "unused": true,
   "strict": true,
-  "trailing": true,
+  "trailing": false,
   "smarttabs": true,
   "globals": {
     "angular": false
