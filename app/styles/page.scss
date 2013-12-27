@@ -9,6 +9,10 @@
     position: relative;
     top: 0;
     min-height:200px;
+    box-shadow: 0 0px 18px rgba(0, 0, 0, 0.2);
+    &.no-shadown{
+        box-shadow:none;
+    }
     .list-view{
         
     }

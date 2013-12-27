@@ -52,16 +52,17 @@ a{
 .header {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #080808;
     -webkit-transform: translateZ(0);
     left: 0px;
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #fff;
     z-index: 1000;
     height:40px;
     padding: 0px 0px;
+    background-color: #222;
+
 }
 
 .header .header-container{
@@ -188,6 +189,10 @@ a{
     }
     &.side-menu-true{
         margin-left: 0px;
+        .side-menu-item.current{
+            background-color: #F5F5F5;
+            border-right: 5px solid;
+        }
     }
     &.side-menu-false{
         //margin-left: -290px;
@@ -200,12 +205,11 @@ a{
     height: 44px;
     padding: 14px 0 0 30px;
     text-decoration: none;
-    &.current{
-        background-color: #F5F5F5;
-        border-right: 5px solid;
-    }
     &:hover{
         background-color: #F5F5F5;
+    }
+    &.current{
+            background-color: #F5F5F5;
     }
 }
 
@@ -307,6 +311,7 @@ a{
     background-color: rgb(255, 255, 255);
     border: 0.5px solid rgb(216, 216, 216);
     margin: 10px 0px;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
 
 }
 
