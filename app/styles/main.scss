@@ -116,31 +116,6 @@ a{
     font-weight:normal;
 }
 
-.header .side-menu a
-{
-    color: rgb(115, 115, 115)
-}
-
-.header .side-menu{
-    
-    position: fixed;
-    top: 40px;
-    bottom: 0;
-    left: 0;
-    width: 250px;
-    z-index: 701;
-    background-color: #FFF;
-    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    -webkit-transition-duration: .436s;
-    transition-duration: .436s;
-    -webkit-transition-property: margin-left;
-    transition-property: margin-left;
-    -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
-    cursor: pointer;
-
-}
 
 .header .current-menu{
     display: inline-block;
@@ -188,20 +163,36 @@ a{
     border-radius: 4px;
 }
 
-.side-menu hr{
-    padding:0px;
-    margin:0px;
-    border: 0;
-    border-top: 1px solid #eeeeee;
-}
 
-.side-menu-true{
-    margin-left: 0px;
-}
-
-.side-menu-false{
-    //margin-left: -290px;
-    margin-left: -205px;
+.header .side-menu{
+    
+    position: fixed;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    width: 250px;
+    z-index: 701;
+    background-color: #FFF;
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: .436s;
+    transition-duration: .436s;
+    -webkit-transition-property: margin-left;
+    transition-property: margin-left;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+    a{
+        text-decoration: none;
+        color: rgb(115, 115, 115)
+    }
+    &.side-menu-true{
+        margin-left: 0px;
+    }
+    &.side-menu-false{
+        //margin-left: -290px;
+        margin-left: -205px;
+    }
 }
 
 .side-menu-item{
@@ -209,10 +200,13 @@ a{
     height: 44px;
     padding: 14px 0 0 30px;
     text-decoration: none;
-}
-
-.side-menu-item:hover{
-    background-color: #F5F5F5;
+    &.current{
+        background-color: #F5F5F5;
+        border-right: 5px solid;
+    }
+    &:hover{
+        background-color: #F5F5F5;
+    }
 }
 
 .side-menu .icon{

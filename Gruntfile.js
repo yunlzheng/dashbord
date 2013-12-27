@@ -77,6 +77,12 @@ module.exports = function (grunt) {
         host: '<%= yeoman.vms_host%>',
         port: 8889,
         https: false
+      },
+      {
+        context: '/auth',
+        host: '<%= yeoman.vms_host%>',
+        port: 8889,
+        https: false
       }],
       livereload: {
         options: {
