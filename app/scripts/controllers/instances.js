@@ -1,6 +1,6 @@
 'use strict';
 
-function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $modal) {
+function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $modal, mockInstances) {
 
   /**page*/
   $scope.vms = [];
@@ -124,6 +124,28 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   };
 
+  $scope.openMigrateVmModal = function () {
+
+    var modalInstance = $modal.open({
+
+      templateUrl: 'migrateInstanceModal.html',
+      controller: MigrateInstanceModalCtrl,
+      resolve: {}
+
+    });
+
+    modalInstance.result.then(function (targetHost) {
+
+      console.log(targetHost);
+      $scope.migrate(targetHost);
+
+    });
+
+  };
+
+  /**
+  获取所有虚拟机实例
+  */
   $scope.getInstances = function () {
 
     instances.query().success(function (data) {
@@ -132,10 +154,15 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
         $scope.vms = data.data;
       }
 
+    }).error(function(){
+
+      $scope.vms = mockInstances.query();
+
     });
 
   };
 
+  /**移除虚拟机*/
   $scope.remove = function () {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
@@ -150,6 +177,7 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   }
 
+  /**启动虚拟机*/
   $scope.start = function () {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
@@ -164,6 +192,7 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   };
 
+  /**停止虚拟机*/
   $scope.stop = function () {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
@@ -178,6 +207,8 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   };
 
+
+  /**从暂停状态恢复虚拟机*/
   $scope.unpause = function () {
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
@@ -191,15 +222,33 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   };
 
+  /***
+  暂停虚拟机
+  */
   $scope.pause = function () {
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
       if (vm.selected == true) {
         instances.pause(vm.id);
       }
-
     }
 
+    $scope.getInstances();
+
+  };
+
+  /**
+  迁移虚拟机到特定目标计算节点
+  */
+  $scope.migrate = function(targetHost) {
+
+    for (var i = 0; i < $scope.filteredVms.length; i++) {
+      var vm = $scope.filteredVms[i];
+      if (vm.selected == true) {
+        instances.migrate(vm.id, targetHost);
+      }
+
+    }
     $scope.getInstances();
 
   };
@@ -391,5 +440,19 @@ function NewInstanceModalCtrl($scope, $modalInstance, cache_images, cache_flavor
 
 NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance', 'cache_images', 'cache_flavors', 'cache_ports'];
 
+function MigrateInstanceModalCtrl($scope, $modalInstance){
+
+   $scope.ok = function (targetHost) {
+    $modalInstance.close(targetHost);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+};
+
+MigrateInstanceModalCtrl.$inject = ['$scope', '$modalInstance'];
+
 angular.module('dashbordApp')
-  .controller('InstancesCtrl', ['$scope', 'instances', 'images', 'flavors', 'ports', '$interval', '$modal', InstancesCtrl]);
+  .controller('InstancesCtrl', ['$scope', 'instances', 'images', 'flavors', 'ports', '$interval', '$modal', 'mockInstances', InstancesCtrl]);

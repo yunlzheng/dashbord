@@ -12,7 +12,8 @@ function Instances($http, $cookieStore) {
 	var vncVmUrl = '/v1/vm-vnc';
 	var attachVolumeUrl = "/v1/volume-attach/{server_id}";
 	var detachVolumeUrl = "/v1/volume-detach/{server_id}";
-	var vmSnapshotsUrl = "/v1/vm-snapshots"
+	var vmSnapshotsUrl = "/v1/vm-snapshots";
+	var vmMigrateUrl = "/v1/vm-migrate";
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -35,7 +36,7 @@ function Instances($http, $cookieStore) {
 		vncVmUrl = rootUrl + vncVmUrl;
 		unPauseVmUrl = rootUrl + unPauseVmUrl;
 		vmSnapshotsUrl = rootUrl + vmSnapshotsUrl;
-
+		vmMigrateUrl = rootUrl + vmMigrateUrl;
 	}
 
 	return {
@@ -71,6 +72,9 @@ function Instances($http, $cookieStore) {
 		},
 		getVnc: function (id) {
 			return $http.get(vncVmUrl + '/' + id + "?type=novnc", httpConfig);
+		},
+		migrate: function (id, targetHost) {
+			return $http.post(vmMigrateUrl + '/' + id, targetHost, httpConfig);
 		}
 	}
 

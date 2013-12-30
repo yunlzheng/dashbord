@@ -17,6 +17,8 @@
       </button>
       <ul class="dropdown-menu" role="menu">
         <li><a ng-click="getVnc()">链接VNC</a></li>
+        <li><a ng-click="openMigrateVmModal()">迁移虚拟机</li>
+        <li class="divider"></li>
         <li><a href="#">修改</a></li>
         <li><a href="#">挂载存储卷</a></li>
         <li><a href="#">更改配置</a></li>
@@ -74,6 +76,28 @@
          ></pagination>
   
 </div>
+
+<script type="text/ng-template" id="migrateInstanceModal.html">
+    
+    <div class="modal-header">
+      <button type="button" class="close" ng-click="cancel()">&times;</button>
+      <h4 class="modal-title">迁移虚拟机</h4>
+    </div>
+     <div class="modal-body modal-steps new_instance">
+      <span>获取计算节点列表，并显示，供用户选择，点击开始迁移按钮，返回迁移的目标虚拟机</span>
+      <form novalidate name="form" class="form" role="form">
+        <fieldset>
+          <legend>目标计算节点</legend>
+          <input ng-model="targetHost.hostName" required type="text" class="form-control">
+        </fieldset>
+      </form>
+     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">取消</button>
+      <button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="ok(targetHost)">开始迁移</button>
+    </div>
+
+</script>
 
 <!-- Modal -->
 <script type="text/ng-template" id="newInstanceModal.html">        
