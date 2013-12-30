@@ -36,7 +36,12 @@ function routeProvider($routeProvider) {
     .when('/routes', {
       templateUrl: 'views/routes.html',
       controller:'RouteCtrl',
-      label:'routes'
+      label:'路由'
+    })
+    .when('/security-groups', {
+      templateUrl: 'views/security-groups.html',
+      controller: 'SecurityGroupsCtrl',
+      label: '安全组'
     })
     .when('/images', {
       templateUrl: 'views/images.html',
@@ -46,7 +51,7 @@ function routeProvider($routeProvider) {
     .when('/flavors', {
       templateUrl: 'views/flavors.html',
       controller: 'FlavorCtrl',
-      label: 'Flavors'
+      label: '规格'
     })
     .when('/settings', {
       templateUrl: 'views/settings.html',

@@ -32,9 +32,19 @@ function MainCtrl($rootScope, $scope, breadcrumbs, notify) {
 					icon: "glyphicon-indent-left"
 				},
 				{
+					name: "安全组",
+					url: "#/security-groups",
+					icon: "glyphicon-indent-right"
+				},
+				{
 					name: "镜像",
 					url: "#/images",
 					icon: "glyphicon-list-alt"
+				},
+				{
+					name: "规格",
+					url: "#/flavors",
+					icon: "glyphicon-indent-right"
 				},
 				{
 					name: "设置",

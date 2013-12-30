@@ -204,50 +204,6 @@
          ></pagination>
 </div>
 
-<div class="dashbord-page">
-    <h2>安全组</h2>
-  <button type="button" class="btn btn-primary"><div class="glyphicon glyphicon-refresh"></div></button>
-  <div class="btn-group">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-        更多操作 <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">删除</a></li>
-      </ul>
-    </div>
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th><input type="checkbox"></th>
-            <th>编号</th>
-            <th>名称</th>
-            <th>description</th>
-            <th>security_group_rules</th>
-            <th>network_id</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="securityGroup in filteredSecurityGroups">
-             <td><input type="checkbox"></td>
-             <td>{{ $index }}</td>
-             <td>{{ securityGroup.name }}</td>
-             <td>{{ securityGroup.description }}</td>
-             <td>{{ securityGroup.security_group_rules }}</td>
-             <td>{{ securityGroup.metadata.network_id }}</td>
-          </tr>
-        </tbody>
-    </table>
-     <pagination 
-          total-items="securityGroupBigTotalItems()" 
-          page="securityGroupCurrentPage" 
-          max-size="securityGroupMaxSize" 
-          class="pagination-small" 
-          boundary-links="true" 
-          rotate="false" 
-          num-pages="securityGroupNumPages"
-          items-per-page="securityGroupNumPerPage"
-         ></pagination>
-</div>
 
 
 

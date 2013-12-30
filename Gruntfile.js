@@ -28,7 +28,7 @@ module.exports = function (grunt) {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
       dist: 'dist',
-      vms_host: '192.168.0.51'
+      vms_host: '172.30.1.12'
     },
 
     // Watches files for changes and runs tasks based on the changed files
