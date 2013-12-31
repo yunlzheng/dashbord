@@ -4,51 +4,58 @@ html
       h2 &#23454;&#20363;
       button.btn.btn-primary(type='button', ng-click='getInstances()')
         .glyphicon.glyphicon-refresh
-      button.btn.btn-primary(type='button', ng-click='!openNewInstanceModal()') &#21019;&#24314;&#23454;&#20363;
-      button.btn.btn-primary(type='button', ng-click='start()', ng-disabled='isNotSelectOne() || !isShutoff() || isActive() || isPaused()') &#21551;&#21160;
-      button.btn.btn-primary(type='button', ng-click='pause()', ng-disabled='isNotSelectOne() || !isActive() || isPaused()') &#26242;&#20572;
-      button.btn.btn-primary(type='button', ng-click='unpause()', ng-disabled='isNotSelectOne() || !isPaused()') &#24674;&#22797;
-      button.btn.btn-primary(type='button', ng-click='stop()', ng-disabled='isNotSelectOne() || isShutoff() ') &#20851;&#26426;
-      button.btn.btn-primary(type='button', ng-click='reboot()', ng-disabled='isNotSelectOne()') &#37325;&#21551;
-      button.btn.btn-primary(type='button', ng-disabled='isNotSelect()', ng-click='remove()') &#38144;&#27585;
+      button.btn.btn-primary(type='button', ng-click='!openNewInstanceModal()') 
+        | 创建虚拟机
+      button.btn.btn-primary(type='button', ng-click='start()', ng-disabled='isNotSelectOne() || !isShutoff() || isActive() || isPaused()') 
+        | 启动
+      button.btn.btn-primary(type='button', ng-click='pause()', ng-disabled='isNotSelectOne() || !isActive() || isPaused()') 
+        | 暂停
+      button.btn.btn-primary(type='button', ng-click='unpause()', ng-disabled='isNotSelectOne() || !isPaused()') 
+        | 恢复
+      button.btn.btn-primary(type='button', ng-click='stop()', ng-disabled='isNotSelectOne() || isShutoff() ') 
+        | 关机
+      button.btn.btn-primary(type='button', ng-click='reboot()', ng-disabled='isNotSelectOne()') 
+        | 重启
+      button.btn.btn-primary(type='button', ng-disabled='isNotSelect()', ng-click='remove()') 
+        | 销毁
       .btn-group
         button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', ng-disabled='isNotSelectOne() || !isActive()')
-          | &#26356;&#22810;&#25805;&#20316;
+          | 更多操作
           span.caret
         ul.dropdown-menu(role='menu')
           li
-            a(ng-click='getVnc()') &#38142;&#25509;VNC
+            a(ng-click='getVnc()') 获取VNC地址
           li
-            a(ng-click='openMigrateVmModal()') &#36801;&#31227;&#34394;&#25311;&#26426;
+            a(ng-click='openMigrateVmModal()') 迁移虚拟机
           li.divider
           li
-            a(href='#') &#20462;&#25913;
+            a(href='#') 修改
           li
-            a(href='#') &#25346;&#36733;&#23384;&#20648;&#21367;
+            a(href='#') 挂载存储卷
           li
-            a(href='#') &#26356;&#25913;&#37197;&#32622;
+            a(href='#') 更改配置
           li
-            a(href='#') &#21152;&#20837;&#32593;&#32476;
+            a(href='#') 加入网络
           li
-            a(href='#') &#21019;&#24314;&#24555;&#29031;
+            a(href='#') 创建快照
           li
-            a(href='#') &#21019;&#24314;&#38236;&#20687;
+            a(href='#') 创建镜像
           li
-            a(href='#') &#24674;&#22797;
+            a(href='#') 恢复
           li.divider
           li
-            a(href='#') &#37325;&#32622;
+            a(href='#') 重置;
       table.table.table-striped
         thead
           tr
-            th &num;
-            th &#32534;&#21495;
-            th &#21517;&#31216;
-            th &#29366;&#24577;
-            th &#21019;&#24314;&#26102;&#38388;
-            th.auto-hide &#20027;&#26426;&#21517;
-            th.auto-hide &#30005;&#28304;&#29366;&#24577;
-            th.auto-hide &#32593;&#32476;
+            th #
+            th 编号
+            th 名称
+            th 状态
+            th 创建时间
+            th.auto-hide 主机名
+            th.auto-hide 电源状态
+            th.auto-hide 网络
         tbody
           tr(ng-repeat='vm in filteredVms')
             td

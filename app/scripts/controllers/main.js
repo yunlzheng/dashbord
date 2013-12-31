@@ -12,6 +12,11 @@ function MainCtrl($rootScope, $scope, breadcrumbs, notify) {
 					icon: 'glyphicon-th-list'
 				},
 				{
+					name: '计算节点',
+					url: '#/nodes',
+					icon: 'glyphicon-indent-left'
+				},
+				{
 					name: '虚拟实例',
 					url: '#/instances',
 					icon: 'glyphicon-send'

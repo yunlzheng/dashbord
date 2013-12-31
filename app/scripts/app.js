@@ -13,6 +13,11 @@ function routeProvider($routeProvider) {
       controller: 'HomeCtrl',
       label: '主页'
     })
+    .when("/nodes", {
+      templateUrl: 'views/nodes.html',
+      controller: 'NodesCtrl',
+      label: '计算节点'
+    })
     .when('/instances', {
       templateUrl: 'views/instances.html',
       controller: 'InstancesCtrl',
