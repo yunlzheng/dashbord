@@ -10,10 +10,10 @@ function Instances($http, $cookieStore) {
 	var unPauseVmUrl = '/v1/vm-unpause';
 	var rebootVmUrl = '/v1/vm-reboot';
 	var vncVmUrl = '/v1/vm-vnc';
-	var attachVolumeUrl = "/v1/volume-attach/{server_id}";
-	var detachVolumeUrl = "/v1/volume-detach/{server_id}";
-	var vmSnapshotsUrl = "/v1/vm-snapshots";
-	var vmMigrateUrl = "/v1/vm-migrate";
+	var attachVolumeUrl = '/v1/volume-attach/{server_id}';
+	var detachVolumeUrl = '/v1/volume-detach/{server_id}';
+	var vmSnapshotsUrl = '/v1/vm-snapshots';
+	var vmMigrateUrl = '/v1/vm-migrate';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -71,19 +71,19 @@ function Instances($http, $cookieStore) {
 			return $http.post(rebootVmUrl + '/' + id, {}, httpConfig);
 		},
 		getVnc: function (id) {
-			return $http.get(vncVmUrl + '/' + id + "?type=novnc", httpConfig);
+			return $http.get(vncVmUrl + '/' + id + '?type=novnc', httpConfig);
 		},
 		migrate: function (id, targetHost) {
 			return $http.post(vmMigrateUrl + '/' + id, targetHost, httpConfig);
 		}
-	}
+	};
 
 }
 
 function Flavors($http, $cookieStore) {
 
-	var resourcesUrl = "/v1/flavors";
-	var resourceUrl = "/v1/flavor";
+	var resourcesUrl = '/v1/flavors';
+	var resourceUrl = '/v1/flavor';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -114,13 +114,13 @@ function Flavors($http, $cookieStore) {
 		remove: function (flavorId) {
 			return $http.delete(resourceUrl + '/' + flavorId, httpConfig);
 		}
-	}
+	};
 
 }
 
 function Images($http, $cookieStore) {
 
-	var resourcesUrl = "/v1/images";
+	var resourcesUrl = '/v1/images';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -141,14 +141,14 @@ function Images($http, $cookieStore) {
 		query: function (query) {
 			return $http.get(resourcesUrl, httpConfig);
 		}
-	}
+	};
 
 }
 
 function Volumes($http, $cookieStore) {
 
-	var resourcesUrl = "/v1/volumes";
-	var resourceUrl = "/v1/volume";
+	var resourcesUrl = '/v1/volumes';
+	var resourceUrl = '/v1/volume';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -179,14 +179,14 @@ function Volumes($http, $cookieStore) {
 		remove: function (id) {
 			return $http.delete(resourceUrl + '/' + id, httpConfig);
 		}
-	}
+	};
 
 }
 
 function Networks($http, $cookieStore) {
 
-	var resourcesUrl = "/v1/networks";
-	var resourceUrl = "/v1/network";
+	var resourcesUrl = '/v1/networks';
+	var resourceUrl = '/v1/network';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -217,14 +217,14 @@ function Networks($http, $cookieStore) {
 		remove: function (id) {
 			return $http.delete(resourceUrl + '/' + id, httpConfig);
 		}
-	}
+	};
 
 }
 
 function Subnets($http, $cookieStore) {
 
-	var resourcesUrl = "/v1/subnets";
-	var resourceUrl = "/v1/subnet";
+	var resourcesUrl = '/v1/subnets';
+	var resourceUrl = '/v1/subnet';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -255,14 +255,14 @@ function Subnets($http, $cookieStore) {
 		remove: function (id) {
 			return $http.delete(resourceUrl + '/' + id, httpConfig);
 		}
-	}
+	};
 
 }
 
 function Ports($http, $cookieStore) {
 
-	var resourcesUrl = "/v1/ports";
-	var resourceUrl = "/v1/port";
+	var resourcesUrl = '/v1/ports';
+	var resourceUrl = '/v1/port';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -294,14 +294,14 @@ function Ports($http, $cookieStore) {
 		remove: function (id) {
 			return $http.delete(resourceUrl + '/' + id, httpConfig);
 		}
-	}
+	};
 
 }
 
 function Nats($http, $cookieStore) {
 
-	var resourcesUrl = "/v1/nats";
-	var resourceUrl = "/v1/nat";
+	var resourcesUrl = '/v1/nats';
+	var resourceUrl = '/v1/nat';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -332,15 +332,15 @@ function Nats($http, $cookieStore) {
 		remove: function (id) {
 			return $http.delete(resourceUrl + '/' + id, httpConfig);
 		}
-	}
+	};
 
 }
 
 
 function SecurityGroups($http, $cookieStore) {
 
-	var resourcesUrl = "/v1/security-groups";
-	var resourceUrl = "/v1/security-groups";
+	var resourcesUrl = '/v1/security-groups';
+	var resourceUrl = '/v1/security-groups';
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
@@ -371,7 +371,7 @@ function SecurityGroups($http, $cookieStore) {
 		remove: function (id) {
 			return $http.delete(resourceUrl + '/' + id, httpConfig);
 		}
-	}
+	};
 
 }
 

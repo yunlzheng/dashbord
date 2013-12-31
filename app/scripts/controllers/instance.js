@@ -1,22 +1,24 @@
 'use strict';
 
 angular.module('dashbordApp')
-  .controller('InstanceCtrl', ['$scope', '$routeParams', 'instances', 'mockInstances', function ($scope, $routeParams, instances, mockInstances) {
-   
-  	instances.get($routeParams.id).success(function(data){
+  .controller('InstanceCtrl', ['$scope', '$routeParams', 'instances', 'mockInstances',
+    function($scope, $routeParams, instances, mockInstances) {
 
-  		$scope.vm = data.data;
+      instances.get($routeParams.id).success(function(data) {
 
-  	}).error(function(){
+        $scope.vm = data.data;
 
-  		$scope.vm = mockInstances.get();
-  	
-  	});
+      }).error(function() {
 
-  	instances.getSnapshots($routeParams.id).success(function(data){
+        $scope.vm = mockInstances.get();
 
-  		$scope.snapshots = data.data;
+      });
 
-  	});
+      instances.getSnapshots($routeParams.id).success(function(data) {
 
-  }]);
+        $scope.snapshots = data.data;
+
+      });
+
+    }
+  ]);

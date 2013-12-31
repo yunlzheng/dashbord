@@ -28,21 +28,22 @@ module.exports = function (grunt) {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
       dist: 'dist',
-      vms_host: '172.30.1.12'
+      vmsHost: '172.30.1.12'
     },
 
     jade: {
-        dist: {
-              options: {
-                  pretty: true
-              },
-              files: [{
-                  expand: true,
-                  cwd: '<%= yeoman.app %>',
-                  dest: '.tmp',
-                  src: ['<%= yeoman.app>/views/*.jade', '*.jade'],
-                  ext: '.html'
-              }]
+        // Move the compiled .html files from .tmp/ to dist/
+       dist: {
+            options: {
+                pretty: true
+            },
+            files: [{
+                expand: true,
+                cwd: '<%= yeoman.app %>',
+                dest: '.tmp',
+                src: '{,*/}*.jade',
+                ext: '.html'
+            }]
         }
     },
 
@@ -68,7 +69,7 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       jade: {
-        files: ['<% yeoman.app %>/*.jade'],
+        files: ['<%= yeoman.app %>/{,*/}*.jade'],
         tasks: ['jade']
       },
       livereload: {
@@ -76,9 +77,10 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-           '.tmp/*.html',
-           '{.tmp,<%%= yeoman.app %>}/styles/{,*/}*.css',
-           '{.tmp,<%%= yeoman.app %>}/scripts/{,*/}*.js',
+           '.tmp/{,*/}*.html',
+           '{.tmp,<%= yeoman.app%>}/views/{,*/}*.html',
+           '{.tmp,<%= yeoman.app%>}/styles/{,*/}*.css',
+           '{.tmp,<%= yeoman.app%>}/scripts/{,*/}*.js',
            '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
         ]
       }
@@ -94,13 +96,13 @@ module.exports = function (grunt) {
       },
       proxies: [{
         context: '/v1',
-        host: '<%= yeoman.vms_host%>',
+        host: '<%= yeoman.vmsHost%>',
         port: 8889,
         https: false
       },
       {
         context: '/auth',
-        host: '<%= yeoman.vms_host%>',
+        host: '<%= yeoman.vmsHost%>',
         port: 8889,
         https: false
       }],
@@ -284,7 +286,7 @@ module.exports = function (grunt) {
         files: [{
             expand: true,
             cwd: '.tmp',
-            src: '*.html',
+            src: ['*.html', 'views/*.html'],
             dest: '<%= yeoman.dist %>'
         }]
       }

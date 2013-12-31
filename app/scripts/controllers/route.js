@@ -1,7 +1,7 @@
 'use strict';
 
 function RouteCtrl($scope){
-
+	console.log($scope);
 }
 
 RouteCtrl.$inject = ['$scope'];

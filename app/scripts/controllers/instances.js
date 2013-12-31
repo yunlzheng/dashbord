@@ -1,5 +1,100 @@
 'use strict';
 
+function MigrateInstanceModalCtrl($scope, $modalInstance) {
+
+  $scope.ok = function(targetHost) {
+    $modalInstance.close(targetHost);
+  };
+
+  $scope.cancel = function() {
+    $modalInstance.dismiss('cancel');
+  };
+
+}
+
+MigrateInstanceModalCtrl.$inject = ['$scope', '$modalInstance'];
+
+function NewInstanceModalCtrl($scope, $modalInstance, cacheImages, cacheFlavors, cachePorts) {
+
+  $scope.newInstance = {};
+  $scope.modelFilteredPorts = [];
+
+  $scope.images = cacheImages;
+  $scope.flavors = cacheFlavors;
+
+  var activePorts = [];
+
+  angular.forEach(cachePorts, function(port) {
+
+    if (port.status === 'ACTIVE') {
+      this.push(port);
+    }
+
+  }, activePorts);
+
+  $scope.ports = activePorts;
+
+  $scope.imagePager = {
+    currentPage: 1,
+    perPage: 5,
+    totalItems: function() {
+      return $scope.images.length;
+    }
+  };
+
+  $scope.portPager = {
+    currentPage: 1,
+    perPage: 5,
+    totalItems: function() {
+      return $scope.ports.length;
+    }
+  };
+
+  $scope.flavorPager = {
+    currentPage: 1,
+    perPage: 5,
+    totalItems: function() {
+      return $scope.flavors.length;
+    }
+  };
+
+
+  $scope.$watch('imagePager', function() {
+
+    var begin = (($scope.imagePager.currentPage - 1) * $scope.imagePager.perPage);
+    var end = begin + $scope.imagePager.perPage;
+    $scope.modelFilteredImage = $scope.images.slice(begin, end);
+
+  }, true);
+
+  $scope.$watch('portPager', function() {
+
+    var begin = (($scope.portPager.currentPage - 1) * $scope.portPager.perPage);
+    var end = begin + $scope.portPager.perPage;
+    $scope.modelFilteredPorts = $scope.ports.slice(begin, end);
+
+  }, true);
+
+  $scope.$watch('flavorPager', function() {
+
+    var begin = (($scope.flavorPager.currentPage - 1) * $scope.flavorPager.perPage);
+    var end = begin + $scope.flavorPager.perPage;
+    $scope.modelFilteredFlavor = $scope.flavors.slice(begin, end);
+
+  }, true);
+
+  $scope.ok = function(newInstance) {
+    $modalInstance.close(newInstance);
+  };
+
+  $scope.cancel = function() {
+    $modalInstance.dismiss('cancel');
+  };
+
+}
+
+NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance', 'cacheImages', 'cacheFlavors', 'cachePorts'];
+
 function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $modal, mockInstances) {
 
   /**page*/
@@ -15,11 +110,11 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
     SHUTOFF: 'SHUTOFF'
   };
 
-  $scope.bigTotalItems = function () {
+  $scope.bigTotalItems = function() {
     return $scope.vms.length;
-  }
+  };
 
-  $scope.$watch('vms + currentPage + numPerPage', function () {
+  $scope.$watch('vms + currentPage + numPerPage', function() {
 
     var begin = (($scope.currentPage - 1) * $scope.numPerPage),
       end = begin + $scope.numPerPage;
@@ -29,76 +124,79 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   $scope.selectedInstance = {};
 
-  $scope.isNotSelectInstance = function () {
+  $scope.isNotSelectInstance = function() {
 
-    return CountSelect() <= 0;
-
-  };
-
-  $scope.isNotSelectOne = function () {
-
-    return CountSelect() != 1;
+    return $scope.count <= 0;
 
   };
 
-  $scope.isNotSelect = function () {
+  $scope.isNotSelectOne = function() {
 
-    return CountSelect() == 0;
-
-  };
-
-  $scope.isActive = function () {
-
-    var status = ($scope.selectedInstance.status == InstanceStatus.ACTIVE);
-    return status
+    return $scope.count !== 1;
 
   };
 
-  $scope.isPaused = function () {
+  $scope.isNotSelect = function() {
 
-    var status = ($scope.selectedInstance.status == InstanceStatus.PAUSED);
-    return status
+    return $scope.count === 0;
 
   };
 
-  $scope.isShutoff = function () {
-    var status = ($scope.selectedInstance.status == InstanceStatus.SHUTOFF);
-    return status
-  };
+  $scope.$watch('filteredVms', function() {
 
-  function CountSelect() {
     var count = 0;
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
+      if (vm.selected === true) {
         $scope.selectedInstance = vm;
         count++;
       }
 
     }
-    return count;
-  }
+    $scope.count = count;
 
-  $scope.openNewInstanceModal = function () {
+  }, true);
+
+
+  $scope.isActive = function() {
+
+    var status = ($scope.selectedInstance.status === InstanceStatus.ACTIVE);
+    return status;
+
+  };
+
+  $scope.isPaused = function() {
+
+    var status = ($scope.selectedInstance.status === InstanceStatus.PAUSED);
+    return status;
+
+  };
+
+  $scope.isShutoff = function() {
+    var status = ($scope.selectedInstance.status === InstanceStatus.SHUTOFF);
+    return status;
+  };
+
+  $scope.openNewInstanceModal = function() {
 
     var modalInstance = $modal.open({
-      templateUrl: 'newInstanceModal.html',
+      templateUrl: 'views/newInstanceModal.html',
       controller: NewInstanceModalCtrl,
       resolve: {
-        cache_images: function () {
+        cacheImages: function() {
           return $scope.images ? $scope.images : [];
         },
-        cache_flavors: function () {
+        cacheFlavors: function() {
           return $scope.flavors ? $scope.flavors : [];
         },
-        cache_ports: function () {
+        cachePorts: function() {
           return $scope.ports ? $scope.ports : [];
         }
 
       }
     });
 
-    modalInstance.result.then(function (newInstance) {
+    modalInstance.result.then(function(newInstance) {
 
       $scope.newInstance = newInstance;
       newInstance = {
@@ -110,21 +208,21 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
           'port_id': newInstance.port.id
         }]
 
-      }
+      };
 
-      instances.save(newInstance).success(function (data) {
+      instances.save(newInstance).success(function(data) {
 
         if (data.code === '0') {
           $scope.getInstances();
         }
 
-      });;
+      });
 
     });
 
   };
 
-  $scope.openMigrateVmModal = function () {
+  $scope.openMigrateVmModal = function() {
 
     var modalInstance = $modal.open({
 
@@ -134,7 +232,7 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
     });
 
-    modalInstance.result.then(function (targetHost) {
+    modalInstance.result.then(function(targetHost) {
 
       console.log(targetHost);
       $scope.migrate(targetHost);
@@ -146,15 +244,15 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
   /**
   获取所有虚拟机实例
   */
-  $scope.getInstances = function () {
+  $scope.getInstances = function() {
 
-    instances.query().success(function (data) {
+    instances.query().success(function(data) {
 
       if (data.code === '0') {
         $scope.vms = data.data;
       }
 
-    }).error(function(){
+    }).error(function() {
 
       $scope.vms = mockInstances.query();
 
@@ -163,11 +261,11 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
   };
 
   /**移除虚拟机*/
-  $scope.remove = function () {
+  $scope.remove = function() {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
+      if (vm.selected === true) {
         instances.remove(vm.id);
       }
 
@@ -175,14 +273,14 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
     $scope.getInstances();
 
-  }
+  };
 
   /**启动虚拟机*/
-  $scope.start = function () {
+  $scope.start = function() {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
+      if (vm.selected === true) {
         instances.start(vm.id);
       }
 
@@ -193,11 +291,11 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
   };
 
   /**停止虚拟机*/
-  $scope.stop = function () {
+  $scope.stop = function() {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
+      if (vm.selected === true) {
         instances.stop(vm.id);
       }
 
@@ -209,10 +307,10 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
 
   /**从暂停状态恢复虚拟机*/
-  $scope.unpause = function () {
+  $scope.unpause = function() {
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
+      if (vm.selected === true) {
         instances.unpause(vm.id);
       }
 
@@ -225,10 +323,10 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
   /***
   暂停虚拟机
   */
-  $scope.pause = function () {
+  $scope.pause = function() {
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
+      if (vm.selected === true) {
         instances.pause(vm.id);
       }
     }
@@ -244,7 +342,7 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
+      if (vm.selected === true) {
         instances.migrate(vm.id, targetHost);
       }
 
@@ -253,11 +351,11 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   };
 
-  $scope.reboot = function () {
+  $scope.reboot = function() {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
+      if (vm.selected === true) {
         instances.reboot(vm.id);
       }
 
@@ -266,15 +364,15 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   };
 
-  $scope.getVnc = function () {
+  $scope.getVnc = function() {
 
     for (var i = 0; i < $scope.filteredVms.length; i++) {
       var vm = $scope.filteredVms[i];
-      if (vm.selected == true) {
-        instances.getVnc(vm.id).success(function (data) {
+      if (vm.selected === true) {
+        instances.getVnc(vm.id).success(function(data) {
 
           if (data.code === '0') {
-            window.open(data.data.console.url, vm.name + " Console", "width=1000,height=600");
+            window.open(data.data.console.url, vm.name + ' Console', 'width=1000,height=600');
           }
 
         });
@@ -282,11 +380,11 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
     }
 
-  }
+  };
 
-  $scope.getImages = function () {
+  $scope.getImages = function() {
 
-    images.query().success(function (data) {
+    images.query().success(function(data) {
 
       if (data.code === '0') {
         $scope.images = data.data;
@@ -294,11 +392,11 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
     });
 
-  }
+  };
 
-  $scope.getFlavor = function () {
+  $scope.getFlavor = function() {
 
-    flavors.query().success(function (data) {
+    flavors.query().success(function(data) {
 
       if (data.code === '0') {
         $scope.flavors = data.data;
@@ -306,21 +404,21 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
     });
 
-  }
+  };
 
-  $scope.getPorts = function () {
+  $scope.getPorts = function() {
 
-    ports.query().success(function (data) {
+    ports.query().success(function(data) {
 
       $scope.ports = data.data;
 
     });
 
-  }
+  };
 
   var timer;
 
-  $scope.startSync = function () {
+  $scope.startSync = function() {
 
     $scope.getPorts();
     $scope.getInstances();
@@ -329,7 +427,7 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
     if (!angular.isDefined(timer)) {
 
-      timer = $interval(function () {
+      timer = $interval(function() {
 
         $scope.getPorts();
         $scope.getInstances();
@@ -342,117 +440,22 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
   };
 
-  $scope.stopSync = function () {
+  $scope.stopSync = function() {
 
     if (angular.isDefined(timer)) {
       $interval.cancel(timer);
       timer = undefined;
     }
 
-  }
+  };
 
-  $scope.$on('$destroy', function () {
+  $scope.$on('$destroy', function() {
     $scope.stopSync();
   });
 
   $scope.startSync();
 
 }
-
-function NewInstanceModalCtrl($scope, $modalInstance, cache_images, cache_flavors, cache_ports) {
-
-  $scope.newInstance = {};
-  $scope.modelFilteredPorts = [];
-
-  $scope.images = cache_images;
-  $scope.flavors = cache_flavors;
-
-  var activePorts = [];
-
-  angular.forEach(cache_ports, function (port) {
-
-    if (port.status === 'ACTIVE') {
-      this.push(port);
-    }
-
-  }, activePorts);
-
-  $scope.ports = activePorts;
-
-  $scope.imagePager = {
-    currentPage: 1,
-    perPage: 5,
-    totalItems: function () {
-      return $scope.images.length;
-    }
-  };
-
-  $scope.portPager = {
-    currentPage: 1,
-    perPage: 5,
-    totalItems: function () {
-      return $scope.ports.length;
-    }
-  };
-
-  $scope.flavorPager = {
-    currentPage: 1,
-    perPage: 5,
-    totalItems: function () {
-      return $scope.flavors.length;
-    }
-  };
-
-
-  $scope.$watch('imagePager', function () {
-
-    var begin = (($scope.imagePager.currentPage - 1) * $scope.imagePager.perPage)
-    var end = begin + $scope.imagePager.perPage;
-    $scope.modelFilteredImage = $scope.images.slice(begin, end);
-
-  }, true);
-  
-  $scope.$watch('portPager', function () {
-
-    var begin = (($scope.portPager.currentPage - 1) * $scope.portPager.perPage)
-    var end = begin + $scope.portPager.perPage;
-    $scope.modelFilteredPorts = $scope.ports.slice(begin, end);
-
-  }, true);
-
-  $scope.$watch('flavorPager', function () {
-
-    var begin = (($scope.flavorPager.currentPage - 1) * $scope.flavorPager.perPage)
-    var end = begin + $scope.flavorPager.perPage;
-    $scope.modelFilteredFlavor = $scope.flavors.slice(begin, end);
-
-  }, true);
-
-  $scope.ok = function (newInstance) {
-    $modalInstance.close(newInstance);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-
-};
-
-NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance', 'cache_images', 'cache_flavors', 'cache_ports'];
-
-function MigrateInstanceModalCtrl($scope, $modalInstance){
-
-   $scope.ok = function (targetHost) {
-    $modalInstance.close(targetHost);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-
-};
-
-MigrateInstanceModalCtrl.$inject = ['$scope', '$modalInstance'];
 
 angular.module('dashbordApp')
   .controller('InstancesCtrl', ['$scope', 'instances', 'images', 'flavors', 'ports', '$interval', '$modal', 'mockInstances', InstancesCtrl]);

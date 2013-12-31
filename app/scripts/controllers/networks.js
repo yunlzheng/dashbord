@@ -12,7 +12,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 	$scope.networkBigTotalItems = function () {
 		return $scope.networks.length;
-	}
+	};
 
 	$scope.$watch('networkCurrentPage + networkNumPerPage + networks', function () {
 
@@ -32,7 +32,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 			});
 
-	}
+	};
 
 	$scope.subnets = [];
 
@@ -44,7 +44,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 	$scope.subnetBigTotalItems = function () {
 		return $scope.subnets.length;
-	}
+	};
 
 	$scope.$watch('subnetCurrentPage + subnetNumPerPage + subnets', function () {
 
@@ -64,7 +64,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 			});
 
-	}
+	};
 
 	$scope.ports = [];
 
@@ -76,7 +76,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 	$scope.portBigTotalItems = function () {
 		return $scope.ports.length;
-	}
+	};
 
 	$scope.$watch('portCurrentPage + portNumPerPage + ports', function () {
 
@@ -96,7 +96,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 			});
 
-	}
+	};
 
 	$scope.nats = [];
 
@@ -108,7 +108,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 	$scope.natBigTotalItems = function () {
 		return $scope.nats.length;
-	}
+	};
 
 	$scope.$watch('natCurrentPage + natNumPerPage + nats', function () {
 
@@ -129,7 +129,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 			});
 
-	}
+	};
 
 	$scope.getNats();
 	$scope.getPorts();

@@ -14,7 +14,7 @@ angular.module('dashbordApp')
 
 	$scope.securityGroupBigTotalItems = function () {
 		return $scope.securityGroups.length;
-	}
+	};
 
 	$scope.$watch('securityGroupCurrentPage + securityGroupNumPerPage + securityGroups', function () {
 
@@ -36,7 +36,7 @@ angular.module('dashbordApp')
 
 			});
 
-	}
+	};
 
 	$scope.getSecurityGroups();
 

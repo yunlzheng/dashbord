@@ -39,10 +39,10 @@ html.no-js
               .Hde.Nua(guidedhelpid='appindicator_icon')
             .text(ng-bind='breadcrumbs.getLastLabel()')
             .glyphicon.glyphicon-chevron-down
-          #side-menu.side-menu(ng-class='{side-menu-true: status.showSideMenu, side-menu-false: status.showSideMenu}')
+          #side-menu.side-menu(class='side-menu-{{status.showSideMenu}}')
             a(ng-repeat='menu in menus', ng-click='select(menu)', ng-href='{{ menu.url }}', title='{{ menu.name }}')
               .side-menu-item(ng-class='{current: menu==currentMenu}')
-                .icon.(class='glyphicon.{{menu.icon}}')
+                .icon(class='glyphicon.{{menu.icon}}')
                 span(ng-bind='menu.name')
           ul.nav
             li

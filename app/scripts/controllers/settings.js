@@ -9,7 +9,7 @@ function SettingsCtrl($scope, $cookieStore, $http) {
     'appSecret': $cookieStore.get('appSecret'),
     'accessToken': $cookieStore.get('accessToken'),
     'useNode': true
-  }
+  };
 
   $scope.saveSettings = function (setting) {
 
