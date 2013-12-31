@@ -1,6 +1,55 @@
 'use strict';
 
-function HomeCtrl($scope, $rootScope, charting) {
+function HomeCtrl($scope, $rootScope, pools, charting) {
+
+  $scope.pools = [];
+
+  $scope.getPools = function() {
+
+    pools.getPlatformNodes().success(function(data) {
+
+      $scope.pools = data.data;
+      angular.forEach($scope.pools, function(pool) {
+
+        pool.volumeQuota =[
+          [
+            ['Used', pool.quota.used_share_storage],
+            ['Unused', pool.quota.share_storage-pool.quota.used_share_storage]
+          ]
+        ];
+
+        pool.instanceQuota = [
+          [
+            ['Used', pool.quota.used_instances],
+            ['Unused', pool.quota.instances-pool.quota.used_instances]
+          ]
+        ];
+
+        pool.vcpuQuota = [
+          [
+            ['Used', pool.quota.used_vcups],
+            ['Unused', pool.quota.vcpus-pool.quota.used_vcups]
+          ]
+        ];
+
+        pool.memoryQuota = [
+          [
+            ['Used', pool.quota.used_memory],
+            ['Unused', pool.quota.memory-pool.quota.used_memory]
+          ]
+        ];
+
+      });
+
+      console.log($scope.pools);
+
+    });
+
+  };
+
+  $scope.getPools();
+
+
   $scope.instanceQuota = [
     [
       ['Used', 12],
@@ -43,4 +92,4 @@ angular.module('dashbordApp')
       }
     }
   })
-  .controller('HomeCtrl', ['$scope', '$rootScope', 'charting', HomeCtrl]);
+  .controller('HomeCtrl', ['$scope', '$rootScope', 'pools', 'charting', HomeCtrl]);

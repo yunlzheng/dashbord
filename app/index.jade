@@ -42,7 +42,7 @@ html.no-js
           #side-menu.side-menu(class='side-menu-{{status.showSideMenu}}')
             a(ng-repeat='menu in menus', ng-click='select(menu)', ng-href='{{ menu.url }}', title='{{ menu.name }}')
               .side-menu-item(ng-class='{current: menu==currentMenu}')
-                .icon(class='glyphicon.{{menu.icon}}')
+                .icon.glyphicon(class='{{menu.icon}}')
                 span(ng-bind='menu.name')
           ul.nav
             li
@@ -57,10 +57,10 @@ html.no-js
               a.profile-pic
                 img(src='/images/yeoman.png')
       #dashbord-view(ng-class='{dashbord_big: !status.showSideMenu, dashbord_normal: status.showSideMenu}')
-        ol.dashbord-breadcrumb.breadcrumb
-          li(ng-repeat='breadcrumb in breadcrumbs.getAll()')
-            a(href='#{{breadcrumb.path}}', ng-hide='$last', ng-bind='breadcrumb.label')
-            span(ng-show='$last', ng-bind='breadcrumb.label')
+        //ol.dashbord-breadcrumb.breadcrumb
+        // li(ng-repeat='breadcrumb in breadcrumbs.getAll()')
+        //  a(href='#{{breadcrumb.path}}', ng-hide='$last', ng-bind='breadcrumb.label')
+        //  span(ng-show='$last', ng-bind='breadcrumb.label')
         div(ng-view='')
       .system_messages
         alert(ng-repeat='alert in notify.getAlerts()', type='alert.type', close='notify.closeAlert($index)') &lcub;&lcub;alert&period;msg&rcub;&rcub;

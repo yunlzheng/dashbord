@@ -35,6 +35,7 @@ function SettingsCtrl($scope, $cookieStore, $http) {
       if(data.code==='0'){
         $scope.setting.accessToken = data.token.id;
         $cookieStore.put('accessToken', $scope.setting.accessToken);
+        $cookieStore.put('platformId', data.appkey);
       }
 
     });

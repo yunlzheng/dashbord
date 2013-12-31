@@ -1,6 +1,6 @@
 html
   body
-    #home-dashbord.dashbord-page.dashbord-stage
+    #home-dashbord.dashbord-page.dashbord-stage.no-shadown
       .dashbord-window.no-padding.no-border
         .body.no-padding
           .box.cloumn5
@@ -29,14 +29,28 @@ html
               span.glyphicon.glyphicon-hand-up
               | 更多信息
           .clearfix
-      .dashbord-window.half-window.right
-        .title 存储配额
-        .body
-          div(ui-chart='instanceQuota', chart-options='myChartOpts')
-      .dashbord-window.half-window.left
-        .title 虚拟机配额
-        .body
-          div(ui-chart='volumeQuota', chart-options='myChartOpts')
-      .clearfix
-      .dashbord-window.no-padding.no-border
-        .title 操作日志
+
+      .dashbord-window.no-padding.no-border.no-shadow(ng-repeat="pool in pools")
+        .title 
+        
+        .dashbord-window.half-window.right
+          .title {{pool.name}}-存储使用情况
+          .body
+            div(ui-chart='pool.volumeQuota', chart-options='myChartOpts')
+
+        .dashbord-window.half-window.left
+          .title {{pool.name}}-虚拟机使用情况
+          .body
+            div(ui-chart='pool.instanceQuota', chart-options='myChartOpts')
+        .clearfix
+        
+        .dashbord-window.half-window.right
+          .title {{pool.name}}-vcpu使用情况
+          .body
+            div(ui-chart='pool.vcpuQuota', chart-options='myChartOpts')
+
+        .dashbord-window.half-window.left
+          .title {{pool.name}}-内存使用情况
+          .body
+            div(ui-chart='pool.memoryQuota', chart-options='myChartOpts')
+        .clearfix
