@@ -1,0 +1,99 @@
+html
+  body
+    .dashbord-page
+      h2 &#35268;&#26684;
+      button.btn.btn-primary(type='button', ng-click='startSync()')
+        .glyphicon.glyphicon-refresh
+      button.btn.btn-primary(type='button', ng-click='openCreateModal()') &#21019;&#24314;&#35268;&#26684;
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', ng-disabled='!isSelectedAnyOne()', data-toggle='dropdown')
+          | &#26356;&#22810;&#25805;&#20316;
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(ng-click='remove()') &#21024;&#38500;
+      table.table.table-striped
+        thead
+          tr
+            th
+              input(type='checkbox')
+            th &num;
+            th name
+            th vcpus
+            th disk
+            th ram
+            th swap
+            th ephemeral
+            th is&UnderBar;public
+        tbody
+          tr(ng-repeat='flavor in filteredFlavors')
+            td
+              input(type='checkbox', ng-model='flavor.selected')
+            td &lcub;&lcub; &dollar;index &rcub;&rcub;
+            td &lcub;&lcub; flavor&period;name &rcub;&rcub;
+            td &lcub;&lcub; flavor&period;vcpus &rcub;&rcub;Core
+            td &lcub;&lcub; flavor&period;disk &rcub;&rcub;GB
+            td &lcub;&lcub; flavor&period;ram &rcub;&rcub;MB
+            td &lcub;&lcub; flavor&period;swap &rcub;&rcub;
+            td &lcub;&lcub; flavor&period;ephemeral &rcub;&rcub;
+            td &lcub;&lcub; flavor&period;is&UnderBar;public &rcub;&rcub;
+      pagination.pagination-small(total-items='bigTotalItems()', page='currentPage', max-size='maxSize', boundary-links='true', rotate='false', num-pages='numPages', items-per-page='numPerPage')
+    // Modal
+    script#newFlavorModal.html(type='text/ng-template')
+      <div class="modal-header">
+      <button type="button" class="close" ng-click="cancel()">&times;</button>
+      <h4 class="modal-title">创建规格</h4>
+      </div>
+      <div class="modal-body">
+      <form novalidate name="form" class="form" role="form">
+      <div class="form-group">
+      <label>Name</label>
+      <input ng-model="newFlavor.name" required type="text" class="form-control">
+      </div>
+      <div class="form-group">
+      <label>Disk</label>
+      <input ng-model="newFlavor.disk" required type="number" class="form-control" style="display:none">
+      <div class="radio-btn-select-hor">
+      <button type="button" class="btn " ng-model="newFlavor.disk" btn-radio="20">Small:20G</button>
+      <button type="button" class="btn " ng-model="newFlavor.disk" btn-radio="50">Middle: 50G</button>
+      <button type="button" class="btn " ng-model="newFlavor.disk" btn-radio="100">Big:100G</button>
+      </div>
+      <div class="clearfix"></div>
+      </div>
+      <div class="form-group">
+      <label>VCPUS</label>
+      <input ng-model="newFlavor.vcpus" required type="number" class="form-control" style="display:none">
+      <div class="radio-btn-select-hor">
+      <button type="button" class="btn " ng-model="newFlavor.vcpus" btn-radio="1">Small: 1</button>
+      <button type="button" class="btn " ng-model="newFlavor.vcpus" btn-radio="4">Middle: 4</button>
+      <button type="button" class="btn " ng-model="newFlavor.vcpus" btn-radio="8">Big: 8</button>
+      </div>
+      <div class="clearfix"></div>
+      </div>
+      <div class="form-group">
+      <label>Ram</label>
+      <input ng-model="newFlavor.ram" required type="number" class="form-control" style="display:none">
+      <div class="radio-btn-select-hor">
+      <button type="button" class="btn " ng-model="newFlavor.ram" btn-radio="512">Small: 512M</button>
+      <button type="button" class="btn " ng-model="newFlavor.ram" btn-radio="1024">Middle: 1G</button>
+      <button type="button" class="btn " ng-model="newFlavor.ram" btn-radio="2048">Big: 2G</button>
+      </div>
+      <div class="clearfix"></div>
+      </div>
+      <div class="form-group" style="display:none">
+      <label>Ephemeral</label>
+      <input ng-model="newFlavor.ephemeral" type="number"  min="1" max="10" class="form-control">
+      </div>
+      <div class="form-group" style="display:none">
+      <label>Swap</label>
+      <input ng-model="newFlavor.swap" type="number"  min="1" max="10" class="form-control">
+      </div>
+      <label for="inputAccessToken"><input type="checkbox" ng-model="newFlavor.is_public">
+      Is-public
+      </label>
+      </form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Close</button>
+      <button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="ok(newFlavor)">Save</button>
+      </div>

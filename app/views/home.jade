@@ -1,0 +1,42 @@
+html
+  body
+    #home-dashbord.dashbord-page.dashbord-stage
+      .dashbord-window.no-padding.no-border
+        .body.no-padding
+          .box.cloumn5
+            strong 1
+            h5
+              span.glyphicon.glyphicon-send
+              | &#34394;&#25311;&#26426;
+          .box.cloumn5
+            strong 1
+            h5
+              span.glyphicon.glyphicon-tasks
+              | &#23384;&#20648;&#21367;
+          .box.cloumn5
+            strong 1
+            h5
+              span.glyphicon.glyphicon-tower
+              | &#32593;&#32476;
+          .box.cloumn5
+            strong 1
+            h5
+              span.glyphicon.glyphicon-picture
+              | &#38236;&#20687;
+          .box.cloumn5
+            strong 1
+            h5
+              span.glyphicon.glyphicon-hand-up
+              | &#26356;&#22810;&#20449;&#24687;
+          .clearfix
+      .dashbord-window.half-window.right
+        .title &#34394;&#25311;&#26426;&#37197;&#39069;
+        .body
+          div(ui-chart='instanceQuota', chart-options='myChartOpts')
+      .dashbord-window.half-window.left
+        .title &#23384;&#20648;&#37197;&#39069;
+        .body
+          div(ui-chart='volumeQuota', chart-options='myChartOpts')
+      .clearfix
+      .dashbord-window.no-padding.no-border
+        .title &#25805;&#20316;&#26085;&#24535;

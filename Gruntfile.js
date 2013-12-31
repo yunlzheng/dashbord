@@ -31,6 +31,21 @@ module.exports = function (grunt) {
       vms_host: '172.30.1.12'
     },
 
+    jade: {
+        dist: {
+              options: {
+                  pretty: true
+              },
+              files: [{
+                  expand: true,
+                  cwd: '<%= yeoman.app %>',
+                  dest: '.tmp',
+                  src: ['<%= yeoman.app>/views/*.jade', '*.jade'],
+                  ext: '.html'
+              }]
+        }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
@@ -52,14 +67,19 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
+      jade: {
+        files: ['<% yeoman.app %>/*.jade'],
+        tasks: ['jade']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+           '.tmp/*.html',
+           '{.tmp,<%%= yeoman.app %>}/styles/{,*/}*.css',
+           '{.tmp,<%%= yeoman.app %>}/scripts/{,*/}*.js',
+           '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
         ]
       }
     },
@@ -213,7 +233,7 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: '.tmp/index.html',
       options: {
         dest: '<%= yeoman.dist %>'
       }
@@ -262,10 +282,10 @@ module.exports = function (grunt) {
           // removeOptionalTags: true*/
         },
         files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>',
-          src: ['*.html', 'views/*.html'],
-          dest: '<%= yeoman.dist %>'
+            expand: true,
+            cwd: '.tmp',
+            src: '*.html',
+            dest: '<%= yeoman.dist %>'
         }]
       }
     },
@@ -385,6 +405,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'jade',
       'configureProxies',
       'concurrent:server',
       'autoprefixer',
@@ -408,13 +429,14 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'jade',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
     'concat',
     'ngmin',
     'copy:dist',
-    'cdnify',
+    //'cdnify',
     'cssmin',
     'uglify',
     'rev',

@@ -1,0 +1,44 @@
+html
+  body
+    .dashbord-page
+      h2 &#31995;&#32479;&#38236;&#20687;
+      button.btn.btn-primary(type='button')
+        .glyphicon.glyphicon-refresh
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+          | &#26356;&#22810;&#25805;&#20316;
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='#') &#21152;&#36733;&#38236;&#20687;
+          li
+            a(href='#') &#20462;&#25913;
+          li
+            a(href='#') &#21024;&#38500;
+      table.table.table-striped
+        thead
+          tr
+            th
+              input(type='checkbox')
+            th &#32534;&#21495;
+            th &#21517;&#31216;
+            th Size
+            th &#29366;&#24577;
+            th is&UnderBar;public
+            th protected
+            th required
+            th &#21019;&#24314;&#26102;&#38388;
+        tbody
+          tr(ng-repeat='image in filteredImages')
+            td
+              input(type='checkbox')
+            td &lcub;&lcub; &dollar;index &rcub;&rcub;
+            td &lcub;&lcub; image&period;name &rcub;&rcub;
+            td &lcub;&lcub; image&period;size &VerticalLine; formatByte&rcub;&rcub;
+            td
+              span.label.label-default &lcub;&lcub; image&period;status &rcub;&rcub;
+            td &lcub;&lcub; image&period;is&UnderBar;public &rcub;&rcub;
+            td &lcub;&lcub; image&period;protected &rcub;&rcub;
+            td min&UnderBar;disk&colon;&lcub;&lcub; image&period;min&UnderBar;disk &rcub;&rcub;&comma; min&UnderBar;ram&colon;&lcub;&lcub;image&period;min&UnderBar;ram&rcub;&rcub;
+            td &lcub;&lcub; image&period;create&UnderBar;at &VerticalLine; date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; &rcub;&rcub;
+      pagination.pagination-small(total-items='bigTotalItems()', page='currentPage', max-size='maxSize', boundary-links='true', rotate='false', num-pages='numPages', items-per-page='numPerPage')
