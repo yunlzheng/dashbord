@@ -29,11 +29,11 @@ html
             td
               input(type='checkbox', ng-model='volume.selected')
             td {{ index }}
-            td &lcub;&lcub; volume.display_name &rcub;&rcub;
-            td &lcub;&lcub; volume.size &rcub;&rcub;
+            td {{ volume.display_name }}
+            td {{ volume.size }}
             td
-              span.label.label-default &lcub;&lcub; volume.status &rcub;&rcub;
-            td &lcub;&lcub; volume.created_at &VerticalLine; date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; &rcub;&rcub;
+              span.label.label-default {{ volume.status }}
+            td {{ volume.created_at | date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; &rcub;&rcub;
             td &lcub;&lcub; volume.availability_zone &rcub;&rcub;
             td
               span.label.label-info(ng-repeat='attm in volume.attachments')
