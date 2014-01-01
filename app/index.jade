@@ -34,12 +34,13 @@ html.no-js
       .header
         .header-container
           h3#menu-toggle.text-muted(ng-click='toggleMenu()') Da
-          .break-btn(ng-mouseenter='openMenu()', ng-click='toggleMenu()')
+          .break-btn(ng-click='toggleMenu()')
             .utb
               .Hde.Nua(guidedhelpid='appindicator_icon')
             .text(ng-bind='breadcrumbs.getLastLabel()')
             .glyphicon.glyphicon-chevron-down
           #side-menu.side-menu(class='side-menu-{{status.showSideMenu}}')
+            h2 资源管理
             a(ng-repeat='menu in menus', ng-click='select(menu)', ng-href='{{ menu.url }}', title='{{ menu.name }}')
               .side-menu-item(ng-class='{current: menu==currentMenu}')
                 .icon.glyphicon(class='{{menu.icon}}')
@@ -57,13 +58,14 @@ html.no-js
               a.profile-pic
                 img(src='/images/yeoman.png')
       #dashbord-view(ng-class='{dashbord_big: !status.showSideMenu, dashbord_normal: status.showSideMenu}')
-        //ol.dashbord-breadcrumb.breadcrumb
-        // li(ng-repeat='breadcrumb in breadcrumbs.getAll()')
-        //  a(href='#{{breadcrumb.path}}', ng-hide='$last', ng-bind='breadcrumb.label')
-        //  span(ng-show='$last', ng-bind='breadcrumb.label')
+        ol.dashbord-breadcrumb.breadcrumb
+         li(ng-repeat='breadcrumb in breadcrumbs.getAll()')
+          a(href='#{{breadcrumb.path}}', ng-hide='$last', ng-bind='breadcrumb.label')
+          span(ng-show='$last', ng-bind='breadcrumb.label')
         div(ng-view='')
       .system_messages
-        alert(ng-repeat='alert in notify.getAlerts()', type='alert.type', close='notify.closeAlert($index)') &lcub;&lcub;alert&period;msg&rcub;&rcub;
+        .alert_messages
+          alert(ng-repeat='alert in notify.getAlerts()', type='alert.type', close='notify.closeAlert($index)') &lcub;&lcub;alert&period;msg&rcub;&rcub;
     // Google Analytics: change UA-XXXXX-X to be your site's ID
     //
        <script>
@@ -104,7 +106,7 @@ html.no-js
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/style.js')
     script(src='scripts/app.js')
-    script(src='scripts/services/ui-bootstrap-tpls-0.7.0.js')
+    script(src='scripts/services/ui-bootstrap-tpls-0.9.0.js')
     script(src='scripts/services/breadcrumbs.js')
     script(src='scripts/services/mock.js')
     script(src='scripts/services/resources.js')

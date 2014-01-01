@@ -1,7 +1,7 @@
 html
   body
-    #home-dashbord.dashbord-page.dashbord-stage.no-shadown
-      .dashbord-window.no-padding.no-border
+    #home-dashbord.dashbord-page.dashbord-stage
+      .dashbord-window
         .body.no-padding
           .box.cloumn5
             strong 1
@@ -23,34 +23,36 @@ html
             h5
               span.glyphicon.glyphicon-picture
               | 镜像
-          .box.cloumn5
+          .box.cloumn5.last
             strong 1
             h5
               span.glyphicon.glyphicon-hand-up
               | 更多信息
           .clearfix
 
-      .dashbord-window.no-padding.no-border.no-shadow(ng-repeat="pool in pools")
-        .title 
-        
-        .dashbord-window.half-window.right
-          .title {{pool.name}}-存储使用情况
-          .body
-            div(ui-chart='pool.volumeQuota', chart-options='myChartOpts')
-
-        .dashbord-window.half-window.left
-          .title {{pool.name}}-虚拟机使用情况
-          .body
-            div(ui-chart='pool.instanceQuota', chart-options='myChartOpts')
-        .clearfix
-        
-        .dashbord-window.half-window.right
-          .title {{pool.name}}-vcpu使用情况
-          .body
-            div(ui-chart='pool.vcpuQuota', chart-options='myChartOpts')
-
-        .dashbord-window.half-window.left
-          .title {{pool.name}}-内存使用情况
-          .body
-            div(ui-chart='pool.memoryQuota', chart-options='myChartOpts')
-        .clearfix
+      div.panel-group(ng-repeat="pool in pools")
+        div.panel.panel-default
+          div.panel-heading
+            h4.panel-title(ng-click="pool.open = !pool.open")
+              a 资源池-{{ pool.name }}
+              i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': pool.open, 'glyphicon-chevron-right': !pool.open}")
+          div.panel-collapse.collapse.in
+            div.chart-containers
+              div.chart-container
+                div.chart-title
+                  | 存储卷
+                div.chart(ui-chart='pool.volumeQuota', chart-options='myChartOpts')
+              div.chart-container
+                div.chart-title
+                  | 虚拟机
+                div.chart(ui-chart='pool.instanceQuota', chart-options='myChartOpts')
+            div.chart-containers
+              div.chart-container
+                div.chart-title
+                  | 虚拟CPU
+                div.chart(ui-chart='pool.vcpuQuota', chart-options='myChartOpts')
+              div.chart-container
+                div.chart-title
+                  | 虚拟内存
+                div.chart(ui-chart='pool.memoryQuota', chart-options='myChartOpts')
+      

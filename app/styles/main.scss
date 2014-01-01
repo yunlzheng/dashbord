@@ -9,9 +9,11 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'alert';
 
 /** import page css*/
+@import "base";
 @import "page";
 @import "instance";
 @import "modal";
+@import "chart";
 
 .browsehappy {
     margin: 0.2em 0;
@@ -59,124 +61,97 @@ a{
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #fff;
+    background-color: rgba(240,242,244,.85);
     z-index: 1000;
-    height:42px;
+    height:$head_height;
     padding: 0px 0px;
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: $head_height;
+        width: $head_height;
+        padding: 0px 7px;
+        color: rgb(0, 0, 0);
+        display: inline-block;
+        cursor: pointer;
+        a{
+            color: #fff;
+        }
+    }
 
-}
+    .break-btn {
+        -webkit-transition: margin-left .15s linear;
+        transition: margin-left .15s linear;
+        -webkit-user-select: none;
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+        margin: 7px 0 7px 30px;
+        padding: 5px 5px 5px 8px;
+        display: inline-block;
+        font-weight:normal;
+        line-height: 15px;
+        cursor: pointer;
 
-.header .header-container{
+        .text{
+            color: rgb(115, 115, 115);
+            display: inline-block;
+            font-size: 14px;
+            margin-bottom: 1px;
+            margin-right: 5px;
+            max-width: 132px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: bottom;
+            display: inline-block;
+        }
+
+        .glyphicon{
+            font-weight:normal;
+        }
+    }
+
+    .current-menu{
+        display: inline-block;
+    }
+
+    .nav{
+        float: right;
+        margin-right: 0;
+
+        li{
+            float: left;
+        }
+
+        .profile-pic{
+            color: #474d57;
+            text-shadow: 0 1px 0 #fff;
+            font-size: 14px;
+            padding: 7px;
+            img{
     
+                width: 26px;
+                height: 26px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+                border-radius: 4px;
+            }
+        }
+    }
 }
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding: 0px 7px;
-    background-color: #E6331A;
-    color: #fff;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.header h3 a{
-    color: #fff;
-}
-
-.header .break-btn {
-    -webkit-transition: margin-left .15s linear;
-    transition: margin-left .15s linear;
-    -webkit-user-select: none;
-    background-color: rgb(255, 255, 255);
-    border-radius: 3px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-    margin: 7px 0 7px 30px;
-    padding: 5px 5px 5px 8px;
-    display: inline-block;
-    font-weight:normal;
-    line-height: 15px;
-    cursor: pointer;
-}
-
-.header .break-btn .text{
-    color: rgb(115, 115, 115);
-    display: inline-block;
-    font-size: 14px;
-    margin-bottom: 1px;
-    margin-right: 5px;
-    max-width: 132px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: bottom;
-    display: inline-block;
-}
-
-.header .break-btn .glyphicon{
-    font-weight:normal;
-}
-
-
-.header .current-menu{
-    display: inline-block;
-}
-
-.header .nav{
-    float: right;
-    margin-right: 0;
-}
-
-.header .nav li{
-    float: left;
-}
-
-.header .nav li .arrow-up 
-{
-     width: 0;   
-    height: 0;   
-    border-left: 5px solid transparent;  /* 左边框的宽 */  
-    border-right: 5px solid transparent; /* 右边框的宽 */  
-    border-bottom: 5px solid #fff; /* 下边框的长度|高,以及背景色 */  
-    font-size: 0;  
-    line-height: 0;  
-    left: 17px;
-    top: 43px;
-    position: absolute;
-    display:none;
-}
-
-.header .nav .profile-pic{
-    color: #474d57;
-    text-shadow: 0 1px 0 #fff;
-    font-size: 14px;
-    padding: 7px;
-}
-
-.header .nav .profile-pic img{
-    
-    width: 26px;
-    height: 26px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-}
-
 
 .header .side-menu{
     
     position: fixed;
-    top: 43px;
+    top:$head_height;
     bottom: 0;
     left: 0;
-    width: 250px;
+    width: $side_width;
     z-index: 701;
-    background-color: #FFF;
-    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: rgb(30,30,26);
+    
     -webkit-transition-duration: .436s;
     transition-duration: .436s;
     -webkit-transition-property: margin-left;
@@ -185,52 +160,60 @@ a{
     transition-timing-function: ease-in-out;
     cursor: pointer;
     overflow: auto;
+    h2{
+        display: block;
+        padding: 3px 15px;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 20px;
+        color: #fff;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+    }
     a{
         text-decoration: none;
-        color: rgb(115, 115, 115)
+        color: #fff;
+    }
+    .icon{
+        -webkit-transition-duration: .436s;
+        transition-duration: .436s;
+        -webkit-transition-property: float;
+        transition-property: float;
+        -webkit-transition-timing-function: ease-in-out;
+        transition-timing-function: ease-in-out;
+        margin-right: 5px;
+    }
+    .side-menu-item{
+        display: block;
+        height: 44px;
+        padding: 14px 0 0 30px;
+        text-decoration: none;
+        &:hover{
+            background-color: rgba(85, 88, 92, .85);
+        }
+        &.current{
+            background-color: rgb(66, 133, 244);
+            color: rgb(255, 255, 255);
+        }
     }
     &.side-menu-true{
         margin-left: 0px;
-        .side-menu-item.current{
-            background-color: #F5F5F5;
-        }
+
     }
     &.side-menu-false{
-        //margin-left: -290px;
-        margin-left: -205px;
+        margin-left: -($side_width - $head_height);
+        .icon{
+            float: right;
+            margin-right: 16px;
+            font-size:16px;
+
+        }
+        h2{
+            display:none;
+        }
     }
 }
 
-.side-menu-item{
-    display: block;
-    height: 44px;
-    padding: 14px 0 0 30px;
-    text-decoration: none;
-    &:hover{
-        background-color: #F5F5F5;
-    }
-    &.current{
-        background-color: #F5F5F5;
-    }
-}
-
-.side-menu .icon{
-    -webkit-transition-duration: .436s;
-    transition-duration: .436s;
-    -webkit-transition-property: float;
-    transition-property: float;
-    -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
-    margin-right: 5px;
-}
-
-.side-menu-false .icon{
-    
-    float: right;
-    margin-right: 16px;
-    font-size:16px;
-
-}
 
 /* Custom page footer */
 .footer {
@@ -279,29 +262,19 @@ a{
 }
 
 .dashbord-breadcrumb{
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding: 4px 15px;
+    margin-top: 15px;
+    padding-top: 20px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     background-color: #eeeeee;
-    border: 0.5px solid rgb(216, 216, 216);
+    a{
+    font-size: 16px;
+    }
 }
 
 #dashbord-view{
-    background-color: #eeeeee;
-    padding: 4px 15px;
+    background-color: #fff;
 }
-
-
-
-.dashbord-stage{
-    background-color:rgb(238, 238, 238);
-    border:none;
-    padding: 0px;
-    clear:both;
-}
-
 
 .dashbord-stage .half-window{
     width:49%;
@@ -309,14 +282,8 @@ a{
 
 .dashbord-stage .dashbord-window{
 
-    background-color: rgb(255, 255, 255);
     border: 0.5px solid rgb(216, 216, 216);
     margin: 10px 0px;
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
-    &.no-shadow{
-        box-shadow: none;
-        background-color: rgba(255, 255, 255, 0);
-    }
     &.no-border{
         border:none;
     }
@@ -344,10 +311,13 @@ a{
 .box{
     text-align:center;
     cursor: pointer;
-    border: 1px solid rgb(238, 238, 238);
+    border-right: 1px solid rgb(148, 172, 190);
     overflow: hidden;
     margin-left:-1px; 
     margin-bottom:-1px;
+    &.last{
+    border:none;
+    }
 }
 
 .box strong{

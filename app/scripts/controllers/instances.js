@@ -102,7 +102,7 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
   $scope.filteredVms = [];
   $scope.maxSize = 5;
   $scope.currentPage = 1;
-  $scope.numPerPage = 6;
+  $scope.numPerPage = 10;
 
   var InstanceStatus = {
     ACTIVE: 'ACTIVE',
@@ -434,7 +434,7 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
         $scope.getImages();
         $scope.getFlavor();
 
-      }, 5000);
+      }, 8000);
 
     }
 
