@@ -379,6 +379,7 @@ function SecurityGroups($http, $cookieStore) {
 function Pools($http, $cookieStore) {
 
 	var pools = '/v1/pools';
+	var poolNodes = "/v1/pool-nodes";
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
 
@@ -392,11 +393,15 @@ function Pools($http, $cookieStore) {
 
 	if (!useNode) {
 		pools = rootUrl + pools;
+		poolNodes = rootUrl + poolNodes;
 	}
 
 	return {
 		getPlatformNodes: function() {
 			return $http.get(pools + '?platform_id=' + $cookieStore.get('platformId'), httpConfig);
+		},
+		getPoolNodes: function(pool_id) {
+			return $http.get(poolNodes + '?pool_id=' + pool_id, httpConfig);
 		}
 	}
 

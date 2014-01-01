@@ -9,27 +9,22 @@ html
           tr
             th 
             th #
-            th 名称
-            th 描述
-            th 类型
-            th 配额
+            th ip地址
+            th 虚拟CPU
+            th 实例
+            th 内存
+            th 磁盘
+            th 存储类型
         tbody
-          tr(ng-repeat="pool in pools")
+          tr(ng-repeat="node in modelFilteredNodes")
             td
               input(type="checkbox")
             td {{ $index }}
-            td {{ pool.name }}
-            td {{ pool.description }}
-            td {{ pool.type }}
-            td 
-              | {{ pool.quota.instances }} 
-              | {{ pool.quota.memory }}
-              | {{ pool.quota.share_storage }}
-              | {{ pool.quota.used_instances }}
-              | {{ pool.quota.used_memory }}
-              | {{ pool.quota.used_share_storage }}
-              | {{ pool.quota.used_vcups }}
-              | {{ pool.quota.used_vlan }}
-              | {{ pool.quota.vcpus }}
-              | {{ pool.quota.vlan }}
+            td {{ node.ip }}
+            td {{ node.vcpu }}
+            td {{ node.instance }}
+            td {{ node.memory }}
+            td {{ node.disk }}
+            td {{ node.storage_type }}
 
+      pagination.pagination-small(total-items='totalItems()', page='currentPage', max-size='maxSize', boundary-links='true', rotate='false', items-per-page='numPerPage')
