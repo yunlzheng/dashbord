@@ -2,62 +2,62 @@ html
   body
     .modal-header
       button.close(type='button', ng-click='cancel()') &times;
-      h4#myModalLabel.modal-title &#21019;&#24314;&#34394;&#25311;&#26426;&#23454;&#20363;
+      h4#myModalLabel.modal-title 创建虚拟机
     .modal-body.modal-steps.new_instance
       .new_instance_config
         form.form(novalidate='', name='form', role='form')
           fieldset
-            legend &#36873;&#25321;&#26144;&#20687;
+            legend 选择镜像
             input.form-control(type='text', ng-model='newInstance.image.id', required='', style='display:none')
             pager(total-items='imagePager.totalItems()', page='imagePager.currentPage', items-per-page='imagePager.perPage')
             .radio-btn-select
-              button.btn(ng-repeat='image in modelFilteredImage', type='button', ng-model='newInstance.image', btn-radio='image') &lcub;&lcub; image&period;name &rcub;&rcub;
+              button.btn(ng-repeat='image in modelFilteredImage', type='button', ng-model='newInstance.image', btn-radio='image') {{ image.name }}
           fieldset
-            legend &#36873;&#25321;&#31867;&#22411;
+            legend 选择类型
             input.form-control(type='text', ng-model='newInstance.flavor.id', required='', style='display:none')
             pager(total-items='flavorPager.totalItems()', page='flavorPager.currentPage', items-per-page='flavorPager.perPage')
             .radio-btn-select
-              button.btn(ng-repeat='flavor in modelFilteredFlavor', type='button', ng-model='newInstance.flavor', btn-radio='flavor') &lcub;&lcub; flavor&period;name &rcub;&rcub;
+              button.btn(ng-repeat='flavor in modelFilteredFlavor', type='button', ng-model='newInstance.flavor', btn-radio='flavor') {{ flavor.name }}
           fieldset
-            legend &#35774;&#32622;&#32593;&#32476;-&lcub;&lcub; portPager&period;modelPortCurrentPage &rcub;&rcub;
+            legend 设置网络
             input.form-control(type='text', ng-model='newInstance.port.id', required='', style='display:none')
             pager(total-items='portPager.totalItems()', page='portPager.currentPage', items-per-page='portPager.perPage')
             .radio-btn-select
-              button.btn(ng-repeat='port in modelFilteredPorts', type='button', ng-model='newInstance.port', btn-radio='port') &lcub;&lcub; port&period;name &rcub;&rcub; &NonBreakingSpace; &lcub;&lcub; port&period;mac&UnderBar;address &rcub;&rcub;
+              button.btn(ng-repeat='port in modelFilteredPorts', type='button', ng-model='newInstance.port', btn-radio='port') {{ port.name }} &NonBreakingSpace; {{ port.mac_address }}
           fieldset
-            legend &#22522;&#26412;&#35774;&#32622;
+            legend 基本设置
             .form-group
-              label &#21517;&#31216;
+              label 虚拟机名称
               input.form-control(type='text', ng-model='newInstance.name', required='')
       .new_instance_detail
         form
           fieldset
-            legend &#37197;&#32622;&#35814;&#24773;
+            legend 配置清单
             table.table.table-bordered
               tr
-                th(style='width:50px') &#32452;&#20214;
-                th &#21442;&#25968;
+                th(style='width:50px') 组件
+                th 参数
               tr
-                td &#21517;&#31216;
-                td &lcub;&lcub; newInstance&period;name &rcub;&rcub;
+                td 名称
+                td {{ newInstance.name }}
               tr
-                td &#26144;&#20687;
-                td &lcub;&lcub; newInstance&period;image&period;name &rcub;&rcub;
+                td 镜像
+                td {{ newInstance.image.name }}
               tr
-                td &#31867;&#22411;
-                td &lcub;&lcub; newInstance&period;flavor&period;name &rcub;&rcub;
+                td 规格
+                td {{ newInstance.flavor.name }}
               tr
                 td CPU
-                td &lcub;&lcub; newInstance&period;flavor&period;vcpus &rcub;&rcub;
+                td {{ newInstance.flavor.vcpus }}
               tr
-                td &#20869;&#23384;
-                td &lcub;&lcub; newInstance&period;flavor&period;ram &rcub;&rcub;
+                td 内存
+                td {{ newInstance.flavor.ram }}
               tr
-                td &#30828;&#30424;
-                td &lcub;&lcub; newInstance&period;flavor&period;disk &rcub;&rcub;
+                td 硬盘
+                td {{ newInstance.flavor.disk }}
               tr
-                td &#32593;&#32476;
-                td &lcub;&lcub; newInstance&period;port&period;mac&UnderBar;address &rcub;&rcub;
+                td 网卡
+                td {{ newInstance.port.mac_address }}
       .clearfix
     .modal-footer
       button.btn.btn-default(type='button', data-dismiss='modal', ng-click='cancel()') Close
