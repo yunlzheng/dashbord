@@ -10,6 +10,9 @@
     position: relative;
     top: 0;
     min-height:200px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    margin:10px;
    
     .list-view{
         
@@ -38,7 +41,9 @@
     font-size: 16px;
     font-weight: bold;
     border-bottom: 1px #fff solid;
-    padding-bottom: 20px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid rgb(221, 221, 221);
+    background-color: whitesmoke;
 }
 
 .dashbord-stage{

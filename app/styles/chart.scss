@@ -6,21 +6,24 @@
 }
 
 .chart-containers{
+  
+  margin-top:10px;
   .chart-container{
     width: 49%;
     display: inline-block;
     padding: 10px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
     .chart-title{
-      margin-top:20px;
-      padding-bottom:5px;
+      background-color: whitesmoke;
+      padding:5px;
       text-align: center;
-      padding-left:20px;
       font-size: 14px;
       font-weight: bold;
       line-height: 20px;
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
       text-transform: uppercase;
-      border-bottom: 1px solid #ddd;
+      border: 1px solid #ddd;
     }
     .chart{
       

@@ -188,6 +188,7 @@ a{
         height: 44px;
         padding: 14px 0 0 30px;
         text-decoration: none;
+        border-bottom: 1px solid rgb(43, 49, 49);
         &:hover{
             background-color: rgba(85, 88, 92, .85);
         }
@@ -311,7 +312,7 @@ a{
 .box{
     text-align:center;
     cursor: pointer;
-    border-right: 1px solid rgb(148, 172, 190);
+    border-right: 1px solid rgb(221, 221, 221);
     overflow: hidden;
     margin-left:-1px; 
     margin-bottom:-1px;

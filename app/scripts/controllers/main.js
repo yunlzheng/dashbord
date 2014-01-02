@@ -9,57 +9,57 @@ function MainCtrl($rootScope, $scope, breadcrumbs, notify) {
 				{
 					name: '主页',
 					url: '#/',
-					icon: 'glyphicon-th-list'
+					icon: 'fa-tachometer '
 				},
 				{
 					name: '计算节点',
 					url: '#/nodes',
-					icon: 'glyphicon-indent-left'
+					icon: 'fa-cloud'
 				},
 				{
 					name: '虚拟实例',
 					url: '#/instances',
-					icon: 'glyphicon-send'
+					icon: 'fa-desktop'
 				},
 				{
 					name: '存储卷',
 					url: '#/volumes',
-					icon: 'glyphicon-hdd'
+					icon: 'fa-hdd-o'
 				},
 				{
 					name: '网络',
 					url: '#/networks',
-					icon: 'glyphicon-tower'
+					icon: 'fa-code-fork '
 				},
 				{
 					name: '虚拟路由',
 					url: '#/routes',
-					icon: 'glyphicon-indent-left'
+					icon: 'fa-exchange'
 				},
 				{
 					name: '安全组',
 					url: '#/security-groups',
-					icon: 'glyphicon-indent-right'
+					icon: 'fa-credit-card'
 				},
 				{
 					name: '镜像',
 					url: '#/images',
-					icon: 'glyphicon-list-alt'
+					icon: 'fa-camera '
 				},
 				{
 					name: '规格',
 					url: '#/flavors',
-					icon: 'glyphicon-indent-right'
+					icon: 'fa-bullseye'
 				},
 				{
 					name: '设置',
 					url: '#/settings',
-					icon: 'glyphicon-cog'
+					icon: 'fa-cog'
 				},
 				{
 					name: '帮助',
 					url: '#/help',
-					icon: 'glyphicon-bullhorn'
+					icon: 'fa-comment'
 				}
 			];
 

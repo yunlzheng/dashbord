@@ -6,22 +6,22 @@ html
           .box.cloumn5
             strong 1
             h5
-              span.glyphicon.glyphicon-send
+              span.fa.fa-desktop
               | 虚拟机
           .box.cloumn5
             strong 1
             h5
-              span.glyphicon.glyphicon-tasks
+              span.fa.fa-hdd-o
               | 存储卷
           .box.cloumn5
             strong 1
             h5
-              span.glyphicon.glyphicon-tower
+              span.fa.fa-code-fork
               | 网络
           .box.cloumn5
             strong 1
             h5
-              span.glyphicon.glyphicon-picture
+              span.fa.fa-camera
               | 镜像
           .box.cloumn5.last
             strong 1
@@ -35,7 +35,7 @@ html
           div.panel-heading
             h4.panel-title(ng-click="pool.open = !pool.open")
               a 资源池-{{ pool.name }}
-              i.pull-right.glyphicon(ng-class="{'glyphicon-chevron-down': pool.open, 'glyphicon-chevron-right': !pool.open}")
+              i.pull-right.glyphicon.glyphicon-chevron-down
           div.panel-collapse.collapse.in
             div.chart-containers
               div.chart-container
