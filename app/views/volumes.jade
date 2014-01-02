@@ -34,7 +34,7 @@ html
             td
               span.label.label-default {{ volume.status }}
             td {{ volume.created_at | date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; &rcub;&rcub;
-            td &lcub;&lcub; volume.availability_zone &rcub;&rcub;
+            td {{ volume.availability_zone }}
             td
               span.label.label-info(ng-repeat='attm in volume.attachments')
                 | attm

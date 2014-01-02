@@ -1,7 +1,7 @@
 html
   body
     .dashbord-page
-      h2 Network
+      h2 网络
       button.btn.btn-primary(type='button', ng-click='getNetworks()')
         .glyphicon.glyphicon-refresh
       .btn-group
@@ -10,135 +10,135 @@ html
           span.caret
         ul.dropdown-menu(role='menu')
           li
-            a(href='#') &#21024;&#38500;
+            a(href='#') 删除
       table.table.table-striped
         thead
           tr
             th
               input(type='checkbox')
-            th &#32534;&#21495;
-            th &#21517;&#31216;
-            th &#29366;&#24577;
-            th vlan&UnderBar;id
+            th 编号
+            th 名称
+            th 状态
+            th vlan_id
             th shared
-            th &#23376;&#32593;
+            th 子网
         tbody
           tr(ng-repeat='network in filteredNetworks')
             td
               input(type='checkbox')
-            td &lcub;&lcub; &dollar;index &rcub;&rcub;
-            td &lcub;&lcub; network&period;name &rcub;&rcub;
+            td {{ index }}
+            td {{ network.name }}
             td
-              span.label.label-default &lcub;&lcub; network&period;status &rcub;&rcub;
-            td &lcub;&lcub; network&period;vlan&UnderBar;id &rcub;&rcub;
+              span.label.label-default {{ network.status }}
+            td {{ network.vlan.id }}
             td
-              span.label.label-default &lcub;&lcub; network&period;shared &rcub;&rcub;
+              span.label.label-default {{ network.shared }}
             td
               span(ng-repeat='subnet in network.subnets')
-                | &lcub;&lcub; subnet &rcub;&rcub;
+                | {{ subnet }}
       pagination.pagination-small(total-items='networkBigTotalItems()', page='networkCurrentPage', max-size='networkMaxSize', boundary-links='true', rotate='false', num-pages='networkNumPages', items-per-page='networkNumPerPage')
     .dashbord-page
-      h2 Subnet
+      h2 子网
       button.btn.btn-primary(type='button')
         .glyphicon.glyphicon-refresh
       .btn-group
         button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
-          | &#26356;&#22810;&#25805;&#20316;
+          | 更多操作
           span.caret
         ul.dropdown-menu(role='menu')
           li
-            a(href='#') &#21024;&#38500;
+            a(href='#') 删除
       table.table.table-striped
         thead
           tr
             th
               input(type='checkbox')
-            th &#32534;&#21495;
-            th &#21517;&#31216;
-            th gateway&UnderBar;ip
-            th ip&UnderBar;version
-            th enable&UnderBar;dhcp
+            th 编号
+            th 名称
+            th gateway.ip
+            th ip.version
+            th enable.dhcp
             th cidr
-            th host&UnderBar;routes
-            th allocation&UnderBar;pools
-            th dns&UnderBar;nameservers
+            th host.routes
+            th allocation.pools
+            th dns.nameservers
         tbody
           tr(ng-repeat='subnet in filteredSubnets')
             td
               input(type='checkbox')
-            td &lcub;&lcub; &dollar;index &rcub;&rcub;
-            td &lcub;&lcub; subnet&period;name &rcub;&rcub;
-            td &lcub;&lcub; subnet&period;gateway&UnderBar;ip &rcub;&rcub;
-            td &lcub;&lcub; subnet&period;ip&UnderBar;version &rcub;&rcub;
-            td &lcub;&lcub; subnet&period;enable&UnderBar;dhcp &rcub;&rcub;
-            td &lcub;&lcub; subnet&period;cidr &rcub;&rcub;
-            td &lcub;&lcub; subnet&period;host&UnderBar;routes &rcub;&rcub;
-            td &lcub;&lcub; subnet&period;allocation&UnderBar;pools&period;start &rcub;&rcub;~&lcub;&lcub; subnet&period;allocation&UnderBar;pools&period;start &rcub;&rcub;
-            td &lcub;&lcub; subnet&period;dns&UnderBar;nameservers &rcub;&rcub;
+            td {{ $index }}
+            td {{ subnet.name }}
+            td {{ subnet.gateway.ip }}
+            td {{ subnet.ip.version }}
+            td {{ subnet.enable.dhcp }}
+            td {{ subnet.cidr }}
+            td {{ subnet.host.routes }}
+            td {{ subnet.allocation.pools.start }}~{{ subnet.allocation.pools.start }}
+            td {{ subnet.dns.nameservers }}
       pagination.pagination-small(total-items='subnetBigTotalItems()', page='subnetCurrentPage', max-size='subnetMaxSize', boundary-links='true', rotate='false', num-pages='subnetNumPages', items-per-page='subnetNumPerPage')
     .dashbord-page
-      h2 &#32593;&#21345;
+      h2 网卡
       button.btn.btn-primary(type='button')
         .glyphicon.glyphicon-refresh
       .btn-group
         button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
-          | &#26356;&#22810;&#25805;&#20316;
+          | 更多操作
           span.caret
         ul.dropdown-menu(role='menu')
           li
-            a(href='#') &#21024;&#38500;
+            a(href='#') 删除
       table.table.table-striped
         thead
           tr
             th
               input(type='checkbox')
-            th &#32534;&#21495;
-            th &#21517;&#31216;
-            th &#29366;&#24577;
-            th attached&UnderBar;phyport
-            th compute&UnderBar;node
-            th device&UnderBar;owner
-            th mac&UnderBar;address
-            th fixed&UnderBar;ips
+            th 编号
+            th 名称
+            th 状态
+            th attached_phyport
+            th 计算节点
+            th device_owner
+            th mac地址
+            th fixed_ips
         tbody
           tr(ng-repeat='port in filteredPorts')
             td
               input(type='checkbox')
-            td &lcub;&lcub; &dollar;index &rcub;&rcub;
-            td &lcub;&lcub; port&period;name &rcub;&rcub;
-            td &lcub;&lcub; port&period;status &rcub;&rcub;
-            td &lcub;&lcub; port&period;attached&UnderBar;phyport &rcub;&rcub;
-            td &lcub;&lcub; port&period;compute&UnderBar;node &rcub;&rcub;
-            td &lcub;&lcub; port&period;device&UnderBar;owner &rcub;&rcub;
-            td &lcub;&lcub; port&period;mac&UnderBar;address &rcub;&rcub;
+            td {{ $index }}
+            td {{ port.name }}
+            td {{ port.status }}
+            td {{ port.attached.phyport }}
+            td {{ port.compute.node }}
+            td {{ port.device.owner }}
+            td {{ port.mac.address }}
             td
               span(ng-repeat='fixed_ip in port.fixed_ips')
-                | &lcub;&lcub; fixed&UnderBar;ip&period;ip&UnderBar;address &rcub;&rcub;
+                | {{ fixed.ip.ip.address }}
       pagination.pagination-small(total-items='portBigTotalItems()', page='portCurrentPage', max-size='portMaxSize', boundary-links='true', rotate='false', num-pages='portNumPages', items-per-page='portNumPerPage')
     .dashbord-page
-      h2 &#31471;&#21475;&#26144;&#23556;
+      h2 端口映射
       button.btn.btn-primary(type='button')
         .glyphicon.glyphicon-refresh
       .btn-group
         button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
-          | &#26356;&#22810;&#25805;&#20316;
+          | 更多操作
           span.caret
         ul.dropdown-menu(role='menu')
           li
-            a(href='#') &#21024;&#38500;
+            a(href='#') 删除
       table.table.table-striped
         thead
           tr
             th
               input(type='checkbox')
-            th &#32534;&#21495;
-            th &#21517;&#31216;
-            th &#29366;&#24577;
-            th &#21019;&#24314;&#26102;&#38388;
+            th 编号
+            th 名称
+            th 状态
+            th 创建时间
         tbody
           tr(ng-repeat='nat in filteredNats')
             td
               input(type='checkbox')
-            td &lcub;&lcub; &dollar;index &rcub;&rcub;
-            td &lcub;&lcub; nat&period;name &rcub;&rcub;
+            td {{ $index }}
+            td {{ nat.name }}
       pagination.pagination-small(total-items='natBigTotalItems()', page='natCurrentPage', max-size='natMaxSize', boundary-links='true', rotate='false', num-pages='natNumPages', items-per-page='natNumPerPage')
