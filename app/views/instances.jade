@@ -71,7 +71,16 @@ html
             td.auto-hide
               span(ng-repeat='net in vm.networks.ads')
                 | &lcub;&lcub; net &rcub;&rcub;
-      pagination.pagination-small(total-items='bigTotalItems()', page='currentPage', max-size='maxSize', boundary-links='true', rotate='false', num-pages='numPages', items-per-page='numPerPage')
+      pagination.pagination-small(total-items='bigTotalItems()', 
+        page='currentPage', 
+        max-size='maxSize', 
+        boundary-links='true', 
+        rotate='false',
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
     script#migrateInstanceModal.html(type='text/ng-template')
       <div class="modal-header">
       <button type="button" class="close" ng-click="cancel()">&times;</button>

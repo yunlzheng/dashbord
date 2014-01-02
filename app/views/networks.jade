@@ -36,7 +36,18 @@ html
             td
               span(ng-repeat='subnet in network.subnets')
                 | {{ subnet }}
-      pagination.pagination-small(total-items='networkBigTotalItems()', page='networkCurrentPage', max-size='networkMaxSize', boundary-links='true', rotate='false', num-pages='networkNumPages', items-per-page='networkNumPerPage')
+      pagination.pagination-small(
+        total-items='networkBigTotalItems()', 
+        page='networkCurrentPage', 
+        max-size='networkMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='networkNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
     .dashbord-page
       h2 子网
       button.btn.btn-primary(type='button')
@@ -75,7 +86,19 @@ html
             td {{ subnet.host.routes }}
             td {{ subnet.allocation.pools.start }}~{{ subnet.allocation.pools.start }}
             td {{ subnet.dns.nameservers }}
-      pagination.pagination-small(total-items='subnetBigTotalItems()', page='subnetCurrentPage', max-size='subnetMaxSize', boundary-links='true', rotate='false', num-pages='subnetNumPages', items-per-page='subnetNumPerPage')
+      pagination.pagination-small(
+        total-items='subnetBigTotalItems()', 
+        page='subnetCurrentPage', 
+        max-size='subnetMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='subnetNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}',
+        )
     .dashbord-page
       h2 网卡
       button.btn.btn-primary(type='button')
@@ -114,7 +137,18 @@ html
             td
               span(ng-repeat='fixed_ip in port.fixed_ips')
                 | {{ fixed.ip.ip.address }}
-      pagination.pagination-small(total-items='portBigTotalItems()', page='portCurrentPage', max-size='portMaxSize', boundary-links='true', rotate='false', num-pages='portNumPages', items-per-page='portNumPerPage')
+      pagination.pagination-small(
+        total-items='portBigTotalItems()', 
+        page='portCurrentPage', 
+        max-size='portMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='portNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
     .dashbord-page
       h2 端口映射
       button.btn.btn-primary(type='button')
@@ -141,4 +175,15 @@ html
               input(type='checkbox')
             td {{ $index }}
             td {{ nat.name }}
-      pagination.pagination-small(total-items='natBigTotalItems()', page='natCurrentPage', max-size='natMaxSize', boundary-links='true', rotate='false', num-pages='natNumPages', items-per-page='natNumPerPage')
+      pagination.pagination-small(
+        total-items='natBigTotalItems()', 
+        page='natCurrentPage', 
+        max-size='natMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='natNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')

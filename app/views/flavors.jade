@@ -37,7 +37,18 @@ html
             td &lcub;&lcub; flavor&period;swap &rcub;&rcub;
             td &lcub;&lcub; flavor&period;ephemeral &rcub;&rcub;
             td &lcub;&lcub; flavor&period;is&UnderBar;public &rcub;&rcub;
-      pagination.pagination-small(total-items='bigTotalItems()', page='currentPage', max-size='maxSize', boundary-links='true', rotate='false', num-pages='numPages', items-per-page='numPerPage')
+      pagination.pagination-small(
+        total-items='bigTotalItems()', 
+        page='currentPage', 
+        max-size='maxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='numPages',
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
     // Modal
     script#newFlavorModal.html(type='text/ng-template')
       <div class="modal-header">

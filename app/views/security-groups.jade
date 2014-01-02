@@ -34,4 +34,15 @@ html
                 span.label.label-default &lcub;&lcub; rule&period;direction &rcub;&rcub;
                 span.label.label-default &lcub;&lcub; rule&period;ethertype &rcub;&rcub;
             td &lcub;&lcub; securityGroup&period;metadata&period;network&UnderBar;id &rcub;&rcub;
-      pagination.pagination-small(total-items='securityGroupBigTotalItems()', page='securityGroupCurrentPage', max-size='securityGroupMaxSize', boundary-links='true', rotate='false', num-pages='securityGroupNumPages', items-per-page='securityGroupNumPerPage')
+      pagination.pagination-small(
+        total-items='securityGroupBigTotalItems()', 
+        page='securityGroupCurrentPage', 
+        max-size='securityGroupMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='securityGroupNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')

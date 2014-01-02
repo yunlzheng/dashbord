@@ -38,7 +38,18 @@ html
             td
               span.label.label-info(ng-repeat='attm in volume.attachments')
                 | attm
-      pagination.pagination-small(total-items='bigTotalItems()', page='currentPage', max-size='maxSize', boundary-links='true', rotate='false', num-pages='numPages', items-per-page='numPerPage')
+      pagination.pagination-small(
+        total-items='bigTotalItems()', 
+        page='currentPage', 
+        max-size='maxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='numPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
     // Modal
     script#myModalContent.html(type='text/ng-template')
       <div class="modal-header">

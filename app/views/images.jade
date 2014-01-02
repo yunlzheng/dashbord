@@ -41,4 +41,15 @@ html
             td &lcub;&lcub; image&period;protected &rcub;&rcub;
             td min&UnderBar;disk&colon;&lcub;&lcub; image&period;min&UnderBar;disk &rcub;&rcub;&comma; min&UnderBar;ram&colon;&lcub;&lcub;image&period;min&UnderBar;ram&rcub;&rcub;
             td &lcub;&lcub; image&period;create&UnderBar;at &VerticalLine; date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; &rcub;&rcub;
-      pagination.pagination-small(total-items='bigTotalItems()', page='currentPage', max-size='maxSize', boundary-links='true', rotate='false', num-pages='numPages', items-per-page='numPerPage')
+      pagination.pagination-small(
+        total-items='bigTotalItems()', 
+        page='currentPage', 
+        max-size='maxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='numPages',
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
