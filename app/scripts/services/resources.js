@@ -1,5 +1,40 @@
 'use strict';
 
+function VirtualRoutes($http, $cookieStore) {
+
+
+	var virtualRoutersUrl = '/v1.1/virtualrouters';
+	var virtualRouterUrl= '/v1.1/virtualrouter'
+
+	var rootUrl = $cookieStore.get('rootUrl');
+	var useNode = $cookieStore.get('useNode');
+
+	var httpConfig = {
+		'headers': {
+			'X-Consumer-key': $cookieStore.get('appKey'),
+			'X-Auth-Token': $cookieStore.get('accessToken'),
+			'X-Api-Request': true
+		}
+	};
+
+	if (!useNode) {
+		virtualRoutersUrl = rootUrl + virtualRoutersUrl;
+		virtualRouterUrl = rootUrl + virtualRouterUrl;
+	}
+
+	return {
+
+		routes: function(){
+			return $http.get(virtualRoutersUrl, httpConfig);
+		},
+		create: function(route){
+			return $http.post(virtualRouterUrl, route, httpConfig);
+		}
+
+	}
+
+}
+
 function Instances($http, $cookieStore) {
 
 	var resourcesUrl = '/v1/vms';
@@ -419,4 +454,5 @@ angular.module('services.resources').factory('subnets', ['$http', '$cookieStore'
 angular.module('services.resources').factory('ports', ['$http', '$cookieStore', Ports]);
 angular.module('services.resources').factory('nats', ['$http', '$cookieStore', Nats]);
 angular.module('services.resources').factory('securityGroups', ['$http', '$cookieStore', SecurityGroups]);
+angular.module('services.resources').factory('virtualRoutes', ['$http', '$cookieStore', VirtualRoutes]);
 angular.module('services.resources').factory('pools', ['$http', '$cookieStore', Pools]);

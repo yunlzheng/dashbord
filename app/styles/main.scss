@@ -7,6 +7,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'form';
 @import 'pagination';
 @import 'alert';
+@import 'label';
 
 /** import page css*/
 @import "base";
@@ -202,11 +203,18 @@ a{
 
     }
     &.side-menu-false{
-        margin-left: -($side_width - $head_height);
+        margin-left: -($side_width - $side_min_width);
+        .side-menu-item{
+            height:  $side_min_width - 5px;
+            padding: 18px 0 0 18px;
+        }
+        span{
+            display:none;
+        }
         .icon{
             float: right;
-            margin-right: 16px;
-            font-size:16px;
+            margin-right: 23px;
+            font-size: 20px;
 
         }
         h2{
@@ -247,7 +255,7 @@ a{
 }
 
 .dashbord_normal{
-    margin-left:250px;
+    margin-left:$side_width;
     height:600px;
     position:relative;
     overflow:auto;
@@ -255,7 +263,7 @@ a{
 }
 
 .dashbord_big{
-    margin-left:45px;
+    margin-left:$side_min_width;
     height:600px;
     position:relative;
     overflow:auto;

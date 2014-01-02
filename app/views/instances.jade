@@ -60,17 +60,17 @@ html
           tr(ng-repeat='vm in filteredVms')
             td
               input(type='checkbox', ng-model='vm.selected')
-            td &lcub;&lcub; &dollar;index &rcub;&rcub;
+            td {{ $index }}
             td
-              a(href='#/instances/{{ vm.id }}') &lcub;&lcub; vm&period;name &rcub;&rcub;
+              a(href='#/instances/{{ vm.id }}') {{ vm.name }}
             td
-              span.label.label-default &lcub;&lcub; vm&period;status &rcub;&rcub;
-            td &lcub;&lcub; vm&period;created &VerticalLine; date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; &rcub;&rcub;
-            td.auto-hide &lcub;&lcub; vm&lsqb;&apos;OS-EXT-SRV-ATTR&colon;host&apos;&rsqb; &rcub;&rcub;
-            td.auto-hide &lcub;&lcub; vm&lsqb;&apos;OS-EXT-STS&colon;power&UnderBar;state&apos;&rsqb; &VerticalLine; power&rcub;&rcub;
+              span.label.label-default(class="{{ vm.status }}") {{ vm.status }}
+            td {{ vm.created &VerticalLine; date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; }}
+            td.auto-hide {{ vm&lsqb;&apos;OS-EXT-SRV-ATTR&colon;host&apos;&rsqb; }}
+            td.auto-hide {{ vm&lsqb;&apos;OS-EXT-STS&colon;power&UnderBar;state&apos;&rsqb; &VerticalLine; power}}
             td.auto-hide
               span(ng-repeat='net in vm.networks.ads')
-                | &lcub;&lcub; net &rcub;&rcub;
+                | {{ net }}
       pagination.pagination-small(total-items='bigTotalItems()', 
         page='currentPage', 
         max-size='maxSize', 

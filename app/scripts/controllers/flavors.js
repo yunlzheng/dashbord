@@ -100,7 +100,7 @@ function FlavorCtrl($scope, flavors, $interval, $modal, mockFlavors) {
 	$scope.openCreateModal = function () {
 
 		var modalInstance = $modal.open({
-			templateUrl: 'newFlavorModal.html',
+			templateUrl: '/template/modal/createFlavorModal.html',
 			controller: NewFlavorModalCtrl,
 			resolve: {}
 		});

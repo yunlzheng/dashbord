@@ -12,7 +12,7 @@ angular.module('dashbordApp')
             function pushAlert(alert) {
 
                 alerts.push(alert);
-                if (alerts.length >= 3) {
+                if (alerts.length >= 2) {
                     alerts.shift();
                 }
             }
