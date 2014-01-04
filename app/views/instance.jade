@@ -1,0 +1,63 @@
+html
+  body
+    .dashbord-page
+      h2 Instance-&lcub;&lcub; vm&period;name &rcub;&rcub;
+      form.form-horizontal(role='form')
+        fieldset
+          legend Base
+          .form-group
+            label.col-sm-2.control-label UUID
+            .col-sm-10
+              p.form-control-static(ng-bind='vm.id')
+          .form-group
+            label.col-sm-2.control-label Status
+            .col-sm-10
+              p.form-control-static(ng-bind='vm.status')
+          .form-group
+            label.col-sm-2.control-label CreatedAt
+            .col-sm-10
+              p.form-control-static(ng-bind='vm.created')
+          .form-group
+            label.col-sm-2.control-label Host
+            .col-sm-10
+              p.form-control-static(ng-bind='vm["OS-EXT-SRV-ATTR:host"]')
+        fieldset
+          legend Network
+      hr
+      h2 Snapshots
+      table.table.table-striped
+        thead
+          tr
+            th &num;
+            th &#32534;&#21495;
+            th &#21517;&#31216;
+            th &#22823;&#23567;
+            th &#29366;&#24577;
+            th &#21019;&#24314;&#26102;&#38388;
+            th.auto-hide &#20027;&#26426;&#21517;
+            th.auto-hide &#30005;&#28304;&#29366;&#24577;
+        tbody
+          tr(ng-repeat='snapshot in snapshots')
+            td
+              input(type='checkbox', ng-model='snapshot.selected')
+            td &lcub;&lcub; &dollar;index &rcub;&rcub;
+            td &lcub;&lcub; snapshot&period;name &rcub;&rcub;
+            td &lcub;&lcub; snapshot&period;size &rcub;&rcub;
+            td
+              span.label.label-default &lcub;&lcub; snapshot&period;status &rcub;&rcub;
+            td &lcub;&lcub; snapshot&period;created &VerticalLine; date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; &rcub;&rcub;
+            td.auto-hide &lcub;&lcub; snapshot&lsqb;&apos;OS-EXT-SRV-ATTR&colon;host&apos;&rsqb; &rcub;&rcub;
+            td.auto-hide &lcub;&lcub; snapshot&lsqb;&apos;OS-EXT-STS&colon;power&UnderBar;state&apos;&rsqb; &rcub;&rcub;
+      hr
+      h2 Atted Volume
+      table.table.table-striped
+        thead
+          tr
+            th &num;
+            th &#32534;&#21495;
+            th &#21517;&#31216;
+            th &#22823;&#23567;
+            th &#29366;&#24577;
+            th &#21019;&#24314;&#26102;&#38388;
+            th.auto-hide &#20027;&#26426;&#21517;
+            th.auto-hide &#30005;&#28304;&#29366;&#24577;

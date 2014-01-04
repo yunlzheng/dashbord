@@ -7,57 +7,69 @@ function MainCtrl($rootScope, $scope, breadcrumbs, notify) {
 
 			$scope.menus = [
 				{
-					name: "主页",
-					url: "#/",
-					icon: "glyphicon-th-list"
+					name: '主页',
+					url: '#/',
+					icon: 'fa-tachometer '
 				},
 				{
-					name: "虚拟实例",
-					url: "#/instances",
-					icon: "glyphicon-send"
+					name: '物理机',
+					url: '#/nodes',
+					icon: 'fa-cloud'
 				},
 				{
-					name: "存储卷",
-					url: "#/volumes",
-					icon: "glyphicon-hdd"
+					name: '虚拟机',
+					url: '#/instances',
+					icon: 'fa-desktop'
 				},
 				{
-					name: "网络",
-					url: "#/networks",
-					icon: "glyphicon-tower"
+					name: '存储卷',
+					url: '#/volumes',
+					icon: 'fa-hdd-o'
 				},
 				{
-					name: "虚拟路由",
-					url: "#/routes",
-					icon: "glyphicon-indent-left"
+					name: '网络',
+					url: '#/networks',
+					icon: 'fa-code-fork '
 				},
 				{
-					name: "安全组",
-					url: "#/security-groups",
-					icon: "glyphicon-indent-right"
+					name: '路由器',
+					url: '#/routes',
+					icon: 'fa-exchange'
 				},
 				{
-					name: "镜像",
-					url: "#/images",
-					icon: "glyphicon-list-alt"
+					name: '安全组',
+					url: '#/security-groups',
+					icon: 'fa-credit-card'
 				},
 				{
-					name: "规格",
-					url: "#/flavors",
-					icon: "glyphicon-indent-right"
+					name: '镜像',
+					url: '#/images',
+					icon: 'fa-camera '
 				},
 				{
-					name: "设置",
-					url: "#/settings",
-					icon: "glyphicon-cog"
+					name: '规格',
+					url: '#/flavors',
+					icon: 'fa-bullseye'
 				},
 				{
-					name: "帮助",
-					url: "#/help",
-					icon: "glyphicon-bullhorn"
+					name: '设置',
+					url: '#/settings',
+					icon: 'fa-cog'
+				},
+				{
+					name: '帮助',
+					url: '#/help',
+					icon: 'fa-comment'
 				}
 			];
 
+			$scope.pagerConfig = {
+				'numPerPage':10,
+				'previousText': '上一页',
+				'nextText': '下一页',
+				'firstText': '第一页',
+				'lastText': '最后一页'
+			};
 
 			$scope.select =function(menu){
 

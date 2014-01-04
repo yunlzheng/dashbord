@@ -1,5 +1,20 @@
 'use strict';
 
+
+function NewVolumeModalCtrl($scope, $modalInstance) {
+
+    $scope.ok = function (newVolume) {
+        $modalInstance.close(newVolume);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+
+}
+
+NewVolumeModalCtrl.$inject = ['$scope', '$modalInstance'];
+
 function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) {
 
 
@@ -13,7 +28,7 @@ function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) 
 
     $scope.bigTotalItems = function () {
         return $scope.volumes.length;
-    }
+    };
 
     $scope.$watch('currentPage + numPerPage + volumes', function () {
 
@@ -25,25 +40,28 @@ function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) 
 
     $scope.isNotSelectAnyOne = function () {
 
-        return (CountSelect() == 0);
+        return ($scope.count === 0);
 
     };
 
     $scope.isSelectOnlyOne = function () {
-        return (CountSelect() == 1);
+        return ($scope.count === 1);
     };
 
-    function CountSelect() {
+    $scope.$watch('filteredVolumes', function(){
+
         var count = 0;
         for (var i = 0; i < $scope.filteredVolumes.length; i++) {
             var volume = $scope.filteredVolumes[i];
-            if (volume.selected == true) {
+            if (volume.selected === true) {
                 $scope.selectedInstance = volume;
                 count++;
             }
         }
-        return count;
-    }
+        $scope.count = count;
+
+
+    }, true);
 
     $scope.openCreateModal = function () {
 
@@ -76,7 +94,7 @@ function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) 
 
         for (var i = 0; i < $scope.filteredVolumes.length; i++) {
             var volume = $scope.filteredVolumes[i];
-            if (volume.selected == true) {
+            if (volume.selected === true) {
                 volumes.remove(volume.id).success(function () {
                     //TO DO;
                 });
@@ -99,7 +117,7 @@ function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) 
             $scope.volumes = mockVolumes.query();
 
         });
-    }
+    };
 
     var timer;
 
@@ -116,7 +134,7 @@ function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) 
             }, 5000);
         }
 
-    }
+    };
 
     $scope.stopSync = function () {
 
@@ -135,20 +153,6 @@ function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) 
 
 }
 
-
-function NewVolumeModalCtrl($scope, $modalInstance) {
-
-    $scope.ok = function (newVolume) {
-        $modalInstance.close(newVolume);
-    };
-
-    $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-    };
-
-};
-
-NewVolumeModalCtrl.$inject = ['$scope', '$modalInstance'];
 
 angular.module('dashbordApp')
     .controller('VolumesCtrl', ['$scope', 'volumes', 'mockVolumes', '$modal', '$timeout', '$interval', VolumesCtrl]);

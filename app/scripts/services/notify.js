@@ -12,7 +12,7 @@ angular.module('dashbordApp')
             function pushAlert(alert) {
 
                 alerts.push(alert);
-                if (alerts.length >= 3) {
+                if (alerts.length >= 2) {
                     alerts.shift();
                 }
             }
@@ -23,6 +23,7 @@ angular.module('dashbordApp')
                     type: 'info',
                     msg: message
                 };
+                console.log(info);
 
             };
 
@@ -45,7 +46,7 @@ angular.module('dashbordApp')
 
             };
 
-            NotifyService.getAlerts = function (message) {
+            NotifyService.getAlerts = function () {
 
                 return alerts;
 

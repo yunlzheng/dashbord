@@ -1,5 +1,20 @@
 'use strict';
 
+
+function NewFlavorModalCtrl($scope, $modalInstance) {
+
+	$scope.ok = function (newFlavor) {
+		$modalInstance.close(newFlavor);
+	};
+
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
+
+}
+
+NewFlavorModalCtrl.$inject = ['$scope', '$modalInstance'];
+
 function FlavorCtrl($scope, flavors, $interval, $modal, mockFlavors) {
 
 	$scope.flavors = [];
@@ -12,7 +27,7 @@ function FlavorCtrl($scope, flavors, $interval, $modal, mockFlavors) {
 
 	$scope.bigTotalItems = function () {
 		return $scope.flavors.length;
-	}
+	};
 
 	$scope.$watch('currentPage + numPerPage + flavors', function () {
 
@@ -26,7 +41,7 @@ function FlavorCtrl($scope, flavors, $interval, $modal, mockFlavors) {
 		var count = 0;
 		for (var i = 0; i < $scope.filteredFlavors.length; i++) {
 			var flavor = $scope.filteredFlavors[i];
-			if (flavor.selected == true) {
+			if (flavor.selected === true) {
 				$scope.selectedFlavor = flavor;
 				count++;
 			}
@@ -37,9 +52,9 @@ function FlavorCtrl($scope, flavors, $interval, $modal, mockFlavors) {
 
 	$scope.isSelectedAnyOne = function(){
 
-		return countSelect()!=0;
+		return countSelect()!==0;
 
-	}
+	};
 
 	$scope.getFlavors = function () {
 		flavors.query().success(function (data) {
@@ -80,12 +95,12 @@ function FlavorCtrl($scope, flavors, $interval, $modal, mockFlavors) {
 
 		});
 
-	}
+	};
 
 	$scope.openCreateModal = function () {
 
 		var modalInstance = $modal.open({
-			templateUrl: 'newFlavorModal.html',
+			templateUrl: '/template/modal/createFlavorModal.html',
 			controller: NewFlavorModalCtrl,
 			resolve: {}
 		});
@@ -131,19 +146,6 @@ function FlavorCtrl($scope, flavors, $interval, $modal, mockFlavors) {
 
 }
 
-function NewFlavorModalCtrl($scope, $modalInstance) {
-
-	$scope.ok = function (newFlavor) {
-		$modalInstance.close(newFlavor);
-	};
-
-	$scope.cancel = function () {
-		$modalInstance.dismiss('cancel');
-	};
-
-};
-
-NewFlavorModalCtrl.$inject = ['$scope', '$modalInstance'];
 
 angular.module('dashbordApp')
 	.controller('FlavorCtrl', ['$scope', 'flavors', '$interval', '$modal', 'mockFlavors',

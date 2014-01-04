@@ -1,0 +1,107 @@
+html
+  body
+    .dashbord-page
+      h2 &#23454;&#20363;
+      button.btn.btn-primary(type='button', ng-click='getInstances()')
+        .glyphicon.glyphicon-refresh
+      button.btn.btn-primary(type='button', ng-click='!openNewInstanceModal()') 
+        | 创建虚拟机
+      button.btn.btn-primary(type='button', ng-click='start()', ng-disabled='isNotSelectOne() || !isShutoff() || isActive() || isPaused()') 
+        | 启动
+      button.btn.btn-primary(type='button', ng-click='pause()', ng-disabled='isNotSelectOne() || !isActive() || isPaused()') 
+        | 暂停
+      button.btn.btn-primary(type='button', ng-click='unpause()', ng-disabled='isNotSelectOne() || !isPaused()') 
+        | 恢复
+      button.btn.btn-primary(type='button', ng-click='stop()', ng-disabled='isNotSelectOne() || isShutoff() ') 
+        | 关机
+      button.btn.btn-primary(type='button', ng-click='reboot()', ng-disabled='isNotSelectOne()') 
+        | 重启
+      button.btn.btn-primary(type='button', ng-disabled='isNotSelect()', ng-click='remove()') 
+        | 销毁
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', ng-disabled='isNotSelectOne() || !isActive()')
+          | 更多操作
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(ng-click='getVnc()') 获取VNC地址
+          li
+            a(ng-click='openMigrateVmModal()') 迁移虚拟机
+          li.divider
+          li
+            a(href='#') 修改
+          li
+            a(href='#') 挂载存储卷
+          li
+            a(href='#') 更改配置
+          li
+            a(href='#') 加入网络
+          li
+            a(href='#') 创建快照
+          li
+            a(href='#') 创建镜像
+          li
+            a(href='#') 恢复
+          li.divider
+          li
+            a(href='#') 重置;
+
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+      button.btn(ng-click='search()')
+        | 搜索
+
+      table.table.table-striped
+        thead
+          tr
+            th #
+            th 编号
+            th 名称
+            th 状态
+            th 创建时间
+            th.auto-hide 主机名
+            th.auto-hide 电源状态
+            th.auto-hide 网络
+        tbody
+          tr(ng-repeat='vm in filteredVms')
+            td
+              input(type='checkbox', ng-model='vm.selected')
+            td {{ $index }}
+            td
+              a(href='#/instances/{{ vm.id }}') {{ vm.name }}
+            td
+              span.label.label-default(class="{{ vm.status }}") {{ vm.status }}
+            td {{ vm.created &VerticalLine; date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; }}
+            td.auto-hide {{ vm&lsqb;&apos;OS-EXT-SRV-ATTR&colon;host&apos;&rsqb; }}
+            td.auto-hide {{ vm&lsqb;&apos;OS-EXT-STS&colon;power&UnderBar;state&apos;&rsqb; &VerticalLine; power}}
+            td.auto-hide
+              span(ng-repeat='net in vm.networks')
+                | {{ net }}
+      pagination.pagination-small(total-items='bigTotalItems()', 
+        page='currentPage', 
+        max-size='maxSize', 
+        boundary-links='true', 
+        rotate='false',
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
+    script#migrateInstanceModal.html(type='text/ng-template')
+      <div class="modal-header">
+      <button type="button" class="close" ng-click="cancel()">&times;</button>
+      <h4 class="modal-title">迁移虚拟机</h4>
+      </div>
+      <div class="modal-body modal-steps new_instance">
+      <span>获取计算节点列表，并显示，供用户选择，点击开始迁移按钮，返回迁移的目标虚拟机</span>
+      <form novalidate name="form" class="form" role="form">
+      <fieldset>
+      <legend>目标计算节点</legend>
+      <input ng-model="targetHost.hostName" required type="text" class="form-control">
+      </fieldset>
+      </form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">取消</button>
+      <button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="ok(targetHost)">开始迁移</button>
+      </div>
+    

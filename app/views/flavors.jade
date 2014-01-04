@@ -1,0 +1,52 @@
+html
+  body
+    .dashbord-page
+      h2 规格
+      button.btn.btn-primary(type='button', ng-click='startSync()')
+        .glyphicon.glyphicon-refresh
+      button.btn.btn-primary(type='button', ng-click='openCreateModal()') 创建规格
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', ng-disabled='!isSelectedAnyOne()', data-toggle='dropdown')
+          | 更多操作
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(ng-click='remove()') 删除
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+      table.table.table-striped
+        thead
+          tr
+            th
+              input(type='checkbox')
+            th #
+            th name
+            th vcpus
+            th disk
+            th ram
+            th swap
+            th ephemeral
+            th is_public
+        tbody
+          tr(ng-repeat='flavor in filteredFlavors')
+            td
+              input(type='checkbox', ng-model='flavor.selected')
+            td {{ $index }}
+            td {{ flavor.name }}
+            td {{ flavor.vcpus }}Core
+            td {{ flavor.disk }}GB
+            td {{ flavor.ram }}MB
+            td {{ flavor.swap }}
+            td {{ flavor.ephemeral }}
+            td {{ flavor.is_public }}
+      pagination.pagination-small(
+        total-items='bigTotalItems()', 
+        page='currentPage', 
+        max-size='maxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='numPages',
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')

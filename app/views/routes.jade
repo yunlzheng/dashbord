@@ -1,0 +1,51 @@
+html
+  body
+    .dashbord-page
+      h2 路由器
+      button.btn.btn-primary(type='button')
+        .glyphicon.glyphicon-refresh
+      button.btn.btn-primary(type="button", ng-click="openCreateModal()")
+        | 创建虚拟路由
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+          | 更多操作
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='#') 删除
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+      table.table.table-striped
+        thead
+          tr
+            th #
+            th 编号
+            th 名称
+            th 状态
+            th 创建时间
+        tbody
+          tr(ng-repeat='route in routePager.routes')
+            td
+              input(type='checkbox')
+            td
+              {{ $index+1 }}
+            td
+              {{ route.name }}
+            td 
+              {{ route.description }}
+            td 
+              {{ route.bandwidth_rx }}
+            td
+              {{ route.bandwidth_tx }}
+
+       pagination.pagination-small(
+        total-items='routePager.totalItems()', 
+        page='routePager.currentPage', 
+        max-size='routePager.maxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='routePager.numPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')

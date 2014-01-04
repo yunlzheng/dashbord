@@ -13,6 +13,11 @@ function routeProvider($routeProvider) {
       controller: 'HomeCtrl',
       label: '主页'
     })
+    .when("/nodes", {
+      templateUrl: 'views/nodes.html',
+      controller: 'NodesCtrl',
+      label: '物理机'
+    })
     .when('/instances', {
       templateUrl: 'views/instances.html',
       controller: 'InstancesCtrl',
@@ -21,7 +26,7 @@ function routeProvider($routeProvider) {
     .when('/instances/:id', {
       templateUrl: 'views/instance.html',
       controller: 'InstanceCtrl',
-      label: 'vm'
+      label: '虚拟机实例'
     })
     .when('/volumes', {
       templateUrl: 'views/volumes.html',
@@ -76,11 +81,9 @@ angular.module('dashbordApp', [
   'services.breadcrumbs',
   'services.resources',
   'services.mocks',
+  'ui.knob',
   'ui.chart',
-  'ui.bootstrap.modal',
-  'ui.bootstrap.buttons',
-  'ui.bootstrap.pagination',
-  'ui.bootstrap.alert'
+  'ui.bootstrap'
 ])
   .config(['$httpProvider', httpProvider])
   .config(['$routeProvider', routeProvider]);

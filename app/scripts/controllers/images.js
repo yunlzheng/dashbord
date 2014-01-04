@@ -10,7 +10,7 @@ function ImagesCtrl($scope, images) {
 
 	$scope.bigTotalItems = function () {
         return $scope.images.length;
-    }
+    };
 
     $scope.$watch('currentPage + numPerPage + images', function () {
 
@@ -29,7 +29,7 @@ function ImagesCtrl($scope, images) {
 			}
 
 		});
-	}
+	};
 
 	$scope.getImages();
 

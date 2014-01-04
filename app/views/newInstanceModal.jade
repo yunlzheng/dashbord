@@ -1,0 +1,64 @@
+html
+  body
+    .modal-header
+      button.close(type='button', ng-click='cancel()') &times;
+      h4#myModalLabel.modal-title 创建虚拟机
+    .modal-body.modal-steps.new_instance
+      .new_instance_config
+        form.form(novalidate='', name='form', role='form')
+          fieldset
+            legend 选择镜像
+            input.form-control(type='text', ng-model='newInstance.image.id', required='', style='display:none')
+            pager(total-items='imagePager.totalItems()', page='imagePager.currentPage', items-per-page='imagePager.perPage')
+            .radio-btn-select
+              button.btn(ng-repeat='image in modelFilteredImage', type='button', ng-model='newInstance.image', btn-radio='image') {{ image.name }}
+          fieldset
+            legend 选择类型
+            input.form-control(type='text', ng-model='newInstance.flavor.id', required='', style='display:none')
+            pager(total-items='flavorPager.totalItems()', page='flavorPager.currentPage', items-per-page='flavorPager.perPage')
+            .radio-btn-select
+              button.btn(ng-repeat='flavor in modelFilteredFlavor', type='button', ng-model='newInstance.flavor', btn-radio='flavor') {{ flavor.name }}
+          fieldset
+            legend 设置网络
+            input.form-control(type='text', ng-model='newInstance.port.id', required='', style='display:none')
+            pager(total-items='portPager.totalItems()', page='portPager.currentPage', items-per-page='portPager.perPage')
+            .radio-btn-select
+              button.btn(ng-repeat='port in modelFilteredPorts', type='button', ng-model='newInstance.port', btn-radio='port') {{ port.name }} &NonBreakingSpace; {{ port.mac_address }}
+          fieldset
+            legend 基本设置
+            .form-group
+              label 虚拟机名称
+              input.form-control(type='text', ng-model='newInstance.name', required='')
+      .new_instance_detail
+        form
+          fieldset
+            legend 配置清单
+            table.table.table-bordered
+              tr
+                th(style='width:50px') 组件
+                th 参数
+              tr
+                td 名称
+                td {{ newInstance.name }}
+              tr
+                td 镜像
+                td {{ newInstance.image.name }}
+              tr
+                td 规格
+                td {{ newInstance.flavor.name }}
+              tr
+                td CPU
+                td {{ newInstance.flavor.vcpus }}
+              tr
+                td 内存
+                td {{ newInstance.flavor.ram }}
+              tr
+                td 硬盘
+                td {{ newInstance.flavor.disk }}
+              tr
+                td 网卡
+                td {{ newInstance.port.mac_address }}
+      .clearfix
+    .modal-footer
+      button.btn.btn-default(type='button', data-dismiss='modal', ng-click='cancel()') Close
+      button.btn.btn-primary(ng-disabled='form.$invalid', ng-click='ok(newInstance)') Save

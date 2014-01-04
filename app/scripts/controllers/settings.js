@@ -9,7 +9,7 @@ function SettingsCtrl($scope, $cookieStore, $http) {
     'appSecret': $cookieStore.get('appSecret'),
     'accessToken': $cookieStore.get('accessToken'),
     'useNode': true
-  }
+  };
 
   $scope.saveSettings = function (setting) {
 
@@ -35,6 +35,7 @@ function SettingsCtrl($scope, $cookieStore, $http) {
       if(data.code==='0'){
         $scope.setting.accessToken = data.token.id;
         $cookieStore.put('accessToken', $scope.setting.accessToken);
+        $cookieStore.put('platformId', data.appkey);
       }
 
     });

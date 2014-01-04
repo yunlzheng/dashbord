@@ -1,0 +1,43 @@
+html
+  body
+    .dashbord-page
+      h2 资源池
+      button.btn.btn-primary(type="button") 
+        .glyphicon.glyphicon-refresh
+
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+
+      table.table.table-striped
+        thead
+          tr
+            th 
+            th #
+            th ip地址
+            th 虚拟CPU
+            th 实例
+            th 内存
+            th 磁盘
+            th 存储类型
+        tbody
+          tr(ng-repeat="node in modelFilteredNodes")
+            td
+              input(type="checkbox")
+            td {{ $index }}
+            td {{ node.ip }}
+            td {{ node.vcpu }}
+            td {{ node.instance }}
+            td {{ node.memory }}
+            td {{ node.disk }}
+            td {{ node.storage_type }}
+
+      pagination.pagination-small(
+        total-items='totalItems()', 
+        page='currentPage', 
+        max-size='maxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')

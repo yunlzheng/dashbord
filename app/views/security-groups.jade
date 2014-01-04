@@ -1,0 +1,49 @@
+html
+  body
+    .dashbord-page
+      h2 安全组
+      button.btn.btn-primary(type='button')
+        .glyphicon.glyphicon-refresh
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+          | 更多操作
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='#') 删除
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+      table.table.table-striped
+        thead
+          tr
+            th
+              input(type='checkbox')
+            th &#32534;&#21495;
+            th &#21517;&#31216;
+            th description
+            th &#23433;&#20840;&#32452;&#35268;&#21017;
+            th network&UnderBar;id
+        tbody
+          tr(ng-repeat='securityGroup in filteredSecurityGroups')
+            td
+              input(type='checkbox')
+            td &lcub;&lcub; &dollar;index &rcub;&rcub;
+            td &lcub;&lcub; securityGroup&period;name &rcub;&rcub;
+            td &lcub;&lcub; securityGroup&period;description &rcub;&rcub;
+            td
+              p(ng-repeat='rule in securityGroup.security_group_rules')
+                span.label.label-default &#21327;&#35758;&colon;&lcub;&lcub; rule&period;protocol &rcub;&rcub;
+                span.label.label-default &lcub;&lcub; rule&period;direction &rcub;&rcub;
+                span.label.label-default &lcub;&lcub; rule&period;ethertype &rcub;&rcub;
+            td &lcub;&lcub; securityGroup&period;metadata&period;network&UnderBar;id &rcub;&rcub;
+      pagination.pagination-small(
+        total-items='securityGroupBigTotalItems()', 
+        page='securityGroupCurrentPage', 
+        max-size='securityGroupMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='securityGroupNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
