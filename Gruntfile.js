@@ -172,6 +172,20 @@ module.exports = function (grunt) {
       server: '.tmp'
     },
 
+    shell: {
+
+        server: {
+            options: {
+                stdout: true
+            },
+            command: [
+             'export DASHBORD_CONF=Development',
+             'python server.py'
+            ].join('&&')
+        }
+        
+    },
+
     // Add vendor prefixed styles
     autoprefixer: {
       options: {
@@ -364,32 +378,6 @@ module.exports = function (grunt) {
       ]
     },
 
-    // By default, your `index.html`'s <!-- Usemin block --> will take care of
-    // minification. These next options are pre-configured if you do not wish
-    // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= yeoman.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
-
     // Test settings
     karma: {
       unit: {
@@ -415,6 +403,14 @@ module.exports = function (grunt) {
       'watch'
     ]);
   });
+
+  grunt.registerTask('flask', [
+    'clean:server',
+    'jade',
+    'concurrent:server',
+    'shell:server',
+    'watch'
+  ]);
 
   grunt.registerTask('server', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');

@@ -1,5 +1,4 @@
 # coding: utf-8
-# coding: utf-8
 import os
 from flask import Flask
 from flask import send_file, send_from_directory
@@ -48,6 +47,3 @@ def static_template(filename):
 
 app.jinja_env.variable_start_string = '[['
 app.jinja_env.variable_end_string = ']]'
-
-if __name__ == "__main__":
-    app.run()

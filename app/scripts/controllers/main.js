@@ -51,11 +51,11 @@ function MainCtrl($rootScope, $scope, breadcrumbs, notify) {
 					url: '#/flavors',
 					icon: 'fa-bullseye'
 				},
-				{
-					name: '设置',
-					url: '#/settings',
-					icon: 'fa-cog'
-				},
+				//{
+				//	name: '设置',
+				//	url: '#/settings',
+				//	icon: 'fa-cog'
+				//},
 				{
 					name: '帮助',
 					url: '#/help',
