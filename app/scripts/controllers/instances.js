@@ -95,9 +95,10 @@ function NewInstanceModalCtrl($scope, $modalInstance, cacheImages, cacheFlavors,
 
 NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance', 'cacheImages', 'cacheFlavors', 'cachePorts'];
 
-function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $modal, mockInstances) {
+function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $interval, $modal, mockInstances) {
 
   /**page*/
+  $scope.originVms = [];
   $scope.vms = [];
   $scope.filteredVms = [];
   $scope.maxSize = 5;
@@ -121,6 +122,21 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
     $scope.filteredVms = $scope.vms.slice(begin, end);
 
   });
+
+  $scope.search = function(){
+
+    $scope.originVms = $scope.vms;
+    if(!angular.isUndefined($scope.searchText)){
+
+      $scope.vms = $filter('filter')($scope.vms, $scope.searchText);
+      
+    }else{
+
+      $scope.vms = $scope.originVms;
+
+    }
+
+  };
 
   $scope.selectedInstance = {};
 
@@ -250,11 +266,12 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 
       if (data.code === '0') {
         $scope.vms = data.data;
+        $scope.search();
       }
 
     }).error(function() {
 
-      $scope.vms = mockInstances.query();
+      //$scope.vms = mockInstances.query();
 
     });
 
@@ -458,4 +475,4 @@ function InstancesCtrl($scope, instances, images, flavors, ports, $interval, $mo
 }
 
 angular.module('dashbordApp')
-  .controller('InstancesCtrl', ['$scope', 'instances', 'images', 'flavors', 'ports', '$interval', '$modal', 'mockInstances', InstancesCtrl]);
+  .controller('InstancesCtrl', ['$scope', '$filter','instances', 'images', 'flavors', 'ports', '$interval', '$modal', 'mockInstances', InstancesCtrl]);

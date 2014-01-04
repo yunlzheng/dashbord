@@ -45,6 +45,11 @@ html
           li.divider
           li
             a(href='#') 重置;
+
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+      button.btn(ng-click='search()')
+        | 搜索
+
       table.table.table-striped
         thead
           tr
@@ -69,7 +74,7 @@ html
             td.auto-hide {{ vm&lsqb;&apos;OS-EXT-SRV-ATTR&colon;host&apos;&rsqb; }}
             td.auto-hide {{ vm&lsqb;&apos;OS-EXT-STS&colon;power&UnderBar;state&apos;&rsqb; &VerticalLine; power}}
             td.auto-hide
-              span(ng-repeat='net in vm.networks.ads')
+              span(ng-repeat='net in vm.networks')
                 | {{ net }}
       pagination.pagination-small(total-items='bigTotalItems()', 
         page='currentPage', 

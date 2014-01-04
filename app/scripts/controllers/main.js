@@ -12,12 +12,12 @@ function MainCtrl($rootScope, $scope, breadcrumbs, notify) {
 					icon: 'fa-tachometer '
 				},
 				{
-					name: '计算节点',
+					name: '物理机',
 					url: '#/nodes',
 					icon: 'fa-cloud'
 				},
 				{
-					name: '虚拟实例',
+					name: '虚拟机',
 					url: '#/instances',
 					icon: 'fa-desktop'
 				},
@@ -32,7 +32,7 @@ function MainCtrl($rootScope, $scope, breadcrumbs, notify) {
 					icon: 'fa-code-fork '
 				},
 				{
-					name: '虚拟路由',
+					name: '路由器',
 					url: '#/routes',
 					icon: 'fa-exchange'
 				},

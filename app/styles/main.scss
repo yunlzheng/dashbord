@@ -71,7 +71,7 @@ a{
         margin-bottom: 0;
         line-height: $head_height;
         width: $head_height;
-        padding: 0px 7px;
+        padding: 0px 15px;
         color: rgb(0, 0, 0);
         display: inline-block;
         cursor: pointer;
@@ -178,8 +178,8 @@ a{
     .icon{
         -webkit-transition-duration: .436s;
         transition-duration: .436s;
-        -webkit-transition-property: float;
-        transition-property: float;
+        -webkit-transition-property: all;
+        transition-property: all;
         -webkit-transition-timing-function: ease-in-out;
         transition-timing-function: ease-in-out;
         margin-right: 5px;
@@ -197,6 +197,14 @@ a{
             background-color: rgb(66, 133, 244);
             color: rgb(255, 255, 255);
         }
+        span{
+            -webkit-transition-duration: .436s;
+            transition-duration: .436s;
+            -webkit-transition-property: all;
+            transition-property: all;
+            -webkit-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
+        }
     }
     &.side-menu-true{
         margin-left: 0px;
@@ -206,16 +214,22 @@ a{
         margin-left: -($side_width - $side_min_width);
         .side-menu-item{
             height:  $side_min_width - 5px;
-            padding: 18px 0 0 18px;
+            padding: 10px 0 0 18px;
         }
         span{
-            display:none;
+            display: block;
+            margin-top:4px;
+            margin-left: 170px;
+            width: 60px;
+            text-align: center;
+            font-size: 12px;
+            color: rgb(221, 221, 221);
         }
         .icon{
-            float: right;
-            margin-right: 23px;
+            margin-left: 170px;
             font-size: 20px;
-
+            display: block;
+            text-align: center;
         }
         h2{
             display:none;
@@ -317,15 +331,27 @@ a{
     width:20%;
 }
 
+.cloum4{
+    float:left;
+    width:25%;
+}
+
 .box{
+
     text-align:center;
     cursor: pointer;
-    border-right: 1px solid rgb(221, 221, 221);
+    padding:5px;
     overflow: hidden;
-    margin-left:-1px; 
-    margin-bottom:-1px;
     &.last{
-    border:none;
+        border:none;
+    }
+    .item{
+        border: 1px solid rgb(221, 221, 221);
+        padding: 20px 10px;
+        h5{
+            font-size: 18px;
+            text-align: left;
+        }
     }
 }
 
@@ -341,9 +367,6 @@ a{
 
 }
 
-.box:hover{
-    background-color:rgb(245, 245, 245);
-}
 
 .box h5{
     
@@ -351,4 +374,32 @@ a{
 
 .box h5 span{
     margin:0px 4px;
+}
+
+.hover-ative {
+    &:hover{
+        .progress-bar{
+        -webkit-animation: progress-bar-stripes 2s linear infinite;
+        animation: progress-bar-stripes 2s linear infinite;
+    }}
+}
+
+.panel-heading{
+
+    &.simple{
+        background-color:#fff;   
+    }
+
+}
+
+.search-text{
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.progress-text
+{
+    color:#fff; 
+    white-space:nowrap;
 }

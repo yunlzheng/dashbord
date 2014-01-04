@@ -3,56 +3,99 @@ html
     #home-dashbord.dashbord-page.dashbord-stage
       .dashbord-window
         .body.no-padding
-          .box.cloumn5
-            strong 1
-            h5
-              span.fa.fa-desktop
-              | 虚拟机
-          .box.cloumn5
-            strong 1
-            h5
-              span.fa.fa-hdd-o
-              | 存储卷
-          .box.cloumn5
-            strong 1
-            h5
-              span.fa.fa-code-fork
-              | 网络
-          .box.cloumn5
-            strong 1
-            h5
-              span.fa.fa-camera
-              | 镜像
-          .box.cloumn5.last
-            strong 1
-            h5
-              span.glyphicon.glyphicon-hand-up
-              | 更多信息
+          .box.cloum4
+            .item.hover-ative
+              h5
+                span.fa.fa-desktop
+                | 虚拟机
+              progressbar.progress-striped(max="max" value="dynamic")
+                span.progress-text
+                  | {{dynamic}} / {{max}}
+            
+          .box.cloum4
+            .item.hover-ative
+              h5
+                span.fa.fa-hdd-o
+                | 存储卷
+              progressbar.progress-striped(max="max" value="dynamic")
+                span.progress-text
+                  | {{dynamic}} / {{max}}
+            
+          .box.cloum4
+            .item.hover-ative
+              h5
+                span.fa.fa-code-fork
+                | 网络
+              progressbar.progress-striped(max="max" value="dynamic")
+                span.progress-text
+                  | {{dynamic}} / {{max}}
+            
+          .box.cloum4.last
+            .item.hover-ative
+              h5
+                span.fa.fa-camera
+                | 镜像
+              progressbar.progress-striped(max="max" value="dynamic")
+                span.progress-text
+                  | {{dynamic}} / {{max}}
+
+          .box.cloum4.last
+            .item.hover-ative
+              h5
+                span.fa.fa-camera
+                | 路由器
+              progressbar.progress-striped(max="max" value="dynamic")
+                span.progress-text
+                  | {{dynamic}} / {{max}}
+
+          .box.cloum4.last
+            .item.hover-ative
+              h5
+                span.fa.fa-camera
+                | 公网IP
+              progressbar.progress-striped(max="max" value="dynamic")
+                span.progress-text
+                  | {{dynamic}} / {{max}}
           .clearfix
 
-      div.panel-group(ng-repeat="pool in pools")
-        div.panel.panel-default
-          div.panel-heading
+      .panel-group(ng-repeat="pool in pools")
+        .panel.panel-default
+          .panel-heading.simple
             h4.panel-title(ng-click="pool.open = !pool.open")
               a 资源池-{{ pool.name }}
-              i.pull-right.glyphicon.glyphicon-chevron-down
-          div.panel-collapse.collapse.in
-            div.chart-containers
-              div.chart-container
-                div.chart-title
+          .panel-collapse.collapse.in
+            .chart-containers
+              .chart-container
+                .chart-title
                   | 存储卷
-                div.chart(ui-chart='pool.volumeQuota', chart-options='myChartOpts')
-              div.chart-container
-                div.chart-title
+                .chart
+                  knob(
+                      knob-data="pool.quota.used_share_storage" 
+                      knob-max="pool.quota.share_storage" 
+                      knob-options="knobOptions")
+              .chart-container
+                .chart-title
                   | 虚拟机
-                div.chart(ui-chart='pool.instanceQuota', chart-options='myChartOpts')
-            div.chart-containers
-              div.chart-container
-                div.chart-title
+                .chart
+                  knob(
+                    knob-data="pool.quota.used_instances" 
+                    knob-max="600" 
+                    knob-options="knobOptions")
+            .chart-containers
+              .chart-container
+                .chart-title
                   | 虚拟CPU
-                div.chart(ui-chart='pool.vcpuQuota', chart-options='myChartOpts')
-              div.chart-container
-                div.chart-title
+                .chart
+                  knob(
+                    knob-data="pool.quota.used_vcups" 
+                    knob-max="pool.quota.vcpus" 
+                    knob-options="knobOptions")
+              .chart-container
+                .chart-title
                   | 虚拟内存
-                div.chart(ui-chart='pool.memoryQuota', chart-options='myChartOpts')
+                .chart
+                  knob(
+                    knob-data="pool.quota.used_memory" 
+                    knob-max="pool.quota.memory" 
+                    knob-options="knobOptions")
       

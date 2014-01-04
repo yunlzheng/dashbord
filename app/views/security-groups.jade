@@ -1,16 +1,17 @@
 html
   body
     .dashbord-page
-      h2 &#23433;&#20840;&#32452;
+      h2 安全组
       button.btn.btn-primary(type='button')
         .glyphicon.glyphicon-refresh
       .btn-group
         button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
-          | &#26356;&#22810;&#25805;&#20316;
+          | 更多操作
           span.caret
         ul.dropdown-menu(role='menu')
           li
-            a(href='#') &#21024;&#38500;
+            a(href='#') 删除
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
       table.table.table-striped
         thead
           tr

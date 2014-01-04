@@ -16,7 +16,7 @@ function routeProvider($routeProvider) {
     .when("/nodes", {
       templateUrl: 'views/nodes.html',
       controller: 'NodesCtrl',
-      label: '计算节点'
+      label: '物理机'
     })
     .when('/instances', {
       templateUrl: 'views/instances.html',
@@ -26,7 +26,7 @@ function routeProvider($routeProvider) {
     .when('/instances/:id', {
       templateUrl: 'views/instance.html',
       controller: 'InstanceCtrl',
-      label: 'vm'
+      label: '虚拟机实例'
     })
     .when('/volumes', {
       templateUrl: 'views/volumes.html',
@@ -81,6 +81,7 @@ angular.module('dashbordApp', [
   'services.breadcrumbs',
   'services.resources',
   'services.mocks',
+  'ui.knob',
   'ui.chart',
   'ui.bootstrap'
 ])

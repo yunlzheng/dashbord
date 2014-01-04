@@ -2,9 +2,14 @@
 
 function HomeCtrl($scope, $rootScope, pools, charting) {
 
-
+  $scope.max = 200;
+  $scope.dynamic = 100;
 
   $scope.pools = [];
+
+  $scope.knobOptions = {
+    'readOnly': true
+  };
 
   $scope.getPools = function() {
 
@@ -15,33 +20,15 @@ function HomeCtrl($scope, $rootScope, pools, charting) {
 
         pool.open = true;
 
-        pool.volumeQuota =[
-          [
-            ['已使用', pool.quota.used_share_storage],
-            ['剩余', pool.quota.share_storage-pool.quota.used_share_storage]
-          ]
-        ];
+        console.log('volume   '+ pool.quota.share_storage +'<-------->'+ pool.quota.used_share_storage);
+         
 
-        pool.instanceQuota = [
-          [
-            ['已使用', pool.quota.used_instances],
-            ['剩余', pool.quota.instances-pool.quota.used_instances]
-          ]
-        ];
+        console.log('instance   '+ pool.quota.instances +'<-------->'+ pool.quota.used_instances);
+          
 
-        pool.vcpuQuota = [
-          [
-            ['已使用', pool.quota.used_vcups],
-            ['剩余', pool.quota.vcpus-pool.quota.used_vcups]
-          ]
-        ];
+        console.log('vcpus   '+ pool.quota.vcpus+'<-------->'+pool.quota.used_vcups);
 
-        pool.memoryQuota = [
-          [
-            ['已使用', pool.quota.used_memory],
-            ['剩余', pool.quota.memory-pool.quota.used_memory]
-          ]
-        ];
+        console.log('memory   '+ pool.quota.memory+'<-------->'+pool.quota.used_memory);
 
       });
 
