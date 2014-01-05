@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from . import Config
+from dashbord.config.base import Config
 
 class Development(Config):
     DEBUG = True

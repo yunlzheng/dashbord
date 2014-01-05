@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from . import Config
+from dashbord.config.base import Config
 
 class Production(Config):
     DATABASE_URI = 'mysql://user@localhost/foo'

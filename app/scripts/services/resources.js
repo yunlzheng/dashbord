@@ -61,18 +61,6 @@ function Instances($http, $cookieStore) {
 		}
 	};
 
-	if (!useNode) {
-		resourceUrl = rootUrl + resourceUrl;
-		resourcesUrl = rootUrl + resourcesUrl;
-		startVmUrl = rootUrl + startVmUrl;
-		stopVmUrl = rootUrl + stopVmUrl;
-		pauseVmUrl = rootUrl + pauseVmUrl;
-		rebootVmUrl = rootUrl + rebootVmUrl;
-		vncVmUrl = rootUrl + vncVmUrl;
-		unPauseVmUrl = rootUrl + unPauseVmUrl;
-		vmSnapshotsUrl = rootUrl + vmSnapshotsUrl;
-		vmMigrateUrl = rootUrl + vmMigrateUrl;
-	}
 
 	return {
 		get: function(id) {
@@ -131,10 +119,6 @@ function Flavors($http, $cookieStore) {
 		}
 	};
 
-	if (!useNode) {
-		resourceUrl = rootUrl + resourceUrl;
-		resourcesUrl = rootUrl + resourcesUrl;
-	}
 
 	return {
 		get: function(flavorId) {
@@ -168,9 +152,6 @@ function Images($http, $cookieStore) {
 		}
 	};
 
-	if (!useNode) {
-		resourcesUrl = rootUrl + resourcesUrl;
-	}
 
 	return {
 		query: function(query) {
@@ -195,11 +176,6 @@ function Volumes($http, $cookieStore) {
 			'X-Api-Request': true
 		}
 	};
-
-	if (!useNode) {
-		resourceUrl = rootUrl + resourceUrl;
-		resourcesUrl = rootUrl + resourcesUrl;
-	}
 
 	return {
 		get: function(id) {
@@ -234,11 +210,6 @@ function Networks($http, $cookieStore) {
 		}
 	};
 
-	if (!useNode) {
-		resourceUrl = rootUrl + resourceUrl;
-		resourcesUrl = rootUrl + resourcesUrl;
-	}
-
 	return {
 		get: function(id) {
 			return $http.get(resourceUrl + '/' + id, httpConfig);
@@ -271,11 +242,6 @@ function Subnets($http, $cookieStore) {
 			'X-Api-Request': true
 		}
 	};
-
-	if (!useNode) {
-		resourceUrl = rootUrl + resourceUrl;
-		resourcesUrl = rootUrl + resourcesUrl;
-	}
 
 	return {
 		get: function(id) {
@@ -310,10 +276,6 @@ function Ports($http, $cookieStore) {
 		}
 	};
 
-	if (!useNode) {
-		resourceUrl = rootUrl + resourceUrl;
-		resourcesUrl = rootUrl + resourcesUrl;
-	}
 
 	return {
 		get: function(id) {
@@ -349,10 +311,6 @@ function Nats($http, $cookieStore) {
 		}
 	};
 
-	if (!useNode) {
-		resourceUrl = rootUrl + resourceUrl;
-		resourcesUrl = rootUrl + resourcesUrl;
-	}
 
 	return {
 		get: function(id) {
@@ -388,10 +346,6 @@ function SecurityGroups($http, $cookieStore) {
 		}
 	};
 
-	if (!useNode) {
-		resourceUrl = rootUrl + resourceUrl;
-		resourcesUrl = rootUrl + resourcesUrl;
-	}
 
 	return {
 		get: function(id) {
@@ -425,11 +379,6 @@ function Pools($http, $cookieStore) {
 			'X-Api-Request': true
 		}
 	};
-
-	if (!useNode) {
-		pools = rootUrl + pools;
-		poolNodes = rootUrl + poolNodes;
-	}
 
 	return {
 		getPlatformNodes: function() {

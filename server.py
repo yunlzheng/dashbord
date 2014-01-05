@@ -1,5 +1,5 @@
 # coding: utf-8
-from dashbord.app import app
+from dashbord import app
 
 if __name__ == "__main__":
     app.run()
