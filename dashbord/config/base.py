@@ -20,6 +20,7 @@ class Config(object):
     VMS_PORT = 8889
     VMS_PLATFORM_ID = '1386559196'
     VMS_SECRET = '4ae0214d25f04007932997f3455c0c9f'
+    VMS_ACCESS_TOKEN = None
 
     @classmethod
     def vms_http_url(cls):

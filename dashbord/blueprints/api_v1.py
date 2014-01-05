@@ -21,11 +21,17 @@ def get_resources(resources):
     #     'message': 'building! get resouces from cache',
     #     'data': {}
     # })
-    url = config.vms_http_url() + request.path + request.query_string
+    url = config.vms_http_url() + request.path + '?' +request.query_string
     print url
     resp = requests.get( url = url, headers = build_headers())
     if resp.status_code == requests.codes.ok:
         return jsonify(resp.json())
+    else:
+        return jsonify({
+            'code': 1,
+            'message': 'building! get resouces from cache',
+            'data': {}
+        })
 
 @api_proxy.route('/<resources>', methods=['POST', 'PUT', 'DELETE'])
 def proxy(resources):
