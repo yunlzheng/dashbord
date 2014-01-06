@@ -20,16 +20,6 @@ function HomeCtrl($scope, $rootScope, pools, charting) {
 
         pool.open = true;
 
-        console.log('volume   '+ pool.quota.share_storage +'<-------->'+ pool.quota.used_share_storage);
-         
-
-        console.log('instance   '+ pool.quota.instances +'<-------->'+ pool.quota.used_instances);
-          
-
-        console.log('vcpus   '+ pool.quota.vcpus+'<-------->'+pool.quota.used_vcups);
-
-        console.log('memory   '+ pool.quota.memory+'<-------->'+pool.quota.used_memory);
-
       });
 
       console.log($scope.pools);

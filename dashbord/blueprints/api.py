@@ -13,6 +13,8 @@ from dashbord.clients.vms_client import Client
 config = global_config()
 api_proxy = Blueprint('api_v1', __name__)
 
+client = Client(config.VMS_HOST, config.VMS_PORT, config.VMS_APP_KEY,
+                               config.VMS_SECRET)
 
 @api_proxy.route('/<resources>', methods=['GET'])
 def get_resources(resources):
@@ -24,6 +26,7 @@ def get_resources(resources):
     url = config.vms_http_url() + request.path + '?' +request.query_string
     print url
     resp = requests.get( url = url, headers = build_headers())
+    print resp.status_code
     if resp.status_code == requests.codes.ok:
         return jsonify(resp.json())
     else:
@@ -47,6 +50,12 @@ def proxy(resources):
 
     if resp.status_code == requests.codes.ok:
         return jsonify(resp.json())
+    elif resp.status_code == 401:
+        client.authenticate()
+        return jsonify({
+            'code': 1,
+            'message': '获取数据异常，请刷新重试'
+        })
     else:
         return jsonify({
             'code': 2,
@@ -56,7 +65,6 @@ def proxy(resources):
 
 def build_headers():
     return {
-        'X-Consumer-key': config.VMS_PLATFORM_ID,
-        'X-Auth-Token': Client(config.VMS_HOST, config.VMS_PORT, config.VMS_PLATFORM_ID,
-                               config.VMS_SECRET).authenticate(),
+        'X-Consumer-key': config.VMS_APP_KEY,
+        'X-Auth-Token': client.authenticate(),
     }

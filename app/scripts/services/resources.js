@@ -382,7 +382,7 @@ function Pools($http, $cookieStore) {
 
 	return {
 		getPlatformNodes: function() {
-			return $http.get(pools + '?platform_id=' + $cookieStore.get('platformId'), httpConfig);
+			return $http.get(pools + '?platform_id=' + $cookieStore.get('platform'), httpConfig);
 		},
 		getPoolNodes: function(pool_id) {
 			return $http.get(poolNodes + '?pool_id=' + pool_id, httpConfig);

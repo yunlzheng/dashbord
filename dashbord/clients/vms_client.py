@@ -11,6 +11,7 @@ class Client(object):
         self.port = port
         self.app_key = key
         self.app_secret = secret
+        self.platform_id = None
 
     def _vms_authenticate(self):
         HEADERS = {
@@ -22,6 +23,8 @@ class Client(object):
         if resp.status_code == requests.codes.ok:
             result = resp.json()
             if result['code'] == '0':
+                print result
+                self.platform_id = result['appkey']
                 return result['token']['id']
             else:
                 raise AuthException()

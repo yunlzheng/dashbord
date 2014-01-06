@@ -4,16 +4,20 @@ Flask with Angular.js fix the web app url mapping
 , in order to save the yeoman way of web front develop way
 '''
 from flask import Flask
+from flask import make_response
 from flask import send_file, send_from_directory
 from flask.ext.cache import Cache
 
 
 from dashbord.config import global_config
 from dashbord.blueprints.api import api_proxy
+from dashbord.clients.vms_client import Client
 
 app = Flask(__name__)
 
-app.config.from_object(global_config())
+app_config = global_config()
+
+app.config.from_object(app_config)
 
 app.jinja_env.variable_start_string = '[['
 app.jinja_env.variable_end_string = ']]'
@@ -23,10 +27,14 @@ app.register_blueprint(api_proxy, url_prefix="/v1.1")
 
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
+
+
 @cache.cached(timeout=50)
 @app.route("/")
 def hello():
-    return send_file(app.config['INDEX_ROOT'])
+    resp = make_response(send_file(app.config['INDEX_ROOT']))
+    resp.set_cookie('platform', global_config().VMS_PLATFORM_ID)
+    return resp
 
 @cache.cached(timeout=50)
 @app.route('/views/<path:filename>')
