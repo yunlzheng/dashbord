@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a04fd005-3af1-4ba4-b894-29aa1b62ed02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/__init__.py" afterPath="$PROJECT_DIR$/dashbord/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/blueprints/api.py" afterPath="$PROJECT_DIR$/dashbord/blueprints/api.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/base.py" afterPath="$PROJECT_DIR$/dashbord/config/base.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/home.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/resources.js" afterPath="$PROJECT_DIR$/app/scripts/services/resources.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/clients/vms_client.py" afterPath="$PROJECT_DIR$/dashbord/clients/vms_client.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dashbord.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,82 +28,7 @@
     <favorites_list name="dashbord" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="resources.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/resources.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="384" column="81" selection-start="8595" selection-end="8595" vertical-scroll-proportion="0.0" vertical-offset="5502" max-vertical-offset="6180">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashbord/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="27" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="1080">
-              <folding>
-                <element signature="e#133#156#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vms_client.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashbord/clients/vms_client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="62" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="690">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dashbord/blueprints/api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="49" selection-start="450" selection-end="450" vertical-scroll-proportion="0.23648648" vertical-offset="0" max-vertical-offset="1005">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashbord/config/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="20" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="5" max-vertical-offset="465">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="25" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -146,7 +66,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="25" />
+    <option name="x" value="45" />
+    <option name="y" value="31" />
     <option name="width" value="1440" />
     <option name="height" value="801" />
   </component>
@@ -157,11 +78,11 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
@@ -194,20 +115,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashbord" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashbord" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashbord" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -218,6 +125,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vms" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -454,7 +362,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1440" height="801" extended-state="0" />
+    <frame x="45" y="31" width="1440" height="801" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -462,11 +370,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23958333" sideWeight="0.66855526" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23958333" sideWeight="0.66855526" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23958333" sideWeight="0.43767706" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33144477" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33144477" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -494,109 +402,39 @@
         <state line="88" column="55" selection-start="2314" selection-end="2314" vertical-scroll-proportion="1.2748091" vertical-offset="320" max-vertical-offset="8595" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="17" selection-start="31" selection-end="31" vertical-scroll-proportion="0.022123894" vertical-offset="0" max-vertical-offset="678">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/workspace/lib/python2.7/site-packages/requests/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="60" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.0" vertical-offset="1391" max-vertical-offset="1890">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/commons.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="16" selection-end="68" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135" />
+        <state line="94" column="60" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.0" vertical-offset="1391" max-vertical-offset="1890" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="246" selection-end="246" vertical-scroll-proportion="0.3318584" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
+        <state line="15" column="20" selection-start="246" selection-end="246" vertical-scroll-proportion="0.3318584" vertical-offset="0" max-vertical-offset="1005" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="434" column="12" selection-start="10392" selection-end="10392" vertical-scroll-proportion="0.7876106" vertical-offset="5976" max-vertical-offset="6810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/config/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="20" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" vertical-offset="5" max-vertical-offset="465">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="25" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/resources.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="384" column="81" selection-start="8595" selection-end="8595" vertical-scroll-proportion="0.0" vertical-offset="5502" max-vertical-offset="6180">
-          <folding />
-        </state>
+        <state line="434" column="12" selection-start="10392" selection-end="10392" vertical-scroll-proportion="0.7876106" vertical-offset="5976" max-vertical-offset="6810" />
       </provider>
     </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/cookielib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1621" column="8" selection-start="58343" selection-end="58343" vertical-scroll-proportion="0.18584071" vertical-offset="24252" max-vertical-offset="27000">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/clients/vms_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="62" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="27" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="1080">
-          <folding>
-            <element signature="e#133#156#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="1621" column="8" selection-start="58343" selection-end="58343" vertical-scroll-proportion="0.18584071" vertical-offset="24252" max-vertical-offset="27000" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/workspace/lib/python2.7/site-packages/requests/status_codes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="23" selection-start="1091" selection-end="1103" vertical-scroll-proportion="0.7094595" vertical-offset="225" max-vertical-offset="1410">
-          <folding />
-        </state>
+        <state line="36" column="23" selection-start="1091" selection-end="1103" vertical-scroll-proportion="0.7094595" vertical-offset="225" max-vertical-offset="1410" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/blueprints/api.py">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="49" selection-start="450" selection-end="450" vertical-scroll-proportion="0.23648648" vertical-offset="0" max-vertical-offset="1005">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/resources.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="435" column="81" selection-start="9850" selection-end="9850" vertical-scroll-proportion="0.38053098" vertical-offset="6267" max-vertical-offset="6945" />
       </provider>
     </entry>
   </component>
