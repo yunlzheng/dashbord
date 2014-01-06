@@ -8,6 +8,7 @@ class Config(object):
     TESTING = False
     DATABASE_URI = 'sqlite://:memory:'
 
+    # Angular Configuration
     INDEX_ROOT = join(ANGULAR_DEV_DIR, 'index.html')
     VIEWS_ROOT = join(ANGULAR_DEV_DIR, 'views')
     STYLE_ROOT = join(ANGULAR_DEV_DIR, 'styles')
@@ -15,6 +16,12 @@ class Config(object):
     BOWER_COMPONENTS_ROOT = join(ANGULAR_APP_DIR, 'bower_components')
     IMAGES_ROOT = join(ANGULAR_APP_DIR, 'images')
     TEMPLATE_ROOT = join(ANGULAR_APP_DIR, 'template')
+
+    # Reds Configuration
+    REDIS_HOST = "localhost"
+    REDIS_PASSWORD = ""
+    REDIS_PORT = 6379
+    REDIS_DATABASE = 5
 
     VMS_HOST = '172.30.1.12'
     VMS_PORT = 8889

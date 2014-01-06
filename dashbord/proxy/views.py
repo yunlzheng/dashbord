@@ -6,40 +6,46 @@ from flask import Blueprint
 from flask import request
 from flask import jsonify
 
-
 from dashbord.config import global_config
 from dashbord.clients.vms_client import Client
+from dashbord.commons import redis_store
 
 config = global_config()
-api_proxy = Blueprint('api_v1', __name__)
+api_proxy = Blueprint('api', __name__)
 
 client = Client(config.VMS_HOST, config.VMS_PORT, config.VMS_APP_KEY,
-                               config.VMS_SECRET)
+                config.VMS_SECRET)
 
 @api_proxy.route('/<resources>', methods=['GET'])
-def get_resources(resources):
-    # return jsonify({
-    #     'code': 1,
-    #     'message': 'building! get resouces from cache',
-    #     'data': {}
-    # })
-    url = config.vms_http_url() + request.path + '?' +request.query_string
-    print url
-    resp = requests.get( url = url, headers = build_headers())
-    print resp.status_code
-    if resp.status_code == requests.codes.ok:
-        return jsonify(resp.json())
+@api_proxy.route('/<resources>/<resource_uuid>', methods=['GET'])
+def get_resources(resources, resource_uuid=None):
+    key = resources
+    if resource_uuid:
+        key = key+':'+ resource_uuid
+    result = redis_store.hget('resources', key)
+    print "@@@@@@@@@@@@@@@@@@"
+    result = json.loads(result)
+    print result
+    print "@@@@@@@@@@@@@@@@@@"
+    if not result:
+        url = config.vms_http_url() + request.path + '?' +request.query_string
+        resp = requests.get( url = url, headers = build_headers(), timeout=10)
+        if resp.status_code == requests.codes.ok:
+            redis_store.hset('resources', key, resp.json())
+            return jsonify(resp.json())
+        else:
+            return jsonify({
+                'code': 1,
+                'message': 'building! get resouces from cache',
+                'data': {}
+            })
     else:
-        return jsonify({
-            'code': 1,
-            'message': 'building! get resouces from cache',
-            'data': {}
-        })
+        return result
+
 
 @api_proxy.route('/<resources>', methods=['POST', 'PUT', 'DELETE'])
 def proxy(resources):
     headers = build_headers()
-    print headers
     path = request.path
     method = request.method
     query_string = request.query_string

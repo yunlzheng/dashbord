@@ -2,6 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a04fd005-3af1-4ba4-b894-29aa1b62ed02" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dashbord/blueprints/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dashbord/blueprints/angular.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dashbord/blueprints/api.py" afterPath="$PROJECT_DIR$/dashbord/proxy/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/__init__.py" afterPath="$PROJECT_DIR$/dashbord/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/base.py" afterPath="$PROJECT_DIR$/dashbord/config/base.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/commons.py" afterPath="$PROJECT_DIR$/dashbord/commons.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dashbord.iml" afterPath="$PROJECT_DIR$/.idea/dashbord.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/clients/vms_client.py" afterPath="$PROJECT_DIR$/dashbord/clients/vms_client.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dashbord.iws" />
@@ -15,7 +26,8 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/dashbord$vms.coverage" NAME="vms Coverage Results" MODIFIED="1388926179964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dashbord/clients" />
-    <SUITE FILE_PATH="coverage/dashbord$server.coverage" NAME="server Coverage Results" MODIFIED="1388975181841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dashbord$server.coverage" NAME="server Coverage Results" MODIFIED="1389004414826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dashbord$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1389004364279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dashbord" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -28,7 +40,46 @@
     <favorites_list name="dashbord" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashbord/config/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="4" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="production.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashbord/config/production.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="21" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="6" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashbord/proxy/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="15" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.5494368" vertical-offset="191" max-vertical-offset="1230">
+              <folding>
+                <element signature="e#16#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -46,30 +97,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/dashbord/config/env.py" />
-        <option value="$PROJECT_DIR$/dashbord/blueprints/angular.py" />
         <option value="$PROJECT_DIR$/dashbord/blueprints/api_v1_1.py" />
         <option value="$PROJECT_DIR$/dashbord/utils/http_utils.py" />
         <option value="$PROJECT_DIR$/dashbord/clients/__init__.py" />
         <option value="$PROJECT_DIR$/dashbord/exceptions.py" />
-        <option value="$PROJECT_DIR$/server.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/dashbord/blueprints/api_v1.py" />
-        <option value="$PROJECT_DIR$/dashbord/commons.py" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/home.js" />
-        <option value="$PROJECT_DIR$/dashbord/config/base.py" />
         <option value="$PROJECT_DIR$/app/scripts/services/resources.js" />
         <option value="$PROJECT_DIR$/dashbord/clients/vms_client.py" />
-        <option value="$PROJECT_DIR$/dashbord/__init__.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/dashbord/config/base.py" />
         <option value="$PROJECT_DIR$/dashbord/blueprints/api.py" />
+        <option value="$PROJECT_DIR$/dashbord/angular/views.py" />
+        <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/dashbord/commons.py" />
+        <option value="$PROJECT_DIR$/dashbord/__init__.py" />
+        <option value="$PROJECT_DIR$/dashbord/proxy/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="45" />
-    <option name="y" value="31" />
     <option name="width" value="1440" />
-    <option name="height" value="801" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -115,6 +164,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -126,7 +207,7 @@
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../vms" />
-    <property name="FullScreen" value="false" />
+    <property name="FullScreen" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
@@ -134,6 +215,11 @@
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dashbord/proxy" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.server">
     <configuration default="false" name="vms" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -169,6 +255,25 @@
       <module name="dashbord" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dashbord" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="dashbord" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dashbord/__init__.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -324,14 +429,16 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.vms" />
       <item index="1" class="java.lang.String" itemvalue="Python.server" />
+      <item index="2" class="java.lang.String" itemvalue="Python.__init__" />
     </list>
     <recent_temporary>
-      <list size="2">
+      <list size="3">
         <item index="0" class="java.lang.String" itemvalue="Python.server" />
-        <item index="1" class="java.lang.String" itemvalue="Python.vms" />
+        <item index="1" class="java.lang.String" itemvalue="Python.__init__" />
+        <item index="2" class="java.lang.String" itemvalue="Python.vms" />
       </list>
     </recent_temporary>
   </component>
@@ -362,19 +469,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="45" y="31" width="1440" height="801" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23958333" sideWeight="0.66855526" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23958333" sideWeight="0.46553808" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23958333" sideWeight="0.43767706" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33144477" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2744861" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -397,44 +504,130 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.virtualenvs/workspace/lib/python2.7/site-packages/flask_cache/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="55" selection-start="2314" selection-end="2314" vertical-scroll-proportion="1.2748091" vertical-offset="320" max-vertical-offset="8595" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/workspace/lib/python2.7/site-packages/requests/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="60" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.0" vertical-offset="1391" max-vertical-offset="1890" />
+        <state line="28" column="75" selection-start="1132" selection-end="1176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1890">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
+    <entry file="file://$USER_HOME$/.virtualenvs/workspace/lib/python2.7/site-packages/flask/blueprints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="246" selection-end="246" vertical-scroll-proportion="0.3318584" vertical-offset="0" max-vertical-offset="1005" />
+        <state line="166" column="68" selection-start="6928" selection-end="6928" vertical-scroll-proportion="0.46933666" vertical-offset="2085" max-vertical-offset="6075">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="434" column="12" selection-start="10392" selection-end="10392" vertical-scroll-proportion="0.7876106" vertical-offset="5976" max-vertical-offset="6810" />
+        <state line="1" column="18" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/cookielib.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/redis/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1621" column="8" selection-start="58343" selection-end="58343" vertical-scroll-proportion="0.18584071" vertical-offset="24252" max-vertical-offset="27000" />
+        <state line="1380" column="8" selection-start="50143" selection-end="50143" vertical-scroll-proportion="0.0" vertical-offset="20179" max-vertical-offset="31980">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/workspace/lib/python2.7/site-packages/requests/status_codes.py">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/flask_redis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="23" selection-start="1091" selection-end="1103" vertical-scroll-proportion="0.7094595" vertical-offset="225" max-vertical-offset="1410" />
+        <state line="78" column="57" selection-start="2569" selection-end="2569" vertical-scroll-proportion="0.58698374" vertical-offset="656" max-vertical-offset="1515">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/dashbord/clients/vms_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594" />
+        <state line="12" column="32" selection-start="340" selection-end="340" vertical-scroll-proportion="0.2252816" vertical-offset="0" max-vertical-offset="799">
+          <folding>
+            <element signature="e#16#31#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/resources.js">
+    <entry file="file://$PROJECT_DIR$/dashbord/proxy/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="435" column="81" selection-start="9850" selection-end="9850" vertical-scroll-proportion="0.38053098" vertical-offset="6267" max-vertical-offset="6945" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/angular/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="54" selection-start="907" selection-end="907" vertical-scroll-proportion="0.59922683" vertical-offset="0" max-vertical-offset="776">
+          <folding>
+            <element signature="e#16#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/werkzeug/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="151" column="47" selection-start="7136" selection-end="7142" vertical-scroll-proportion="0.82535577" vertical-offset="1627" max-vertical-offset="2400">
+          <folding>
+            <element signature="e#493#521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="83" selection-end="83" vertical-scroll-proportion="0.07867133" vertical-offset="0" max-vertical-offset="572">
+          <folding>
+            <element signature="e#16#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="9" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.72527474" vertical-offset="714" max-vertical-offset="1260">
+          <folding>
+            <element signature="e#133#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/config/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/config/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="21" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="6" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/commons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="21" selection-start="118" selection-end="118" vertical-scroll-proportion="0.13111888" vertical-offset="0" max-vertical-offset="572">
+          <folding>
+            <element signature="e#16#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/proxy/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="15" selection-start="1406" selection-end="1406" vertical-scroll-proportion="0.5494368" vertical-offset="191" max-vertical-offset="1230">
+          <folding>
+            <element signature="e#16#27#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

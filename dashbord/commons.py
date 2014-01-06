@@ -1,3 +1,6 @@
 # coding: utf-8
 from flask.ext.cache import Cache
-cache = Cache(app)
+from flask_redis import Redis
+
+cache = Cache()
+redis_store = Redis()

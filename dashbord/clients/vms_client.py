@@ -19,11 +19,10 @@ class Client(object):
             'X-Consumer-Secret': self.app_secret
         }
         authenticate_url = 'http://{0}:{1}/auth/token?grant_type=authorization_code'.format(self.host, self.port)
-        resp = requests.get(authenticate_url, headers=HEADERS)
+        resp = requests.get(authenticate_url, headers=HEADERS, timeout=2)
         if resp.status_code == requests.codes.ok:
             result = resp.json()
             if result['code'] == '0':
-                print result
                 self.platform_id = result['appkey']
                 return result['token']['id']
             else:
