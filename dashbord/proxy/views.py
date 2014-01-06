@@ -1,5 +1,6 @@
 # coding: utf-8
 import json
+import pickle
 import requests
 from requests.api import request as do_request
 from flask import Blueprint
@@ -22,16 +23,12 @@ def get_resources(resources, resource_uuid=None):
     key = resources
     if resource_uuid:
         key = key+':'+ resource_uuid
-    result = redis_store.hget('resources', key)
-    print "@@@@@@@@@@@@@@@@@@"
-    result = json.loads(result)
-    print result
-    print "@@@@@@@@@@@@@@@@@@"
+    result = redis_store.hget('dashbord', key)
     if not result:
         url = config.vms_http_url() + request.path + '?' +request.query_string
-        resp = requests.get( url = url, headers = build_headers(), timeout=10)
+        resp = requests.get( url = url, headers = build_headers(), timeout=100)
         if resp.status_code == requests.codes.ok:
-            redis_store.hset('resources', key, resp.json())
+            redis_store.hset('dashbord', key, pickle.dumps(resp.json()))
             return jsonify(resp.json())
         else:
             return jsonify({
@@ -40,7 +37,9 @@ def get_resources(resources, resource_uuid=None):
                 'data': {}
             })
     else:
-        return result
+        print "@@@@@@@@@@@@@@@@@@ load data from cache"
+        result = pickle.loads(result)
+        return jsonify(result)
 
 
 @api_proxy.route('/<resources>', methods=['POST', 'PUT', 'DELETE'])

@@ -12,6 +12,7 @@ from dashbord.angular.views import angular
 from dashbord.clients.vms_client import Client
 from dashbord.commons import cache
 from dashbord.commons import redis_store
+from dashbord.commons import configure_logging
 
 __all__ = ["create_app"]
 
@@ -31,6 +32,7 @@ def create_app(appname=None):
     configure_app_jinja(app)
     registe_blueprint(app)
     configure_extensions(app)
+    configure_logging(app)
     return app
 
 def configure_app(app):

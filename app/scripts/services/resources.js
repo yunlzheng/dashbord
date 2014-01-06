@@ -17,11 +17,6 @@ function VirtualRoutes($http, $cookieStore) {
 		}
 	};
 
-	if (!useNode) {
-		virtualRoutersUrl = rootUrl + virtualRoutersUrl;
-		virtualRouterUrl = rootUrl + virtualRouterUrl;
-	}
-
 	return {
 
 		routes: function(){
@@ -198,9 +193,6 @@ function Networks($http, $cookieStore) {
 
 	var resourcesUrl = '/v1/networks';
 	var resourceUrl = '/v1/network';
-
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
 
 	var httpConfig = {
 		'headers': {

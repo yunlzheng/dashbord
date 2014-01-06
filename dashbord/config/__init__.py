@@ -5,9 +5,8 @@ from development import Development
 from production import Production
 from test import Test
 
-
-
 _global_config = None
+
 
 def global_config():
     """
