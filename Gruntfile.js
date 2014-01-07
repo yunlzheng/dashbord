@@ -27,8 +27,7 @@ module.exports = function (grunt) {
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
-      dist: 'dist',
-      vmsHost: '172.30.1.12'
+      dist: 'dist'
     },
 
     jade: {
@@ -94,32 +93,13 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-      proxies: [{
-        context: '/v1',
-        host: '<%= yeoman.vmsHost%>',
-        port: 8889,
-        https: false
-      },
-      {
-        context: '/auth',
-        host: '<%= yeoman.vmsHost%>',
-        port: 8889,
-        https: false
-      }],
       livereload: {
         options: {
           open: true,
           base: [
             '.tmp',
             '<%= yeoman.app %>'
-          ],
-          middleware: function (connect) {
-            return [
-              proxySnippet,
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'app')
-            ];
-          }
+          ]
         }
       },
       test: {
