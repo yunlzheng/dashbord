@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('dashbordApp')
-  .controller('NodesCtrl', ['$scope', 'pools',
-    function($scope, pools) {
+  .controller('NodesCtrl', ['$scope', 'pools','$cookieStore',
+    function($scope, pools, $cookieStore) {
 
       $scope.currentPage = 1;
       $scope.maxSize = 6;
@@ -24,7 +24,8 @@ angular.module('dashbordApp')
       $scope.getNodes = function(){
 
         $scope.nodes = [];
-        pools.getPlatformNodes().success(function(data){
+        var platform_id = $cookieStore.get('platform_id')
+        pools.getPlatformNodes(platform_id).success(function(data){
 
             angular.forEach(data.data, function(item){
 

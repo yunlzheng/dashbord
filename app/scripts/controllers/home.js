@@ -1,6 +1,6 @@
 'use strict';
 
-function HomeCtrl($scope, $rootScope, pools, charting) {
+function HomeCtrl($scope, $rootScope, $cookieStore, pools, charting) {
 
   $scope.max = 200;
   $scope.dynamic = 100;
@@ -13,7 +13,9 @@ function HomeCtrl($scope, $rootScope, pools, charting) {
 
   $scope.getPools = function() {
 
-    pools.getPlatformNodes().success(function(data) {
+    var platform_id = $cookieStore.get('platform_id')
+
+    pools.getPlatformNodes(platform_id).success(function(data) {
 
       $scope.pools = data.data;
       angular.forEach($scope.pools, function(pool) {
@@ -59,4 +61,4 @@ angular.module('dashbordApp')
       }
     }
   })
-  .controller('HomeCtrl', ['$scope', '$rootScope', 'pools', 'charting', HomeCtrl]);
+  .controller('HomeCtrl', ['$scope', '$rootScope', '$cookieStore', 'pools', 'charting', HomeCtrl]);

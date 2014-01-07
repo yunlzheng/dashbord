@@ -21,7 +21,7 @@ class Config(object):
     REDIS_HOST = "localhost"
     REDIS_PASSWORD = ""
     REDIS_PORT = 6379
-    REDIS_DATABASE = 5
+    REDIS_DATABASE = 1
 
     VMS_HOST = '172.30.1.12'
     VMS_PORT = 8889
