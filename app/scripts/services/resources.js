@@ -1,5 +1,11 @@
 'use strict';
 
+var httpConfig = {
+    'headers': {
+        'X-Api-Request': true
+    }
+};
+
 function VirtualRoutes($http, $cookieStore) {
 
 
@@ -8,14 +14,6 @@ function VirtualRoutes($http, $cookieStore) {
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
-
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
 
 	return {
 
@@ -47,14 +45,6 @@ function Instances($http, $cookieStore) {
 
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
-
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
 
 
 	return {
@@ -106,13 +96,6 @@ function Flavors($http, $cookieStore) {
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
 
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
 
 
 	return {
@@ -139,13 +122,6 @@ function Images($http, $cookieStore) {
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
 
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
 
 
 	return {
@@ -164,13 +140,7 @@ function Volumes($http, $cookieStore) {
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
 
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
+
 
 	return {
 		get: function(id) {
@@ -194,13 +164,7 @@ function Networks($http, $cookieStore) {
 	var resourcesUrl = '/v1/networks';
 	var resourceUrl = '/v1/network';
 
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
+
 
 	return {
 		get: function(id) {
@@ -227,13 +191,7 @@ function Subnets($http, $cookieStore) {
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
 
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
+
 
 	return {
 		get: function(id) {
@@ -260,13 +218,6 @@ function Ports($http, $cookieStore) {
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
 
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
 
 
 	return {
@@ -295,15 +246,6 @@ function Nats($http, $cookieStore) {
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
 
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
-
-
 	return {
 		get: function(id) {
 			return $http.get(resourceUrl + '/' + id, httpConfig);
@@ -330,15 +272,6 @@ function SecurityGroups($http, $cookieStore) {
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
 
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
-
-
 	return {
 		get: function(id) {
 			return $http.get(resourceUrl + '/' + id, httpConfig);
@@ -356,6 +289,16 @@ function SecurityGroups($http, $cookieStore) {
 
 }
 
+function Platforms($http) {
+
+    var platforms = '/v1/platforms';
+    return {
+        getAll : function() {
+            return $http.get(platforms, httpConfig);
+        }
+    };
+
+}
 
 function Pools($http, $cookieStore) {
 
@@ -363,14 +306,6 @@ function Pools($http, $cookieStore) {
 	var poolNodes = "/v1/pool-nodes";
 	var rootUrl = $cookieStore.get('rootUrl');
 	var useNode = $cookieStore.get('useNode');
-
-	var httpConfig = {
-		'headers': {
-			'X-Consumer-key': $cookieStore.get('appKey'),
-			'X-Auth-Token': $cookieStore.get('accessToken'),
-			'X-Api-Request': true
-		}
-	};
 
 	return {
 		getPlatformNodes: function(platform_id) {
@@ -397,3 +332,4 @@ angular.module('services.resources').factory('nats', ['$http', '$cookieStore', N
 angular.module('services.resources').factory('securityGroups', ['$http', '$cookieStore', SecurityGroups]);
 angular.module('services.resources').factory('virtualRoutes', ['$http', '$cookieStore', VirtualRoutes]);
 angular.module('services.resources').factory('pools', ['$http', '$cookieStore', Pools]);
+angular.module('services.resources').factory('platforms', ['$http', Platforms]);

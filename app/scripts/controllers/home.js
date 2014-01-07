@@ -13,7 +13,7 @@ function HomeCtrl($scope, $rootScope, $cookieStore, pools, charting) {
 
   $scope.getPools = function() {
 
-    var platform_id = $cookieStore.get('platform_id')
+    var platform_id = $cookieStore.get('platform_id');
 
     pools.getPlatformNodes(platform_id).success(function(data) {
 

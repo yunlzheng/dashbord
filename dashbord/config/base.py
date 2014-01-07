@@ -18,7 +18,7 @@ class Config(object):
     TEMPLATE_ROOT = join(ANGULAR_APP_DIR, 'template')
 
     # Reds Configuration
-    REDIS_HOST = "localhost"
+    REDIS_HOST = "127.0.0.1"
     REDIS_PASSWORD = ""
     REDIS_PORT = 6379
     REDIS_DATABASE = 1

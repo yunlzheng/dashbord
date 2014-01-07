@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a04fd005-3af1-4ba4-b894-29aa1b62ed02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/alert.scss" afterPath="$PROJECT_DIR$/app/styles/alert.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/__init__.py" afterPath="$PROJECT_DIR$/dashbord/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/base.py" afterPath="$PROJECT_DIR$/dashbord/config/base.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/home.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/nodes.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/nodes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/notify.js" afterPath="$PROJECT_DIR$/app/scripts/services/notify.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.jade" afterPath="$PROJECT_DIR$/app/index.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/main.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/resources.js" afterPath="$PROJECT_DIR$/app/scripts/services/resources.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/angular/views.py" afterPath="$PROJECT_DIR$/dashbord/angular/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dashbord.iws" />
@@ -36,7 +39,97 @@
     <favorites_list name="dashbord" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="index.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.jade">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="53" selection-start="2966" selection-end="2966" vertical-scroll-proportion="-5.2222223" vertical-offset="954" max-vertical-offset="1950">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="14" selection-start="982" selection-end="982" vertical-scroll-proportion="0.0" vertical-offset="3194" max-vertical-offset="6690">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="18" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1410">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="54" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="110" column="10" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.0" vertical-offset="1077" max-vertical-offset="1815">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mock.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/mock.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="12" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="24075">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ui-bootstrap-tpls-0.9.0.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/ui-bootstrap-tpls-0.9.0.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="36" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.41958043" vertical-offset="15" max-vertical-offset="54075">
+              <folding>
+                <marker date="1388844040000" expanded="false" signature="113682:113693" placeholder="..." />
+                <marker date="1388844040000" expanded="false" signature="114384:114404" placeholder="..." />
+                <marker date="1388844040000" expanded="false" signature="121124:121135" placeholder="..." />
+                <marker date="1388844040000" expanded="false" signature="121468:121479" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="37" selection-start="346" selection-end="346" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="735">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -54,28 +147,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/dashbord/blueprints/api_v1.py" />
-        <option value="$PROJECT_DIR$/dashbord/clients/vms_client.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/dashbord/blueprints/api.py" />
-        <option value="$PROJECT_DIR$/server.py" />
-        <option value="$PROJECT_DIR$/dashbord/commons.py" />
-        <option value="$PROJECT_DIR$/dashbord/__init__.py" />
-        <option value="$PROJECT_DIR$/dashbord/config/__init__.py" />
         <option value="$PROJECT_DIR$/dashbord/proxy/views.py" />
-        <option value="$PROJECT_DIR$/app/scripts/services/resources.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/home.js" />
         <option value="$PROJECT_DIR$/dashbord/angular/views.py" />
-        <option value="$PROJECT_DIR$/dashbord/config/base.py" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/nodes.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/notify.js" />
         <option value="$PROJECT_DIR$/app/styles/alert.scss" />
+        <option value="$PROJECT_DIR$/app/scripts/services/resources.js" />
+        <option value="$PROJECT_DIR$/dashbord/config/base.py" />
+        <option value="$PROJECT_DIR$/dashbord/__init__.py" />
+        <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/.tmp/index.html" />
+        <option value="$PROJECT_DIR$/app/index.jade" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/home.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="874" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -103,7 +197,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -112,17 +205,104 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../vms" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -384,15 +564,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="874" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32862645" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23958333" sideWeight="0.46553808" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23958333" sideWeight="0.67137355" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23958333" sideWeight="0.43767706" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -401,7 +582,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -419,115 +599,125 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/werkzeug/__init__.py">
+    <entry file="file://$PROJECT_DIR$/dashbord/commons.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="47" selection-start="7136" selection-end="7142" vertical-scroll-proportion="0.82535577" vertical-offset="1627" max-vertical-offset="2400" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="83" selection-end="83" vertical-scroll-proportion="0.07867133" vertical-offset="0" max-vertical-offset="572" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/config/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.1126408" vertical-offset="0" max-vertical-offset="799">
-          <folding>
-            <element signature="e#16#25#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/config/development.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="64" selection-end="64" vertical-scroll-proportion="0.075093865" vertical-offset="0" max-vertical-offset="799">
+        <state line="13" column="27" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="855">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashbord/config/production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="21" selection-start="79" selection-end="79" vertical-scroll-proportion="0.075093865" vertical-offset="0" max-vertical-offset="799" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/commons.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="14" selection-start="292" selection-end="292" vertical-scroll-proportion="0.281602" vertical-offset="0" max-vertical-offset="960" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/clients/vms_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
-          <folding>
-            <element signature="e#16#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/resources.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="359" column="34" selection-start="7933" selection-end="7945" vertical-scroll-proportion="0.0" vertical-offset="5246" max-vertical-offset="6060">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="751">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/proxy/views.py">
+    <entry file="file://$PROJECT_DIR$/dashbord/config/development.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="36" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="751">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="19" selection-start="130" selection-end="130" vertical-scroll-proportion="0.07989348" vertical-offset="0" max-vertical-offset="751">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dashbord/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="39" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="41" max-vertical-offset="1290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/angular/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+        <state line="29" column="24" selection-start="803" selection-end="803" vertical-scroll-proportion="0.3608522" vertical-offset="164" max-vertical-offset="1335">
           <folding>
-            <marker date="1389064304000" expanded="true" signature="-1:-1" placeholder="import ..." />
-            <marker date="1389064304000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1389064304000" expanded="true" signature="-1:-1" placeholder="..." />
+            <element signature="e#133#156#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
+    <entry file="file://$PROJECT_DIR$/app/index.jade">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="22" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+        <state line="73" column="53" selection-start="2966" selection-end="2966" vertical-scroll-proportion="-5.2222223" vertical-offset="954" max-vertical-offset="1950">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/nodes.js">
+    <entry file="file://$PROJECT_DIR$/.tmp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="40" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+        <state line="98" column="20" selection-start="4939" selection-end="4939" vertical-scroll-proportion="0.5588235" vertical-offset="1071" max-vertical-offset="2055">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="37" selection-start="346" selection-end="346" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="14" selection-start="982" selection-end="982" vertical-scroll-proportion="0.0" vertical-offset="3194" max-vertical-offset="6690">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="751">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="18" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1410">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="20" selection-start="554" selection-end="554" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1035">
+        <state line="15" column="54" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/alert.scss">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="19" selection-start="215" selection-end="215" vertical-scroll-proportion="0.28885832" vertical-offset="0" max-vertical-offset="727">
+        <state line="110" column="10" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.0" vertical-offset="1077" max-vertical-offset="1815">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/notify.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/mock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.55819774" vertical-offset="259" max-vertical-offset="1215">
+        <state line="70" column="12" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="24075">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/ui-bootstrap-tpls-0.9.0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="36" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.41958043" vertical-offset="15" max-vertical-offset="54075">
+          <folding>
+            <marker date="1388844040000" expanded="false" signature="113682:113693" placeholder="..." />
+            <marker date="1388844040000" expanded="false" signature="114384:114404" placeholder="..." />
+            <marker date="1388844040000" expanded="false" signature="121124:121135" placeholder="..." />
+            <marker date="1388844040000" expanded="false" signature="121468:121479" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

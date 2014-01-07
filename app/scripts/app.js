@@ -13,7 +13,7 @@ function routeProvider($routeProvider) {
       controller: 'HomeCtrl',
       label: '主页'
     })
-    .when("/nodes", {
+    .when('/nodes', {
       templateUrl: 'views/nodes.html',
       controller: 'NodesCtrl',
       label: '物理机'

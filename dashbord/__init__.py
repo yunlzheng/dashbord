@@ -43,8 +43,11 @@ def configure_app_jinja(app):
     app.jinja_env.variable_end_string = ']]'
 
 def configure_extensions(app):
-    redis_store.app = app
-    redis_store.init_app(app)
+    try:
+        redis_store.app = app
+        redis_store.init_app(app)
+    except Exception as ex:
+        raise;
 
 def registe_blueprint(app):
     for blueprint in BLUEPRINTS:
