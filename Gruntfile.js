@@ -1,11 +1,6 @@
 // Generated on 2013-12-19 using generator-angular 0.6.0
 'use strict';
 
-var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
-var mountFolder = function (connect, dir) {
-  return connect.static(require('path').resolve(dir));
-};
-
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'

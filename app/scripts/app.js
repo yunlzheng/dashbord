@@ -82,7 +82,6 @@ angular.module('dashbordApp', [
   'services.resources',
   'services.mocks',
   'ui.knob',
-  'ui.chart',
   'ui.bootstrap'
 ])
   .config(['$httpProvider', httpProvider])

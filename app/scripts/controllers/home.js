@@ -1,6 +1,6 @@
 'use strict';
 
-function HomeCtrl($scope, $rootScope, $cookieStore, pools, charting) {
+function HomeCtrl($scope, $rootScope, $cookieStore, pools) {
 
   $scope.max = 200;
   $scope.dynamic = 100;
@@ -32,33 +32,8 @@ function HomeCtrl($scope, $rootScope, $cookieStore, pools, charting) {
 
   $scope.getPools();
 
-  $scope.myChartOpts = charting.pieChartOptions;
 }
 
 
 angular.module('dashbordApp')
-  .value('charting', {
-    pieChartOptions: {
-      seriesDefaults: {
-        // Make this a pie chart.
-        renderer: jQuery.jqplot.DonutRenderer,
-        rendererOptions: {
-          // Put data labels on the pie slices.
-          // By default, labels show the percentage of the slice.
-          showDataLabels: true,
-          dataLabels: 'label'
-        }
-      },
-      legend: {
-        show: false,
-        location: 's'
-      },
-      grid: {
-        background: 'rgba(0,0,0,0)',
-        gridLineColor: '#222',
-        borderColor: 'rgba(0,0,0,0)',
-        shadow: false
-      }
-    }
-  })
-  .controller('HomeCtrl', ['$scope', '$rootScope', '$cookieStore', 'pools', 'charting', HomeCtrl]);
+  .controller('HomeCtrl', ['$scope', '$rootScope', '$cookieStore', 'pools', HomeCtrl]);
