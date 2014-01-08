@@ -76,11 +76,24 @@ html.no-js
         .alert_messages
           alert(ng-repeat='alert in notify.getAlerts()', type='alert.type', close='notify.closeAlert($index)') {{ alert.msg }}
 
+    script(src='bower_components/jquery/jquery.js')
+    script(src='bower_components/angular/angular.js')
 
-    // build:js scripts/vendor.js
-    // bower:js
+    // build:js({.tmp,app}) scripts/vendor.js
+    script(src='bower_components/sass-bootstrap/js/affix.js')
+    script(src='bower_components/sass-bootstrap/js/alert.js')
+    script(src='bower_components/sass-bootstrap/js/button.js')
+    script(src='bower_components/sass-bootstrap/js/carousel.js')
+    script(src='bower_components/sass-bootstrap/js/transition.js')
+    script(src='bower_components/sass-bootstrap/js/collapse.js')
+    script(src='bower_components/sass-bootstrap/js/dropdown.js')
+    script(src='bower_components/sass-bootstrap/js/modal.js')
+    script(src='bower_components/sass-bootstrap/js/scrollspy.js')
+    script(src='bower_components/sass-bootstrap/js/tab.js')
+    script(src='bower_components/sass-bootstrap/js/tooltip.js')
+    script(src='bower_components/sass-bootstrap/js/popover.js')
     script(src='bower_components/jquery-knob/js/jquery.knob.js')
-    // endbower
+    script(src='bower_components/angular-knob/src/angular-knob.js')
     // endbuild
 
     // build:js({.tmp,app}) scripts/scripts.js
