@@ -1,6 +1,5 @@
 'use strict';
 
-
 function NewFlavorModalCtrl($scope, $modalInstance) {
 
 	$scope.ok = function (newFlavor) {

@@ -24,7 +24,7 @@ angular.module('dashbordApp')
       $scope.getNodes = function(){
 
         $scope.nodes = [];
-        var platform_id = $cookieStore.get('platform_id')
+        var platform_id = $cookieStore.get('platform_id');
         pools.getPlatformNodes(platform_id).success(function(data){
 
             angular.forEach(data.data, function(item){

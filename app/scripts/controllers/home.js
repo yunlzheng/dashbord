@@ -24,8 +24,6 @@ function HomeCtrl($scope, $rootScope, $cookieStore, pools) {
 
       });
 
-      console.log($scope.pools);
-
     });
 
   };
@@ -33,7 +31,6 @@ function HomeCtrl($scope, $rootScope, $cookieStore, pools) {
   $scope.getPools();
 
 }
-
 
 angular.module('dashbordApp')
   .controller('HomeCtrl', ['$scope', '$rootScope', '$cookieStore', 'pools', HomeCtrl]);

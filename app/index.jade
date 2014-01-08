@@ -35,10 +35,10 @@ html.no-js
       .header
         .header-container
           h3#menu-toggle.text-muted(ng-click='toggleMenu()') Da
-          .break-btn(ng-click='toggleMenu()')
+          .break-btn
             .utb
               .Hde.Nua(guidedhelpid='appindicator_icon')
-            .text(ng-bind='defaultPlatform.name')
+            .text(ng-bind="defaultPlatforms.name")
             .glyphicon.glyphicon-chevron-down
           #side-menu.side-menu(class='side-menu-{{status.showSideMenu}}')
             h2 资源管理

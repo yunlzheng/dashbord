@@ -92,14 +92,15 @@ function VolumesCtrl($scope, volumes, mockVolumes, $modal, $timeout, $interval) 
 
     $scope.remove = function () {
 
-        for (var i = 0; i < $scope.filteredVolumes.length; i++) {
-            var volume = $scope.filteredVolumes[i];
+        angular.forEach($scope.filteredVolumes, function(volume){
+
             if (volume.selected === true) {
                 volumes.remove(volume.id).success(function () {
                     //TO DO;
                 });
             }
-        }
+
+        });
 
     };
 

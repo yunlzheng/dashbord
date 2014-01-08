@@ -6,286 +6,248 @@ var httpConfig = {
     }
 };
 
-function VirtualRoutes($http, $cookieStore) {
+function VirtualRoutes($http) {
 
 
-	var virtualRoutersUrl = '/v1.1/virtualrouters';
-	var virtualRouterUrl= '/v1.1/virtualrouter'
+    var virtualRoutersUrl = '/v1.1/virtualrouters';
+    var virtualRouterUrl = '/v1.1/virtualrouter';
 
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
+    return {
 
-	return {
+        routes: function () {
+            return $http.get(virtualRoutersUrl, httpConfig);
+        },
+        create: function (route) {
+            return $http.post(virtualRouterUrl, route, httpConfig);
+        }
 
-		routes: function(){
-			return $http.get(virtualRoutersUrl, httpConfig);
-		},
-		create: function(route){
-			return $http.post(virtualRouterUrl, route, httpConfig);
-		}
-
-	}
+    };
 
 }
 
-function Instances($http, $cookieStore) {
+function Instances($http) {
 
-	var resourcesUrl = '/v1/vms';
-	var resourceUrl = '/v1/vm';
-	var startVmUrl = '/v1/vm-start';
-	var stopVmUrl = '/v1/vm-stop';
-	var pauseVmUrl = '/v1/vm-pause';
-	var unPauseVmUrl = '/v1/vm-unpause';
-	var rebootVmUrl = '/v1/vm-reboot';
-	var vncVmUrl = '/v1/vm-vnc';
-	var attachVolumeUrl = '/v1/volume-attach/{server_id}';
-	var detachVolumeUrl = '/v1/volume-detach/{server_id}';
-	var vmSnapshotsUrl = '/v1/vm-snapshots';
-	var vmMigrateUrl = '/v1/vm-migrate';
-
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
+    var resourcesUrl = '/v1/vms';
+    var resourceUrl = '/v1/vm';
+    var startVmUrl = '/v1/vm-start';
+    var stopVmUrl = '/v1/vm-stop';
+    var pauseVmUrl = '/v1/vm-pause';
+    var unPauseVmUrl = '/v1/vm-unpause';
+    var rebootVmUrl = '/v1/vm-reboot';
+    var vncVmUrl = '/v1/vm-vnc';
+    //var attachVolumeUrl = '/v1/volume-attach/{server_id}';
+    //var detachVolumeUrl = '/v1/volume-detach/{server_id}';
+    var vmSnapshotsUrl = '/v1/vm-snapshots';
+    var vmMigrateUrl = '/v1/vm-migrate';
 
 
-	return {
-		get: function(id) {
-			return $http.get(resourceUrl + '/' + id, httpConfig);
-		},
-		getSnapshots: function(id) {
-			return $http.get(vmSnapshotsUrl + '/' + id, httpConfig);
-		},
-		save: function(obj) {
-			return $http.post(resourceUrl, obj, httpConfig);
-		},
-		query: function() {
-			return $http.get(resourcesUrl, httpConfig);
-		},
-		remove: function(id) {
-			return $http.delete(resourceUrl + '/' + id, httpConfig);
-		},
-		start: function(id) {
-			return $http.post(startVmUrl + '/' + id, {}, httpConfig);
-		},
-		stop: function(id) {
-			return $http.post(stopVmUrl + '/' + id, {}, httpConfig);
-		},
-		pause: function(id) {
-			return $http.post(pauseVmUrl + '/' + id, {}, httpConfig);
-		},
-		unpause: function(id) {
-			return $http.post(unPauseVmUrl + '/' + id, {}, httpConfig);
-		},
-		reboot: function(id) {
-			return $http.post(rebootVmUrl + '/' + id, {}, httpConfig);
-		},
-		getVnc: function(id) {
-			return $http.get(vncVmUrl + '/' + id + '?type=novnc', httpConfig);
-		},
-		migrate: function(id, targetHost) {
-			return $http.post(vmMigrateUrl + '/' + id, targetHost, httpConfig);
-		}
-	};
+    return {
+        get: function (id) {
+            return $http.get(resourceUrl + '/' + id, httpConfig);
+        },
+        getSnapshots: function (id) {
+            return $http.get(vmSnapshotsUrl + '/' + id, httpConfig);
+        },
+        save: function (obj) {
+            return $http.post(resourceUrl, obj, httpConfig);
+        },
+        query: function () {
+            return $http.get(resourcesUrl, httpConfig);
+        },
+        remove: function (id) {
+            return $http.delete(resourceUrl + '/' + id, httpConfig);
+        },
+        start: function (id) {
+            return $http.post(startVmUrl + '/' + id, {}, httpConfig);
+        },
+        stop: function (id) {
+            return $http.post(stopVmUrl + '/' + id, {}, httpConfig);
+        },
+        pause: function (id) {
+            return $http.post(pauseVmUrl + '/' + id, {}, httpConfig);
+        },
+        unpause: function (id) {
+            return $http.post(unPauseVmUrl + '/' + id, {}, httpConfig);
+        },
+        reboot: function (id) {
+            return $http.post(rebootVmUrl + '/' + id, {}, httpConfig);
+        },
+        getVnc: function (id) {
+            return $http.get(vncVmUrl + '/' + id + '?type=novnc', httpConfig);
+        },
+        migrate: function (id, targetHost) {
+            return $http.post(vmMigrateUrl + '/' + id, targetHost, httpConfig);
+        }
+    };
 
 }
 
-function Flavors($http, $cookieStore) {
+function Flavors($http) {
 
-	var resourcesUrl = '/v1/flavors';
-	var resourceUrl = '/v1/flavor';
+    var resourcesUrl = '/v1/flavors';
+    var resourceUrl = '/v1/flavor';
 
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
-
-
-
-	return {
-		get: function(flavorId) {
-			return $http.get(resourceUrl + '/' + flavorId, httpConfig);
-		},
-		save: function(flavor) {
-			return $http.post(resourceUrl, flavor, httpConfig);
-		},
-		query: function(cache) {
-			return $http.get(resourcesUrl, httpConfig);
-		},
-		remove: function(flavorId) {
-			return $http.delete(resourceUrl + '/' + flavorId, httpConfig);
-		}
-	};
+    return {
+        get: function (flavorId) {
+            return $http.get(resourceUrl + '/' + flavorId, httpConfig);
+        },
+        save: function (flavor) {
+            return $http.post(resourceUrl, flavor, httpConfig);
+        },
+        query: function () {
+            return $http.get(resourcesUrl, httpConfig);
+        },
+        remove: function (flavorId) {
+            return $http.delete(resourceUrl + '/' + flavorId, httpConfig);
+        }
+    };
 
 }
 
-function Images($http, $cookieStore) {
+function Images($http) {
 
-	var resourcesUrl = '/v1/images';
+    var resourcesUrl = '/v1/images';
 
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
-
-
-
-	return {
-		query: function(query) {
-			return $http.get(resourcesUrl, httpConfig);
-		}
-	};
+    return {
+        query: function () {
+            return $http.get(resourcesUrl, httpConfig);
+        }
+    };
 
 }
 
-function Volumes($http, $cookieStore) {
+function Volumes($http) {
 
-	var resourcesUrl = '/v1/volumes';
-	var resourceUrl = '/v1/volume';
+    var resourcesUrl = '/v1/volumes';
+    var resourceUrl = '/v1/volume';
 
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
-
-
-
-	return {
-		get: function(id) {
-			return $http.get(resourceUrl + '/' + id, httpConfig);
-		},
-		save: function(obj) {
-			return $http.post(resourceUrl, obj, httpConfig);
-		},
-		query: function() {
-			return $http.get(resourcesUrl, httpConfig);
-		},
-		remove: function(id) {
-			return $http.delete(resourceUrl + '/' + id, httpConfig);
-		}
-	};
+    return {
+        get: function (id) {
+            return $http.get(resourceUrl + '/' + id, httpConfig);
+        },
+        save: function (obj) {
+            return $http.post(resourceUrl, obj, httpConfig);
+        },
+        query: function () {
+            return $http.get(resourcesUrl, httpConfig);
+        },
+        remove: function (id) {
+            return $http.delete(resourceUrl + '/' + id, httpConfig);
+        }
+    };
 
 }
 
-function Networks($http, $cookieStore) {
+function Networks($http) {
 
-	var resourcesUrl = '/v1/networks';
-	var resourceUrl = '/v1/network';
-
-
-
-	return {
-		get: function(id) {
-			return $http.get(resourceUrl + '/' + id, httpConfig);
-		},
-		save: function(obj) {
-			return $http.post(resourceUrl, obj, httpConfig);
-		},
-		query: function() {
-			return $http.get(resourcesUrl, httpConfig);
-		},
-		remove: function(id) {
-			return $http.delete(resourceUrl + '/' + id, httpConfig);
-		}
-	};
-
-}
-
-function Subnets($http, $cookieStore) {
-
-	var resourcesUrl = '/v1/subnets';
-	var resourceUrl = '/v1/subnet';
-
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
+    var resourcesUrl = '/v1/networks';
+    var resourceUrl = '/v1/network';
 
 
-
-	return {
-		get: function(id) {
-			return $http.get(resourceUrl + '/' + id, httpConfig);
-		},
-		save: function(obj) {
-			return $http.post(resourceUrl, obj, httpConfig);
-		},
-		query: function() {
-			return $http.get(resourcesUrl, httpConfig);
-		},
-		remove: function(id) {
-			return $http.delete(resourceUrl + '/' + id, httpConfig);
-		}
-	};
+    return {
+        get: function (id) {
+            return $http.get(resourceUrl + '/' + id, httpConfig);
+        },
+        save: function (obj) {
+            return $http.post(resourceUrl, obj, httpConfig);
+        },
+        query: function () {
+            return $http.get(resourcesUrl, httpConfig);
+        },
+        remove: function (id) {
+            return $http.delete(resourceUrl + '/' + id, httpConfig);
+        }
+    };
 
 }
 
-function Ports($http, $cookieStore) {
+function Subnets($http) {
 
-	var resourcesUrl = '/v1/ports';
-	var resourceUrl = '/v1/port';
+    var resourcesUrl = '/v1/subnets';
+    var resourceUrl = '/v1/subnet';
 
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
-
-
-
-	return {
-		get: function(id) {
-			return $http.get(resourceUrl + '/' + id, httpConfig);
-		},
-		save: function(obj) {
-			return $http.post(resourceUrl, obj, httpConfig);
-		},
-		query: function(query) {
-			query = query ? query : {};
-			return $http.get(resourcesUrl, httpConfig);
-		},
-		remove: function(id) {
-			return $http.delete(resourceUrl + '/' + id, httpConfig);
-		}
-	};
+    return {
+        get: function (id) {
+            return $http.get(resourceUrl + '/' + id, httpConfig);
+        },
+        save: function (obj) {
+            return $http.post(resourceUrl, obj, httpConfig);
+        },
+        query: function () {
+            return $http.get(resourcesUrl, httpConfig);
+        },
+        remove: function (id) {
+            return $http.delete(resourceUrl + '/' + id, httpConfig);
+        }
+    };
 
 }
 
-function Nats($http, $cookieStore) {
+function Ports($http) {
 
-	var resourcesUrl = '/v1/nats';
-	var resourceUrl = '/v1/nat';
+    var resourcesUrl = '/v1/ports';
+    var resourceUrl = '/v1/port';
 
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
+    return {
+        get: function (id) {
+            return $http.get(resourceUrl + '/' + id, httpConfig);
+        },
+        save: function (obj) {
+            return $http.post(resourceUrl, obj, httpConfig);
+        },
+        query: function (query) {
+            query = query ? query : {};
+            return $http.get(resourcesUrl, httpConfig);
+        },
+        remove: function (id) {
+            return $http.delete(resourceUrl + '/' + id, httpConfig);
+        }
+    };
 
-	return {
-		get: function(id) {
-			return $http.get(resourceUrl + '/' + id, httpConfig);
-		},
-		save: function(obj) {
-			return $http.post(resourceUrl, obj, httpConfig);
-		},
-		query: function() {
-			return $http.get(resourcesUrl, httpConfig);
-		},
-		remove: function(id) {
-			return $http.delete(resourceUrl + '/' + id, httpConfig);
-		}
-	};
+}
+
+function Nats($http) {
+
+    var resourcesUrl = '/v1/nats';
+    var resourceUrl = '/v1/nat';
+
+    return {
+        get: function (id) {
+            return $http.get(resourceUrl + '/' + id, httpConfig);
+        },
+        save: function (obj) {
+            return $http.post(resourceUrl, obj, httpConfig);
+        },
+        query: function () {
+            return $http.get(resourcesUrl, httpConfig);
+        },
+        remove: function (id) {
+            return $http.delete(resourceUrl + '/' + id, httpConfig);
+        }
+    };
 
 }
 
 
-function SecurityGroups($http, $cookieStore) {
+function SecurityGroups($http) {
 
-	var resourcesUrl = '/v1/security-groups';
-	var resourceUrl = '/v1/security-groups';
+    var resourcesUrl = '/v1/security-groups';
+    var resourceUrl = '/v1/security-groups';
 
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
-
-	return {
-		get: function(id) {
-			return $http.get(resourceUrl + '/' + id, httpConfig);
-		},
-		save: function(obj) {
-			return $http.post(resourceUrl, obj, httpConfig);
-		},
-		query: function() {
-			return $http.get(resourcesUrl, httpConfig);
-		},
-		remove: function(id) {
-			return $http.delete(resourceUrl + '/' + id, httpConfig);
-		}
-	};
+    return {
+        get: function (id) {
+            return $http.get(resourceUrl + '/' + id, httpConfig);
+        },
+        save: function (obj) {
+            return $http.post(resourceUrl, obj, httpConfig);
+        },
+        query: function () {
+            return $http.get(resourcesUrl, httpConfig);
+        },
+        remove: function (id) {
+            return $http.delete(resourceUrl + '/' + id, httpConfig);
+        }
+    };
 
 }
 
@@ -293,28 +255,26 @@ function Platforms($http) {
 
     var platforms = '/v1/platforms';
     return {
-        getAll : function() {
+        getAll: function () {
             return $http.get(platforms, httpConfig);
         }
     };
 
 }
 
-function Pools($http, $cookieStore) {
+function Pools($http) {
 
-	var pools = '/v1/pools';
-	var poolNodes = "/v1/pool-nodes";
-	var rootUrl = $cookieStore.get('rootUrl');
-	var useNode = $cookieStore.get('useNode');
+    var pools = '/v1/pools';
+    var poolNodes = '/v1/pool-nodes';
 
-	return {
-		getPlatformNodes: function(platform_id) {
-			return $http.get(pools + '?platform_id=' + platform_id, httpConfig);
-		},
-		getPoolNodes: function(pool_id) {
-			return $http.get(poolNodes + '?pool_id=' + pool_id, httpConfig);
-		}
-	}
+    return {
+        getPlatformNodes: function (platform_id) {
+            return $http.get(pools + '?platform_id=' + platform_id, httpConfig);
+        },
+        getPoolNodes: function (pool_id) {
+            return $http.get(poolNodes + '?pool_id=' + pool_id, httpConfig);
+        }
+    };
 
 }
 

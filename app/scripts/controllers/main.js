@@ -3,6 +3,7 @@
 angular.module('dashbordApp')
     .controller('MainCtrl', ['$rootScope', '$scope', 'breadcrumbs', 'notify', 'platforms', function ($rootScope, $scope, breadcrumbs, notify, platforms) {
 
+        $scope.defaultPlatforms = {};
         $scope.breadcrumbs = breadcrumbs;
         $scope.notify = notify;
 
@@ -52,11 +53,6 @@ angular.module('dashbordApp')
                 url: '#/flavors',
                 icon: 'fa-bullseye'
             },
-            //{
-            //	name: '设置',
-            //	url: '#/settings',
-            //	icon: 'fa-cog'
-            //},
             {
                 name: '帮助',
                 url: '#/help',
@@ -100,14 +96,9 @@ angular.module('dashbordApp')
             platforms.getAll().success(function (data) {
 
                 $scope.platforms = data.data;
-
+                $scope.defaultPlatforms = $scope.platforms[0];
+                
             });
-        };
-
-        $scope.defaultPlatform = function() {
-
-            return $scope.platforms[0];
-
         };
 
         $scope.getPlatforms();
