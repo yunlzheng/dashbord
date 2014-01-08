@@ -22,7 +22,12 @@ module.exports = function (grunt) {
     yeoman: {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
-      dist: 'dist'
+      distRoot: 'dist',
+      dist: 'dist/app',
+      dashbordSrc: 'dashbord',
+      dashbordDist: 'dist/dashbord',
+      serverSrc: 'server.py',
+      requirements: 'requirements.txt'
     },
 
     jade: {
@@ -136,8 +141,8 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            '<%= yeoman.dist %>/*',
-            '!<%= yeoman.dist %>/.git*'
+            '<%= yeoman.distRoot %>/*',
+            '!<%= yeoman.distRoot %>/.git*'
           ]
         }]
       },
@@ -293,7 +298,8 @@ module.exports = function (grunt) {
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
-        files: [{
+        files: [
+        {
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
@@ -301,18 +307,40 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
-            '*.html',
-            'views/{,*/}*.html',
             'bower_components/**/*',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'template/**/*'
           ]
         }, {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        },
+        {
+            expand: true,
+            cwd: '.tmp',
+            dest: '<%= yeoman.dist %>',
+            src: [
+                '*.html',
+                'views/{,*/}*.html'
+            ]
         }]
+      },
+      python: {
+        files: [{
+            expand: true,
+            src: ['server.py', 'requirements.txt'],
+            dest: '<%= yeoman.distRoot%>'
+        },
+        {
+            expand: true,
+            cwd: '<%= yeoman.dashbordSrc %>',
+            dest: '<%= yeoman.dashbordDist%>',
+            src: ['*.py','{,*/*}']
+        }
+        ]
       },
       styles: {
         expand: true,
@@ -409,6 +437,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'copy:python',
     'jade',
     'bower-install',
     'useminPrepare',
@@ -417,7 +446,7 @@ module.exports = function (grunt) {
     'concat',
     'ngmin',
     'copy:dist',
-    'cdnify',
+    //'cdnify',
     'cssmin',
     'uglify',
     'rev',
