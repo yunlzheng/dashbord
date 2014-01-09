@@ -7,6 +7,7 @@ from flask import Blueprint
 from flask import request
 from flask import jsonify
 
+from dashbord import signals
 from dashbord.config import global_config
 from dashbord.clients.vms_client import Client
 from dashbord.extensions import redis_store
@@ -44,7 +45,9 @@ def get_resources(resources, resource_uuid=None):
 
 
 @api_proxy.route('/<resources>', methods=['POST', 'PUT', 'DELETE'])
-def proxy(resources):
+@api_proxy.route('/<resources>/<resource_uuid>', methods=['POST', 'PUT', 'DELETE'])
+def proxy(resources, resource_uuid=None):
+
     headers = build_headers()
     path = request.path
     method = request.method
@@ -55,6 +58,7 @@ def proxy(resources):
     resp = do_request(method, url=url, data=data, headers=headers)
 
     if resp.status_code == requests.codes.ok:
+        signals.resources_updated.send(resources)
         return jsonify(resp.json())
     elif resp.status_code == 401:
         client.authenticate()
@@ -74,3 +78,12 @@ def build_headers():
         'X-Consumer-key': config.VMS_APP_KEY,
         'X-Auth-Token': client.authenticate(),
     }
+
+# ------------- SIGNALS ----------------#
+
+def update_resources_cache(resources):
+    print "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    print 'recive resources[{0}] update signal'.format(resources)
+    print "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+
+signals.resources_updated.connect(update_resources_cache)

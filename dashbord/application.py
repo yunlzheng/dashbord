@@ -9,6 +9,7 @@ import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask import Flask, request, jsonify
 from flask import render_template
+from flask import g
 import importlib
 
 from dashbord.config import global_config
@@ -33,6 +34,7 @@ def create_app(command, appname=None):
 
     configure_logging(app)
     configure_app_jinja(app)
+    #configure_before_handlers(app)
     configure_errorhandlers
     configure_extensions(app)
     registe_blueprint(app)
@@ -88,6 +90,12 @@ def __register_blueprint(app, blueprint):
         app.register_blueprint(bp, url_prefix=url_prefix)
     else:
         app.register_blueprint(bp)
+
+def configure_before_handlers(app):
+
+    @app.before_request
+    def authenticate():
+        g.user = getattr(g.identity, 'user', None)
 
 def configure_errorhandlers(app):
 
