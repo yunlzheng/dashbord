@@ -40,7 +40,10 @@ Dashbord is a web front base to build a dashbord application
 
 * [Jshint](http://www.jshint.com/): a JavaScript Code Quality Tool
 
-## Web Front-end Development?
+
+## How To Develop ?
+
+### Web Front-end Development?
 
 Dashbord is build by [yeoman](http://yeoman.io/index.html) a **MODERN WORKFLOWS FOR MODERN WEBAPPS** And develop by [Angular.js](http://angularjs.org/).
 
@@ -88,7 +91,7 @@ grunt build
 this operation will build the application to the **dict** floder.
 
 
-## Server Development ?
+### Server Development ?
 
 > This project now is base on Python Flask Web Framework.
 
