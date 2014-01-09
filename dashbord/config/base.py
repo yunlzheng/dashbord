@@ -6,7 +6,7 @@ from dashbord.config.env import ANGULAR_DEV_DIR
 class Config(object):
     DEBUG = False
     TESTING = False
-    DATABASE_URI = 'sqlite://:memory:'
+    SECRET_KEY = 'you-will-never-guess'
 
     # Angular Configuration
     INDEX_ROOT = join(ANGULAR_DEV_DIR, 'index.html')
@@ -17,6 +17,10 @@ class Config(object):
     IMAGES_ROOT = join(ANGULAR_APP_DIR, 'images')
     TEMPLATE_ROOT = join(ANGULAR_APP_DIR, 'template')
 
+    # Database Config
+    SQLALCHEMY_DATABASE_URI = "sqlite:///newsmeme.db"
+    SQLALCHEMY_ECHO = False
+
     # Reds Configuration
     REDIS_HOST = "127.0.0.1"
     REDIS_PASSWORD = ""
@@ -24,6 +28,8 @@ class Config(object):
     REDIS_DATABASE = 1
 
     # Mail configuration
+    MAIL_DEBUG = DEBUG
+    ADMINS = ()
     MAIL_SERVER = ''
     MAIL_USERNAME = ''
     MAIL_PASSWORD = ''
@@ -37,8 +43,12 @@ class Config(object):
     CELERY_ENABLE_UTC = True
 
     # Log configurtaion
-    DEBUG_LOG = ''
-    ERROR_LOG = ''
+    DEBUG_LOG = 'logs/debug.log'
+    ERROR_LOG = 'logs/error.log'
+
+    #Cache configuration
+    CACHE_TYPE = "simple"
+    CACHE_DEFAULT_TIMEOUT = 300
 
     VMS_HOST = '172.30.1.12'
     VMS_PORT = 8889
@@ -46,6 +56,8 @@ class Config(object):
     VMS_PLATFORM_ID = '1'
     VMS_SECRET = '4ae0214d25f04007932997f3455c0c9f'
     VMS_ACCESS_TOKEN = None
+
+    login_view = '/login'
 
     @classmethod
     def vms_http_url(cls):

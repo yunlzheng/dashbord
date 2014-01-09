@@ -2,12 +2,14 @@
 from flask import Blueprint, send_from_directory, send_file, make_response
 
 from dashbord.config import global_config
+from flask.ext.login import login_required
 
 config = global_config()
 angular = Blueprint('angular', __name__)
 
 
 @angular.route('/')
+@login_required
 def index():
     response = make_response(send_file(config.INDEX_ROOT))
     response.set_cookie('platform_id', value=config.VMS_PLATFORM_ID)

@@ -14,10 +14,15 @@ import importlib
 
 from dashbord.config import global_config
 from dashbord.extensions import redis_store
+from dashbord.extensions import cache
+from dashbord.extensions import login_manager
+from dashbord.extensions import db
+
+from dashbord.models import User
 
 __all__ = ["create_app"]
 
-DEFAULT_APP_NAME = 'Dashbord'
+DEFAULT_APP_NAME = 'dashbord'
 
 BLUEPRINTS = [
     ("dashbord.angular.views", 'angular'),
@@ -53,8 +58,11 @@ def configure_app_jinja(app):
 
 def configure_extensions(app):
     try:
-        redis_store.app = app
         redis_store.init_app(app)
+        login_manager.init_app(app)
+        cache.init_app(app)
+        db.init_app(app)
+        login_manager.login_view = '/login'
     except Exception as ex:
         raise;
 
@@ -170,4 +178,8 @@ def configure_logging(app):
     error_file_handler.setLevel(logging.ERROR)
     error_file_handler.setFormatter(formatter)
     app.logger.addHandler(error_file_handler)
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 

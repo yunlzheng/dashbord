@@ -15,11 +15,7 @@ def global_config():
     global _global_config
 
     if not _global_config:
-
-        print "new config"
-
         conf_env = os.environ.get('DASHBORD_CONF', None)
-        print conf_env
         if conf_env is 'production':
              _global_config = Production
         elif conf_env is 'test':
