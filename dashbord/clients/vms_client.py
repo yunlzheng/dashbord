@@ -1,6 +1,6 @@
 # coding: utf-8
 import requests
-from dashbord.exceptions import AuthTimeOut, AuthException
+from dashbord.error import AuthTimeOut, AuthException
 from dashbord.config import global_config
 config = global_config()
 

@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a04fd005-3af1-4ba4-b894-29aa1b62ed02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.jade" afterPath="$PROJECT_DIR$/app/index.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dashbord/extensions.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dashbord/commons.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dashbord/exceptions.py" afterPath="$PROJECT_DIR$/dashbord/error.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/__init__.py" afterPath="$PROJECT_DIR$/dashbord/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/__init__.py" afterPath="$PROJECT_DIR$/dashbord/config/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/base.py" afterPath="$PROJECT_DIR$/dashbord/config/base.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/development.py" afterPath="$PROJECT_DIR$/dashbord/config/development.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/env.py" afterPath="$PROJECT_DIR$/dashbord/config/env.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/production.py" afterPath="$PROJECT_DIR$/dashbord/config/production.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/test.py" afterPath="$PROJECT_DIR$/dashbord/config/test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/proxy/views.py" afterPath="$PROJECT_DIR$/dashbord/proxy/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/clients/vms_client.py" afterPath="$PROJECT_DIR$/dashbord/clients/vms_client.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dashbord.iws" />
@@ -17,7 +29,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/dashbord$vms.coverage" NAME="vms Coverage Results" MODIFIED="1388926179964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dashbord/clients" />
-    <SUITE FILE_PATH="coverage/dashbord$server.coverage" NAME="server Coverage Results" MODIFIED="1389176686589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dashbord$server.coverage" NAME="server Coverage Results" MODIFIED="1389237572720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dashbord$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1389004364279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dashbord" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -32,10 +44,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gruntfile.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <file leaf-file-name="signals.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashbord/signals.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="335" column="10" selection-start="8271" selection-end="8271" vertical-scroll-proportion="0.44444445" vertical-offset="4797" max-vertical-offset="7020">
+            <state line="7" column="47" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashbord/application.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="23" selection-start="244" selection-end="244" vertical-scroll-proportion="-2.0413017" vertical-offset="1766" max-vertical-offset="2565">
               <folding />
             </state>
           </provider>
@@ -59,30 +80,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
-        <option value="$PROJECT_DIR$/server.py" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/nodes.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/flavors.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/resources.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/mock.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/ui-bootstrap-tpls-0.9.0.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/instances.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/volumes.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/.tmp/index.html" />
-        <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/dist/bower_components/angular-cookies/bower.json" />
-        <option value="$PROJECT_DIR$/dist/index.html" />
-        <option value="$PROJECT_DIR$/app/index.jade" />
+        <option value="$PROJECT_DIR$/dashbord/config/test.py" />
+        <option value="$PROJECT_DIR$/dashbord/config/development.py" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/dashbord/commons.py" />
+        <option value="$PROJECT_DIR$/dashbord/logging.py" />
+        <option value="$PROJECT_DIR$/dashbord/extensions.py" />
+        <option value="$PROJECT_DIR$/dashbord/decorators.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/dashbord/log.py" />
+        <option value="$PROJECT_DIR$/dashbord/config/__init__.py" />
+        <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/dashbord/__init__.py" />
+        <option value="$PROJECT_DIR$/dashbord/config/base.py" />
+        <option value="$PROJECT_DIR$/dashbord/application.py" />
+        <option value="$PROJECT_DIR$/dashbord/proxy/views.py" />
+        <option value="$PROJECT_DIR$/dashbord/signals.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="22" />
-    <option name="width" value="1436" />
-    <option name="height" value="874" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -128,6 +147,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -136,13 +169,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Settings.JavaScript.Linters.JSHint" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../newsmeme" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vms" />
-    <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
+    <property name="FullScreen" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -151,6 +184,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dashbord/templates" />
       <recent name="$PROJECT_DIR$/dist" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -307,9 +341,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -331,6 +362,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -413,28 +447,48 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="22" width="1436" height="874" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67522466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23955432" sideWeight="0.7278562" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23888889" sideWeight="0.72796935" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23958333" sideWeight="0.43767706" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27214378" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27203065" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67522466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.67522466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23958333" sideWeight="0.43767706" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23955432" sideWeight="0.72796935" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27203065" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -448,65 +502,120 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/instances.js">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/flask/globals.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="401" column="43" selection-start="7883" selection-end="7883" vertical-scroll-proportion="11.180298" vertical-offset="0" max-vertical-offset="7215">
+        <state line="43" column="0" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.85655737" vertical-offset="3" max-vertical-offset="735">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/dashbord/extensions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="4" selection-start="955" selection-end="955" vertical-scroll-proportion="0.45392022" vertical-offset="120" max-vertical-offset="870">
+        <state line="3" column="0" selection-start="80" selection-end="80" vertical-scroll-proportion="0.059602648" vertical-offset="0" max-vertical-offset="755">
+          <folding>
+            <element signature="e#16#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/config/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="732">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.tmp/index.html">
+    <entry file="file://$PROJECT_DIR$/dashbord/config/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="20" selection-start="4671" selection-end="4671" vertical-scroll-proportion="0.3067227" vertical-offset="1251" max-vertical-offset="1965">
+        <state line="1" column="9" selection-start="25" selection-end="25" vertical-scroll-proportion="0.01986755" vertical-offset="0" max-vertical-offset="755">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/template/accordion/accordion.html">
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="751">
+        <state line="528" column="4" selection-start="17534" selection-end="17534" vertical-scroll-proportion="5.4781456" vertical-offset="3784" max-vertical-offset="76080">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/template/accordion/accordion-group.html">
+    <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="751">
+        <state line="32" column="18" selection-start="921" selection-end="921" vertical-scroll-proportion="0.6007509" vertical-offset="0" max-vertical-offset="799">
+          <folding>
+            <element signature="e#16#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="34" selection-start="50" selection-end="50" vertical-scroll-proportion="0.018773466" vertical-offset="0" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js.bak">
+    <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="311" column="16" selection-start="7776" selection-end="7776" vertical-scroll-proportion="0.17073171" vertical-offset="4539" max-vertical-offset="6450">
+        <state line="4" column="28" selection-start="105" selection-end="105" vertical-scroll-proportion="0.075093865" vertical-offset="0" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.jade">
+    <entry file="file://$PROJECT_DIR$/dashbord/templates/errors/404.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="27" selection-start="3955" selection-end="3955" vertical-scroll-proportion="0.24101198" vertical-offset="1229" max-vertical-offset="1980">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower.json">
+    <entry file="file://$PROJECT_DIR$/dashbord/templates/errors/500.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="23" selection-start="163" selection-end="163" vertical-scroll-proportion="0.14442916" vertical-offset="0" max-vertical-offset="727">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+    <entry file="file://$PROJECT_DIR$/dashbord/templates/errors/403.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="335" column="10" selection-start="8271" selection-end="8271" vertical-scroll-proportion="0.44444445" vertical-offset="4797" max-vertical-offset="7020">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/proxy/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="657" selection-end="657" vertical-scroll-proportion="0.2252816" vertical-offset="0" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/angular/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="16" selection-start="151" selection-end="151" vertical-scroll-proportion="0.09386733" vertical-offset="0" max-vertical-offset="799">
+          <folding>
+            <element signature="e#16#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="15" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/signals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="47" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="244" selection-end="244" vertical-scroll-proportion="-2.0413017" vertical-offset="1766" max-vertical-offset="2565">
           <folding />
         </state>
       </provider>

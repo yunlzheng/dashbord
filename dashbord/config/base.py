@@ -23,6 +23,15 @@ class Config(object):
     REDIS_PORT = 6379
     REDIS_DATABASE = 1
 
+    # Mail configuration
+    MAIL_SERVER = ''
+    MAIL_USERNAME = ''
+    MAIL_PASSWORD = ''
+
+    # Log configurtaion
+    DEBUG_LOG = ''
+    ERROR_LOG = ''
+
     VMS_HOST = '172.30.1.12'
     VMS_PORT = 8889
     VMS_APP_KEY = '1386559196'
