@@ -7,6 +7,39 @@ Dashbord is a web front base to build a dashbord application
 
 >now it's use to build the vms web controller
 
+## Design
+
+### Web
+
+* [Flask](http://flask.pocoo.org/) : Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
+
+* [Angular.js](http://angularjs.org/) : HTML enhanced for web apps!.
+
+* [Sass](http://sass-lang.com/): the most mature, stable, and powerful professional grade CSS extension language in the world.
+
+* [Jade](http://jade-lang.com/): A Simple Node Template Engine.
+
+* [Bootstrap]:  Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
+
+* [angular-ui/bootstrap](http://angular-ui.github.io/bootstrap//‎): Native AngularJS (Angular) directives for Twitter's Bootstrap
+
+### Database
+
+* [Redis](http://redis.io/): an open source, BSD licensed, advanced key-value store.
+
+### Build Tools
+
+* [Yeoman](http://yeoman.io/): MODERN WORKFLOWS FOR MODERN WEBAPPS
+
+* [Grunt](http://gruntjs.com/): The JavaScript Task Runner
+
+* [Bower](http://bower.io/): A package manager for the web
+
+
+### Code Quality Tools
+
+* [Jshint](http://www.jshint.com/): a JavaScript Code Quality Tool
+
 ## Web Front-end Development?
 
 Dashbord is build by [yeoman](http://yeoman.io/index.html) a **MODERN WORKFLOWS FOR MODERN WEBAPPS** And develop by [Angular.js](http://angularjs.org/).
