@@ -19,7 +19,7 @@ Dashbord is a web front base to build a dashbord application
 
 * [Jade](http://jade-lang.com/): A Simple Node Template Engine.
 
-* [Bootstrap]:  Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
+* [Bootstrap](http://getbootstrap.com/):  Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
 
 * [angular-ui/bootstrap](http://angular-ui.github.io/bootstrap//‎): Native AngularJS (Angular) directives for Twitter's Bootstrap
 
