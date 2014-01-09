@@ -28,6 +28,14 @@ class Config(object):
     MAIL_USERNAME = ''
     MAIL_PASSWORD = ''
 
+    # Celery configuration
+    BROKER_URL = 'redis://127.0.0.1:6379'
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+    CELERY_ACCEPT_CONTENT=['json']
+    CELERY_TIMEZONE = 'Europe/Oslo'
+    CELERY_ENABLE_UTC = True
+
     # Log configurtaion
     DEBUG_LOG = ''
     ERROR_LOG = ''

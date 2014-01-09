@@ -6,11 +6,11 @@ from requests.api import request as do_request
 from flask import Blueprint
 from flask import request
 from flask import jsonify
-
 from dashbord import signals
 from dashbord.config import global_config
 from dashbord.clients.vms_client import Client
 from dashbord.extensions import redis_store
+from dashbord.tasks import *
 
 config = global_config()
 api_proxy = Blueprint('api', __name__)
@@ -48,6 +48,8 @@ def get_resources(resources, resource_uuid=None):
 @api_proxy.route('/<resources>/<resource_uuid>', methods=['POST', 'PUT', 'DELETE'])
 def proxy(resources, resource_uuid=None):
 
+    signals.resources_updated.send(resources)
+
     headers = build_headers()
     path = request.path
     method = request.method
@@ -82,8 +84,10 @@ def build_headers():
 # ------------- SIGNALS ----------------#
 
 def update_resources_cache(resources):
+    # TODO： update data cache
     print "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
     print 'recive resources[{0}] update signal'.format(resources)
+    update_flovar_cache.delay()
     print "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
 signals.resources_updated.connect(update_resources_cache)
