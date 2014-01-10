@@ -10,9 +10,9 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask import Flask, request, jsonify
 from flask import render_template
 from flask import g
-import importlib
 
 from dashbord.config import global_config
+from dashbord import views
 from dashbord.extensions import redis_store
 from dashbord.extensions import cache
 from dashbord.extensions import login_manager
@@ -24,16 +24,21 @@ __all__ = ["create_app"]
 
 DEFAULT_APP_NAME = 'dashbord'
 
-BLUEPRINTS = [
-    ("dashbord.angular.views", 'angular'),
-    ("dashbord.proxy.views", 'api_proxy', '/v1'),
-    ("dashbord.proxy.views", 'api_proxy', '/v1.1')
+DEFAULT_BLUEPRINTS = [
+    (views.angular, ''),
+    (views.auth, '/auth'),
+    (views.api_proxy, '/v1'),
+    (views.api_proxy, '/v1.1')
 ]
 
+def create_app(command, appname=None, blueprints=None):
 
-def create_app(command, appname=None):
     if not appname:
         appname = DEFAULT_APP_NAME
+
+    if not blueprints:
+        blueprints = DEFAULT_BLUEPRINTS
+
     app = Flask(appname)
     configure_app(app, command)
 
@@ -42,7 +47,7 @@ def create_app(command, appname=None):
     #configure_before_handlers(app)
     configure_errorhandlers
     configure_extensions(app)
-    registe_blueprint(app)
+    registe_blueprint(app, blueprints)
     return app
 
 
@@ -62,42 +67,15 @@ def configure_extensions(app):
         login_manager.init_app(app)
         cache.init_app(app)
         db.init_app(app)
-        login_manager.login_view = '/login'
+        login_manager.login_view = '/auth/login'
     except Exception as ex:
         raise;
 
 
-def registe_blueprint(app):
-    for blueprint in BLUEPRINTS:
-        __register_blueprint(app, blueprint)
+def registe_blueprint(app, blueprints):
 
-
-def __register_blueprint(app, blueprint):
-    package = blueprint[0]
-    name = ''
-    url_prefix = None
-    if len(blueprint) >= 2:
-        name = str(blueprint[1])
-    if len(blueprint) >= 3:
-        url_prefix = str(blueprint[2])
-
-    #print blueprint[2]
-    try:
-        package = importlib.import_module(package)
-    except Exception as ex:
-        raise
-    else:
-        bp = getattr(package, name, None)
-        if not bp:
-            app.logger.error("import blueprint %s from %s failed!\n" % (name, package + ".views"))
-            raise
-
-    if url_prefix:
-        if not url_prefix.startswith("/"):
-            url_prefix = "/" + url_prefix
-        app.register_blueprint(bp, url_prefix=url_prefix)
-    else:
-        app.register_blueprint(bp)
+    for blueprint, urlprix in blueprints:
+        app.register_blueprint(blueprint, urlprix=urlprix)
 
 def configure_before_handlers(app):
 
