@@ -31,7 +31,11 @@ DEFAULT_BLUEPRINTS = [
 ]
 
 
-def create_app(command, appname=None, blueprints=None):
+def create_app(command=None, appname=None, blueprints=None):
+
+    if not command:
+        command = 'development'
+
     if not appname:
         appname = DEFAULT_APP_NAME
 
@@ -159,5 +163,8 @@ def configure_logging(app):
 
 @login_manager.user_loader
 def load_user(id):
-    return User.query.get(int(id))
+    print "@@ {0}".format(id)
+    user = User.query.get(int(id))
+    print "@@ load user {0}".format(user)
+    return user
 

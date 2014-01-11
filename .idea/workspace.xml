@@ -2,25 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a04fd005-3af1-4ba4-b894-29aa1b62ed02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/templates/errors/403.html" afterPath="$PROJECT_DIR$/dashbord/templates/errors/403.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/templates/errors/404.html" afterPath="$PROJECT_DIR$/dashbord/templates/errors/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/templates/errors/500.html" afterPath="$PROJECT_DIR$/dashbord/templates/errors/500.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/__init__.py" afterPath="$PROJECT_DIR$/dashbord/config/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/application.py" afterPath="$PROJECT_DIR$/dashbord/application.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/base.py" afterPath="$PROJECT_DIR$/dashbord/config/base.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/celery.py" afterPath="$PROJECT_DIR$/dashbord/celery.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dashbord.iml" afterPath="$PROJECT_DIR$/.idea/dashbord.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/development.py" afterPath="$PROJECT_DIR$/dashbord/config/development.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/error.py" afterPath="$PROJECT_DIR$/dashbord/error.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.jade" afterPath="$PROJECT_DIR$/app/index.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/production.py" afterPath="$PROJECT_DIR$/dashbord/config/production.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/tasks.py" afterPath="$PROJECT_DIR$/dashbord/tasks.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/config/test.py" afterPath="$PROJECT_DIR$/dashbord/config/test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/models/user.py" afterPath="$PROJECT_DIR$/dashbord/models/user.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/views/angular/views.py" afterPath="$PROJECT_DIR$/dashbord/views/angular/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/views/login/views.py" afterPath="$PROJECT_DIR$/dashbord/views/login/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/views/proxy/views.py" afterPath="$PROJECT_DIR$/dashbord/views/proxy/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dashbord/clients/vms_client.py" afterPath="$PROJECT_DIR$/dashbord/clients/vms_client.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dashbord.iws" />
@@ -49,13 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dashbord/views/login/views.py">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashbord/views/angular/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="18" selection-start="347" selection-end="347" vertical-scroll-proportion="0.29069766" vertical-offset="0" max-vertical-offset="774">
-              <folding>
-                <element signature="e#16#27#0" expanded="true" />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,7 +47,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashbord/views/proxy/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="35" selection-start="2222" selection-end="2222" vertical-scroll-proportion="-13.2" vertical-offset="600" max-vertical-offset="1590">
+            <state line="62" column="35" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.0" vertical-offset="791" max-vertical-offset="1590">
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
               </folding>
@@ -71,20 +55,73 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashbord/templates/login.html">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashbord/views/login/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="29" selection-start="1814" selection-end="1814" vertical-scroll-proportion="-17.916666" vertical-offset="260" max-vertical-offset="1035">
+            <state line="30" column="27" selection-start="860" selection-end="860" vertical-scroll-proportion="0.563204" vertical-offset="0" max-vertical-offset="799">
+              <folding>
+                <element signature="e#16#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jade" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="22" selection-start="2253" selection-end="2253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1995">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/styles/login.scss">
+      <file leaf-file-name="main.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="49" selection-start="2344" selection-end="2344" vertical-scroll-proportion="-6.6666665" vertical-offset="1295" max-vertical-offset="2175">
+            <state line="73" column="25" selection-start="1290" selection-end="1290" vertical-scroll-proportion="-11.875" vertical-offset="810" max-vertical-offset="6315">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flask_login.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/flask_login.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="660" column="73" selection-start="23088" selection-end="23097" vertical-scroll-proportion="-8.730769" vertical-offset="9463" max-vertical-offset="12630">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashbord/models/user.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="21" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1080">
+              <folding>
+                <element signature="e#16#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dashbord/application.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="163" column="19" selection-start="4473" selection-end="4473" vertical-scroll-proportion="0.0" vertical-offset="1841" max-vertical-offset="2640">
+              <folding>
+                <element signature="e#133#142#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manager.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="39" selection-start="711" selection-end="720" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
+              <folding>
+                <element signature="e#15#51#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,21 +144,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/dashbord/extensions.py" />
-        <option value="$PROJECT_DIR$/dashbord/models/user.py" />
-        <option value="$PROJECT_DIR$/dashbord/models/__init__.py" />
         <option value="$PROJECT_DIR$/dashbord/angular/views.py" />
         <option value="$PROJECT_DIR$/dashbord/views/login/__init__.py" />
         <option value="$PROJECT_DIR$/dashbord/views/__init__.py" />
-        <option value="$PROJECT_DIR$/dashbord/application.py" />
         <option value="$PROJECT_DIR$/dashbord/views/proxy/views.py" />
         <option value="$PROJECT_DIR$/dashbord/views/angular/views.py" />
         <option value="$PROJECT_DIR$/dashbord/config/base.py" />
         <option value="$PROJECT_DIR$/dashbord/config/__init__.py" />
         <option value="$PROJECT_DIR$/dashbord/templates/logout.html" />
-        <option value="$PROJECT_DIR$/app/styles/main.scss" />
         <option value="$PROJECT_DIR$/app/styles/login.scss" />
         <option value="$PROJECT_DIR$/dashbord/templates/login.html" />
+        <option value="$PROJECT_DIR$/manager.py" />
+        <option value="$PROJECT_DIR$/dashbord/models/user.py" />
+        <option value="$PROJECT_DIR$/dashbord/application.py" />
+        <option value="$PROJECT_DIR$/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/app/index.jade" />
         <option value="$PROJECT_DIR$/dashbord/views/login/views.py" />
       </list>
     </option>
@@ -225,6 +262,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="proxy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashbord" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -572,64 +653,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dashbord/extensions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="198" selection-end="198" vertical-scroll-proportion="0.08219178" vertical-offset="0" max-vertical-offset="730">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/views/angular/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="374" selection-end="374" vertical-scroll-proportion="0.281602" vertical-offset="0" max-vertical-offset="799">
-          <folding>
-            <element signature="e#16#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="314" column="8" selection-start="13712" selection-end="13712" vertical-scroll-proportion="-3.083855" vertical-offset="6799" max-vertical-offset="27345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="11" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/config/development.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="16" selection-start="90" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/templates/logout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="77" selection-end="77" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/config/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="643" selection-end="643" vertical-scroll-proportion="0.44573644" vertical-offset="0" max-vertical-offset="774">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1980">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.tmp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="3" selection-start="843" selection-end="1207" vertical-scroll-proportion="-11.25" vertical-offset="90" max-vertical-offset="2010">
@@ -640,20 +663,6 @@
     <entry file="file://$PROJECT_DIR$/dashbord/templates/errors/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="358" selection-end="358" vertical-scroll-proportion="0.3483871" vertical-offset="0" max-vertical-offset="6210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashbord/application.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="51" selection-start="2173" selection-end="2173" vertical-scroll-proportion="0.6149871" vertical-offset="664" max-vertical-offset="2310">
           <folding />
         </state>
       </provider>
@@ -672,18 +681,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/config/development.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="16" selection-start="90" selection-end="102" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/config/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="11" selection-start="172" selection-end="172" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="55" selection-start="295" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="39" selection-start="711" selection-end="720" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
+          <folding>
+            <element signature="e#15#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/models/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="21" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1080">
+          <folding>
+            <element signature="e#16#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="19" selection-start="4473" selection-end="4473" vertical-scroll-proportion="0.0" vertical-offset="1841" max-vertical-offset="2640">
+          <folding>
+            <element signature="e#133#142#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm30/python_stubs/-1807332816/flask_login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="660" column="73" selection-start="23088" selection-end="23097" vertical-scroll-proportion="-8.730769" vertical-offset="9463" max-vertical-offset="12630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="25" selection-start="1290" selection-end="1290" vertical-scroll-proportion="-11.875" vertical-offset="810" max-vertical-offset="6315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="22" selection-start="2253" selection-end="2253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1995">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dashbord/views/proxy/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="35" selection-start="2222" selection-end="2222" vertical-scroll-proportion="-13.2" vertical-offset="600" max-vertical-offset="1590">
+        <state line="62" column="35" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.0" vertical-offset="791" max-vertical-offset="1590">
           <folding>
             <element signature="e#16#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dashbord/views/angular/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dashbord/views/login/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="18" selection-start="347" selection-end="347" vertical-scroll-proportion="0.29069766" vertical-offset="0" max-vertical-offset="774">
+        <state line="30" column="27" selection-start="860" selection-end="860" vertical-scroll-proportion="0.563204" vertical-offset="0" max-vertical-offset="799">
           <folding>
             <element signature="e#16#27#0" expanded="true" />
           </folding>

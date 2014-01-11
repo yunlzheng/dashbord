@@ -68,6 +68,13 @@ a{
     z-index: 1000;
     height:$head_height;
     padding: 0px 0px;
+    .nav{
+      li{
+        a{
+          font-size: 18px;
+        }
+      }
+    }
     h3 {
         margin-top: 0;
         margin-bottom: 0;

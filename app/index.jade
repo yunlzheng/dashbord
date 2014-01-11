@@ -60,8 +60,9 @@ html.no-js
                 .glyphicon.glyphicon-bell(data-toggle='dropdown')
                 .dropdown-menu
             li
-              a.profile-pic
-                img(src='/images/yeoman.png')
+              a(href='/logout' title='退出登录')
+                i(class="fa fa-sign-out")
+
       #dashbord-view(ng-class='{dashbord_big: !status.showSideMenu, dashbord_normal: status.showSideMenu}')
         ol.dashbord-breadcrumb.breadcrumb
          li(ng-repeat='breadcrumb in breadcrumbs.getAll()')
