@@ -30,8 +30,8 @@ DEFAULT_BLUEPRINTS = [
     (views.api_proxy, '/v1')
 ]
 
-def create_app(command, appname=None, blueprints=None):
 
+def create_app(command, appname=None, blueprints=None):
     if not appname:
         appname = DEFAULT_APP_NAME
 
@@ -66,24 +66,23 @@ def configure_extensions(app):
         login_manager.init_app(app)
         cache.init_app(app)
         db.init_app(app)
-        login_manager.login_view = '/auth/login'
+        login_manager.login_view = '/login'
     except Exception as ex:
         raise;
 
 
 def registe_blueprint(app, blueprints):
-
     for blueprint, urlprix in blueprints:
         app.register_blueprint(blueprint, urlprix=urlprix)
 
-def configure_before_handlers(app):
 
+def configure_before_handlers(app):
     @app.before_request
     def authenticate():
         g.user = getattr(g.identity, 'user', None)
 
-def configure_errorhandlers(app):
 
+def configure_errorhandlers(app):
     if app.testing:
         return
 
@@ -109,8 +108,9 @@ def configure_errorhandlers(app):
     def unauthorized(error):
         if request.is_xhr:
             return jsonify("Login required")
-        #flash(_("Please login to see this page"), "error")
-        #return redirect(url_for("account.login", next=request.path))
+            #flash(_("Please login to see this page"), "error")
+            #return redirect(url_for("account.login", next=request.path))
+
 
 def configure_logging(app):
     if app.debug or app.testing:
@@ -155,6 +155,7 @@ def configure_logging(app):
     error_file_handler.setLevel(logging.ERROR)
     error_file_handler.setFormatter(formatter)
     app.logger.addHandler(error_file_handler)
+
 
 @login_manager.user_loader
 def load_user(id):

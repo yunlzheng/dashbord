@@ -2,10 +2,11 @@
 import requests
 from dashbord.error import AuthTimeOut, AuthException
 from dashbord.config import global_config
+
 config = global_config()
 
-class Client(object):
 
+class Client(object):
     def __init__(self, host, port, key, secret):
         self.host = host
         self.port = port
@@ -38,5 +39,6 @@ class Client(object):
             config.VMS_ACCESS_TOKEN = self._vms_authenticate()
         return config.VMS_ACCESS_TOKEN
 
+
 if __name__ == '__main__':
-    print Client('172.30.1.12',8889, '1386559196', '4ae0214d25f04007932997f3455c0c9f').authenticate();
+    print Client('172.30.1.12', 8889, '1386559196', '4ae0214d25f04007932997f3455c0c9f').authenticate();

@@ -3,6 +3,7 @@ from __future__ import absolute_import
 from dashbord.celery import celery
 from dashbord.extensions import redis_store
 
+
 @celery.task
 def update_instance_cache():
     pass

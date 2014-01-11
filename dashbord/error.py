@@ -7,5 +7,6 @@ class AuthException(Exception):
 class AuthTimeOut(Exception):
     pass
 
+
 class ApiTimeout(Exception):
     pass

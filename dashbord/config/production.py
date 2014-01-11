@@ -3,6 +3,7 @@ from os.path import join
 from dashbord.config.base import Config
 from dashbord.config.env import ANGULAR_APP_DIR
 
+
 class Production(Config):
     DATABASE_URI = 'mysql://user@localhost/foo'
     VIEWS_ROOT = '../app/views'

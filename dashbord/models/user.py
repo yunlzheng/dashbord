@@ -5,11 +5,12 @@ from dashbord.extensions import db
 ROLE_USER = 0
 ROLE_ADMIN = 1
 
+
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    nickname = db.Column(db.String(64), unique = True)
-    email = db.Column(db.String(120), unique = True)
-    role = db.Column(db.SmallInteger, default = ROLE_USER)
+    id = db.Column(db.Integer, primary_key=True)
+    nickname = db.Column(db.String(64), unique=True)
+    email = db.Column(db.String(120), unique=True)
+    role = db.Column(db.SmallInteger, default=ROLE_USER)
 
     @staticmethod
     def make_valid_nickname(nickname):
@@ -17,12 +18,12 @@ class User(db.Model):
 
     @staticmethod
     def make_unique_nickname(nickname):
-        if User.query.filter_by(nickname = nickname).first() == None:
+        if User.query.filter_by(nickname=nickname).first() == None:
             return nickname
         version = 2
         while True:
             new_nickname = nickname + str(version)
-            if User.query.filter_by(nickname = new_nickname).first() == None:
+            if User.query.filter_by(nickname=new_nickname).first() == None:
                 break
             version += 1
         return new_nickname

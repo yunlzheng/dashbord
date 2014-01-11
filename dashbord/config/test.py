@@ -2,6 +2,7 @@
 
 from dashbord.config.base import Config
 
+
 class Test(Config):
     TESTING = True
 

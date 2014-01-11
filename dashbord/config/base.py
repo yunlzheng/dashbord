@@ -3,8 +3,9 @@ from os.path import join
 from dashbord.config.env import ANGULAR_APP_DIR
 from dashbord.config.env import ANGULAR_DEV_DIR
 
+
 class Config(object):
-    DEBUG = False
+    DEBUG = True
     TESTING = False
     SECRET_KEY = 'you-will-never-guess'
 
@@ -38,7 +39,7 @@ class Config(object):
     BROKER_URL = 'redis://127.0.0.1:6379'
     CELERY_TASK_SERIALIZER = 'json'
     CELERY_RESULT_SERIALIZER = 'json'
-    CELERY_ACCEPT_CONTENT=['json']
+    CELERY_ACCEPT_CONTENT = ['json']
     CELERY_TIMEZONE = 'Europe/Oslo'
     CELERY_ENABLE_UTC = True
 
