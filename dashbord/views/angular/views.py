@@ -9,10 +9,8 @@ angular = Blueprint('angular', __name__)
 
 
 @angular.route('/')
-@login_required
 def index():
     response = make_response(send_file(config.INDEX_ROOT))
-    response.set_cookie('platform_id', value=config.VMS_PLATFORM_ID)
     return response
 
 

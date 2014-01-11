@@ -27,8 +27,7 @@ DEFAULT_APP_NAME = 'dashbord'
 DEFAULT_BLUEPRINTS = [
     (views.angular, ''),
     (views.auth, '/auth'),
-    (views.api_proxy, '/v1'),
-    (views.api_proxy, '/v1.1')
+    (views.api_proxy, '/v1')
 ]
 
 def create_app(command, appname=None, blueprints=None):
