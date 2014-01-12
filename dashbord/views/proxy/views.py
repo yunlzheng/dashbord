@@ -2,6 +2,7 @@
 import json
 import pickle
 import requests
+import urllib
 from requests.api import request as do_request
 from flask import Blueprint
 from flask import request
@@ -15,8 +16,7 @@ from dashbord.tasks import *
 config = global_config()
 api_proxy = Blueprint('api', __name__)
 
-client = Client(config.VMS_HOST, config.VMS_PORT, config.VMS_APP_KEY,
-                config.VMS_SECRET)
+client = Client(config.VMS_HOST, config.VMS_PORT)
 
 
 @api_proxy.route('/v1/<resources>', methods=['GET'])
@@ -25,17 +25,38 @@ client = Client(config.VMS_HOST, config.VMS_PORT, config.VMS_APP_KEY,
 @api_proxy.route('/v1.1/<resources>/<resource_uuid>', methods=['GET'])
 @login_required
 def get_resources(resources, resource_uuid=None):
-    key = ":".join(request.path.split("/"))[1:]
-    print "load redis data by key[{0}]".format(key)
-    result = redis_store.get(key)
+    app_key = urllib.unquote(
+        request.cookies.get(
+            'appkey',
+            global_config().VMS_APP_KEY
+        )
+    ).decode('utf8').replace('"', '')
+    secret = urllib.unquote(
+        request.cookies.get(
+            'secret',
+            global_config().VMS_SECRET
+        )
+    ).decode('utf8').replace('"', '')
+
+    request_key = ":".join(request.path.split("/"))
+    store_key = app_key + request_key
+    print "load redis data by key[{0}]".format(store_key)
+    result = redis_store.get(store_key)
+
+    #result = None
 
     if not result:
         url = config.vms_http_url() + request.path + '?' + request.query_string
-        print url
-        resp = requests.get(url=url, headers=build_headers(), timeout=100)
+        resp = requests.get(url=url, headers=build_headers(app_key, secret), timeout=100)
         if resp.status_code == requests.codes.ok:
-            redis_store.set(key, pickle.dumps(resp.json()))
+            redis_store.set(store_key, pickle.dumps(resp.json()))
             return jsonify(resp.json())
+        elif resp.status_code == 401:
+            client.authenticate(app_key, secret, True)
+            return jsonify({
+                'code': 1,
+                'message': '获取数据异常，请刷新重试'
+            })
         else:
             return jsonify({
                 'code': 1,
@@ -57,9 +78,21 @@ def get_resources(resources, resource_uuid=None):
                  methods=['POST', 'PUT', 'DELETE'])
 @login_required
 def proxy(resources, resource_uuid=None):
-    signals.resources_updated.send(resources)
+    app_key = urllib.unquote(
+        request.cookies.get(
+            'appkey',
+            global_config().VMS_APP_KEY
+        )
+    ).decode('utf8').replace('"', '')
+    secret = urllib.unquote(
+        request.cookies.get(
+            'secret',
+            global_config().VMS_SECRET
+        )
+    ).decode('utf8').replace('"', '')
 
-    headers = build_headers()
+    signals.resources_updated.send(resources)
+    headers = build_headers(app_key, secret)
     path = request.path
     method = request.method
     query_string = request.query_string
@@ -72,7 +105,7 @@ def proxy(resources, resource_uuid=None):
         signals.resources_updated.send(resources)
         return jsonify(resp.json())
     elif resp.status_code == 401:
-        client.authenticate()
+        client.authenticate(app_key, secret, True)
         return jsonify({
             'code': 1,
             'message': '获取数据异常，请刷新重试'
@@ -84,20 +117,19 @@ def proxy(resources, resource_uuid=None):
         })
 
 
-def build_headers():
+def build_headers(app_key, app_secret):
     return {
-        'X-Consumer-key': config.VMS_APP_KEY,
-        'X-Auth-Token': client.authenticate(),
+        'X-Consumer-Key': app_key,
+        'X-Auth-Token': client.authenticate(app_key, app_secret),
     }
 
 # ------------- SIGNALS ----------------#
 
 def update_resources_cache(resources):
     # TODO： update data cache
-    print "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-    print 'recive resources[{0}] update signal'.format(resources)
+
+    print '@@ recive resources[{0}] update signal'.format(resources)
     update_flovar_cache.delay()
-    print "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
 
 signals.resources_updated.connect(update_resources_cache)

@@ -278,7 +278,6 @@ function Pools($http) {
 
 }
 
-
 angular.module('services.resources', []);
 angular.module('services.resources').factory('flavors', ['$http', '$cookieStore', Flavors]);
 angular.module('services.resources').factory('images', ['$http', '$cookieStore', Images]);

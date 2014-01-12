@@ -18,7 +18,6 @@ def index():
 @login_required
 def views(filename):
     response = make_response(send_from_directory(config.VIEWS_ROOT, filename))
-    response.set_cookie('platform_id', value=config.VMS_PLATFORM_ID)
     return response
 
 

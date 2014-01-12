@@ -1,14 +1,11 @@
 # coding: utf-8
 from os.path import join
 from dashbord.config.base import Config
-from dashbord.config.env import ANGULAR_APP_DIR
+from dashbord.config.base import ANGULAR_APP_DIR
 
 
 class Production(Config):
     DATABASE_URI = 'mysql://user@localhost/foo'
-    VIEWS_ROOT = '../app/views'
-    STYLE_ROOT = '../app/styles'
-
     # Angular Configuration
     INDEX_ROOT = join(ANGULAR_APP_DIR, 'index.html')
     VIEWS_ROOT = join(ANGULAR_APP_DIR, 'views')

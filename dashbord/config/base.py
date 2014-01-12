@@ -1,13 +1,26 @@
 # coding: utf-8
-from os.path import join
-from dashbord.config.env import ANGULAR_APP_DIR
-from dashbord.config.env import ANGULAR_DEV_DIR
+from os.path import dirname, abspath, join
+
+# 配置文件路径
+CONF_DIR = dirname(abspath(__file__))
+# Python源代码路径
+SRC_DIR = dirname(CONF_DIR)
+# 项目根路径
+PROJECT_DIR = dirname(SRC_DIR)
+# 前端.tmp文件路径
+ANGULAR_DEV_DIR = join(PROJECT_DIR, '.tmp')
+# 前端app文件路径
+ANGULAR_APP_DIR = join(PROJECT_DIR, 'app')
 
 
 class Config(object):
-    DEBUG = True
+    DEBUG = False
     TESTING = False
-    SECRET_KEY = 'you-will-never-guess'
+    SECRET_KEY = 'dashbord-secret-key'
+
+    # Log configurtaion
+    DEBUG_LOG = 'logs/debug.log'
+    ERROR_LOG = 'logs/error.log'
 
     # Angular Configuration
     INDEX_ROOT = join(ANGULAR_DEV_DIR, 'index.html')
@@ -42,10 +55,6 @@ class Config(object):
     CELERY_ACCEPT_CONTENT = ['json']
     CELERY_TIMEZONE = 'Europe/Oslo'
     CELERY_ENABLE_UTC = True
-
-    # Log configurtaion
-    DEBUG_LOG = 'logs/debug.log'
-    ERROR_LOG = 'logs/error.log'
 
     #Cache configuration
     CACHE_TYPE = "simple"

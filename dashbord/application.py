@@ -29,7 +29,6 @@ DEFAULT_BLUEPRINTS = [
     (views.api_proxy, '/v1')
 ]
 
-
 def create_app(command=None, appname=None, blueprints=None):
     """
     create Flask application instance
@@ -201,8 +200,6 @@ def load_user(id):
     @param id:
     @return:
     '''
-    print "@@ {0}".format(id)
     user = User.query.get(int(id))
-    print "@@ load user {0}".format(user)
     return user
 
