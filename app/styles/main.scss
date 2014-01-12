@@ -1,5 +1,7 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+@import "compass/css3";
+
 /** import base csss */
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'table';
@@ -90,12 +92,9 @@ a{
     }
 
     .break-btn {
-        -webkit-transition: margin-left .15s linear;
-        transition: margin-left .15s linear;
+
         -webkit-user-select: none;
         background-color: #fff;
-        border-radius: 3px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
         margin: 7px 0 7px 30px;
         padding: 5px 5px 5px 8px;
         display: inline-block;
@@ -153,7 +152,10 @@ a{
 }
 
 .header .side-menu{
-    
+    @include transition-property(margin-left);
+    @include transition-duration(.436s);
+    @include transition-timing-function(ease-in-out);
+
     position: fixed;
     top:$head_height;
     bottom: 0;
@@ -164,12 +166,7 @@ a{
     background: -webkit-gradient(linear,0 0,0 bottom,from(rgb(9, 37, 59)),to(rgb(0, 20, 35)));
     background: -moz-linear-gradient(top,#09253b,#001423);
     background: -o-linear-gradient(top,#09253b,#001423);
-    -webkit-transition-duration: .436s;
-    transition-duration: .436s;
-    -webkit-transition-property: margin-left;
-    transition-property: margin-left;
-    -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
+
     cursor: pointer;
     overflow: auto;
     h2{
