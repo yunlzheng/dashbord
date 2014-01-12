@@ -1,9 +1,9 @@
 # coding: utf-8
 import os
-from base import Config
-from development import Development
-from production import Production
-from test import Test
+from dashbord.config.base import Config
+from dashbord.config.development import Development
+from dashbord.config.production import Production
+from dashbord.config.test import Test
 
 _global_config = None
 

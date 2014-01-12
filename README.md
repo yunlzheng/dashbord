@@ -40,6 +40,8 @@ Dashbord is a web front base to build a dashbord application
 
 * [Jshint](http://www.jshint.com/): a JavaScript Code Quality Tool
 
+* [Pylint](http://www.pylint.org/): start your Python code
+
 
 ## How To Develop ?
 

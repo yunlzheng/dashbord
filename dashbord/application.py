@@ -9,7 +9,6 @@ import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask import Flask, request, jsonify
 from flask import render_template
-from flask import g
 
 from dashbord.config import global_config
 from dashbord import views
@@ -32,7 +31,13 @@ DEFAULT_BLUEPRINTS = [
 
 
 def create_app(command=None, appname=None, blueprints=None):
-
+    """
+    create Flask application instance
+    @param command: the run model "development" "production" "test"
+    @param appname: Flask application name defalt 'dashbord'
+    @param blueprints: Flask modules
+    @return:
+    """
     if not command:
         command = 'development'
 
@@ -44,10 +49,8 @@ def create_app(command=None, appname=None, blueprints=None):
 
     app = Flask(appname)
     configure_app(app, command)
-
     configure_logging(app)
     configure_app_jinja(app)
-    #configure_before_handlers(app)
     configure_errorhandlers
     configure_extensions(app)
     registe_blueprint(app, blueprints)
@@ -55,38 +58,61 @@ def create_app(command=None, appname=None, blueprints=None):
 
 
 def configure_app(app, command):
+    """
+    load flask conig from object
+    @param app:
+    @param command:
+    """
     os.environ['DASHBORD_CONF'] = command
     app.config.from_object(global_config())
 
 
 def configure_app_jinja(app):
+    '''
+    change flask jinja defalt variable to protected angular
+
+    @param app:
+    @return:
+    '''
     app.jinja_env.variable_start_string = '[['
     app.jinja_env.variable_end_string = ']]'
 
 
 def configure_extensions(app):
+    '''
+    load flask application ext and init
+
+    @param app:
+    @return:
+    '''
     try:
         redis_store.init_app(app)
         login_manager.init_app(app)
         cache.init_app(app)
         db.init_app(app)
         login_manager.login_view = '/login'
-    except Exception as ex:
-        raise;
+    except Exception:
+        raise
 
 
 def registe_blueprint(app, blueprints):
+    '''
+    regist flask blueprint
+    @param app:
+    @param blueprints:
+    @return:
+    '''
     for blueprint, urlprix in blueprints:
         app.register_blueprint(blueprint, urlprix=urlprix)
 
 
-def configure_before_handlers(app):
-    @app.before_request
-    def authenticate():
-        g.user = getattr(g.identity, 'user', None)
-
-
 def configure_errorhandlers(app):
+    '''
+    config flask application error handler
+
+    @param app:
+    @return:
+    '''
     if app.testing:
         return
 
@@ -109,7 +135,7 @@ def configure_errorhandlers(app):
         return render_template("errors/500.html", error=error)
 
     @app.errorhandler(401)
-    def unauthorized(error):
+    def unauthorized():
         if request.is_xhr:
             return jsonify("Login required")
             #flash(_("Please login to see this page"), "error")
@@ -117,6 +143,12 @@ def configure_errorhandlers(app):
 
 
 def configure_logging(app):
+    '''
+    config logging
+
+    @param app:
+    @return:
+    '''
     if app.debug or app.testing:
         return
 
@@ -163,6 +195,12 @@ def configure_logging(app):
 
 @login_manager.user_loader
 def load_user(id):
+    '''
+    get user by id, required by flask.ext.login
+
+    @param id:
+    @return:
+    '''
     print "@@ {0}".format(id)
     user = User.query.get(int(id))
     print "@@ load user {0}".format(user)

@@ -19,7 +19,7 @@ class Config(object):
     TEMPLATE_ROOT = join(ANGULAR_APP_DIR, 'template')
 
     # Database Config
-    SQLALCHEMY_DATABASE_URI = "sqlite:///newsmeme.db"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///dashbord.db"
     SQLALCHEMY_ECHO = False
 
     # Reds Configuration

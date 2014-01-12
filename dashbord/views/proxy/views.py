@@ -9,7 +9,6 @@ from flask import jsonify
 from flask.ext.login import login_required
 from dashbord import signals
 from dashbord.config import global_config
-from dashbord.extensions import redis_store
 from dashbord.clients.vms_client import Client
 from dashbord.tasks import *
 
@@ -19,13 +18,13 @@ api_proxy = Blueprint('api', __name__)
 client = Client(config.VMS_HOST, config.VMS_PORT, config.VMS_APP_KEY,
                 config.VMS_SECRET)
 
+
 @api_proxy.route('/v1/<resources>', methods=['GET'])
 @api_proxy.route('/v1.1/<resources>', methods=['GET'])
 @api_proxy.route('/v1/<resources>/<resource_uuid>', methods=['GET'])
 @api_proxy.route('/v1.1/<resources>/<resource_uuid>', methods=['GET'])
 @login_required
 def get_resources(resources, resource_uuid=None):
-
     key = ":".join(request.path.split("/"))[1:]
     print "load redis data by key[{0}]".format(key)
     result = redis_store.get(key)
@@ -48,10 +47,14 @@ def get_resources(resources, resource_uuid=None):
         return jsonify(result)
 
 
-@api_proxy.route('/v1/<resources>', methods=['POST', 'PUT', 'DELETE'])
-@api_proxy.route('/v1.1/<resources>', methods=['POST', 'PUT', 'DELETE'])
-@api_proxy.route('/v1/<resources>/<resource_uuid>', methods=['POST', 'PUT', 'DELETE'])
-@api_proxy.route('/v1.1/<resources>/<resource_uuid>', methods=['POST', 'PUT', 'DELETE'])
+@api_proxy.route('/v1/<resources>',
+                 methods=['POST', 'PUT', 'DELETE'])
+@api_proxy.route('/v1.1/<resources>',
+                 methods=['POST', 'PUT', 'DELETE'])
+@api_proxy.route('/v1/<resources>/<resource_uuid>',
+                 methods=['POST', 'PUT', 'DELETE'])
+@api_proxy.route('/v1.1/<resources>/<resource_uuid>',
+                 methods=['POST', 'PUT', 'DELETE'])
 @login_required
 def proxy(resources, resource_uuid=None):
     signals.resources_updated.send(resources)

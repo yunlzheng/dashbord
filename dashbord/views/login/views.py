@@ -1,6 +1,7 @@
 # coding: utf-8
-import json
-
+'''
+Dashbord login and logout handler
+'''
 from flask import request
 from flask import render_template, redirect
 from flask import Blueprint
@@ -10,9 +11,9 @@ from dashbord.models import User
 
 auth = Blueprint('login', __name__)
 
-@auth.route("/login", methods=["GET","POST"])
-def login():
 
+@auth.route("/login", methods=["GET", "POST"])
+def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
@@ -23,6 +24,7 @@ def login():
             login_user(user)
             return redirect(request.args.get("next") or "/")
     return render_template("login.html")
+
 
 @auth.route("/logout", methods=["GET"])
 @login_required

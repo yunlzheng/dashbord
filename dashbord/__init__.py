@@ -1,2 +1,3 @@
 # coding: utf-8
-from application import create_app
+''' export create_app method '''
+from dashbord.application import create_app
