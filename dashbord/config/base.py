@@ -14,7 +14,7 @@ ANGULAR_APP_DIR = join(PROJECT_DIR, 'app')
 
 
 class Config(object):
-    DEBUG = False
+    DEBUG = True
     TESTING = False
     SECRET_KEY = 'dashbord-secret-key'
 
@@ -22,14 +22,15 @@ class Config(object):
     DEBUG_LOG = 'logs/debug.log'
     ERROR_LOG = 'logs/error.log'
 
-    # Angular Configuration
-    INDEX_ROOT = join(ANGULAR_DEV_DIR, 'index.html')
-    VIEWS_ROOT = join(ANGULAR_DEV_DIR, 'views')
-    STYLE_ROOT = join(ANGULAR_DEV_DIR, 'styles')
+    INDEX_ROOT = (lambda debug:debug and join(ANGULAR_DEV_DIR, 'index.html') or join(ANGULAR_APP_DIR, 'index.html'))(DEBUG)
+    VIEWS_ROOT = (lambda debug:debug and join(ANGULAR_DEV_DIR, 'views') or join(ANGULAR_APP_DIR, 'views'))(DEBUG)
+    STYLE_ROOT = (lambda debug:debug and join(ANGULAR_DEV_DIR, 'styles') or join(ANGULAR_APP_DIR, 'styles'))(DEBUG)
+    BOWER_COMPONENTS_ROOT = (lambda debug:debug and join(ANGULAR_APP_DIR, 'bower_components') or join(ANGULAR_APP_DIR,
+                                                                                        'bower_components'))(DEBUG)
+    IMAGES_ROOT = (lambda debug:debug and join(ANGULAR_APP_DIR, 'images') or join(ANGULAR_APP_DIR, 'images'))(DEBUG)
+    TEMPLATE_ROOT = (lambda debug:debug and join(ANGULAR_APP_DIR, 'template') or join(ANGULAR_APP_DIR, 'template'))(DEBUG)
+
     SCRIPTS_ROOT = join(ANGULAR_APP_DIR, 'scripts')
-    BOWER_COMPONENTS_ROOT = join(ANGULAR_APP_DIR, 'bower_components')
-    IMAGES_ROOT = join(ANGULAR_APP_DIR, 'images')
-    TEMPLATE_ROOT = join(ANGULAR_APP_DIR, 'template')
 
     # Database Config
     SQLALCHEMY_DATABASE_URI = "sqlite:///dashbord.db"
@@ -40,13 +41,6 @@ class Config(object):
     REDIS_PASSWORD = ""
     REDIS_PORT = 6379
     REDIS_DATABASE = 1
-
-    # Mail configuration
-    MAIL_DEBUG = DEBUG
-    ADMINS = ()
-    MAIL_SERVER = ''
-    MAIL_USERNAME = ''
-    MAIL_PASSWORD = ''
 
     # Celery configuration
     BROKER_URL = 'redis://127.0.0.1:6379'
@@ -63,13 +57,6 @@ class Config(object):
     VMS_HOST = '172.30.1.12'
     VMS_PORT = 8889
     VMS_APP_KEY = '1386559196'
-    VMS_PLATFORM_ID = '1'
-    VMS_SECRET = '4ae0214d25f04007932997f3455c0c9f'
-    VMS_ACCESS_TOKEN = None
+    VMS_SECRET = '4ae0214d25f04007932997f3455c0c9'
 
-    login_view = '/login'
-
-    @classmethod
-    def vms_http_url(cls):
-        http_url = 'http://{0}:{1}'.format(cls.VMS_HOST, cls.VMS_PORT)
-        return http_url
+    VMS_HTTP_URL = 'http://{0}:{1}'.format(VMS_HOST, VMS_PORT)
