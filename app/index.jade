@@ -71,7 +71,7 @@ html.no-js
         div(ng-view='')
       .system_messages
         .alert_messages
-          alert(ng-repeat='alert in notify.getAlerts()', type='alert.type', close='notify.closeAlert($index)') {{ alert.msg }}
+          alert(ng-repeat='alert in notify.getAlerts()', type='alert.type', close='notify.closeAlert($index)', ng-bind='alert.msg')
 
     script(src='bower_components/jquery/jquery.js')
     script(src='bower_components/angular/angular.js')

@@ -7,16 +7,14 @@ from requests.api import request as do_request
 from flask import Blueprint
 from flask import request
 from flask import jsonify
+from flask import current_app
 from flask.ext.login import login_required
 from dashbord import signals
-from dashbord.config import global_config
+
 from dashbord.clients.vms_client import Client
 from dashbord.tasks import *
 
-config = global_config()
 api_proxy = Blueprint('api', __name__)
-
-client = Client(config.VMS_HOST, config.VMS_PORT)
 
 
 @api_proxy.route('/v1/<resources>', methods=['GET'])
@@ -25,28 +23,32 @@ client = Client(config.VMS_HOST, config.VMS_PORT)
 @api_proxy.route('/v1.1/<resources>/<resource_uuid>', methods=['GET'])
 @login_required
 def get_resources(resources, resource_uuid=None):
+    client = Client(current_app.config['VMS_HOST'], current_app.config['VMS_PORT'])
+
     app_key = urllib.unquote(
         request.cookies.get(
             'appkey',
-            global_config().VMS_APP_KEY
+            current_app.config['VMS_APP_KEY']
         )
     ).decode('utf8').replace('"', '')
     secret = urllib.unquote(
         request.cookies.get(
             'secret',
-            global_config().VMS_SECRET
+            current_app.config['VMS_SECRET']
         )
     ).decode('utf8').replace('"', '')
 
+    #result = None;
+
     request_key = ":".join(request.path.split("/"))
     store_key = app_key + request_key
+
+    #if not resource_uuid:
     print "load redis data by key[{0}]".format(store_key)
     result = redis_store.get(store_key)
 
-    #result = None
-
     if not result:
-        url = config.vms_http_url() + request.path + '?' + request.query_string
+        url = current_app.config['VMS_HTTP_URL'] + request.path + '?' + request.query_string
         resp = requests.get(url=url, headers=build_headers(app_key, secret), timeout=100)
         if resp.status_code == requests.codes.ok:
             redis_store.set(store_key, pickle.dumps(resp.json()))
@@ -59,9 +61,9 @@ def get_resources(resources, resource_uuid=None):
             })
         else:
             return jsonify({
-                'code': 1,
-                'message': 'building! get resouces from cache',
-                'data': {}
+                'code': resp.status_code,
+                'message': resp.status_code,
+                'data': resp.status_code
             })
     else:
         result = pickle.loads(result)
@@ -78,16 +80,17 @@ def get_resources(resources, resource_uuid=None):
                  methods=['POST', 'PUT', 'DELETE'])
 @login_required
 def proxy(resources, resource_uuid=None):
+    client = Client(current_app.config['VMS_HOST'], current_app.config['VMS_PORT'])
     app_key = urllib.unquote(
         request.cookies.get(
             'appkey',
-            global_config().VMS_APP_KEY
+            current_app.config['VMS_APP_KEY']
         )
     ).decode('utf8').replace('"', '')
     secret = urllib.unquote(
         request.cookies.get(
             'secret',
-            global_config().VMS_SECRET
+            current_app.config['VMS_SECRET']
         )
     ).decode('utf8').replace('"', '')
 
@@ -97,7 +100,7 @@ def proxy(resources, resource_uuid=None):
     method = request.method
     query_string = request.query_string
     data = json.dumps(request.json)
-    url = config.vms_http_url() + path + query_string
+    url = current_app.config['VMS_HTTP_URL'] + path + query_string
 
     resp = do_request(method, url=url, data=data, headers=headers)
 
@@ -118,6 +121,7 @@ def proxy(resources, resource_uuid=None):
 
 
 def build_headers(app_key, app_secret):
+    client = Client(current_app.config['VMS_HOST'], current_app.config['VMS_PORT'])
     return {
         'X-Consumer-Key': app_key,
         'X-Auth-Token': client.authenticate(app_key, app_secret),

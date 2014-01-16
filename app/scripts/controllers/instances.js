@@ -105,6 +105,8 @@ function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $inte
   $scope.currentPage = 1;
   $scope.numPerPage = 10;
 
+  $scope.loading = false;
+
   var InstanceStatus = {
     ACTIVE: 'ACTIVE',
     PAUSED: 'PAUSED',
@@ -260,16 +262,19 @@ function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $inte
   */
   $scope.getInstances = function() {
 
+    $scope.loading = true;
     instances.query().success(function(data) {
 
       if (data.code === '0') {
         $scope.vms = data.data;
         $scope.search();
       }
+      $scope.loading = false;
 
     }).error(function() {
 
       //$scope.vms = mockInstances.query();
+      $scope.loading = false;
 
     });
 

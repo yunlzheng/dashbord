@@ -1,63 +1,69 @@
 html
   body
     .dashbord-page
-      h2 Instance-&lcub;&lcub; vm&period;name &rcub;&rcub;
-      form.form-horizontal(role='form')
+      .header-title
+        h2 Instance-{{ vm.name }}
+        .btn-group
+          button.btn.btn-primary.btn-circle.btn-xs.dropdown-toggle(type="button", data-toggle="dropdown")
+            span.caret
+          ul.dropdown-menu(role="menu")
+            li
+              a(href="#") 启动
+            li
+              a(href="#") 暂停
+            li
+              a(href="#") 恢复
+            li
+              a(href="#") 挂起
+            li
+              a(href="#") 重启
+            li
+              a(href="#") 关机
+            li
+              a(ng-click="getVnc()") VNC
+            li.divider
+            li
+              a(href="#") 删除
+        .clearfix
+      form.form-horizontal.instance-basic-form(role='form')
         fieldset
-          legend Base
+          legend 基本信息
           .form-group
-            label.col-sm-2.control-label UUID
+            label.col-sm-2.control-label 编号
             .col-sm-10
               p.form-control-static(ng-bind='vm.id')
           .form-group
-            label.col-sm-2.control-label Status
+            label.col-sm-2.control-label 状态
             .col-sm-10
               p.form-control-static(ng-bind='vm.status')
           .form-group
-            label.col-sm-2.control-label CreatedAt
+            label.col-sm-2.control-label 创建时间
             .col-sm-10
               p.form-control-static(ng-bind='vm.created')
           .form-group
-            label.col-sm-2.control-label Host
+            label.col-sm-2.control-label 所在节点
             .col-sm-10
               p.form-control-static(ng-bind='vm["OS-EXT-SRV-ATTR:host"]')
-        fieldset
-          legend Network
+          .form-group
+              label.col-sm-2.control-label 网络
+              .col-sm-10
+                  p.form-control-static(ng-repeat='net in vm.networks')
+                      {{ net }}
+
+      .instance-basic-interview
+        .screen
+          {{ vm.name }} is {{ vm.status }}
+
+      .clearfix
+
       hr
-      h2 Snapshots
-      table.table.table-striped
-        thead
-          tr
-            th &num;
-            th &#32534;&#21495;
-            th &#21517;&#31216;
-            th &#22823;&#23567;
-            th &#29366;&#24577;
-            th &#21019;&#24314;&#26102;&#38388;
-            th.auto-hide &#20027;&#26426;&#21517;
-            th.auto-hide &#30005;&#28304;&#29366;&#24577;
-        tbody
-          tr(ng-repeat='snapshot in snapshots')
-            td
-              input(type='checkbox', ng-model='snapshot.selected')
-            td &lcub;&lcub; &dollar;index &rcub;&rcub;
-            td &lcub;&lcub; snapshot&period;name &rcub;&rcub;
-            td &lcub;&lcub; snapshot&period;size &rcub;&rcub;
-            td
-              span.label.label-default &lcub;&lcub; snapshot&period;status &rcub;&rcub;
-            td &lcub;&lcub; snapshot&period;created &VerticalLine; date&colon;&apos;MM&sol;dd&sol;yyyy &commat; h&colon;mma&apos; &rcub;&rcub;
-            td.auto-hide &lcub;&lcub; snapshot&lsqb;&apos;OS-EXT-SRV-ATTR&colon;host&apos;&rsqb; &rcub;&rcub;
-            td.auto-hide &lcub;&lcub; snapshot&lsqb;&apos;OS-EXT-STS&colon;power&UnderBar;state&apos;&rsqb; &rcub;&rcub;
+      h2 规格
+
       hr
-      h2 Atted Volume
-      table.table.table-striped
-        thead
-          tr
-            th &num;
-            th &#32534;&#21495;
-            th &#21517;&#31216;
-            th &#22823;&#23567;
-            th &#29366;&#24577;
-            th &#21019;&#24314;&#26102;&#38388;
-            th.auto-hide &#20027;&#26426;&#21517;
-            th.auto-hide &#30005;&#28304;&#29366;&#24577;
+      h2 村粗
+
+      hr
+      h2 快照
+
+      hr
+      h2 磁盘

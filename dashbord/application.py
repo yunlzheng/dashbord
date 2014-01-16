@@ -10,7 +10,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask import Flask, request, jsonify
 from flask import render_template
 
-from dashbord.config import global_config
+from dashbord.config import Config
 from dashbord import views
 from dashbord.extensions import redis_store
 from dashbord.extensions import cache
@@ -63,8 +63,12 @@ def configure_app(app, command):
     @param command:
     """
     os.environ['DASHBORD_CONF'] = command
-    app.config.from_object(global_config())
-
+    if command == 'production':
+        Config.DEBUG = False
+    else:
+        Config.DEBUG = True
+    app.config.from_object(Config)
+    app.config.from_envvar('DASHBORD_SETTINGS')
 
 def configure_app_jinja(app):
     '''
@@ -151,17 +155,17 @@ def configure_logging(app):
     if app.debug or app.testing:
         return
 
-    mail_handler = SMTPHandler(app.config['MAIL_SERVER'],
-                               'error@newsmeme.com',
-                               app.config['ADMINS'],
-                               'application error',
-                               (
-                                   app.config['MAIL_USERNAME'],
-                                   app.config['MAIL_PASSWORD'],
-                               ))
-
-    mail_handler.setLevel(logging.ERROR)
-    app.logger.addHandler(mail_handler)
+    # mail_handler = SMTPHandler(app.config['MAIL_SERVER'],
+    #                            'error@newsmeme.com',
+    #                            app.config['ADMINS'],
+    #                            'application error',
+    #                            (
+    #                                app.config['MAIL_USERNAME'],
+    #                                app.config['MAIL_PASSWORD'],
+    #                            ))
+    #
+    # mail_handler.setLevel(logging.ERROR)
+    # app.logger.addHandler(mail_handler)
 
     formatter = logging.Formatter(
         '%(asctime)s %(levelname)s: %(message)s '

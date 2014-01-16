@@ -3,7 +3,7 @@ html
     .dashbord-page
       h2 路由器
       button.btn.btn-primary(type='button')
-        .glyphicon.glyphicon-refresh
+        .glyphicon.glyphicon-refresh.rotate
       button.btn.btn-primary(type="button", ng-click="openCreateModal()")
         | 创建虚拟路由
       .btn-group
@@ -20,8 +20,9 @@ html
             th #
             th 编号
             th 名称
-            th 状态
-            th 创建时间
+            th 描述
+            th 上行贷款
+            th 下行贷款
         tbody
           tr(ng-repeat='route in routePager.routes')
             td
@@ -33,9 +34,10 @@ html
             td 
               {{ route.description }}
             td 
-              {{ route.bandwidth_rx }}
-            td
               {{ route.bandwidth_tx }}
+            td
+              {{ route.bandwidth_rx }}
+
 
        pagination.pagination-small(
         total-items='routePager.totalItems()', 

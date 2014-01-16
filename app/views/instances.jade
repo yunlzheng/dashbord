@@ -1,9 +1,9 @@
 html
   body
     .dashbord-page
-      h2 &#23454;&#20363;
+      h2 实例
       button.btn.btn-primary(type='button', ng-click='getInstances()')
-        .glyphicon.glyphicon-refresh
+        .glyphicon.glyphicon-refresh(ng-class="{loading: rotate}")
       button.btn.btn-primary(type='button', ng-click='!openNewInstanceModal()') 
         | 创建虚拟机
       button.btn.btn-primary(type='button', ng-click='start()', ng-disabled='isNotSelectOne() || !isShutoff() || isActive() || isPaused()') 

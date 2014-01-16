@@ -1,10 +1,7 @@
 # coding: utf-8
 import requests
 from dashbord.error import AuthTimeOut, AuthException
-from dashbord.config import global_config
 from dashbord.extensions import redis_store
-
-config = global_config()
 
 class Client(object):
     def __init__(self, host, port):
