@@ -11,6 +11,7 @@ __all__ = ["celery"]
 
 celery = Celery()
 
+
 def from_envvar(env):
     if env in os.environ:
         rv = os.environ.get(env)
@@ -36,6 +37,7 @@ def from_object(obj):
     for key in dir(obj):
         if key.isupper():
             celery[key] = getattr(obj, key)
+
 
 celery.config_from_object(Config)
 from_envvar('DASHBORD_SETTINGS')

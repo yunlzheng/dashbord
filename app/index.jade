@@ -38,11 +38,13 @@ html.no-js
       .header
         .header-container
           h3#menu-toggle.text-muted(ng-click='toggleMenu()') Da
-          .break-btn
-            .utb
-              .Hde.Nua(guidedhelpid='appindicator_icon')
-            .text(ng-bind="defaultPlatforms.name")
-            .glyphicon.glyphicon-chevron-down
+          .btn-group.break-btn
+            button.btn.btn-default.dropdown-toggle(type="button", ng-bind='defaultPlatforms.name')
+            button.btn.btn-default.dropdown-toggle(type="button", data-toggle="dropdown")
+              span.caret
+            ul.dropdown-menu(role="menu")
+              li(ng-repeat="platform in platforms")
+                a(href="", ng-click="change_platforms(platform)",ng-bind='platform.name')
           #side-menu.side-menu(class='side-menu-{{status.showSideMenu}}')
             h2 资源管理
             a(ng-repeat='menu in menus', ng-click='select(menu)', ng-href='{{ menu.url }}', title='{{ menu.name }}')

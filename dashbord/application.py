@@ -6,7 +6,7 @@ Flask with Angular.js fix the web app url mapping
 import os
 import logging
 
-from logging.handlers import SMTPHandler, RotatingFileHandler
+from logging.handlers import RotatingFileHandler
 from flask import Flask, request, jsonify
 from flask import render_template
 
@@ -29,6 +29,7 @@ DEFAULT_BLUEPRINTS = [
     (views.api_proxy, '/v1')
 ]
 
+
 def create_app(command=None, appname=None, blueprints=None):
     """
     create Flask application instance
@@ -50,7 +51,7 @@ def create_app(command=None, appname=None, blueprints=None):
     configure_app(app, command)
     configure_logging(app)
     configure_app_jinja(app)
-    configure_errorhandlers
+    configure_errorhandlers(app)
     configure_extensions(app)
     registe_blueprint(app, blueprints)
     return app
@@ -62,13 +63,12 @@ def configure_app(app, command):
     @param app:
     @param command:
     """
-    os.environ['DASHBORD_CONF'] = command
-    if command == 'production':
-        Config.DEBUG = False
-    else:
-        Config.DEBUG = True
     app.config.from_object(Config)
-    app.config.from_envvar('DASHBORD_SETTINGS')
+    try:
+        app.config.from_envvar('DASHBORD_SETTINGS')
+    except Exception as ex:
+        app.logger.debug(ex)
+
 
 def configure_app_jinja(app):
     '''

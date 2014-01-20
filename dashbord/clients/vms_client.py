@@ -3,6 +3,7 @@ import requests
 from dashbord.error import AuthTimeOut, AuthException
 from dashbord.extensions import redis_store
 
+
 class Client(object):
     def __init__(self, host, port):
         self.host = host
@@ -31,8 +32,8 @@ class Client(object):
 
     def authenticate(self, app_key, app_secret, refresh_token=False):
 
-        store_key = 'token:'+app_key
-        redis_store.set(app_key+":secret", app_secret);
+        store_key = 'token:' + app_key
+        redis_store.set(app_key + ":secret", app_secret);
         if not redis_store.get(store_key):
             token = self._vms_authenticate(app_key, app_secret)
             redis_store.set(store_key, token)

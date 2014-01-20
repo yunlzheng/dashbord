@@ -54,9 +54,9 @@ class Config(object):
     CACHE_TYPE = "simple"
     CACHE_DEFAULT_TIMEOUT = 300
 
-    VMS_HOST = '172.30.1.12'
+    VMS_HOST = '192.168.0.51'
     VMS_PORT = 8889
-    VMS_APP_KEY = '1386559196'
-    VMS_SECRET = '4ae0214d25f04007932997f3455c0c9'
+    VMS_APP_KEY = '1380012758'
+    VMS_SECRET = '88dc368bd12b46da948b3d33ecf901ce'
 
     VMS_HTTP_URL = 'http://{0}:{1}'.format(VMS_HOST, VMS_PORT)

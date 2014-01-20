@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dashbordApp')
-    .controller('MainCtrl', ['$rootScope', '$scope', '$cookieStore', 'breadcrumbs', 'notify', 'platforms', function ($rootScope, $scope, $cookieStore, breadcrumbs, notify, platforms) {
+    .controller('MainCtrl', ['$rootScope', '$scope', '$route','$cookieStore', 'breadcrumbs', 'notify', 'platforms', function ($rootScope, $scope, $route, $cookieStore, breadcrumbs, notify, platforms) {
 
         $scope.defaultPlatforms = {};
         $scope.breadcrumbs = breadcrumbs;
@@ -102,6 +102,16 @@ angular.module('dashbordApp')
                 $cookieStore.put('secret', $scope.defaultPlatforms.secret);
 
             });
+        };
+
+        $scope.change_platforms = function (platform) {
+
+            $scope.defaultPlatforms = platform;
+            $cookieStore.put('platform', $scope.defaultPlatforms.id);
+            $cookieStore.put('appkey', $scope.defaultPlatforms.appkey);
+            $cookieStore.put('secret', $scope.defaultPlatforms.secret);
+            $route.reload()
+
         };
 
         $scope.getPlatforms();
