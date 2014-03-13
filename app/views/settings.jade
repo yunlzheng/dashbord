@@ -1,0 +1,31 @@
+html
+  body
+    .dashbord-page
+      h2 &#35774;&#32622;
+      form
+        fieldset
+          legend
+            | &#22522;&#26412;&#35774;&#32622;
+          .form-group
+            label vms&#35775;&#38382;&#22320;&#22336;
+            input.form-control(type='text', placeholder='Enter http address', ng-model='setting.rootUrl')
+          .form-group
+            label port
+            input.form-control(type='text', placeholder='Enter port', ng-model='setting.port')
+        fieldset
+          legend
+            | &#35748;&#35777;&#35774;&#32622;
+          .form-group
+            label(for='inputAppKey') &#24212;&#29992;&#26631;&#35782;
+            input.form-control(type='text', placeholder='Enter The Application Key', ng-model='setting.appKey')
+          .form-group
+            label(for='inputAppSecret') &#23494;&#38053;
+            input.form-control(type='text', placeholder='Enter The Application Secret', ng-model='setting.appSecret')
+          .form-group
+            label(for='inputAccessToken') &#35775;&#38382;&#20196;&#29260;
+            input.form-control(type='text', ng-model='setting.accessToken', disabled='')
+          .form-group
+            label(for='inputAccessToken')
+              input(type='checkbox', ng-model='setting.useNode')
+              | Use Node
+        button.btn.btn-default(ng-click='saveSettings(setting)') Save

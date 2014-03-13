@@ -22,3 +22,23 @@
 	word-wrap:break-word;
 	word-break:break-all;
 }
+
+.instance-basic-form{
+  float: right;
+  width: 55%;
+}
+
+.instance-basic-interview {
+  float: left;
+  width: 40%;
+  padding: 0px 20px;
+  margin-top: 25px;
+  .screen{
+    border:5px #DDDDDD solid;
+    border-radius: 5px;
+    color:rgb(40, 194, 40);
+    background-color: #001423;
+    height: 240px;
+    padding: 10px;
+  }
+}

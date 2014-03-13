@@ -1,0 +1,197 @@
+html
+  body
+    .dashbord-page
+      h2 网络
+      button.btn.btn-primary(type='button', ng-click='getNetworks()')
+        .glyphicon.glyphicon-refresh
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+          | 更多操作
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='#') 删除
+
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+
+      table.table.table-striped
+        thead
+          tr
+            th
+              input(type='checkbox')
+            th 编号
+            th 名称
+            th 状态
+            th vlan_id
+            th shared
+            th 子网
+        tbody
+          tr(ng-repeat='network in filteredNetworks')
+            td
+              input(type='checkbox')
+            td {{ index }}
+            td {{ network.name }}
+            td
+              span.label.label-default {{ network.status }}
+            td {{ network.vlan.id }}
+            td
+              span.label.label-default {{ network.shared }}
+            td
+              span(ng-repeat='subnet in network.subnets')
+                | {{ subnet }}
+      pagination.pagination-small(
+        total-items='networkBigTotalItems()', 
+        page='networkCurrentPage', 
+        max-size='networkMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='networkNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
+    .dashbord-page
+      h2 子网
+      button.btn.btn-primary(type='button')
+        .glyphicon.glyphicon-refresh
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+          | 更多操作
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='#') 删除
+
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+
+      table.table.table-striped
+        thead
+          tr
+            th
+              input(type='checkbox')
+            th 编号
+            th 名称
+            th gateway.ip
+            th ip.version
+            th enable.dhcp
+            th cidr
+            th host.routes
+            th allocation.pools
+            th dns.nameservers
+        tbody
+          tr(ng-repeat='subnet in filteredSubnets')
+            td
+              input(type='checkbox')
+            td {{ $index }}
+            td {{ subnet.name }}
+            td {{ subnet.gateway.ip }}
+            td {{ subnet.ip.version }}
+            td {{ subnet.enable.dhcp }}
+            td {{ subnet.cidr }}
+            td {{ subnet.host.routes }}
+            td {{ subnet.allocation.pools.start }}~{{ subnet.allocation.pools.start }}
+            td {{ subnet.dns.nameservers }}
+      pagination.pagination-small(
+        total-items='subnetBigTotalItems()', 
+        page='subnetCurrentPage', 
+        max-size='subnetMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='subnetNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}',
+        )
+    .dashbord-page
+      h2 网卡
+      button.btn.btn-primary(type='button')
+        .glyphicon.glyphicon-refresh
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+          | 更多操作
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='#') 删除
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+      table.table.table-striped
+        thead
+          tr
+            th
+              input(type='checkbox')
+            th 编号
+            th 名称
+            th 状态
+            th attached_phyport
+            th 计算节点
+            th device_owner
+            th mac地址
+            th fixed_ips
+        tbody
+          tr(ng-repeat='port in filteredPorts')
+            td
+              input(type='checkbox')
+            td {{ $index }}
+            td {{ port.name }}
+            td {{ port.status }}
+            td {{ port.attached.phyport }}
+            td {{ port.compute.node }}
+            td {{ port.device.owner }}
+            td {{ port.mac.address }}
+            td
+              span(ng-repeat='fixed_ip in port.fixed_ips')
+                | {{ fixed.ip.ip.address }}
+      pagination.pagination-small(
+        total-items='portBigTotalItems()', 
+        page='portCurrentPage', 
+        max-size='portMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='portNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')
+    .dashbord-page
+      h2 端口映射
+      button.btn.btn-primary(type='button')
+        .glyphicon.glyphicon-refresh
+      .btn-group
+        button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+          | 更多操作
+          span.caret
+        ul.dropdown-menu(role='menu')
+          li
+            a(href='#') 删除
+      input.search-text(placeholder="搜索", type="text", ng-model="searchText")
+      table.table.table-striped
+        thead
+          tr
+            th
+              input(type='checkbox')
+            th 编号
+            th 名称
+            th 状态
+            th 创建时间
+        tbody
+          tr(ng-repeat='nat in filteredNats')
+            td
+              input(type='checkbox')
+            td {{ $index }}
+            td {{ nat.name }}
+      pagination.pagination-small(
+        total-items='natBigTotalItems()', 
+        page='natCurrentPage', 
+        max-size='natMaxSize', 
+        boundary-links='true', 
+        rotate='false', 
+        num-pages='natNumPages', 
+        previous-text='{{ pagerConfig.previousText }}',
+        next-text = '{{ pagerConfig.nextText }}', 
+        items-per-page='pagerConfig.numPerPage',
+        first-text='{{ pagerConfig.firstText}}',
+        last-text='{{ pagerConfig.lastText }}')

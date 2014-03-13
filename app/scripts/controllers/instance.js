@@ -1,22 +1,58 @@
 'use strict';
 
 angular.module('dashbordApp')
-  .controller('InstanceCtrl', ['$scope', '$routeParams', 'instances', 'mockInstances', function ($scope, $routeParams, instances, mockInstances) {
-   
-  	instances.get($routeParams.id).success(function(data){
+    .controller('InstanceCtrl', ['$scope', '$routeParams', 'instances', 'flavors',
+        function ($scope, $routeParams, instances, flavors) {
 
-  		$scope.vm = data.data;
+            instances.get($routeParams.id).success(function (data) {
 
-  	}).error(function(){
+                $scope.vm = data.data;
 
-  		$scope.vm = mockInstances.get();
-  	
-  	});
+            });
 
-  	instances.getSnapshots($routeParams.id).success(function(data){
+//            instances.getSnapshots($routeParams.id).success(function (data) {
+//
+//                $scope.snapshots = data.data;
+//
+//            });
 
-  		$scope.snapshots = data.data;
+            $scope.getVnc = function () {
 
-  	});
+                instances.getVnc($scope.vm.id).success(function (data) {
 
-  }]);
+                    if (data.code === '0') {
+                        window.open(data.data.console.url, $scope.vm.name + ' Console', 'width=1000,height=600');
+                    }
+
+                });
+
+            };
+
+            $scope.remove = function () {
+                instances.remove($scope.vm.id);
+            };
+
+            $scope.start = function () {
+                instances.start($scope.vm.id);
+            };
+
+            $scope.stop = function () {
+                instances.stop($scope.vm.id);
+            };
+
+            $scope.unpause = function () {
+                instances.unpause($scope.vm.id);
+            };
+
+            $scope.pause = function () {
+                instances.pause($scope.vm.id);
+            };
+
+            $scope.reboot = function () {
+
+                instances.reboot($scope.vm.id);
+
+            };
+
+        }
+    ]);

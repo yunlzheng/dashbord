@@ -2,8 +2,18 @@
 	position:fixed;
 	top:0px;
 	right:50px;
-	min-width:300px;
-	max-width:400px;
-	top:60px;
+  left:50px;
+	top:10px;
 	z-index:1000;
+  .alert_messages{
+
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .alert{
+      padding: 8px;
+    }
+  }
+
 }

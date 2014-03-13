@@ -13,6 +13,11 @@ function routeProvider($routeProvider) {
       controller: 'HomeCtrl',
       label: '主页'
     })
+    .when('/nodes', {
+      templateUrl: 'views/nodes.html',
+      controller: 'NodesCtrl',
+      label: '物理机'
+    })
     .when('/instances', {
       templateUrl: 'views/instances.html',
       controller: 'InstancesCtrl',
@@ -21,7 +26,7 @@ function routeProvider($routeProvider) {
     .when('/instances/:id', {
       templateUrl: 'views/instance.html',
       controller: 'InstanceCtrl',
-      label: 'vm'
+      label: '虚拟机实例'
     })
     .when('/volumes', {
       templateUrl: 'views/volumes.html',
@@ -36,7 +41,12 @@ function routeProvider($routeProvider) {
     .when('/routes', {
       templateUrl: 'views/routes.html',
       controller:'RouteCtrl',
-      label:'routes'
+      label:'路由'
+    })
+    .when('/security-groups', {
+      templateUrl: 'views/security-groups.html',
+      controller: 'SecurityGroupsCtrl',
+      label: '安全组'
     })
     .when('/images', {
       templateUrl: 'views/images.html',
@@ -46,7 +56,7 @@ function routeProvider($routeProvider) {
     .when('/flavors', {
       templateUrl: 'views/flavors.html',
       controller: 'FlavorCtrl',
-      label: 'Flavors'
+      label: '规格'
     })
     .when('/settings', {
       templateUrl: 'views/settings.html',
@@ -71,11 +81,8 @@ angular.module('dashbordApp', [
   'services.breadcrumbs',
   'services.resources',
   'services.mocks',
-  'ui.chart',
-  'ui.bootstrap.modal',
-  'ui.bootstrap.buttons',
-  'ui.bootstrap.pagination',
-  'ui.bootstrap.alert'
+  'ui.knob',
+  'ui.bootstrap'
 ])
   .config(['$httpProvider', httpProvider])
   .config(['$routeProvider', routeProvider]);

@@ -1,5 +1,9 @@
 node_modules
 dist
 .tmp
+.idea
 .sass-cache
+build
 app/bower_components
+*.pyc
+.idea/workspace.xml

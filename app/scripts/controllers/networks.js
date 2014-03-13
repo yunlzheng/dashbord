@@ -1,6 +1,6 @@
 'use strict';
 
-function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
+function NetworksCtrl($scope, networks, subnets, ports, nats) {
 
 	$scope.networks = [];
 
@@ -12,7 +12,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 	$scope.networkBigTotalItems = function () {
 		return $scope.networks.length;
-	}
+	};
 
 	$scope.$watch('networkCurrentPage + networkNumPerPage + networks', function () {
 
@@ -32,7 +32,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 			});
 
-	}
+	};
 
 	$scope.subnets = [];
 
@@ -44,7 +44,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 	$scope.subnetBigTotalItems = function () {
 		return $scope.subnets.length;
-	}
+	};
 
 	$scope.$watch('subnetCurrentPage + subnetNumPerPage + subnets', function () {
 
@@ -64,7 +64,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 			});
 
-	}
+	};
 
 	$scope.ports = [];
 
@@ -76,7 +76,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 	$scope.portBigTotalItems = function () {
 		return $scope.ports.length;
-	}
+	};
 
 	$scope.$watch('portCurrentPage + portNumPerPage + ports', function () {
 
@@ -96,7 +96,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 			});
 
-	}
+	};
 
 	$scope.nats = [];
 
@@ -108,7 +108,7 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 	$scope.natBigTotalItems = function () {
 		return $scope.nats.length;
-	}
+	};
 
 	$scope.$watch('natCurrentPage + natNumPerPage + nats', function () {
 
@@ -129,44 +129,8 @@ function NetworksCtrl($scope, networks, subnets, ports, nats, securityGroups) {
 
 			});
 
-	}
+	};
 
-	$scope.securityGroups = [];
-
-	$scope.filteredSecurityGroups = [];
-
-	$scope.securityGroupMaxSize = 5;
-	$scope.securityGroupCurrentPage = 1;
-	$scope.securityGroupNumPerPage = 6;
-
-	$scope.securityGroupBigTotalItems = function () {
-		return $scope.securityGroups.length;
-	}
-
-	$scope.$watch('securityGroupCurrentPage + securityGroupNumPerPage + securityGroups', function () {
-
-		var begin = (($scope.securityGroupCurrentPage - 1) * $scope.securityGroupNumPerPage),
-			end = begin + $scope.securityGroupNumPerPage;
-		$scope.filteredSecurityGroups = $scope.securityGroups.slice(begin, end);
-	
-	});
-
-	$scope.getSecurityGroups = function () {
-
-		securityGroups.query().success(
-			function (data) {
-
-				if (data.code === '0') {
-					$scope.securityGroups = data.data;
-					console.log($scope.securityGroups);
-				}
-
-			});
-
-	}
-
-
-	$scope.getSecurityGroups();
 	$scope.getNats();
 	$scope.getPorts();
 	$scope.getNetworks();

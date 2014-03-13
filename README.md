@@ -7,10 +7,13 @@ Dashbord Web
 
 Dashbord is a web front base to build a dashbord application
 
->now it's use to build the vms web controller
-
 ## Design
 
+<<<<<<< HEAD
+## Design
+
+=======
+>>>>>>> feature/flask
 ### Web
 
 * [Flask](http://flask.pocoo.org/) : Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
@@ -41,6 +44,11 @@ Dashbord is a web front base to build a dashbord application
 ### Code Quality Tools
 
 * [Jshint](http://www.jshint.com/): a JavaScript Code Quality Tool
+<<<<<<< HEAD
+=======
+
+* [Pylint](http://www.pylint.org/): start your Python code
+>>>>>>> feature/flask
 
 
 ## How To Develop ?
@@ -105,22 +113,13 @@ The sencod way is subscription the rabbitmq message and update the cache.
 
 ## ScreenSnapshot
 
-![home](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.09.png)
+![home](app/images/2014-01-12-1.41.09.png)
 
-![create_vm](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.41.png)
+![create_vm](app/images/2014-01-12-1.41.41.png)
 
-![](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.55.png)
+![](app/images/2014-01-12-1.41.55.png)
 
-![](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.42.12.png)
+![](app/images/2014-01-12-1.42.12.png)
 
-![](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.42.33.png)
+![](app/images/2014-01-12-1.42.33.png)
 
-![home](http://192.168.0.54/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.09.png)
-
-![create_vm](http://192.168.0.54/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.41.png)
-
-![](http://192.168.0.54/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.55.png)
-
-![](http://192.168.0.54/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.42.12.png)
-
-![](http://192.168.0.54/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.42.33.png)

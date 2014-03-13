@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('dashbordApp')
-    .service('notify', [
+    .service('notify' , ['$timeout',
 
-        function Notify() {
+        function Notify($timeout) {
 
             var NotifyService = {};
 
@@ -12,7 +12,7 @@ angular.module('dashbordApp')
             function pushAlert(alert) {
 
                 alerts.push(alert);
-                if (alerts.length >= 3) {
+                if (alerts.length >= 2) {
                     alerts.shift();
                 }
             }
@@ -23,6 +23,8 @@ angular.module('dashbordApp')
                     type: 'info',
                     msg: message
                 };
+                console.log(info);
+
 
             };
 
@@ -32,7 +34,7 @@ angular.module('dashbordApp')
                     msg: message
                 };
                 pushAlert(error);
-
+                autoShift();
             };
 
             NotifyService.alert = function (message) {
@@ -42,10 +44,11 @@ angular.module('dashbordApp')
                     msg: message
                 };
                 pushAlert(alert);
+                autoShift();
 
             };
 
-            NotifyService.getAlerts = function (message) {
+            NotifyService.getAlerts = function () {
 
                 return alerts;
 
@@ -54,6 +57,17 @@ angular.module('dashbordApp')
             NotifyService.closeAlert = function (index) {
                 alerts.splice(index, 1);
             };
+
+
+            function autoShift(){
+
+                $timeout(function(){
+
+                    alerts.shift();
+
+                }, 2000);
+
+            }
 
 
             return NotifyService;

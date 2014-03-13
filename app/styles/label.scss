@@ -1,0 +1,15 @@
+.label{
+  background-color: rgb(217, 83, 79);
+  &.ACTIVE{
+    background-color: rgb(92, 184, 92);
+  }
+  &.BUILD{
+    background-color: rgb(66, 139, 202);
+  }
+  &.SHUTOFF{
+    background-color: rgb(240, 173, 78);
+  }
+  &.PAUSED{
+    background-color: rgb(91, 192, 222);
+  }
+}
