@@ -110,7 +110,7 @@ angular.module('dashbordApp')
             $cookieStore.put('platform', $scope.defaultPlatforms.id);
             $cookieStore.put('appkey', $scope.defaultPlatforms.appkey);
             $cookieStore.put('secret', $scope.defaultPlatforms.secret);
-            $route.reload()
+            $route.reload();
 
         };
 
