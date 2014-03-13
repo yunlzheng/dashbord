@@ -114,12 +114,12 @@ The sencod way is subscription the rabbitmq message and update the cache.
 
 ## ScreenSnapshot
 
-![home](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.09.png)
+![home](app/images/2014-01-12-1.41.09.png)
 
-![create_vm](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.41.png)
+![create_vm](app/images/2014-01-12-1.41.41.png)
 
-![](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.41.55.png)
+![](app/images/2014-01-12-1.41.55.png)
 
-![](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.42.12.png)
+![](app/images/2014-01-12-1.42.12.png)
 
-![](http://125.70.0.76:8054/zheng/dashbord/raw/feature/flask/app/images/2014-01-12-1.42.33.png)
+![](app/images/2014-01-12-1.42.33.png)
