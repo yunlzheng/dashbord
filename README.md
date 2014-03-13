@@ -9,11 +9,6 @@ Dashbord is a web front base to build a dashbord application
 
 ## Design
 
-<<<<<<< HEAD
-## Design
-
-=======
->>>>>>> feature/flask
 ### Web
 
 * [Flask](http://flask.pocoo.org/) : Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
@@ -44,12 +39,8 @@ Dashbord is a web front base to build a dashbord application
 ### Code Quality Tools
 
 * [Jshint](http://www.jshint.com/): a JavaScript Code Quality Tool
-<<<<<<< HEAD
-=======
 
 * [Pylint](http://www.pylint.org/): start your Python code
->>>>>>> feature/flask
-
 
 ## How To Develop ?
 
