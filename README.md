@@ -100,15 +100,6 @@ The Global target of server is proxy the http request to vms serer. on same time
 The Cache update will base on two way. First, when user send a http request by 'POST', 'PUT', 'DELETE' server will send a signal to update the cache.
 The sencod way is subscription the rabbitmq message and update the cache.
 
-## TODO
-
-* Cache Vms Access Token
-
-* Cache Vms query data by platform
-
-* Multi-platform manager
-
-* Use Vms
 
 ## ScreenSnapshot
 
