@@ -1,5 +1,7 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+@import "compass/css3";
+
 /** import base csss */
 @import 'sass-bootstrap/lib/bootstrap';
 @import 'table';
@@ -15,6 +17,8 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import "instance";
 @import "modal";
 @import "chart";
+@import "login";
+
 
 .browsehappy {
     margin: 0.2em 0;
@@ -62,10 +66,17 @@ a{
     position: fixed;
     right: 0;
     top: 0;
-    background-color: rgba(240,242,244,.85);
+    background-color: rgb(240,242,244);
     z-index: 1000;
     height:$head_height;
     padding: 0px 0px;
+    .nav{
+      li{
+        a{
+          font-size: 18px;
+        }
+      }
+    }
     h3 {
         margin-top: 0;
         margin-bottom: 0;
@@ -81,18 +92,7 @@ a{
     }
 
     .break-btn {
-        -webkit-transition: margin-left .15s linear;
-        transition: margin-left .15s linear;
-        -webkit-user-select: none;
-        background-color: #fff;
-        border-radius: 3px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-        margin: 7px 0 7px 30px;
-        padding: 5px 5px 5px 8px;
-        display: inline-block;
-        font-weight:normal;
-        line-height: 15px;
-        cursor: pointer;
+        margin-left: 20px;
 
         .text{
             color: rgb(115, 115, 115);
@@ -144,21 +144,21 @@ a{
 }
 
 .header .side-menu{
-    
+    @include transition-property(margin-left);
+    @include transition-duration(.436s);
+    @include transition-timing-function(ease-in-out);
+
     position: fixed;
     top:$head_height;
     bottom: 0;
     left: 0;
     width: $side_width;
     z-index: 701;
-    background-color: rgb(30,30,26);
-    
-    -webkit-transition-duration: .436s;
-    transition-duration: .436s;
-    -webkit-transition-property: margin-left;
-    transition-property: margin-left;
-    -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
+    background: rgb(4, 28, 46);
+    background: -webkit-gradient(linear,0 0,0 bottom,from(rgb(9, 37, 59)),to(rgb(0, 20, 35)));
+    background: -moz-linear-gradient(top,#09253b,#001423);
+    background: -o-linear-gradient(top,#09253b,#001423);
+
     cursor: pointer;
     overflow: auto;
     h2{

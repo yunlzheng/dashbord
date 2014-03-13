@@ -13,7 +13,7 @@ function routeProvider($routeProvider) {
       controller: 'HomeCtrl',
       label: '主页'
     })
-    .when("/nodes", {
+    .when('/nodes', {
       templateUrl: 'views/nodes.html',
       controller: 'NodesCtrl',
       label: '物理机'
@@ -82,7 +82,6 @@ angular.module('dashbordApp', [
   'services.resources',
   'services.mocks',
   'ui.knob',
-  'ui.chart',
   'ui.bootstrap'
 ])
   .config(['$httpProvider', httpProvider])

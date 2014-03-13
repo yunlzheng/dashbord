@@ -95,7 +95,7 @@ function NewInstanceModalCtrl($scope, $modalInstance, cacheImages, cacheFlavors,
 
 NewInstanceModalCtrl.$inject = ['$scope', '$modalInstance', 'cacheImages', 'cacheFlavors', 'cachePorts'];
 
-function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $interval, $modal, mockInstances) {
+function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $interval, $modal) {
 
   /**page*/
   $scope.originVms = [];
@@ -104,6 +104,8 @@ function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $inte
   $scope.maxSize = 5;
   $scope.currentPage = 1;
   $scope.numPerPage = 10;
+
+  $scope.loading = false;
 
   var InstanceStatus = {
     ACTIVE: 'ACTIVE',
@@ -176,21 +178,19 @@ function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $inte
 
   $scope.isActive = function() {
 
-    var status = ($scope.selectedInstance.status === InstanceStatus.ACTIVE);
-    return status;
+    return ($scope.selectedInstance.status === InstanceStatus.ACTIVE);
 
   };
 
   $scope.isPaused = function() {
 
-    var status = ($scope.selectedInstance.status === InstanceStatus.PAUSED);
-    return status;
+    return ($scope.selectedInstance.status === InstanceStatus.PAUSED);
+
 
   };
 
   $scope.isShutoff = function() {
-    var status = ($scope.selectedInstance.status === InstanceStatus.SHUTOFF);
-    return status;
+    return ($scope.selectedInstance.status === InstanceStatus.SHUTOFF);
   };
 
   $scope.openNewInstanceModal = function() {
@@ -262,16 +262,19 @@ function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $inte
   */
   $scope.getInstances = function() {
 
+    $scope.loading = true;
     instances.query().success(function(data) {
 
       if (data.code === '0') {
         $scope.vms = data.data;
         $scope.search();
       }
+      $scope.loading = false;
 
     }).error(function() {
 
       //$scope.vms = mockInstances.query();
+      $scope.loading = false;
 
     });
 
@@ -383,19 +386,19 @@ function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $inte
 
   $scope.getVnc = function() {
 
-    for (var i = 0; i < $scope.filteredVms.length; i++) {
-      var vm = $scope.filteredVms[i];
-      if (vm.selected === true) {
-        instances.getVnc(vm.id).success(function(data) {
+    angular.forEach($scope.filteredVms, function(vm){
 
-          if (data.code === '0') {
-            window.open(data.data.console.url, vm.name + ' Console', 'width=1000,height=600');
-          }
+        if (vm.selected === true) {
+            instances.getVnc(vm.id).success(function(data) {
 
-        });
-      }
+              if (data.code === '0') {
+                window.open(data.data.console.url, vm.name + ' Console', 'width=1000,height=600');
+              }
 
-    }
+            });
+        }
+
+    });
 
   };
 
@@ -475,4 +478,4 @@ function InstancesCtrl($scope, $filter, instances, images, flavors, ports, $inte
 }
 
 angular.module('dashbordApp')
-  .controller('InstancesCtrl', ['$scope', '$filter','instances', 'images', 'flavors', 'ports', '$interval', '$modal', 'mockInstances', InstancesCtrl]);
+  .controller('InstancesCtrl', ['$scope', '$filter','instances', 'images', 'flavors', 'ports', '$interval', '$modal', InstancesCtrl]);

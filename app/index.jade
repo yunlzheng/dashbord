@@ -15,10 +15,13 @@ html.no-js
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width')
     // Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel='stylesheet' href="bower_components/font-awesome/css/font-awesome.min.css")
+    link(rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css")
+
     // build:css({.tmp,app}) styles/main.css
-    link(rel='stylesheet', href="bower_components/font-awesome/css/font-awesome.min.css")
     link(rel='stylesheet', href='styles/main.css')
     // endbuild
+
   body(ng-app='dashbordApp')
     //if lt IE 7
       p.browsehappy
@@ -35,11 +38,13 @@ html.no-js
       .header
         .header-container
           h3#menu-toggle.text-muted(ng-click='toggleMenu()') Da
-          .break-btn(ng-click='toggleMenu()')
-            .utb
-              .Hde.Nua(guidedhelpid='appindicator_icon')
-            .text(ng-bind='breadcrumbs.getLastLabel()')
-            .glyphicon.glyphicon-chevron-down
+          .btn-group.break-btn
+            button.btn.btn-default.dropdown-toggle(type="button", ng-bind='defaultPlatforms.name')
+            button.btn.btn-default.dropdown-toggle(type="button", data-toggle="dropdown")
+              span.caret
+            ul.dropdown-menu(role="menu")
+              li(ng-repeat="platform in platforms")
+                a(href="", ng-click="change_platforms(platform)",ng-bind='platform.name')
           #side-menu.side-menu(class='side-menu-{{status.showSideMenu}}')
             h2 资源管理
             a(ng-repeat='menu in menus', ng-click='select(menu)', ng-href='{{ menu.url }}', title='{{ menu.name }}')
@@ -57,8 +62,9 @@ html.no-js
                 .glyphicon.glyphicon-bell(data-toggle='dropdown')
                 .dropdown-menu
             li
-              a.profile-pic
-                img(src='/images/yeoman.png')
+              a(href='/logout' title='退出登录')
+                i(class="fa fa-sign-out")
+
       #dashbord-view(ng-class='{dashbord_big: !status.showSideMenu, dashbord_normal: status.showSideMenu}')
         ol.dashbord-breadcrumb.breadcrumb
          li(ng-repeat='breadcrumb in breadcrumbs.getAll()')
@@ -67,21 +73,12 @@ html.no-js
         div(ng-view='')
       .system_messages
         .alert_messages
-          alert(ng-repeat='alert in notify.getAlerts()', type='alert.type', close='notify.closeAlert($index)') &lcub;&lcub;alert&period;msg&rcub;&rcub;
-    // Google Analytics: change UA-XXXXX-X to be your site's ID
-    //
-       <script>
-             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-             ga('create', 'UA-XXXXX-X');
-             ga('send', 'pageview');
-          </script>
-          
+          alert(ng-repeat='alert in notify.getAlerts()', type='alert.type', close='notify.closeAlert($index)', ng-bind='alert.msg')
+
     script(src='bower_components/jquery/jquery.js')
     script(src='bower_components/angular/angular.js')
-    // build:js scripts/plugins.js
+
+    // build:js({.tmp,app}) scripts/vendor.js
     script(src='bower_components/sass-bootstrap/js/affix.js')
     script(src='bower_components/sass-bootstrap/js/alert.js')
     script(src='bower_components/sass-bootstrap/js/button.js')
@@ -94,19 +91,17 @@ html.no-js
     script(src='bower_components/sass-bootstrap/js/tab.js')
     script(src='bower_components/sass-bootstrap/js/tooltip.js')
     script(src='bower_components/sass-bootstrap/js/popover.js')
-    script(src='bower_components/jqplot/jquery.jqplot.js')
-    script(src='bower_components/jqplot/plugins/jqplot.pieRenderer.min.js')
-    script(src='bower_components/jqplot/plugins/jqplot.donutRenderer.min.js')
-    script(src='bower_components/angular-ui-chart/src/chart.js')
     script(src='bower_components/jquery-knob/js/jquery.knob.js')
     script(src='bower_components/angular-knob/src/angular-knob.js')
     // endbuild
-    // build:js scripts/modules.js
+
+    // build:js({.tmp,app}) scripts/modules.js
     script(src='bower_components/angular-resource/angular-resource.js')
     script(src='bower_components/angular-cookies/angular-cookies.js')
     script(src='bower_components/angular-sanitize/angular-sanitize.js')
     script(src='bower_components/angular-route/angular-route.js')
     // endbuild
+
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/style.js')
     script(src='scripts/app.js')

@@ -1,8 +1,39 @@
-$theme_color:#4285f4;
-$head_height:45px;
-$side_width:250px;
+$theme_color: #4285f4;
+$head_height: 45px;
+$side_width: 250px;
 $side_min_width: 60px;
 
-body{
-  color:rgb(51, 51, 51);
+body {
+  color: rgb(51, 51, 51);
+}
+
+@keyframes irotate {
+  from {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg); /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Safari and Chrome */
+    -o-transform: rotate(0deg); /* Opera */
+    -moz-transform: rotate(0deg);
+
+  }
+  to {
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Safari and Chrome */
+    -o-transform: rotate(360deg); /* Opera */
+    -moz-transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: irotate 0.5s;
+  -moz-animation: irotate 0.5s; /* Firefox */
+  -webkit-animation: irotate 0.5s; /* Safari 和 Chrome */
+  -o-animation: irotate 0.5s; /* Opera */
+  animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
 }

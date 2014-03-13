@@ -13,7 +13,7 @@ function MockFlavors() {
 				name: 'ci2_define1386308206.37',
 				ram: 512,
 				swap: '',
-				vcpus: 1,
+				vcpus: 1
 			}, {
 				disk: 200,
 				ephemeral: 0,
@@ -22,7 +22,7 @@ function MockFlavors() {
 				name: 'ci2_define1386322029.93',
 				ram: 512,
 				swap: '',
-				vcpus: 1,
+				vcpus: 1
 			}, {
 				disk: 30,
 				ephemeral: 0,
@@ -31,7 +31,7 @@ function MockFlavors() {
 				name: 'ci2_define1386333741.8',
 				ram: 1024,
 				swap: '',
-				vcpus: 1,
+				vcpus: 1
 			}, {
 				disk: 30,
 				ephemeral: 0,
@@ -40,7 +40,7 @@ function MockFlavors() {
 				name: 'ci2_define1386310761.13',
 				ram: 512,
 				swap: '',
-				vcpus: 1,
+				vcpus: 1
 			}, {
 				disk: 30,
 				ephemeral: 0,
@@ -49,7 +49,7 @@ function MockFlavors() {
 				name: 'ci2_define1386314635.96',
 				ram: 2048,
 				swap: '',
-				vcpus: 2,
+				vcpus: 2
 			}, {
 				disk: 20,
 				ephemeral: 0,
@@ -58,7 +58,7 @@ function MockFlavors() {
 				name: 'ci2_define1386322190.11',
 				ram: 1024,
 				swap: '',
-				vcpus: 1,
+				vcpus: 1
 			}];
 		}
 	};
@@ -69,7 +69,7 @@ function MockFlavors() {
 function MockImages() {
 
 	return {
-		query: function (query) {
+		query: function () {
 
 			return [{
 				create_at: '2013-12-03T09:12:53',
@@ -96,7 +96,7 @@ function MockImages() {
 				protected: false,
 				size: 2791833600,
 				status: 'active',
-				updated: '2013-11-20T05:51:29',
+				updated: '2013-11-20T05:51:29'
 			}];
 
 		}
