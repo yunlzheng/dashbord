@@ -5,8 +5,6 @@ Dashbord Web
 
 Dashbord is a web front base to build a dashbord application
 
->now it's use to build the vms web controller
-
 ## Design
 
 ### Web
